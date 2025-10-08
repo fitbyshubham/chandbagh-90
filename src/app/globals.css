@@ -3,6 +3,10 @@
 @tailwind components;
 @tailwind utilities;
 
+@theme {
+    --color-primary: #66bfff;
+    --color-secondary: #2196F3;
+}
 :root {
   --background: #ffffff;
   --foreground: #171717;
