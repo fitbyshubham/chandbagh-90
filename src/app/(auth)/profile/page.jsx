@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 
-const Profile: React.FC = () => {
+function Profile() {
   return (
     <div className="fixed bottom-0 left-0 w-full flex justify-center bg-white pb-30">
       <div className="w-full bg-white overflow-hidden flex flex-col max-h-full">
@@ -10,20 +10,20 @@ const Profile: React.FC = () => {
             <img
               src="https://static.vecteezy.com/system/resources/thumbnails/005/544/718/small_2x/profile-icon-design-free-vector.jpg"
               alt="Profile"
-              className="w-32 h-42 rounded-full mx-auto object-cover "
+              className="w-32 h-42 rounded-full mx-auto object-cover"
             />
-            <h2 className=" text-2xl font-semibold">Hello Samarth</h2>
+            <h2 className="text-2xl font-semibold">Hello Samarth</h2>
             <p className="text-sm text-gray-500 mb-60">+91 99177 11177</p>
           </div>
 
-          <div className=" flex items-center justify-between px-5 py-5 border-t border-gray-200">
+          <div className="flex items-center justify-between px-5 py-5 border-t border-gray-200">
             <div className="flex items-center gap-3">
               <img
                 src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDcmCG2F_4GYTBV3EwUTIQJztQTxt2BbYMAg&s"
                 alt="Recent Transactions"
                 className="w-12 h-12"
               />
-              <span className="text-base w-12 h-12">Recent Transactions</span>
+              <span className="text-base">Recent Transactions</span>
             </div>
             <span className="text-gray-400">{">"}</span>
           </div>
@@ -55,6 +55,6 @@ const Profile: React.FC = () => {
       </div>
     </div>
   );
-};
+}
 
 export default Profile;

@@ -1,6 +1,7 @@
 // src/app/layout.jsx
-import './globals.css';
+
 import ResponsiveWrapper from '@/components/ui/ResponsiveWrapper';
+import Navbar from '@/components/layout/Navbar';
 
 export const metadata = {
   title: 'Chandbagh 90 – Celebration Companion',
@@ -19,6 +20,7 @@ export default function RootLayout({ children }) {
       <body>
         <ResponsiveWrapper>
           {children}
+          <Navbar />
         </ResponsiveWrapper>
       </body>
     </html>
