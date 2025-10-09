@@ -1,5 +1,5 @@
 // src/app/layout.jsx
-
+import './globals.css';
 import ResponsiveWrapper from '@/components/ui/ResponsiveWrapper';
 import Navbar from '@/components/layout/Navbar';
 

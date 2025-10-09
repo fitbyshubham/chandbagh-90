@@ -7,7 +7,7 @@ export default function CalenderCard({ selectedDay, onSelectDay }) {
           <button
             key={day}
             onClick={() => onSelectDay(day)}
-            className={`w-19 h-19 rounded-2xl shadow-lg flex flex-col items-center justify-center transition-all duration-200 border-2
+            className={`w-19 px-5 py-2 h-19 rounded-2xl shadow-lg flex flex-col items-center justify-center transition-all duration-200 border-2
               ${selectedDay === day
                 ? "bg-blue-500 text-white border-blue-700 scale-105"
                 : "bg-white text-blue-900 border-gray-200 hover:bg-pink-100"}`}

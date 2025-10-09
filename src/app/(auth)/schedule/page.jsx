@@ -8,20 +8,20 @@ export default function Schedule() {
   const [selectedDay, setSelectedDay] = useState("OCT 16");
 
   return (
-    <div>
-     <div className="w-full p-6 pb-10">
-        <div className="mb-6 flex flex-col items-center justify-center space-y-4">
-          <label className="block text-sm font-medium text-gray-700 mb-2">
+    <div className="px-5">
+     <div className="w-full pb-6">
+        <div className="mb-1 flex flex-col items-center justify-center px-20 space-y-4">
+          <label className="block text-sm font-medium px-20 text-gray-700 mb-2">
 
           </label>
-          <div>
+          <div className="px-20">
             <CalenderCard
               selectedDay={selectedDay}
               onSelectDay={(day) => setSelectedDay(day)}
             />
           </div>
         </div>
-        <div className="flex flex-col items-center justify-center space-y-6">
+        <div className="flex flex-col px-20 items-center justify-center space-y-6">
           {/* ...existing ScheduleCard rendering logic... */}
       
       </div>
@@ -57,7 +57,7 @@ export default function Schedule() {
                   location="Various Locations"
                   startTime="10:30"
                   endTime="13:30"
-                  coverImage="./Photos/founder-science-exhibition.jpg"
+                  coverImage="/Schedule/founder-science-exhibition.jpg"
                   numberOfPeople={135}
                   avatars={[
                     "./Avatars/m1.jpg",
@@ -89,7 +89,7 @@ export default function Schedule() {
                   location="Main Field"
                   startTime="15:00"
                   endTime="17:00"
-                  coverImage="/iha.png"
+                  coverImage="/Schedule/iha.png"
                   numberOfPeople={106}
                   avatars={[
                     "./Avatars/m1.jpg",
@@ -205,7 +205,7 @@ export default function Schedule() {
                   location="Main Field"
                   startTime="10:30"
                   endTime="14:00"
-                  coverImage="/Rlhf.png"
+                  coverImage="/Schedule/rlhf.png"
                   numberOfPeople={134}
                   avatars={[
                     "./Avatars/m1.jpg",
@@ -237,7 +237,7 @@ export default function Schedule() {
                   location="Kilachand Library"
                   startTime="11:00"
                   endTime="12:30"
-                  coverImage="https://play-lh.googleusercontent.com/TElIAeRk86fXpdR3Ao82GNHnnTz6aM0XV0jL9NE8QFo_fJzprwRGen-7Go72VCZEKok=w526-h296-rw"
+                  coverImage="/Schedule/DSOBS.png"
                   numberOfPeople={123}
                   avatars={[
                     "./Avatars/m1.jpg",
@@ -286,7 +286,7 @@ export default function Schedule() {
                   location="Main Field"
                   startTime="14:30"
                   endTime="14:45"
-                  coverImage="/rp.png"
+                  coverImage="/Schedule/rp.png"
                   numberOfPeople={152}
                   avatars={[
                     "./Avatars/m1.jpg",
