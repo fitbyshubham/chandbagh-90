@@ -1,5 +1,6 @@
-import StallsCard from "../Components/StallsCard";
-import PopRestaurants from "../Components/PopRestaurants"
+'use client'
+import StallsCard from "../../../components/ui/StallsCard";
+import PopRestaurants from "../../../components/ui/PopRestaurants"
 import { useRef, useEffect } from "react"
 
 export default function StallsCardPage(){

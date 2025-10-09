@@ -1,84 +1,99 @@
+// src/components/layout/Navbar.jsx
 "use client";
 import { Home, Info, User, ClipboardClock, CookingPot } from "lucide-react";
 import { useRouter, usePathname } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState, useRef } from "react";
 
 const navItems = [
-  { icon: <Home />, label: "Home", route: "/home", onClick: "/home" },
-  { icon: <ClipboardClock />, label: "Schedule", route: "/schedule", onClick: "/schedule" },
-  { icon: <Info />, label: "About", route: "/about", onClick: "/about" },
-  { icon: <User />, label: "Profile", route: "/profile", onClick: "/profile" },
+  { icon: <Home />, label: "Home", route: "/home" },
+  { icon: <ClipboardClock />, label: "Schedule", route: "/schedule" },
+  { icon: <Info />, label: "About", route: "/about" },
+  { icon: <User />, label: "Profile", route: "/profile" },
 ];
 
 export default function Navbar() {
   const router = useRouter();
   const pathname = usePathname();
+  const [isVisible, setIsVisible] = useState(true);
+  const lastScrollY = useRef(0);
 
-  const handleFoodClick = () => {
-    router.push("/food");
-  };
-
+  const handleFoodClick = () => router.push("/order");
   const hideNavbarRoutes = ["/login", "/login/otp", "/Cart"];
-  const shouldHideNavbar = hideNavbarRoutes.includes(pathname);
-  if (shouldHideNavbar) return null;
+  if (hideNavbarRoutes.includes(pathname)) return null;
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const current = window.scrollY;
+      if (current > 100) {
+        setIsVisible(current < lastScrollY.current);
+      } else {
+        setIsVisible(true);
+      }
+      lastScrollY.current = current;
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const leftNavItems = navItems.slice(0, 2);
   const rightNavItems = navItems.slice(2);
 
   return (
-    <div className="fixed bottom-0 left-0 w-full flex justify-center items-end z-50 pointer-events-none">
-      <div className="relative w-full flex justify-center items-end pb-4 pointer-events-auto">
-        {/* Floating "Order" Button */}
-        <div className="absolute -top-8 left-1/2 transform -translate-x-1/2 z-20">
-          <button
-            className="bg-white rounded-full w-16 h-16 flex items-center justify-center shadow-lg border-4 border-black"
-            onClick={handleFoodClick}
-          >
-            <span className="bg-blue-500 rounded-full w-10 h-10 flex items-center justify-center relative">
-              <CookingPot className="text-black w-6 h-6" />
-              <span className="absolute -bottom-6 text-sm font-semibold text-white/80">
-                Order
-              </span>
-            </span>
-          </button>
-        </div>
+    <>
+      {/* Floating Order Button — centered on entire screen */}
+      <div
+        className={`fixed bottom-20 left-1/2 transform -translate-x-1/2 z-50 transition-all duration-300 ${
+          isVisible ? 'opacity-100' : 'opacity-0'
+        }`}
+      >
+        <button
+          onClick={handleFoodClick}
+          className="pulse bg-white rounded-full w-14 h-14 flex items-center justify-center shadow-lg border-2 border-chandbagh-gold/30"
+          aria-label="Order food"
+        >
+          <span className="bg-chandbagh-green rounded-full w-9 h-9 flex items-center justify-center">
+            <CookingPot className="text-chandbagh-gold w-5 h-5" />
+          </span>
+        </button>
+      </div>
 
-        {/* Main Navbar */}
-        <div className="w-[95vw] max-w-xl bg-black rounded-[2rem] flex justify-between items-center px-6 py-4 shadow-xl relative z-10">
+      {/* Navbar */}
+      <div
+        className={`fixed bottom-6 left-1/2 transform -translate-x-1/2 w-[94vw] max-w-[360px] z-40 transition-all duration-300 ${
+          isVisible ? 'opacity-100' : 'opacity-0 -bottom-6'
+        }`}
+      >
+        <div
+          className="rounded-[2rem] flex justify-between items-center px-5 py-3"
+          style={{
+            background: 'rgba(13, 92, 62, 0.75)',
+            backdropFilter: 'blur(12px)',
+            WebkitBackdropFilter: 'blur(12px)',
+            border: '1px solid rgba(212, 175, 55, 0.3)',
+            boxShadow: '0 6px 20px rgba(0, 0, 0, 0.3)',
+          }}
+        >
           {leftNavItems.map((item) => (
-            <button
-              key={item.route}
-              onClick={() => router.push(item.onClick)}
-            >
-              <NavItem icon={item.icon} label={item.label} active={pathname === item.route} />
+            <button key={item.route} onClick={() => router.push(item.route)} className="flex flex-col items-center flex-1">
+              <span className={pathname === item.route ? "text-chandbagh-gold" : "text-white/90"}>{item.icon}</span>
+              <span className={`mt-1 text-[10px] font-semibold ${pathname === item.route ? "text-chandbagh-gold" : "text-white/90"}`}>
+                {item.label}
+              </span>
             </button>
           ))}
 
-          {/* Spacer for floating button */}
-          <div className="w-16" />
+          <div className="w-12" /> {/* Spacer */}
 
           {rightNavItems.map((item) => (
-            <button
-              key={item.route}
-              onClick={() => router.push(item.onClick)}
-            >
-              <NavItem icon={item.icon} label={item.label} active={pathname === item.route} />
+            <button key={item.route} onClick={() => router.push(item.route)} className="flex flex-col items-center flex-1">
+              <span className={pathname === item.route ? "text-chandbagh-gold" : "text-white/90"}>{item.icon}</span>
+              <span className={`mt-1 text-[10px] font-semibold ${pathname === item.route ? "text-chandbagh-gold" : "text-white/90"}`}>
+                {item.label}
+              </span>
             </button>
           ))}
         </div>
       </div>
-    </div>
-  );
-}
-
-// NavItem as a regular function component (no TypeScript types)
-function NavItem({ icon, label, active }) {
-  return (
-    <div className="flex flex-col items-center flex-1">
-      <span className={active ? "text-[#66bfff]" : "text-white/80"}>{icon}</span>
-      <span className={`mt-1 text-sm font-semibold ${active ? "text-[#66bfff]" : "text-white/80"}`}>
-        {label}
-      </span>
-    </div>
+    </>
   );
 }
