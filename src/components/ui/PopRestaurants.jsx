@@ -30,7 +30,7 @@ const stalls = [
     reviews: "120",
   },
   {
-    image: "https://b.zmtcdn.com/data/pictures/chains/7/3501627/7ffe00f19bc2ab12e5c5368d0643e19d_featured_v2.jpg?output-format=webp",
+    image: "/Photos/burger.avif",
     alt: "Burger Singh",
     title1: "Burger",
     title2: "Singh",

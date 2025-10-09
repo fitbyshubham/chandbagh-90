@@ -1,14 +1,6 @@
 "use client"
 
-import { useRouter } from "next/navigation";
-import { useRef, useEffect } from "react";
-
 export default function PopRestaurantsCard(props) {
-    const router = useRouter();
-    const handleRoute = () => {
-        router.push('/FoodItems');
-    }
-    
     return (
       <div className="flex items-center justify-center mb-5">
         <div className="flex relative w-98 h-80 rounded-4xl overflow-hidden shadow-lg">
