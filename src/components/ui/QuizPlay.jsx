@@ -35,19 +35,31 @@ const QuizPlay = () => {
   };
 
   return (
-    <div className="quiz-play-container">
-      <h2>🤔 Oh My Quiz!</h2>
-      <h1>What is the fastest animal in the world?</h1>
+    <div className="w-full max-w-md mx-auto h-screen p-6 flex flex-col justify-between bg-purple-700 text-white">
+      <div className="mt-[50px]">
+        <h2 className="text-lg font-bold flex items-center gap-2">🤔 Oh My Quiz!</h2>
+        <h1 className="text-2xl font-bold mt-4 mb-6">What is the fastest animal in the world?</h1>
 
-      <div className="quiz-timer">{`0:${String(timeLeft).padStart(2, "0")}`}</div>
-
-      <div className="quiz-options-grid">
-        {options.map((option) => (
-          <div key={option.label} className="quiz-option" onClick={() => handleSelectOption(option.label)}>
-            <div className="quiz-option-label">{option.label}</div>
-            <div className="quiz-option-text">{option.text}</div>
+        <div className="w-24 h-24 rounded-full border-8 border-red-400 mx-auto flex items-center justify-center mb-6 mt-[100px]">
+          <div className="w-20 h-20 rounded-full bg-white/10 flex items-center justify-center text-xl font-bold">
+            {`0:${String(timeLeft).padStart(2, "0")}`}
           </div>
-        ))}
+        </div>
+
+        <div className="grid grid-cols-2 gap-4 mb-6 mt-[160px]">
+          {options.map((option) => (
+            <div
+              key={option.label}
+              className="bg-white text-gray-800 rounded-xl p-4 flex flex-col items-center cursor-pointer shadow hover:scale-105 transition"
+              onClick={() => handleSelectOption(option.label)}
+            >
+              <div className="w-8 h-8 rounded-full bg-teal-400 flex items-center justify-center font-bold mb-2">
+                {option.label}
+              </div>
+              <div className="font-bold">{option.text}</div>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );

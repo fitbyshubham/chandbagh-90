@@ -6,18 +6,32 @@ import { useRouter, useSearchParams } from "next/navigation";
 const QuizResult = () => {
   const router = useRouter();
   const searchParams = useSearchParams();
-  const score = searchParams.get("score") || 0;
+
+  // Get correct answers and total questions from query params
+  const correct = parseInt(searchParams.get("correct") || 0, 10);
+  const total = parseInt(searchParams.get("total") || 1, 10);
 
   return (
-    <div className="quiz-result-container">
-      <h1>Congrats!</h1>
-      <h2>Your Score: {score}</h2>
-      <p>Hope you enjoyed the quiz!</p>
+    <div className="w-full max-w-md mx-auto h-screen p-6 flex flex-col justify-between bg-teal-600 text-white">
+      {/* Main message */}
+      <div className="text-center mt-20">
+        <h1 className="text-4xl font-bold mb-2">Congrats!</h1>
+        <h2 className="text-2xl font-semibold mb-4">You completed the quiz!</h2>
+        <p className="text-lg">
+          Your Score: <span className="font-bold">{correct}</span> /{" "}
+          <span className="font-bold">{total}</span>
+        </p>
+        <p className="mt-2">Hope you enjoyed the quiz!</p>
+      </div>
 
-      <div className="quiz-result-buttons">
-        <button onClick={() => router.push("/quiz")}>🏠 Home</button>
-        <button>⭐ Rating</button>
-        <button>📤 Share</button>
+      {/* Bottom buttons */}
+      <div className="flex justify-around mb-[120px]">
+        <button
+          className="bg-white text-gray-800 px-4 py-3 rounded-xl font-bold shadow hover:bg-gray-200 transition"
+          onClick={() => router.push("/quiz")}
+        >
+          Home
+        </button>
       </div>
     </div>
   );

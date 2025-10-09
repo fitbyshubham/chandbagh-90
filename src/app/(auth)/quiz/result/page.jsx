@@ -1,4 +1,4 @@
-import QuizResult from "@/components/ul/QuizResult";
+import QuizResult from "@/components/ui/QuizResult";
 
 export default function QuizResultPage() {
   return <QuizResult />;

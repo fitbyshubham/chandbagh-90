@@ -3,10 +3,10 @@
 import InfoCard from "../../../components/ui/InfoCard";
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
+import { useRouter } from "next/navigation";
 
 const locations = [
-  
-    {
+  {
     image: "/Photos/MB.jpg",
     name: "Main Building",
     aspect: 1 / 2,
@@ -125,7 +125,7 @@ const locations = [
     ),
   },
   {
-    image: "/Photos/JH.jpg",
+    image: "/Photos/jh.jpg",
     name: "Jaipur House",
     aspect: 1.7 / 2,
     description: (
@@ -269,7 +269,7 @@ const locations = [
     ),
   },
   {
-    image: "/Photos/AMC.jpg",
+    image: "/Photos/AMC.jpeg",
     name: "Art and Media Center",
     aspect: 4 / 3,
     description: (
@@ -412,7 +412,7 @@ const locations = [
     ),
   },
     {
-    image: "/Photos/gl.jpg",
+    image: "/Photos/gl.jpeg",
     name: "Guru's Lawns",
     aspect: 4 / 3,
     description: (
@@ -524,32 +524,39 @@ const locations = [
       </>
     ),
   },
-  // ... (other locations unchanged, keep all as in your source)
 ];
 
 export default function InfoPage() {
   const [selectedImage, setSelectedImage] = useState(null);
+  const router = useRouter();
 
   return (
     <div className="w-full px-4 sm:px-4 max-w-3xl mx-auto bg-white rounded-3xl pb-10">
+      {/* Quiz Button */}
+      <div className="flex justify-end mt-6 mb-4">
+        <button
+          onClick={() => router.push("/quiz")}
+          className="bg-purple-600 text-white font-bold px-4 py-2 rounded-xl shadow hover:bg-purple-700 transition"
+        >
+          🎯 Take a Quiz
+        </button>
+      </div>
+
       <div className="text-3xl font-bold mb-3 mt-6">Explore the School</div>
-      <div className="relative mb-4 ">
+
+      <div className="relative mb-4">
         <input
           className="w-full rounded-xl border border-gray-200 px-3 py-2 pr-10 outline-none bg-gray-50"
-          placeholder="Search any place. . ."
+          placeholder="Search any place..."
         />
         <button className="absolute top-1/2 right-4 -translate-y-1/2 bg-yellow-400 p-2 rounded-xl">
           <svg width={16} height={16} fill="none" viewBox="0 0 24 24">
             <circle cx={11} cy={11} r={7} stroke="#222" strokeWidth={2} />
-            <path
-              stroke="#222"
-              strokeWidth={2}
-              strokeLinecap="round"
-              d="M20 20L16.65 16.65"
-            />
+            <path stroke="#222" strokeWidth={2} strokeLinecap="round" d="M20 20L16.65 16.65" />
           </svg>
         </button>
       </div>
+
       <AnimatePresence>
         {selectedImage ? (
           <motion.div
@@ -560,11 +567,11 @@ export default function InfoPage() {
             transition={{ duration: 0.3, ease: "easeOut" }}
             className="fixed inset-0 z-50 flex flex-col bg-white rounded-t-2xl shadow-xl overflow-y-auto"
           >
-            <div className="flex-1 ">
+            <div className="flex-1">
               <img
                 src={selectedImage.image}
                 alt={selectedImage.name}
-                className="h-70 w-full object-cover "
+                className="h-70 w-full object-cover"
               />
             </div>
             <div className="p-6 mb-20">
