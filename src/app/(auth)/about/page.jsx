@@ -274,19 +274,12 @@ const locations = [
     aspect: 4 / 3,
     description: (
       <>
-        Hyderabad House is the oldest house at The Doon School, holding the
-        distinction of being the first House, established with Mr. JAK Martyn as
-        its pioneering Housemaster. This "House of Nizams" has a rich legacy of
-        achievements in sports, the arts and education, including producing one
-        of the school's headmasters. Personal development is a big part of the
-        house system: leadership, teamwork, values of humility and service, not
-        just competition.
-        <br />
-        <strong>House Master:</strong> Mr. Sudhir Thapa (SRT)
-        <br />
-        <strong>Assistant House Master:</strong> Mr. Harshal Gunwant (HGT)
-        <br />
-        <strong>Dame:</strong> Meenakshi Tripathi
+       The Doon School's Art and Media Centre stands as a hub of creativity in 2010 by 
+       then-Union Minister Kapil Sibal during the school's platinum jubilee. 
+       This architectural gem weaves contemporary innovation.The Art and media center is used for ceramics,sculpture,
+        lino print.The lecture hall is used for debates, lectures and pitches of YEC and DSMUN
+
+
       </>
     ),
   },
@@ -296,28 +289,11 @@ const locations = [
     aspect: 1 / 1.2,
     description: (
       <>
-        Kashmir House, established in 1937 as Gibson House, is one of the oldest
-        and most distinguished houses at The Doon School. In 1938, the house was
-        renamed Kashmir House following a generous donation from Maharaja Hari
-        Singh of Kashmir for its construction. Situated next to Hyderabad House
-        along one flank of the Main Field, it boasts a rich history and a legacy
-        of producing some of the most accomplished Doscos.
-        <br />
-        <strong>Housemaster:</strong> Mr. Manish Kant Pant (M.Sc., B.Ed.)
-        <br />
-        <strong>Assistant Housemaster:</strong> Mr. Satya Shrava Sharma
-        <br />
-        <strong>Dame:</strong> Ms. Ria Chakraborty
-        <br />
-        Kashmir House is renowned for its discipline, camaraderie, and a strong
-        sense of tradition. The house's emblem, the chinar leaf, symbolizes
-        resilience and the rich cultural heritage of Kashmir. Known as the
-        "House of Gentlemen," it has consistently upheld high standards in
-        academics, sports, and co-curricular activities.
-        <br />
-        <strong>Fun Fact:</strong> In 2003, the two separate entities, Kashmir-A
-        and Kashmir-B, were unified to form a single cohesive unit,
-        strengthening the house's community spirit.
+        The CDH is at the center of life in Doon. It’s where the whole school community,
+         students and teachers, comes together for every meal, making it feel like one big family. 
+         CDH is where friendships deepen and jokes are exchanged. Here all Doscos and masters enjoy the delicious food and bond with 
+         each other like family.
+
       </>
     ),
   },
@@ -327,34 +303,10 @@ const locations = [
     aspect: 1.7 / 2,
     description: (
       <>
-        Established in 1936 as Thomas House, Jaipur House is one of the oldest
-        and most distinguished houses at The Doon School. In 1937, the house
-        moved into its current building, and 49 boys were inducted under the
-        leadership of the first Housemaster, Mr. C.L. Howell-Thomas. The house
-        was later renamed Jaipur House, reflecting its deep connection with the
-        royal family of Jaipur, who were significant patrons of the school The
-        Doon School.
-        <br />
-        The house is renowned for its strong traditions and has produced many
-        notable alumni. The first Housemaster was Mr. C.L. Howell-Thomas. The
-        house is named after the Maharaja of Jaipur, who made a significant
-        donation to the school, symbolizing the strong ties between the house
-        and the royal family.
-        <br />
-        Housemaster: Mr. Pratyush Vaishnava
-        <br />
-        Assistant Housemaster: Mr. Parvinder Kumar
-        <br />
-        Dame: Ms. Durgesh Kumari
-        <br />
-        Jaipur House is known for its rich traditions, strong academic
-        performance, and active participation in various school activities. The
-        house's emblem, featuring an eagle, symbolizes strength, vision, and
-        leadership.
-        <br />
-        Fun Fact: The house is named after the Maharaja of Jaipur, who made a
-        significant donation to the school, symbolizing the strong ties between
-        the house and the royal family.
+ The Doon School Pavilion is a key structure near the Main Field, serving as a central venue for sports events.
+  On the Pavillion there is a board with a calendar of all the scheduled Interhouse matches, helping students have a 
+  schedule in their mind. It also has a room with sports equipment for students to practice with.
+
       </>
     ),
   },
@@ -364,26 +316,12 @@ const locations = [
     aspect: 1.4 / 1.6,
     description: (
       <>
-        Tata House is one of the oldest and most respected houses at Doon. Its
-        motto, “True as Steel,” reflects its spirit. Living here feels like
-        being part of a close-knit family where everyone supports one another
-        while also pushing you to do your best. The house has a strong
-        reputation for discipline, hard work, and loyalty. Seniors guide juniors
-        patiently. Life in Tata combines study, sport, and fun. In the mornings,
-        the house buzzes with energy as everyone prepares for classes. In the
-        evenings, the common room fills with laughter, debates, and stories.
-        Tata boys are competitive in sports, debates, and cultural events, but
-        they also celebrate each other’s successes. The house has its
-        traditions, including special dinners, house songs, and late-night
-        discussions, which foster a sense of belonging. Living here teaches
-        responsibility, teamwork, and lifelong friendships, making Tata not just
-        a house but a home for all.
-        <br />
-        <strong>House Master:</strong> Mr. Ashish Dean (ADN)
-        <br />
-        <strong>Assistant House Master:</strong> Ms. Mughda Pandey (MPY)
-        <br />
-        <strong>Dame:</strong> Ruthann Rozario
+        Cafe Aqueduct is a cozy retreat for Doon boys. Serving fresh sandwiches, coffees, and homemade treats,
+         it buzzes with chatter during breaks. Inspired by the site's historic charm, it fosters relaxed conversations.
+          A favorite for study sessions or quick bites, this spot blends with  modern vibes, nurturing community bonds 
+          and a touch of indulgence in the school's timeless rhythm.
+
+
       </>
     ),
   },
@@ -393,21 +331,13 @@ const locations = [
     aspect: 1.5 / 1.9,
     description: (
       <>
-        Oberoi House is the newest among the senior houses. It was established
-        in 1991, joining the original four houses of the school. Its creation
-        initially met with some resistance (mainly concerns about rebalancing
-        inter-house games and competitions), but over time Oberoi has become
-        deeply integrated into the school’s culture.
-        <br />
-        By 2015, Oberoi House celebrated its 25th anniversary / Silver Jubilee —
-        a milestone that highlighted its increasing heritage and contribution.
-        House.
-        <br />
-        <strong>House Master:</strong> Mr. Vishal Mohla (VSM)
-        <br />
-        <strong>Assistant House Master:</strong> Dr. Ankur Joshi (ARJ)
-        <br />
-        <strong>Dame:</strong> Ms. Sarabjeet Kaur
+        The Centre of Excellence is dedicated to fostering holistic development and excellence in various domains. 
+        The institution has established several Centres of Excellence to provide specialized support and enrichment to students.
+         These include centres of debating ,art ,drama,creative writing and technology.
+         Their main purpose is to primarily focus on improving students greatly in these fundamental activities which are really important.
+          Interested students would learn these valuable skills and be multilingual in various fields. 
+
+
       </>
     ),
   },
@@ -417,19 +347,11 @@ const locations = [
     aspect: 4 / 3,
     description: (
       <>
-        Hyderabad House is the oldest house at The Doon School, holding the
-        distinction of being the first House, established with Mr. JAK Martyn as
-        its pioneering Housemaster. This "House of Nizams" has a rich legacy of
-        achievements in sports, the arts and education, including producing one
-        of the school's headmasters. Personal development is a big part of the
-        house system: leadership, teamwork, values of humility and service, not
-        just competition.
-        <br />
-        <strong>House Master:</strong> Mr. Sudhir Thapa (SRT)
-        <br />
-        <strong>Assistant House Master:</strong> Mr. Harshal Gunwant (HGT)
-        <br />
-        <strong>Dame:</strong> Meenakshi Tripathi
+       The name “Guru’s Lawn” is a tribute to a teacher that has been nicknamed “Guru”. 
+       Guru has contributed to the school by encouraging students to get involved in mountaineering and trekking.
+        These activities are a core of The Doon School. Every walk to the Main Building is a reminder 
+        of the contributions to the School made by Guru.
+
       </>
     ),
   },
@@ -439,21 +361,12 @@ const locations = [
     aspect: 1.5 / 1.9,
     description: (
       <>
-        Oberoi House is the newest among the senior houses. It was established
-        in 1991, joining the original four houses of the school. Its creation
-        initially met with some resistance (mainly concerns about rebalancing
-        inter-house games and competitions), but over time Oberoi has become
-        deeply integrated into the school’s culture.
-        <br />
-        By 2015, Oberoi House celebrated its 25th anniversary / Silver Jubilee —
-        a milestone that highlighted its increasing heritage and contribution.
-        House.
-        <br />
-        <strong>House Master:</strong> Mr. Vishal Mohla (VSM)
-        <br />
-        <strong>Assistant House Master:</strong> Dr. Ankur Joshi (ARJ)
-        <br />
-        <strong>Dame:</strong> Ms. Sarabjeet Kaur
+        Silently hidden behind Tata house is a tree which contains many old stories to narrate.
+        This old tree is not just simply a tree but is a symbol of legacy and experience. 
+        The tree is not just a part of the school—it is the school’s memory made living.
+         It has endured countless storms and even today it stands proudly.
+
+
       </>
     ),
   },
@@ -463,11 +376,10 @@ const locations = [
     aspect: 1.7 / 1,
     description: (
       <>
-        The Kilachand Library, with over{" "}
-        <strong>30,000 books and digital resources</strong>, is The Doon
-        School’s intellectual hub. It offers ample space for reading, research,
-        and IT access .It blends tradition, technology and also houses the
-        Founders’ Room and Archives, preserving the school’s rich history.
+       The Skinners, an iconic sports field at The Doon School contains legacy in Doon’s lush landscape. 
+       The term "Skinners" is short for Skinner's Field, in between Jaipur and Oberoi House. 
+       It hosts competitive sports matches, fostering teamwork. Skinners Field is named as it is because it was once 
+       the property of the descendants of James Skinner.
       </>
     ),
   },
@@ -477,26 +389,11 @@ const locations = [
     aspect: 1.4 / 1.6,
     description: (
       <>
-        Tata House is one of the oldest and most respected houses at Doon. Its
-        motto, “True as Steel,” reflects its spirit. Living here feels like
-        being part of a close-knit family where everyone supports one another
-        while also pushing you to do your best. The house has a strong
-        reputation for discipline, hard work, and loyalty. Seniors guide juniors
-        patiently. Life in Tata combines study, sport, and fun. In the mornings,
-        the house buzzes with energy as everyone prepares for classes. In the
-        evenings, the common room fills with laughter, debates, and stories.
-        Tata boys are competitive in sports, debates, and cultural events, but
-        they also celebrate each other’s successes. The house has its
-        traditions, including special dinners, house songs, and late-night
-        discussions, which foster a sense of belonging. Living here teaches
-        responsibility, teamwork, and lifelong friendships, making Tata not just
-        a house but a home for all.
-        <br />
-        <strong>House Master:</strong> Mr. Ashish Dean (ADN)
-        <br />
-        <strong>Assistant House Master:</strong> Ms. Mughda Pandey (MPY)
-        <br />
-        <strong>Dame:</strong> Ruthann Rozario
+       The Time Capsule is like a treasure chest buried for the future! In 2010, when the school turned 75 years old,
+        students, teachers, and old boys filled a box with things that showed what life at Doon was like back then. 
+        The time capsule shows how much Doon cares about its history, its people, legacy, and the memories they make together.
+
+
       </>
     ),
   },
@@ -506,21 +403,10 @@ const locations = [
     aspect: 1.5 / 1.9,
     description: (
       <>
-        Oberoi House is the newest among the senior houses. It was established
-        in 1991, joining the original four houses of the school. Its creation
-        initially met with some resistance (mainly concerns about rebalancing
-        inter-house games and competitions), but over time Oberoi has become
-        deeply integrated into the school’s culture.
-        <br />
-        By 2015, Oberoi House celebrated its 25th anniversary / Silver Jubilee —
-        a milestone that highlighted its increasing heritage and contribution.
-        House.
-        <br />
-        <strong>House Master:</strong> Mr. Vishal Mohla (VSM)
-        <br />
-        <strong>Assistant House Master:</strong> Dr. Ankur Joshi (ARJ)
-        <br />
-        <strong>Dame:</strong> Ms. Sarabjeet Kaur
+        The Wellness Centre at The Doon School is a sanctuary for health in our serene campus. 
+        Offering medical care, and fitness programs, it nurtures boys’ physical and mental well-being. 
+        It fosters resilience and balance. With expert staff, it ensures students recover, blending modern facilities with care. 
+
       </>
     ),
   },
