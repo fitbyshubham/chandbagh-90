@@ -234,15 +234,11 @@ const locations = [
     aspect: 3/ 3,
     description: (
       <>
-        The main building of The Doon School stands as a majestic symbol of
-        tradition, heritage, and knowledge. It is not just as an architectural
-        landmark, but as the heart of our school. Its red-brick walls, arches,
-        and long corridors remind us of the legacy generations before us that we
-        are part of. Walking through its halls, I feel a deep sense of belonging
-        and admiration for the wisdom shared here. It is where every Dosco
-        learns discipline, responsibility, and excellence, and where the bond
-        between teachers and students grows stronger. It represents the enduring
-        spirit of Doon, inspiring us to uphold the school’s timeless legacy.
+        The Main Field at The Doon School is a sprawling green heart of the campus, alive with energy. 
+        Boys compete in sports, building teamwork and resilience under Himalayan skies.
+         Surrounded by lush flora, it’s where rivalries spark and friendships deepen.
+        This iconic field, steeped in tradition, fosters physical prowess and school spirit,
+         shaping disciplined leaders through sweat and camaraderie.
       </>
     ),
   },
@@ -252,24 +248,10 @@ const locations = [
     aspect: 1 / 2,
     description: (
       <>
-        Foot House isn't a permanent house like Jaipur, Kashmir, Oberoi, Tata,
-        or Hyderabad. It's a holding house, where every new boy starts his
-        journey at Doon before moving into his main house. Named after Arthur E.
-        Foot, the school’s first Headmaster (1935–48), Foot House is where we
-        all learn the ropes of Dosco life — from folding our bedsheets to
-        finding our way around campus. The faculty and staff here are legends in
-        their own right. Our Housemaster, Ms. Ruchi Sahni, makes sure everyone
-        settles in smoothly, while Mr. Keshav Bhatt, the Assistant Housemaster,
-        guides us through daily routines. And of course, our Dame, Ms. Kanchan
-        Shukla, keeps the house running like clockwork — she somehow knows
-        everything, from who forgot their shoes to who’s sneaking an extra
-        snack!
-        <br />
-        <strong>Fun Fact:</strong> Foot House is built on land that was once
-        part of the <strong>Imperial Forest Research Institute (IFRI)</strong>,
-        established in 1906. Before Doon School took over the Chandbagh estate
-        in 1935, IFRI operated from this very site, making our dorms and common
-        rooms part of a rich history in forestry research.
+        The Music School at The Doon School is a hub for musical education and performance,
+         offering students a curriculum that spans both Hindustani classical and Western classical traditions.
+          The department is committed to nurturing talent through structured courses, the various talents Doscos showcase.
+           It is located near Martyn house where all young musicians go and play their best instrument.
       </>
     ),
   },
@@ -279,17 +261,10 @@ const locations = [
     aspect: 1 / 1,
     description: (
       <>
-        Martyn House at The Doon School, named after the school’s second
-        Headmaster John A.K. Martyn is the holding house for 40 D-Form boys
-        (seventh grade). It marks the start of their boarding journey, helping
-        them settle into school routines, form friendships, and adjust to life
-        away from home. The house is led by{" "}
-        <strong>Mr. Samik Das (Housemaster)</strong>, supported by{" "}
-        <strong>Mr. Rajat Sabharwal (Assistant Housemaster)</strong>,{" "}
-        <strong>Ms. Gurjeet Kaur Dhaliwal (Dame)</strong>, and a team of tutors
-        who ensure the boys’ well-being and growth. Martyn House is thus the
-        gateway to the Doon experience, offering care, structure, and a strong
-        sense of community.
+        The Rose Bowl, The Doon School’s open-air amphitheatre, is a cultural heart of Doon. Nestled amid flora,
+         it hosts plays, music, and assemblies. Boys perform with passion, building confidence.
+        Its steps and natural acoustics amplify school spirit as students create memories that echo beyond campus,
+         shaping expressive leaders in a breathtaking setting. It is a beautiful structure surrounded by nature.
       </>
     ),
   },
@@ -437,7 +412,7 @@ const locations = [
     ),
   },
     {
-    image: "/Photos/",
+    image: "/Photos/gl.jpg",
     name: "Guru's Lawns",
     aspect: 4 / 3,
     description: (
@@ -459,7 +434,7 @@ const locations = [
     ),
   },
   {
-    image: "/Photos/",
+    image: "/Photos/Rt.jpg",
     name: "Oldest Tree of Doon",
     aspect: 1.5 / 1.9,
     description: (
@@ -483,7 +458,7 @@ const locations = [
     ),
   },
   {
-    image: "public/Photos",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/Oberoi_House_at_The_Doon_School.jpg/640px-Oberoi_House_at_The_Doon_School.jpg",
     name: "Skinners",
     aspect: 1.7 / 1,
     description: (
@@ -497,7 +472,7 @@ const locations = [
     ),
   },
     {
-    image: "/Photos/",
+    image: "/Photos/TC.jpg",
     name: "Time Capsule",
     aspect: 1.4 / 1.6,
     description: (
@@ -599,7 +574,7 @@ export default function InfoPage() {
                 onClick={() => setSelectedImage(null)}
                 className="mt-2 px-4 py-3 rounded-lg bg-blue-600 text-white font-semibold hover:bg-blue-700"
               >
-                ← Back to Houses
+                ← Back
               </button>
             </div>
           </motion.div>
