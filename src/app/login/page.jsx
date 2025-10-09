@@ -29,26 +29,37 @@ export default function LoginPage() {
     router.push('/login/otp');
   };
 
-  const [showAlert, setShowAlert] = useState(false);
-  const [alertType, setAlertType] = useState("Success");
-  const [alertMessage, setAlertMessage] = useState("empty");
-
+  const [showAlert, setShowAlert] = useState(false)
+  const [alertType, setAlertType] = useState("Success")
+  const [alertMessage, setAlertMessage] = useState("empty")
   const showAlertMessage = (type, message) => {
-    setAlertType(type);
-    setAlertMessage(message);
-    setShowAlert(true);
-    setTimeout(() => setShowAlert(false), 5000);
-  };
-
+    setAlertType(type)
+    setAlertMessage(message)
+    setShowAlert(true)
+    setTimeout(() => {
+        setShowAlert(false)
+    }, 5000);
+  }
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!mobile.trim()) return showAlertMessage("Error", "Mobile number is required");
-    if (mobile.length !== 10) return showAlertMessage("Error", "Mobile number must be 10 digits");
-    if (!/^\d+$/.test(mobile)) return showAlertMessage("Error", "Mobile number must contain only digits");
-    if (!name.trim()) return showAlertMessage("Error", "Name is required");
-
+    if (!mobile.trim()) {
+      showAlertMessage("Error", "Mobile number is required");
+      return;
+    }
+    if (mobile.length < 10 || mobile.length > 10) {
+      showAlertMessage("Error", "Mobile number must be 10 digits");
+      return;
+    }
+    if (!/^\d+$/.test(mobile)) {
+      showAlertMessage("Error", "Mobile number must contain only digits");
+      return;
+    }
+    if (!name.trim()) {
+      showAlertMessage("Error", "Name is required");
+      return;
+    }
     showAlertMessage("Success", "Login successful!");
-    setTimeout(handleRoute, 1000);
+    handleRoute();
   };
 
   const [current, setCurrent] = useState(0);
@@ -77,13 +88,14 @@ export default function LoginPage() {
         </div>
       </div>
 
-      <div className="flex-1"></div>
-
-      <div className="relative z-20 bg-white rounded-t-3xl shadow-lg px-6 pt-6 pb-6 -mt-6">
-        <form onSubmit={handleSubmit} className="space-y-4">
-          <div className="text-center">
-            <h2 className="text-2xl font-bold">Let's get you <br /> signed in!</h2>
-            <p className="text-neutral-500 text-sm mt-1">Enter your details below.</p>
+      {/* Login Card */}
+      <div className="rounded-t-3xl fixed w-full max-w-md bg-white rounded-t-4xl shadow-lg px-6 pt-8 pb-6 z-10 mx-auto mt-auto">
+        <form onSubmit={handleSubmit}>
+          <div className="text-center z-10">
+            <h1 className="text-3xl sm:text-4xl font-bold mb-2">Let's get you <br /> signed in!</h1>
+            <p className="text-xs sm:text-sm text-neutral-400 mb-6 sm:mb-8 text-center">
+              Enter your details below.
+            </p>
           </div>
 
           <div className="flex gap-2">

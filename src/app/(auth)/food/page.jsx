@@ -23,12 +23,12 @@ export default function StallsCardPage(){
         const scrollDelay = 20; // ms
 
         const autoScroll = () => {
-        if (!scrollContainer) return;
-        scrollAmount += scrollStep;
-        if (scrollAmount >= scrollContainer.scrollWidth - scrollContainer.clientWidth) {
-            scrollAmount = 0; // Loop back to start
-        }
-        scrollContainer.scrollTo({ left: scrollAmount, behavior: "smooth" });
+            if (!scrollContainer) return;
+            scrollAmount += scrollStep;
+            if (scrollAmount >= scrollContainer.scrollWidth - scrollContainer.clientWidth) {
+                scrollAmount = 0; // Loop back to start
+            }
+            scrollContainer.scrollTo({ left: scrollAmount, behavior: "smooth" });
         };
 
         const interval = setInterval(autoScroll, scrollDelay);
@@ -53,7 +53,7 @@ export default function StallsCardPage(){
             </div>
 
             {/* Categories */}
-            <div className="flex flex-row items-center justify-center gap-4 mb-6 overflow-x-auto pb-2">
+            <div className="flex flex-row items-center justify-center gap-4 mb-6 overflow-x-auto pb-2" ref={scrollRef}>
                 {categories.map((c) => (
                 <div key={c.name} className="flex flex-col items-center">
                     <div className="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center text-xl mb-1">
@@ -78,21 +78,21 @@ export default function StallsCardPage(){
                     offer=""
                 />
                 <StallsCard
-                    image="  https://b.zmtcdn.com/data/pictures/chains/7/3500437/91fb9d0f90ec10a2d996ccbf49e4079f.jpeg?fit=around%7C200%3A200&crop=200%3A200%3B%2A%2C%2A" 
+                    image="https://b.zmtcdn.com/data/pictures/chains/7/3500437/91fb9d0f90ec10a2d996ccbf49e4079f.jpeg?fit=around%7C200%3A200&crop=200%3A200%3B%2A%2C%2A" 
                     name="Walk in Woods"
                     rating="4.5"
                     stallNo="39"
                     offer=""
                 />
                 <StallsCard
-                    image="  https://b.zmtcdn.com/data/pictures/chains/3/3500373/0a8e5c36b9e641bc2da42fd3398de8a5_o2_featured_v2.jpg?output-format=webp"
+                    image="https://b.zmtcdn.com/data/pictures/chains/3/3500373/0a8e5c36b9e641bc2da42fd3398de8a5_o2_featured_v2.jpg?output-format=webp"
                     name="Doon Triple Nine"
                     rating="4.5"
                     stallNo="18"
                     offer=""
                 />
                 <StallsCard
-                    image="  https://www.licious.in/blog/wp-content/uploads/2020/12/BBQ-Chicken-Pizza-750x750.jpg  "
+                    image="https://www.licious.in/blog/wp-content/uploads/2020/12/BBQ-Chicken-Pizza-750x750.jpg"
                     name="Domino's Pizza"
                     rating="4.1"
                     stallNo="28"
@@ -106,28 +106,28 @@ export default function StallsCardPage(){
                     offer=""
                 />
                 <StallsCard
-                    image="  https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgiVxHZAYqaceL7hPDJafiwSdjly7wyJeobA&s"
+                    image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgiVxHZAYqaceL7hPDJafiwSdjly7wyJeobA&s"
                     name="Kebabs 'N' Curries"
                     rating="4.9"
                     stallNo="4"
                     offer=""
                 />
                 <StallsCard
-                    image="  https://b.zmtcdn.com/data/pictures/chains/5/3500375/fca6e33ea05ba721fd41f967aa5ab59e_featured_v2.jpg?output-format=webp"
+                    image="https://b.zmtcdn.com/data/pictures/chains/5/3500375/fca6e33ea05ba721fd41f967aa5ab59e_featured_v2.jpg?output-format=webp"
                     name="Kalkata Lazeez Kathi"
                     rating="4.6"
                     stallNo="41"
                     offer=""
                 />
                 <StallsCard
-                    image="  https://www.munatycooking.com/wp-content/uploads/2023/12/chicken-shawarma-image-feature-2023.jpg  "
+                    image="https://www.munatycooking.com/wp-content/uploads/2023/12/chicken-shawarma-image-feature-2023.jpg"
                     name="Trees Ventures"
                     rating="3.2"
                     stallNo="7"
                     offer=""
                 />
                 <StallsCard
-                    image="https://content.jdmagicbox.com/comp/def_content/chaat_corners/default-chaat-corners-14.jpg  "
+                    image="https://content.jdmagicbox.com/comp/def_content/chaat_corners/default-chaat-corners-14.jpg"
                     name="Sagar Chaat"
                     rating="1.8"
                     stallNo="35"
@@ -141,21 +141,21 @@ export default function StallsCardPage(){
                     offer=""
                 />
                 <StallsCard
-                    image="  https://b.zmtcdn.com/data/pictures/8/110248/8625af42d46380ccbc230b9e5f413418_o2_featured_v2.jpg?fit=around|960:500&crop=960:500;*,*"
+                    image="https://b.zmtcdn.com/data/pictures/8/110248/8625af42d46380ccbc230b9e5f413418_o2_featured_v2.jpg?fit=around|960:500&crop=960:500;*,*"
                     name="Kesar Foods"
                     rating="4.0"
                     stallNo="44"
                     offer=""
                 />
                 <StallsCard
-                    image="  https://b.zmtcdn.com/data/reviews_photos/a35/ee16d23c5bbbbed575a6ce2546890a35_1532611421.jpg?fit=around%7C200%3A200&crop=200%3A200%3B%2A%2C%2A"
+                    image="https://b.zmtcdn.com/data/reviews_photos/a35/ee16d23c5bbbbed575a6ce2546890a35_1532611421.jpg?fit=around%7C200%3A200&crop=200%3A200%3B%2A%2C%2A"
                     name="Y Café & Resta."
                     rating="3.9"
                     stallNo="9"
                     offer=""
                 />
                 <StallsCard
-                    image="  https://b.zmtcdn.com/data/pictures/5/20741605/c035309b3edc32022fcb99be7da84539_o2_featured_v2.jpg?fit=around%7C108%3A108&crop=108%3A108%3B%2A%2C%2A"
+                    image="https://b.zmtcdn.com/data/pictures/5/20741605/c035309b3edc32022fcb99be7da84539_o2_featured_v2.jpg?fit=around%7C108%3A108&crop=108%3A108%3B%2A%2C%2A"
                     name="Frozen Factory"
                     rating="4.2"
                     stallNo="50"
