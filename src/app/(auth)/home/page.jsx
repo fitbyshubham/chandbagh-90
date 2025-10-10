@@ -1,8 +1,12 @@
+// src/app/(auth)/home/page.jsx
 "use client";
-import React from "react";
+
+import React, { useState, useEffect } from 'react';
 import { useRouter } from "next/navigation";
 import { FaStar } from "react-icons/fa";
 import TeamCard from '../../../components/ui/TeamCard.jsx';
+import Header from '@/components/layout/Header';
+import StoryModal from '@/components/layout/StoryModal.jsx';
 
 const specials = [
   {
@@ -24,6 +28,7 @@ const specials = [
     isTop: false,
   },
 ];
+
 const events = [
   {
     name: "Science Exhibition",
@@ -40,6 +45,7 @@ const events = [
     desc: "Cheer on your house at the playground.",
   },
 ];
+
 const team = [
   {
     name: "Shubham Sharma",
@@ -66,26 +72,45 @@ const team = [
     role: "Developer",
     img: "/Portraits/",
   },
-  //   { name: "Hemant Khandelwal", role: "Lead Developer", img: "https://randomuser.me/api/portraits/men/45.jpg" },
 ];
 
 export default function HomePage() {
   const router = useRouter();
+  const [userName, setUserName] = useState("Guest");
+ 
+  const [selectedImage, setSelectedImage] = useState(null);
+
+  useEffect(() => {
+    // ✅ Read name from localStorage (saved during login)
+    const savedName = localStorage.getItem('signup_name');
+    if (savedName) {
+      setUserName(savedName);
+    }
+  }, []);
+
   const handleAboutRoute = () => {
     router.push("/InfoPage");
   };
+
   const handleTeamRoute = () => {
     router.push("/Team");
   };
-  
-    return (
+
+  return (
     <div className="min-h-screen bg-gray-100 flex flex-col pb-10">
       {/* Header */}
+        <Header onAvatarClick={(src) => setSelectedImage(src)} />
+           {/* Fullscreen Stories Modal */}
+       <StoryModal
+        isOpen={!!selectedImage}
+        imageSrc={selectedImage}
+        onClose={() => setSelectedImage(null)}
+      />
       <div className="bg-gray-900 text-white px-4 pb-6 pt-8 rounded-b-3xl shadow flex flex-col relative">
         <div className="flex mb-4">
           <div className="flex items-left space-x-1.5 flex-col">
             <span className="text-2xl"> Welcome,</span>
-            <span className="font-bold text-3xl">Samarth Pundeer!</span>
+            <span className="font-bold text-3xl">{userName}!</span>
           </div>
         </div>
         <div className="rounded-xl overflow-hidden shadow-lg mb-2 bg-gray-800">
@@ -102,7 +127,7 @@ export default function HomePage() {
             </p>
             <button
               onClick={handleAboutRoute}
-              className="bg-secondary text-white px-4 py-1 rounded-full font-semibold text-sm hover:bg-orange-600 transition"
+              className="bg-orange-500 text-white px-4 py-1 rounded-full font-semibold text-sm hover:bg-orange-600 transition"
             >
               Get to Know
             </button>
@@ -111,13 +136,13 @@ export default function HomePage() {
       </div>
 
       {/* Specials (Top Food) */}
-      <div className="px-4 mt-6 scrollbar-hide">
+      <div className="px-4 mt-6">
         <h2 className="font-bold text-lg mb-2 text-gray-800">Top Rated Food</h2>
         <div className="flex space-x-4 overflow-x-auto pb-2 hide-scrollbar">
           {specials.map((item, i) => (
             <div
               key={i}
-              className={`min-w-[220px] scrollbar-hide bg-white rounded-2xl shadow-lg flex-shrink-0 ${
+              className={`min-w-[220px] bg-white rounded-2xl shadow-lg flex-shrink-0 ${
                 item.isTop
                   ? "border-2 border-blue-300"
                   : "border border-gray-200"
@@ -128,7 +153,7 @@ export default function HomePage() {
                 alt={item.name}
                 className="w-full h-28 object-cover rounded-t-2xl"
               />
-              <div className="p-3 scrollbar-hide">
+              <div className="p-3">
                 <div className="flex items-center justify-between">
                   <span className="font-semibold">{item.name}</span>
                   <span className="text-xs bg-gray-100 px-2 py-0.5 rounded text-gray-600">
@@ -143,7 +168,7 @@ export default function HomePage() {
                   </span>
                 </div>
                 {item.isTop && (
-                  <span className="inline-block mt-2 text-xs bg-blue-100 text-secondary px-2 py-0.5 rounded-full font-semibold">
+                  <span className="inline-block mt-2 text-xs bg-blue-100 text-blue-700 px-2 py-0.5 rounded-full font-semibold">
                     Most Popular
                   </span>
                 )}
@@ -154,11 +179,11 @@ export default function HomePage() {
       </div>
 
       {/* Upcoming Events */}
-      <div className="px-4 hide-scrollbar mt-7">
-        <h2 className="font-bold text-lg mb-2 hide-scrollbar text-gray-800">
+      <div className="px-4 mt-7">
+        <h2 className="font-bold text-lg mb-2 text-gray-800">
           Upcoming Events
         </h2>
-        <div className="flex space-x-4 hide-scrollbar overflow-x-auto pb-2">
+        <div className="flex space-x-4 overflow-x-auto pb-2 hide-scrollbar">
           {events.map((e, i) => (
             <div
               key={i}

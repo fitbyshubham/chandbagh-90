@@ -11,6 +11,9 @@ const QuizResult = () => {
   const correct = parseInt(searchParams.get("correct") || 0, 10);
   const total = parseInt(searchParams.get("total") || 1, 10);
 
+  // Calculate percentage
+  const percentage = total > 0 ? Math.round((correct / total) * 100) : 0;
+
   return (
     <div className="w-full max-w-md mx-auto h-screen p-6 flex flex-col justify-between bg-teal-600 text-white">
       {/* Main message */}
@@ -21,16 +24,19 @@ const QuizResult = () => {
           Your Score: <span className="font-bold">{correct}</span> /{" "}
           <span className="font-bold">{total}</span>
         </p>
-        <p className="mt-2">Hope you enjoyed the quiz!</p>
+        <p className="text-lg mt-2">
+          ({percentage}% Correct)
+        </p>
+        <p className="mt-4">Hope you enjoyed the quiz!</p>
       </div>
 
       {/* Bottom buttons */}
       <div className="flex justify-around mb-[120px]">
         <button
           className="bg-white text-gray-800 px-4 py-3 rounded-xl font-bold shadow hover:bg-gray-200 transition"
-          onClick={() => router.push("/quiz")}
+          onClick={() => router.push("/quiz")} // Navigate back to quiz selection
         >
-          Home
+          Back to Quizzes
         </button>
       </div>
     </div>
