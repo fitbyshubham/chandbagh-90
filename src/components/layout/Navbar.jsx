@@ -17,10 +17,7 @@ export default function Navbar() {
   const [isVisible, setIsVisible] = useState(true);
   const lastScrollY = useRef(0);
 
-  const handleFoodClick = () => router.push("/order");
-  const hideNavbarRoutes = ["/login", "/login/otp", "/Cart"];
-  if (hideNavbarRoutes.includes(pathname)) return null;
-
+  // Move useEffect to the top level, before any conditional returns
   useEffect(() => {
     const handleScroll = () => {
       const current = window.scrollY;
@@ -34,6 +31,12 @@ export default function Navbar() {
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  const handleFoodClick = () => router.push("/order");
+  const hideNavbarRoutes = ["/login", "/login/otp", "/Cart"];
+  
+  // Conditional return after all hooks have been called
+  if (hideNavbarRoutes.includes(pathname)) return null;
 
   const leftNavItems = navItems.slice(0, 2);
   const rightNavItems = navItems.slice(2);

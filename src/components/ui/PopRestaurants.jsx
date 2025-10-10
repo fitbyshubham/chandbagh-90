@@ -1,88 +1,84 @@
+// src/components/ui/PopRestaurants.jsx
 import React, { useRef, useEffect } from "react";
 import PopRestaurantsCard from "./PopRestaurants_Card";
 
-const stalls = [
-  {
-    image: "https://www.licious.in/blog/wp-content/uploads/2020/12/BBQ-Chicken-Pizza-750x750.jpg",
-    alt: "Domino's Pizza",
-    title1: "Domino's",
-    title2: "Pizza",
-    stallNo: "1",
-    rating: "4.5",
-    reviews: "120",
-  },
-  {
-    image: "https://b.zmtcdn.com/data/pictures/chains/5/3500375/fca6e33ea05ba721fd41f967aa5ab59e_featured_v2.jpg?output-format=webp",
-    alt: "Kalkata Lazeez Kathi",
-    title1: "Kalkata Lazeez",
-    title2: "Kathi",
-    stallNo: "2",
-    rating: "4.5",
-    reviews: "120",
-  },
-  {
-    image: "https://b.zmtcdn.com/data/pictures/chains/4/18391854/15918ea9293921d6ee0518f78f630e1b_featured_v2.jpg?output-format=webp",
-    alt: "Burger King",
-    title1: "Burger",
-    title2: "King",
-    stallNo: "3",
-    rating: "4.5",
-    reviews: "120",
-  },
-  {
-    image: "/Photos/burger.avif",
-    alt: "Burger Singh",
-    title1: "Burger",
-    title2: "Singh",
-    stallNo: "4",
-    rating: "4.5",
-    reviews: "120",
-  },
-];
+// FIX: Added a check for the 'restaurants' array before mapping
+const mapToCarouselProps = (restaurants) => {
+    // If 'restaurants' is not an array, return an empty array immediately
+    if (!Array.isArray(restaurants)) {
+        return [];
+    }
 
-export default function RestaurantCarousel() {
+    return restaurants.map(r => ({
+        image: r.image,
+        alt: r.name,
+        title1: r.name.split(' ')[0], 
+        title2: r.name.split(' ').slice(1).join(' ') || '',
+        stallNo: r.stallNo,
+        rating: r.rating,
+        reviews: (Math.floor(Math.random() * 200) + 50).toString(), 
+    }));
+};
+
+// FIX: Added a default empty array to the prop destructuring
+export default function PopRestaurants({ restaurants = [] }) {
+  const mappedStalls = mapToCarouselProps(restaurants);
+  
   const itemRefs = useRef([]);
   const intervalRef = useRef(null);
   const idxRef = useRef(0);
 
+  // Auto-scroll logic for the carousel
   useEffect(() => {
+    
     function scrollToIndex(i) {
       if (itemRefs.current[i]) {
         itemRefs.current[i].scrollIntoView({ behavior: "smooth", inline: "start" });
       }
     }
 
-    scrollToIndex(idxRef.current); // initial
+    if (mappedStalls.length > 1) {
+        // Clear existing interval before setting a new one
+        if (intervalRef.current !== null) {
+             clearInterval(intervalRef.current);
+        }
+        
+        intervalRef.current = window.setInterval(() => {
+            idxRef.current = (idxRef.current + 1) % mappedStalls.length;
+            scrollToIndex(idxRef.current);
+        }, 4000); 
+    } else if (intervalRef.current) {
+        clearInterval(intervalRef.current);
+    }
 
-    intervalRef.current = window.setInterval(() => {
-      idxRef.current = (idxRef.current + 1) % stalls.length;
-      scrollToIndex(idxRef.current);
-    }, 5000);
 
     return () => {
       if (intervalRef.current !== null) {
         clearInterval(intervalRef.current);
       }
     };
-  }, [stalls.length]);
+  }, [mappedStalls.length]); // Re-run effect if the number of stalls changes
 
   return (
-    <div>
-      <h2 className="text-xl font-semibold mb-2">Popular Stalls</h2>
+    <div className="bg-gray-50 -mx-4 -mt-2 p-4"> 
       <div
-        className="flex overflow-x-auto snap-x snap-mandatory scrollbar-hide"
-        style={{ scrollBehavior: "smooth" }}
+        className="flex overflow-x-scroll snap-x snap-mandatory hide-scroll-bar"
       >
-        {stalls.map((props, i) => (
-          <div
-            key={props.stallNo}
-            ref={(el) => { itemRefs.current[i] = el; }}
-            className="flex-shrink-0 w-full sm:w-96 snap-start px-2"
-            style={{ scrollSnapAlign: "start" }}
-          >
-            <PopRestaurantsCard {...props} />
-          </div>
-        ))}
+        {/* Only render if there are mapped stalls */}
+        {mappedStalls.length > 0 ? (
+            mappedStalls.map((props, i) => (
+              <div
+                key={props.stallNo}
+                ref={(el) => { itemRefs.current[i] = el; }}
+                className="flex-shrink-0 w-[85vw] sm:w-[350px] snap-center px-2" 
+              >
+                <PopRestaurantsCard {...props} /> 
+              </div>
+            ))
+        ) : (
+            // Optional: Placeholder if no popular stalls are available
+            <div className="p-4 text-gray-500">No popular stalls available.</div>
+        )}
       </div>
     </div>
   );
