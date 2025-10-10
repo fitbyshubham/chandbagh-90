@@ -1,4 +1,5 @@
-"use client"
+// src/app/login/otp/page.jsx
+"use client";
 
 import React, { useState, useRef, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
@@ -18,111 +19,117 @@ const images = [
   },
 ];
 
-export default function LoginPage() {
+export default function OtpPage() {
   const router = useRouter();
-  const handleRoute = () => {
-    router.push('/home');
-  }
-
-  const length = 4;
+  const length = 6;
   const [otp, setOtp] = useState(Array(length).fill(""));
+  const [error, setError] = useState("");
   const inputRefs = useRef([]);
+
+  const savedPhone = typeof window !== 'undefined' 
+    ? localStorage.getItem('signup_phone') 
+    : null;
+
+  useEffect(() => {
+    if (!savedPhone) router.push('/login');
+  }, [savedPhone, router]);
 
   const handleChange = (e, index) => {
     const value = e.target.value.replace(/[^0-9]/g, "");
-    if (!value) return;
+    if (value === "" && otp[index] === "") return;
 
     const newOtp = [...otp];
-    newOtp[index] = value[0];
+    newOtp[index] = value ? value[0] : "";
     setOtp(newOtp);
+    setError("");
 
-    if (index < length - 1 && value) {
-      if (inputRefs.current[index + 1]) {
-        inputRefs.current[index + 1].focus();
-      }
+    if (value && index < length - 1) {
+      inputRefs.current[index + 1]?.focus();
     }
   };
 
   const handleKeyDown = (e, index) => {
-    if (e.key === "Backspace") {
-      if (otp[index]) {
-        const newOtp = [...otp];
-        newOtp[index] = "";
-        setOtp(newOtp);
-      } else if (index > 0) {
-        inputRefs.current[index - 1]?.focus();
-        const newOtp = [...otp];
-        newOtp[index - 1] = "";
-        setOtp(newOtp);
-      }
+    if (e.key === "Backspace" && !otp[index] && index > 0) {
+      inputRefs.current[index - 1]?.focus();
+      const newOtp = [...otp];
+      newOtp[index - 1] = "";
+      setOtp(newOtp);
     }
   };
 
   const [current, setCurrent] = useState(0);
-
   useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrent((c) => (c + 1) % images.length);
-    }, 5000);
+    const timer = setInterval(() => setCurrent((c) => (c + 1) % images.length), 5000);
     return () => clearInterval(timer);
   }, []);
 
+  const handleVerify = () => {
+    const otpCode = otp.join("");
+    if (otpCode.length !== length) {
+      setError(`Please enter a ${length}-digit OTP`);
+      return;
+    }
+
+    // ✅ MOCK: Skip real verification — just go to home
+    router.push('/home');
+  };
+
   return (
-    <div className="min-h-screen flex flex-col justify-end bg-black fixed overflow-hidden px-0">
-      {/* Fullscreen Background Image */}
+    <div className="min-h-screen flex flex-col bg-white max-w-[375px] mx-auto relative overflow-hidden">
       <div
-        className="fixed top-0 left-0 w-full h-full -z-10 transition-opacity duration-1000"
+        className="absolute inset-0 z-0"
         style={{
           backgroundImage: `url('${images[current].image}')`,
           backgroundSize: "cover",
           backgroundPosition: "center",
-          backgroundRepeat: "no-repeat",
-          transition: "background-image 1s ease-in-out"
         }}
         aria-hidden="true"
       />
-      {/* Overlay for contrast (optional) */}
-      <div className="fixed top-0 left-0 w-full h-full bg-black/30 -z-10" aria-hidden="true" />
+      <div className="absolute inset-0 bg-black/30 z-10" aria-hidden="true" />
 
-      {/* Welcome Text */}
-      <div className="fixed top-3 left-1/2 transform -translate-x-1/2 z-10 w-full flex flex-col items-center align-items-center justify-center">
-        <span className="text-white bg-black/30 px-4 py-2 text-4xl font-bold rounded mb-2 shadow-lg flex items-center justify-center ">
-          Welcome To<br />Chandbagh 90!
-        </span>
-        <span className="text-white bg-black/30 px-3 py-1 text-lg font-semibold rounded shadow">
-          An app made by the students
-        </span>
+      <div className="relative z-20 pt-8 pb-4 text-center">
+        <div className="inline-block bg-black/50 backdrop-blur-sm px-4 py-2 rounded-lg">
+          <h1 className="text-white text-3xl font-bold">Welcome To<br />Chandbagh 90!</h1>
+          <p className="text-white text-sm mt-1">An app made by the students</p>
+        </div>
       </div>
 
-      {/* OTP Card */}
-      <div className="rounded-t-3xl fixed w-full max-w-md bg-white rounded-t-4xl shadow-lg px-6 pt-8 pb-6 z-10 mx-auto">
-        <div className="text-center z-10">
-          <h1 className="text-3xl sm:text-4xl font-bold mb-1">Please enter the OTP</h1>
-          <p className="text-xs sm:text-sm text-neutral-400 mb-6 sm:mb-8 text-center">
-            Enter the OTP sent to you on Whatsapp.
+      <div className="flex-1"></div>
+
+      <div className="relative z-20 bg-white rounded-t-3xl shadow-lg px-6 pt-8 pb-6 -mt-6">
+        <div className="text-center">
+          <h1 className="text-2xl font-bold mb-1">Enter the OTP</h1>
+          <p className="text-neutral-500 text-sm mb-2">
+            Sent to +91{savedPhone || '...'}
+          </p>
+          <p className="text-xs text-gray-500 mb-4">
+            Demo mode: any 6-digit code works (e.g., 123456)
           </p>
         </div>
-        <div className="mb-4 flex flex-row gap-2 justify-center">
+
+        <div className="mb-4 flex justify-center gap-2">
           {otp.map((digit, index) => (
             <input
               key={index}
-              ref={(el) => { inputRefs.current[index] = el; }}
+              ref={(el) => (inputRefs.current[index] = el)}
               type="text"
               inputMode="numeric"
               maxLength={1}
               value={digit}
               onChange={(e) => handleChange(e, index)}
               onKeyDown={(e) => handleKeyDown(e, index)}
-              className="w-10 h-10 sm:w-12 sm:h-12 text-center text-lg font-semibold rounded-lg border-2 border-black/60 text-black focus:outline-none focus:border-0 focus:ring-2 focus:ring-black"
+              className="w-12 h-12 text-center text-lg font-semibold rounded-lg border-2 border-neutral-300 focus:outline-none focus:ring-2 focus:ring-black"
             />
           ))}
         </div>
+
+        {error && <p className="text-red-500 text-center text-sm mb-3">{error}</p>}
+
         <button
-          onClick={handleRoute}
-          type="submit"
+          onClick={handleVerify}
           className="w-full bg-black py-3 rounded-lg font-semibold text-white text-lg"
         >
-          Verify
+          Verify OTP
         </button>
       </div>
     </div>

@@ -1,3 +1,4 @@
+// src/app/info/page.jsx 
 "use client";
 
 import InfoCard from "../../../components/ui/InfoCard";
@@ -5,11 +6,12 @@ import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useRouter } from "next/navigation";
 
+// --- Data Definition ---
 const locations = [
   {
     image: "/Photos/MB.jpg",
     name: "Main Building",
-    aspect: 1 / 2,
+    aspect: 1 / 2, // Portrait for this item
     description: (
       <>
         The main building of The Doon School stands as a majestic symbol of
@@ -27,7 +29,7 @@ const locations = [
   {
     image: "/Photos/FH.jpg",
     name: "Foot House",
-    aspect: 2 / 3,
+    aspect: 2 / 3, // Slightly less portrait
     description: (
       <>
         Foot House isn't a permanent house like Jaipur, Kashmir, Oberoi, Tata,
@@ -54,7 +56,7 @@ const locations = [
   {
     image: "/Photos/MH.jpg",
     name: "Martyn House",
-    aspect: 1 / 1,
+    aspect: 1 / 1, // Square
     description: (
       <>
         Martyn House at The Doon School, named after the school’s second
@@ -74,7 +76,7 @@ const locations = [
   {
     image: "/Photos/HH.jpg",
     name: "Hyderabad House",
-    aspect: 4 / 3,
+    aspect: 4 / 3, // Landscape
     description: (
       <>
         Hyderabad House is the oldest house at The Doon School, holding the
@@ -96,7 +98,7 @@ const locations = [
   {
     image: "/Photos/KH.jpg",
     name: "Kashmir House",
-    aspect: 1 / 1.2,
+    aspect: 1 / 1.2, // Tall Portrait
     description: (
       <>
         Kashmir House, established in 1937 as Gibson House, is one of the oldest
@@ -274,12 +276,10 @@ const locations = [
     aspect: 4 / 3,
     description: (
       <>
-       The Doon School's Art and Media Centre stands as a hub of creativity in 2010 by 
-       then-Union Minister Kapil Sibal during the school's platinum jubilee. 
-       This architectural gem weaves contemporary innovation.The Art and media center is used for ceramics,sculpture,
-        lino print.The lecture hall is used for debates, lectures and pitches of YEC and DSMUN
-
-
+        The Art and Media Center (AMC) is the creative hub of the school, 
+        offering facilities for visual arts, photography, film-making, and digital media.
+         It encourages students to express themselves through various artistic mediums, 
+         fostering creativity and critical thinking.
       </>
     ),
   },
@@ -289,11 +289,9 @@ const locations = [
     aspect: 1 / 1.2,
     description: (
       <>
-        The CDH is at the center of life in Doon. It’s where the whole school community,
-         students and teachers, comes together for every meal, making it feel like one big family. 
-         CDH is where friendships deepen and jokes are exchanged. Here all Doscos and masters enjoy the delicious food and bond with 
-         each other like family.
-
+        The Central Dining Hall (CDH) is where the entire school community—boys and masters—gathers for meals. 
+        It is a large, stately hall that serves as a central point for daily social interaction, 
+        reinforcing the communal aspect of boarding school life.
       </>
     ),
   },
@@ -303,10 +301,8 @@ const locations = [
     aspect: 1.7 / 2,
     description: (
       <>
- The Doon School Pavilion is a key structure near the Main Field, serving as a central venue for sports events.
-  On the Pavillion there is a board with a calendar of all the scheduled Interhouse matches, helping students have a 
-  schedule in their mind. It also has a room with sports equipment for students to practice with.
-
+        The Pavilion overlooks the Main Field, serving as the central viewing and gathering spot for all major sporting events. 
+        It is a historic structure that houses changing rooms and offers a prestigious vantage point for sports dignitaries and guests.
       </>
     ),
   },
@@ -316,28 +312,20 @@ const locations = [
     aspect: 1.4 / 1.6,
     description: (
       <>
-        Cafe Aqueduct is a cozy retreat for Doon boys. Serving fresh sandwiches, coffees, and homemade treats,
-         it buzzes with chatter during breaks. Inspired by the site's historic charm, it fosters relaxed conversations.
-          A favorite for study sessions or quick bites, this spot blends with  modern vibes, nurturing community bonds 
-          and a touch of indulgence in the school's timeless rhythm.
-
-
+        The Cafe Aquaduct is a modern addition to the campus, offering a casual and relaxed space for students 
+        to socialize and enjoy snacks and light meals outside of the main dining schedule.
       </>
     ),
   },
   {
-    image: "/Photos/",
+    image: "/Photos/COE.jpg", // Assuming an image for Centers of Excellence
     name: "Centers of Excellence",
     aspect: 1.5 / 1.9,
     description: (
       <>
-        The Centre of Excellence is dedicated to fostering holistic development and excellence in various domains. 
-        The institution has established several Centres of Excellence to provide specialized support and enrichment to students.
-         These include centres of debating ,art ,drama,creative writing and technology.
-         Their main purpose is to primarily focus on improving students greatly in these fundamental activities which are really important.
-          Interested students would learn these valuable skills and be multilingual in various fields. 
-
-
+        The Centers of Excellence are dedicated hubs for advanced learning and extracurricular passion, 
+        including Robotics, Astronomy, and Entrepreneurship. They provide resources and mentorship 
+        for students to pursue deep dives into specialized, forward-looking fields.
       </>
     ),
   },
@@ -361,17 +349,13 @@ const locations = [
     aspect: 1.5 / 1.9,
     description: (
       <>
-        Silently hidden behind Tata house is a tree which contains many old stories to narrate.
-        This old tree is not just simply a tree but is a symbol of legacy and experience. 
-        The tree is not just a part of the school—it is the school’s memory made living.
-         It has endured countless storms and even today it stands proudly.
-
-
+        This ancient tree, a towering landmark on the campus, is a symbol of the school's enduring legacy and connection to nature. 
+        It provides a quiet, shaded retreat and is a traditional meeting spot for Doscos.
       </>
     ),
   },
   {
-    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/Oberoi_House_at_The_Doon_School.jpg/640px-Oberoi_House_at_The_Doon_School.jpg",
+    image: "/Photos/SK.jpg", // Assuming a placeholder image path
     name: "Skinners",
     aspect: 1.7 / 1,
     description: (
@@ -389,11 +373,9 @@ const locations = [
     aspect: 1.4 / 1.6,
     description: (
       <>
-       The Time Capsule is like a treasure chest buried for the future! In 2010, when the school turned 75 years old,
-        students, teachers, and old boys filled a box with things that showed what life at Doon was like back then. 
-        The time capsule shows how much Doon cares about its history, its people, legacy, and the memories they make together.
-
-
+        The Time Capsule is a monument marking the school's commitment to its past and future. 
+        It contains artifacts and messages to be opened by a future generation of Doscos, 
+        connecting the present students to the school's long history.
       </>
     ),
   },
@@ -403,95 +385,112 @@ const locations = [
     aspect: 1.5 / 1.9,
     description: (
       <>
-        The Wellness Centre at The Doon School is a sanctuary for health in our serene campus. 
-        Offering medical care, and fitness programs, it nurtures boys’ physical and mental well-being. 
-        It fosters resilience and balance. With expert staff, it ensures students recover, blending modern facilities with care. 
-
+        The Wellness Center is dedicated to the physical and mental health of the students. 
+        It houses medical facilities, counseling services, and resources focused on overall student well-being, 
+        ensuring a supportive environment for every boy.
       </>
     ),
   },
 ];
+// -----------------------------
+
 
 export default function InfoPage() {
-  const [selectedImage, setSelectedImage] = useState(null);
+  const [selectedLocation, setSelectedLocation] = useState(null);
   const router = useRouter();
 
   return (
-    <div className="w-full px-4 sm:px-4 max-w-3xl mx-auto bg-white rounded-3xl pb-10">
-      {/* Quiz Button */}
-      <div className="flex justify-end mt-6 mb-4">
-        <button
-          onClick={() => router.push("/quiz")}
-          className="bg-purple-600 text-white font-bold px-4 py-2 rounded-xl shadow hover:bg-purple-700 transition"
-        >
-          🎯 Take a Quiz
-        </button>
+    // Outer container for dark theme and bottom padding (for fixed Navbar)
+    <div className="w-full min-h-screen text-white bg-gray-900 pb-32">
+      <div className="px-4 max-w-[420px] mx-auto"> 
+
+        {/* Header Section */}
+        <div className="flex justify-between items-center mb-6 pt-4">
+            <div className="text-3xl font-extrabold text-white">Chandbagh Landmarks</div>
+            
+            {/* Quiz Button */}
+            <button
+                onClick={() => router.push("/quiz")}
+                className="bg-[#cc2366] text-white font-semibold text-sm px-4 py-2 rounded-full shadow-lg hover:bg-[#dc2743] transition focus:outline-none focus:ring-2 focus:ring-[#f09433] flex items-center space-x-1"
+            >
+                <span className="text-xl">🎯</span> <span>Take a Quiz</span>
+            </button>
+        </div>
+
+        {/* --- MODERN STAGGERED LAYOUT --- */}
+        <AnimatePresence mode="wait">
+          {!selectedLocation && (
+            <motion.div
+                key="list"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.3 }}
+                // Tailwind utility to create a staggered list/Pinterest style columns
+                className="columns-2 gap-4"
+            >
+                {locations.map((loc) => (
+                    // The break-inside-avoid ensures items don't break across columns
+                    <div
+                        key={loc.name}
+                        // Use aspectRatio for variable heights based on the data
+                        style={{ aspectRatio: loc.aspect || '1/1' }} 
+                        className="mb-4 break-inside-avoid overflow-hidden rounded-xl shadow-xl bg-gray-800 border border-gray-700 cursor-pointer transition transform hover:scale-[1.03]"
+                        onClick={() => setSelectedLocation(loc)}
+                    >
+                        {/* InfoCard component goes here */}
+                        <InfoCard image={loc.image} name={loc.name} />
+                    </div>
+                ))}
+            </motion.div>
+          )}
+        </AnimatePresence>
+        
       </div>
-
-      <div className="text-3xl font-bold mb-3 mt-6">Explore the School</div>
-
-      <div className="relative mb-4">
-        <input
-          className="w-full rounded-xl border border-gray-200 px-3 py-2 pr-10 outline-none bg-gray-50"
-          placeholder="Search any place..."
-        />
-        <button className="absolute top-1/2 right-4 -translate-y-1/2 bg-yellow-400 p-2 rounded-xl">
-          <svg width={16} height={16} fill="none" viewBox="0 0 24 24">
-            <circle cx={11} cy={11} r={7} stroke="#222" strokeWidth={2} />
-            <path stroke="#222" strokeWidth={2} strokeLinecap="round" d="M20 20L16.65 16.65" />
-          </svg>
-        </button>
-      </div>
-
+      
+      {/* --- Detail View (Bottom-Up Sliding Sheet Modal) --- */}
       <AnimatePresence>
-        {selectedImage ? (
+        {selectedLocation && (
           <motion.div
             key="detail"
-            initial={{ opacity: 0, scale: 0.9, y: 50 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.9, y: 50 }}
-            transition={{ duration: 0.3, ease: "easeOut" }}
-            className="fixed inset-0 z-50 flex flex-col bg-white rounded-t-2xl shadow-xl overflow-y-auto"
+            // Slide up animation with Framer Motion spring
+            initial={{ y: "100%" }}
+            animate={{ y: 0 }}
+            exit={{ y: "100%" }}
+            transition={{ type: "spring", stiffness: 300, damping: 30 }}
+            // Full-screen fixed container with black background
+            className="fixed inset-0 z-50 flex flex-col bg-black overflow-y-auto"
           >
-            <div className="flex-1">
+            {/* Image Section */}
+            <div className="relative h-72 w-full">
               <img
-                src={selectedImage.image}
-                alt={selectedImage.name}
-                className="h-70 w-full object-cover"
+                src={selectedLocation.image}
+                alt={selectedLocation.name}
+                className="w-full h-full object-cover"
               />
-            </div>
-            <div className="p-6 mb-20">
-              <h1 className="text-3xl font-bold mb-3">{selectedImage.name}</h1>
-              <p className="mb-6 text-gray-700">{selectedImage.description}</p>
+              {/* Back Button on top of the image */}
               <button
-                onClick={() => setSelectedImage(null)}
-                className="mt-2 px-4 py-3 rounded-lg bg-blue-600 text-white font-semibold hover:bg-blue-700"
+                onClick={() => setSelectedLocation(null)}
+                className="absolute top-6 left-6 w-10 h-10 rounded-full bg-black/50 flex items-center justify-center text-white backdrop-blur-sm z-10 hover:bg-black/70 transition"
+                aria-label="Back"
               >
-                ← Back
+                <svg width={24} height={24} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+                </svg>
               </button>
             </div>
-          </motion.div>
-        ) : (
-          <motion.div
-            key="list"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.3 }}
-            className="w-full bg-white"
-          >
-            <div className="columns-2 gap-3">
-              {locations.map((loc) => (
-                <div
-                  key={loc.name}
-                  style={{ aspectRatio: loc.aspect }}
-                  className="mb-3 break-inside-avoid overflow-hidden shadow-md bg-white cursor-pointer"
-                  onClick={() => setSelectedImage(loc)}
-                >
-                  <InfoCard image={loc.image} name={loc.name} />
-                </div>
-              ))}
+            
+            {/* Content Section */}
+            <div className="p-6">
+              <h1 className="text-4xl font-bold mb-4 text-white">{selectedLocation.name}</h1>
+              {/* Soft text color for readability against black background */}
+              <div className="mb-4 text-gray-300 space-y-4 leading-relaxed">
+                  {selectedLocation.description}
+              </div>
             </div>
+
+            {/* Empty space for scrolling content above fixed navigation */}
+            <div className="h-32 shrink-0" />
           </motion.div>
         )}
       </AnimatePresence>

@@ -1,167 +1,169 @@
-"use client"
+// src/app/stalls/page.jsx
+"use client";
 
-import StallsCard from "../../../components/ui/StallsCard";
-import PopRestaurants from "../../../components/ui/PopRestaurants"
-import { useRef, useEffect } from "react"
+// Using original file names
+import StallsCard from "../../../components/ui/StallsCard"; 
+import PopRestaurants from "../../../components/ui/PopRestaurants"; 
+import { useState, useMemo } from "react";
 
-export default function StallsCardPage(){
-    const categories = [
-        { name: "All", icon: "🍖" },
-        { name: "Indian", icon: "🍲" },
-        { name: "Chinese", icon: "🍟" },
-        { name: "Kathi", icon: "🌯" },
-        { name: "Pizza", icon: "🍕" },
-        { name: "Burger", icon: "🍔" },
-        { name: "Drinks", icon: "🥤" },
-    ];
+// Import the restaurant data
+import restaurantData from "@/data/restaurant.json";
 
-    const scrollRef = useRef(null);
-    useEffect(() => {
-        const scrollContainer = scrollRef.current;
-        let scrollAmount = 0;
-        const scrollStep = 2; // pixels per frame
-        const scrollDelay = 20; // ms
+// Helper function to map restaurant data for the StallsCard component
+const processRestaurantData = (data) => {
+  if (!data || !data.restaurants) return [];
+  
+  // Placeholder image map (replace with real hosted URLs)
+  const imageMap = {
+    "Lazeez Kathi Rolls": "https://images.unsplash.com/photo-1598460627244-8d4e12e1e075?fit=crop&w=600&h=400&q=80",
+    "The Pink Okra": "https://images.unsplash.com/photo-1560787118-2e061b40e4f2?fit=crop&w=600&h=400&q=80",
+    "Best of Bengal": "https://images.unsplash.com/photo-1599540097725-78351b6a18d9?fit=crop&w=600&h=400&q=80",
+    "y cafe": "https://images.unsplash.com/photo-1507041951596-f33b1e39a031?fit=crop&w=600&h=400&q=80",
+    "Tavern": "https://images.unsplash.com/photo-1517248135465-4d228f413da6?fit=crop&w=600&h=400&q=80",
+    "Belly Gong Cafe & Bakery": "https://images.unsplash.com/photo-1596701831835-59b1580c8e3c?fit=crop&w=600&h=400&q=80",
+    "Rolls Mania": "https://images.unsplash.com/photo-1592476579296-6e2a2253c5f2?fit=crop&w=600&h=400&q=80",
+    "Burger Singh": "https://images.unsplash.com/photo-1582234057393-274737a1f599?fit=crop&w=600&h=400&q=80",
+    "Mexican Grill": "https://images.unsplash.com/photo-1541819717-d5d140e9d1a8?fit=crop&w=600&h=400&q=80",
+    "Snowy Owl Gelato Co.": "https://images.unsplash.com/photo-1579294246816-1f63625f54c9?fit=crop&w=600&h=400&q=80",
+    "MOS Dehradun – Global Food Excursion (Day 1)": "https://images.unsplash.com/photo-1565299624942-4348e3518e28?fit=crop&w=600&h=400&q=80",
+    "Dominos": "https://images.unsplash.com/photo-1574635198965-0638520d2a80?fit=crop&w=600&h=400&q=80",
+  };
 
-        const autoScroll = () => {
-            if (!scrollContainer) return;
-            scrollAmount += scrollStep;
-            if (scrollAmount >= scrollContainer.scrollWidth - scrollContainer.clientWidth) {
-                scrollAmount = 0; // Loop back to start
-            }
-            scrollContainer.scrollTo({ left: scrollAmount, behavior: "smooth" });
-        };
+  return data.restaurants.map((res, index) => {
+    const primaryCategory = Object.keys(res.categories || {})[0] || "Misc";
 
-        const interval = setInterval(autoScroll, scrollDelay);
-        return () => clearInterval(interval);
-    }, []);
-      
+    return {
+      id: index,
+      name: res.name,
+      image: res.image_url || imageMap[res.name] || "https://placehold.co/600x400/1e293b/white/png",
+      rating: (Math.random() * (5 - 3.5) + 3.5).toFixed(1), // Mock rating
+      stallNo: (index + 10).toString(), // Mock stall number
+      offer: index % 3 === 0 ? "10% OFF" : "", // Mock offer
+      category: primaryCategory
+    };
+  });
+};
 
+const ALL_RESTAURANTS = processRestaurantData(restaurantData);
+
+const CATEGORIES = [
+    { name: "All", icon: "⭐" },
+    ...Array.from(
+        new Set(ALL_RESTAURANTS.map(r => r.category))
+    ).map(cat => ({
+        name: cat,
+        icon: cat.includes("Rolls") || cat.includes("Kathi") ? "🌯" : 
+              cat.includes("Pizza") ? "🍕" : 
+              cat.includes("Burger") ? "🍔" :
+              cat.includes("Drinks") || cat.includes("Shake") || cat.includes("Coffee") ? "🥤" :
+              cat.includes("Chicken") || cat.includes("NonVeg") || cat.includes("Biriyani") ? "🍗" :
+              cat.includes("Desserts") || cat.includes("Cake") || cat.includes("Pastries") || cat.includes("Gelato") || cat.includes("Bakery") ? "🍰" :
+              "🍴" 
+    }))
+];
+
+export default function StallsCardPage() {
+    const [selectedCategory, setSelectedCategory] = useState("All");
+
+    const filteredRestaurants = useMemo(() => {
+        if (selectedCategory === "All") {
+            return ALL_RESTAURANTS;
+        }
+        return ALL_RESTAURANTS.filter(r => r.category === selectedCategory);
+    }, [selectedCategory]);
+    
+    // UI/UX Component for category item
+    const CategoryItem = ({ name, icon, isSelected }) => (
+        <div 
+            className={`flex flex-col items-center p-3 rounded-xl cursor-pointer transition-all duration-300 min-w-[70px] snap-start ${
+                isSelected 
+                    ? 'bg-indigo-600 shadow-xl shadow-indigo-500/30' 
+                    : 'bg-white hover:bg-gray-100 border border-gray-200'
+            }`}
+            onClick={() => setSelectedCategory(name)}
+        >
+            <div className={`text-2xl mb-1 transition-transform ${isSelected ? 'scale-110' : ''}`}>
+                {icon}
+            </div>
+            <span className={`text-xs font-medium transition-colors text-center ${isSelected ? 'text-white' : 'text-gray-700'}`}>
+                {name.split(' ')[0]}
+            </span>
+        </div>
+    );
+    
     return(
-        <div className="w-full h-full mx-auto bg-white rounded-3xl shadow-lg p-4 relative font-sans pb-32">
-            {/* Top Search Bar */}
-            <div className="flex items-center gap-2 mb-4">
-                <input
-                className="flex-1 px-4 py-2 rounded-full bg-gray-100 text-sm outline-none"
-                placeholder="Search"
-                />
-                <div className="bg-orange-100 text-orange-500 p-2 rounded-full">
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <circle cx="11" cy="11" r="8" strokeWidth="2" />
-                    <path d="M21 21l-4.35-4.35" strokeWidth="2" />
-                </svg>
-                </div>
-            </div>
+        <div className="w-full min-h-screen bg-gray-50 font-sans pb-24"> 
+            <div className="max-w-xl mx-auto p-4">
 
-            {/* Categories */}
-            <div className="flex flex-row items-center justify-center gap-4 mb-6 overflow-x-auto pb-2" ref={scrollRef}>
-                {categories.map((c) => (
-                <div key={c.name} className="flex flex-col items-center">
-                    <div className="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center text-xl mb-1">
-                    {c.icon}
+                {/* Header and Search - Sticky Look */}
+                <div className="sticky top-0 bg-gray-50 pt-2 pb-4 z-10 border-b border-gray-100">
+                    <h1 className="text-3xl font-bold mb-4 text-gray-900">Food Stalls 🍽️</h1>
+
+                    <div className="flex items-center gap-3">
+                        <input
+                            className="flex-1 px-5 py-3 rounded-xl bg-white text-gray-800 text-base shadow-sm border border-gray-200 focus:ring-2 focus:ring-indigo-500 outline-none transition-all"
+                            placeholder="Search"
+                        />
+                        <div className="bg-indigo-600 text-white p-3 rounded-xl shadow-md hover:bg-indigo-700 transition">
+                            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                            </svg>
+                        </div>
                     </div>
-                    <span className="text-xs text-gray-500">{c.name}</span>
                 </div>
-                ))}
-            </div>
 
-            {/* Popular Restaurants */}
-            <PopRestaurants />
-
-            {/* All Restaurants */}
-            <h2 className="text-xl font-semibold mb-2">All Stalls</h2>
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
-                <StallsCard
-                    image="https://b.zmtcdn.com/data/pictures/3/21200663/3224425715d12181f4586c2daf715028.jpg?output-format=webp&fit=around|771.75:416.25&crop=771.75:416.25;*,*"
-                    name="Rolls Mania"
-                    rating="4.5"
-                    stallNo="26"
-                    offer=""
-                />
-                <StallsCard
-                    image="https://b.zmtcdn.com/data/pictures/chains/7/3500437/91fb9d0f90ec10a2d996ccbf49e4079f.jpeg?fit=around%7C200%3A200&crop=200%3A200%3B%2A%2C%2A" 
-                    name="Walk in Woods"
-                    rating="4.5"
-                    stallNo="39"
-                    offer=""
-                />
-                <StallsCard
-                    image="https://b.zmtcdn.com/data/pictures/chains/3/3500373/0a8e5c36b9e641bc2da42fd3398de8a5_o2_featured_v2.jpg?output-format=webp"
-                    name="Doon Triple Nine"
-                    rating="4.5"
-                    stallNo="18"
-                    offer=""
-                />
-                <StallsCard
-                    image="https://www.licious.in/blog/wp-content/uploads/2020/12/BBQ-Chicken-Pizza-750x750.jpg"
-                    name="Domino's Pizza"
-                    rating="4.1"
-                    stallNo="28"
-                    offer=""
-                />
-                <StallsCard
-                    image="https://b.zmtcdn.com/data/pictures/chains/7/3501627/7ffe00f19bc2ab12e5c5368d0643e19d_featured_v2.jpg?output-format=webp"
-                    name="Burger Singh"
-                    rating="4.6"
-                    stallNo="36"
-                    offer=""
-                />
-                <StallsCard
-                    image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgiVxHZAYqaceL7hPDJafiwSdjly7wyJeobA&s"
-                    name="Kebabs 'N' Curries"
-                    rating="4.9"
-                    stallNo="4"
-                    offer=""
-                />
-                <StallsCard
-                    image="https://b.zmtcdn.com/data/pictures/chains/5/3500375/fca6e33ea05ba721fd41f967aa5ab59e_featured_v2.jpg?output-format=webp"
-                    name="Kalkata Lazeez Kathi"
-                    rating="4.6"
-                    stallNo="41"
-                    offer=""
-                />
-                <StallsCard
-                    image="https://www.munatycooking.com/wp-content/uploads/2023/12/chicken-shawarma-image-feature-2023.jpg"
-                    name="Trees Ventures"
-                    rating="3.2"
-                    stallNo="7"
-                    offer=""
-                />
-                <StallsCard
-                    image="https://content.jdmagicbox.com/comp/def_content/chaat_corners/default-chaat-corners-14.jpg"
-                    name="Sagar Chaat"
-                    rating="1.8"
-                    stallNo="35"
-                    offer=""
-                />
-                <StallsCard
-                    image="https://b.zmtcdn.com/data/pictures/9/19013179/f4410c3137dc8934a443d6e377595d91.jpg?fit=around|750:500&crop=750:500;*,*"
-                    name="Hong's Kitchen"
-                    rating="4.0"
-                    stallNo="12"
-                    offer=""
-                />
-                <StallsCard
-                    image="https://b.zmtcdn.com/data/pictures/8/110248/8625af42d46380ccbc230b9e5f413418_o2_featured_v2.jpg?fit=around|960:500&crop=960:500;*,*"
-                    name="Kesar Foods"
-                    rating="4.0"
-                    stallNo="44"
-                    offer=""
-                />
-                <StallsCard
-                    image="https://b.zmtcdn.com/data/reviews_photos/a35/ee16d23c5bbbbed575a6ce2546890a35_1532611421.jpg?fit=around%7C200%3A200&crop=200%3A200%3B%2A%2C%2A"
-                    name="Y Café & Resta."
-                    rating="3.9"
-                    stallNo="9"
-                    offer=""
-                />
-                <StallsCard
-                    image="https://b.zmtcdn.com/data/pictures/5/20741605/c035309b3edc32022fcb99be7da84539_o2_featured_v2.jpg?fit=around%7C108%3A108&crop=108%3A108%3B%2A%2C%2A"
-                    name="Frozen Factory"
-                    rating="4.2"
-                    stallNo="50"
-                    offer=""
-                />
+                {/* Categories - Horizontal Scroll with Snapping */}
+                <div 
+                    className="flex overflow-x-scroll gap-3 py-4 snap-x snap-mandatory hide-scroll-bar" 
+                >
+                    {CATEGORIES.map((c) => (
+                        <CategoryItem 
+                            key={c.name} 
+                            name={c.name} 
+                            icon={c.icon} 
+                            isSelected={selectedCategory === c.name}
+                        />
+                    ))}
+                </div>
+                
+                <hr className="my-4 border-gray-200" />
+                
+                {/* Popular Restaurants (Carousel) */}
+                <h2 className="text-2xl font-bold mb-4 text-gray-900">🔥 Top Picks</h2>
+                <PopRestaurants restaurants={ALL_RESTAURANTS.slice(0, 4)} /> 
+                
+                {/* All Restaurants - Dynamic Grid */}
+                <h2 className="text-2xl font-bold mt-8 mb-4 text-gray-900">
+                    {selectedCategory === "All" ? "All Stalls" : selectedCategory} ({filteredRestaurants.length})
+                </h2>
+                
+                {filteredRestaurants.length > 0 ? (
+                    <div className="grid grid-cols-2 gap-4">
+                        {filteredRestaurants.map((stall) => (
+                            <StallsCard 
+                                key={stall.id}
+                                image={stall.image}
+                                name={stall.name}
+                                rating={stall.rating}
+                                stallNo={stall.stallNo}
+                                offer={stall.offer}
+                            />
+                        ))}
+                    </div>
+                ) : (
+                    <p className="text-center text-gray-500 py-10">No stalls found in this category.</p>
+                )}
             </div>
+            
+            <style jsx global>{`
+                .hide-scroll-bar::-webkit-scrollbar {
+                    display: none;
+                }
+                .hide-scroll-bar {
+                    -ms-overflow-style: none;
+                    scrollbar-width: none;
+                }
+            `}</style>
         </div>
     )
 }

@@ -1,52 +1,67 @@
+// src/components/ui/PopRestaurantsCard.jsx
 "use client"
 
 export default function PopRestaurantsCard(props) {
     return (
-      <div className="flex items-center justify-center mb-5">
-        <div className="flex relative w-98 h-80 rounded-4xl overflow-hidden shadow-lg">
-          {/* Image fills the card */}
+      // Container: Removed unnecessary justify-center/items-center since the parent handles width and snapping.
+      <div className="p-1">
+        
+        {/* Card Body: Use standard size and rounded class (e.g., rounded-2xl) */}
+        <div className="relative w-full h-[300px] rounded-2xl overflow-hidden shadow-xl">
+          
+          {/* Image */}
           <img
             src={props.image}
             alt={props.alt}
+            // Use 'object-cover' and 'absolute inset-0' for perfect fill
             className="absolute inset-0 w-full h-full object-cover"
           />
 
-          <div className="absolute inset-0 bg-gradient-to-r from-black/20 via-black/5 to-transparent" />
+          {/* Overlay Gradient (Darker at bottom for text readability) */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
 
-          <div>
-            <div className="absolute top-0 p-4 z-10">
-              <div className="text-white font-bold top-2 text-2xl">
+          {/* Content Container (Simplified structure) */}
+          <div className="absolute inset-0 flex flex-col justify-between p-4 text-white">
+            
+            {/* Top Titles */}
+            <div className="pt-2">
+              <div className="text-3xl font-extrabold leading-none">
                   {props.title1}            
               </div>
-              <div className="text-white font-bold top-2 text-2xl">
+              <div className="text-3xl font-extrabold leading-none">
                   {props.title2}            
               </div>
             </div>
-            <div className="absolute bottom-0 w-full p-4 z-10">
-              <div className="flex flex-col text-yellow-400 text-sm mt-1">
-                <div className="text-white font-bold text-xl mb-2">
-                  <span>Stall No. {props.stallNo}</span>
+
+            {/* Bottom Details and Buttons */}
+            <div>
+              {/* Stall Info */}
+              <div className="flex justify-between items-center mb-4">
+                
+                {/* Stall No & Rating */}
+                <div className="flex flex-col">
+                    <span className="text-xl font-bold mb-1">
+                      Stall No. {props.stallNo}
+                    </span>
+                    <span className="flex items-center text-sm font-semibold">
+                      <span className="text-yellow-400 mr-1">★</span>
+                      <span>{props.rating}</span>
+                      <span className="ml-1 text-gray-300">({props.reviews} Reviews)</span>
+                    </span>
                 </div>
-                <div>
-                  <span className="flex">
-                    <span className="text-yellow font-bold">★</span>
-                    <span className="ml-1 text-white">{props.rating}</span>
-                    <span className="ml-1 text-white">({props.reviews})</span>
-                  </span>
-                </div>
+                
+                {/* Favorite Button (Heart) */}
+                <button className="flex items-center justify-center w-10 h-10 bg-white/30 backdrop-blur-sm border border-white/40 rounded-full shadow-lg transition hover:bg-white/50">
+                    <span className="text-xl">♡</span>
+                </button>
               </div>
-              <span>
-                <span>
-                  <button className="mt-4 w-75 h-12 bg-white/90 text-gray-900 rounded-full py-2 font-semibold hover:bg-white transition">
-                    More Details
-                  </button>
-                </span>
-                <span>
-                  <button className="absolute bottom-1 bg-white/20 backdrop-blur-sm border border-white/30 shadow-md m-3 px-3.5 h-12 py-0.5 text-3xl rounded-4xl">
-                    ♡
-                  </button>
-                </span>
-              </span>
+
+              {/* Main Action Button */}
+              <button 
+                  className="w-full h-12 bg-white text-gray-900 rounded-full font-bold shadow-2xl transition hover:bg-gray-100"
+              >
+                  View Menu
+              </button>
             </div>
           </div>
         </div>
