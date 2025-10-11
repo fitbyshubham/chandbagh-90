@@ -6,7 +6,6 @@ import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useRouter } from "next/navigation";
 
-// --- Data Definition ---
 const locations = [
   {
     image: "/Photos/MB.jpg",
@@ -392,8 +391,6 @@ const locations = [
     ),
   },
 ];
-// -----------------------------
-
 
 export default function InfoPage() {
   const [selectedLocation, setSelectedLocation] = useState(null);
