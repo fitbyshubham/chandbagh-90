@@ -4,27 +4,48 @@ import { useRouter } from "next/navigation";
 import React from "react";
 
 const team = [
-  { name: "Shubham Sharma", role: "Mentor", img: "/Portraits/Shubham.jpg" },
-  { name: "Samarth Pundeer", role: "Lead Developer", img: "/Portraits/Pundeer.jpg" },
-  { name: "Hemant Khandelwal", role: "Lead Developer", img: "/Portraits/Hemant.jpg" },
-  { name: "Vibhor Saraogi", role: "Developer", img: "/Portraits/Vibhor.jpg" },
-  { name: "Ojas Tripathi", role: "Developer", img: "/Portraits/Ojas.jpg" },
-  { name: "Aarav Anand", role: "Developer", img: "/Portraits/Aarav.jpg" },
+  {
+    name: "Shubham Sharma",
+    role: "Mentor",
+    img: "/Portraits/Shubham.jpg",
+    desc: "Guided the team with strategic vision and technical expertise throughout the development journey.",
+  },
+  {
+    name: "Samarth Pundeer",
+    img: "/Portraits/Pundeer.jpg",
+    desc: "Oversaw the app architecture, ensuring seamless integration between frontend and backend.",
+  },
+  {
+    name: "Hemant Khandelwal",
+    img: "/Portraits/Hemant.jpg",
+    desc: "Led the core development and optimized app performance with clean, efficient code.",
+  },
+  {
+    name: "Aarav Anand",
+    img: "/Portraits/Aarav.jpg",
+    desc: "Worked on the app’s user interaction layer and contributed to feature enhancements.",
+  },
+  {
+    name: "Vibhor Saraogi",
+    img: "/Portraits/Vibhor.jpg",
+    desc: "Focused on UI/UX development, bringing the design to life with animations and responsiveness.",
+  },
+  {
+    name: "Ojas Tripathi",
+    img: "/Portraits/Ojas.jpg",
+    desc: "Implemented key backend features and helped in maintaining robust data structures.",
+  },
+  
 ];
 
 const containerVariants = {
   hidden: { opacity: 0 },
-  show: { opacity: 1, transition: { staggerChildren: 0.12 } },
+  show: { opacity: 1, transition: { staggerChildren: 0.1 } },
 };
 
-const cardVariants = {
-  hidden: { opacity: 0, y: 40, rotate: -2 },
-  show: {
-    opacity: 1,
-    y: 0,
-    rotate: 0,
-    transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] },
-  },
+const itemVariants = {
+  hidden: { opacity: 0, y: 15 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] } },
 };
 
 export default function TeamPage() {
@@ -35,89 +56,86 @@ export default function TeamPage() {
       initial="hidden"
       animate="show"
       variants={containerVariants}
-      className="min-h-screen relative flex flex-col items-center pt-28 pb-32 px-6 md:px-20 lg:px-32 overflow-y-auto bg-gradient-to-b from-blue-50 via-blue-100 to-blue-200"
+      className="min-h-screen relative flex flex-col items-center pt-28 pb-32 px-6 md:px-20 lg:px-40 bg-gradient-to-b from-blue-50 via-teal-50 to-gray-50"
     >
-      <div className="absolute inset-0 bg-gradient-to-tr from-blue-100 via-blue-200 to-blue-300 opacity-20 -z-10"></div>
-
+      {/* Back Button */}
       <button
         onClick={() => router.push("/home")}
-        className="absolute top-6 left-6 px-4 py-2 rounded-full bg-gradient-to-r from-blue-600 to-blue-400 text-white font-semibold shadow-lg hover:scale-105 transition-transform"
+        className="absolute top-6 left-6 px-4 py-2 rounded-full bg-blue-600 text-white font-semibold shadow-md hover:bg-blue-500 transition-colors"
       >
         ← Back
       </button>
 
+      {/* Why We Made This App */}
+      <motion.section
+        initial={{ opacity: 0, y: -15 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        className="max-w-3xl text-center mb-24"
+      >
+        <h2 className="font-extrabold text-3xl md:text-4xl mb-6 text-gray-900">
+          Why We Made This App
+        </h2>
+        <p className="text-gray-700 text-base md:text-lg leading-relaxed">
+          We built this app to create something meaningful — a solution that simplifies user
+          experience while feeling intuitive, personal, and elegant. Our goal was to design a product
+          that doesn’t just work well but inspires confidence, creativity, and connection. Every part
+          of this app reflects our dedication and teamwork.
+        </p>
+      </motion.section>
+
+      {/* Meet the Team */}
       <motion.h2
-        initial={{ opacity: 0, y: -12 }}
+        initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className="font-extrabold text-3xl md:text-4xl mb-12 text-center text-blue-900"
+        className="font-extrabold text-3xl md:text-4xl mb-16 text-center text-gray-900"
       >
         Meet the Team
       </motion.h2>
 
+      {/* Team List */}
       <motion.div
         variants={containerVariants}
-        className="flex flex-col items-center space-y-12 w-full max-w-6xl"
+        className="flex flex-col w-full max-w-4xl"
       >
-        {/* Mentor */}
-        <motion.div variants={cardVariants} className="flex justify-center w-full">
-          <div className="mx-4 bg-white/20 backdrop-blur-xl border border-blue-400 rounded-3xl shadow-2xl flex flex-col items-center p-6 w-44 h-60 transform transition-all duration-300 hover:scale-105 hover:-translate-y-2 hover:shadow-3xl hover:rotate-1">
-            <img
-              src={team[0].img}
-              alt={team[0].name}
-              className="w-24 h-24 rounded-full object-cover mb-4 border-2 border-blue-300"
-            />
-            <div className="font-semibold text-lg text-blue-900 text-center">{team[0].name}</div>
-            <div className="text-sm text-blue-700 text-center mt-1">{team[0].role}</div>
-          </div>
-        </motion.div>
-
-        {/* Lead Developers */}
-        <div className="flex justify-center">
-          {team.slice(1, 3).map((t) => (
-            <motion.div key={t.name} variants={cardVariants} className="mx-3">
-              <div className="bg-white/20 backdrop-blur-xl border border-blue-400 rounded-3xl shadow-2xl flex flex-col items-center p-6 w-44 h-60 transform transition-all duration-300 hover:scale-105 hover:-translate-y-2 hover:shadow-3xl hover:rotate-1">
+        {team.map((member, index) => (
+          <React.Fragment key={member.name}>
+            <motion.div
+              variants={itemVariants}
+              className="flex flex-row items-start gap-6 w-full py-6 transition-transform transform hover:-translate-y-1"
+            >
+              {/* Profile Picture */}
+              <div className="flex-shrink-0">
                 <img
-                  src={t.img}
-                  alt={t.name}
-                  className="w-24 h-24 rounded-full object-cover mb-4 border-2 border-blue-300"
+                  src={member.img}
+                  alt={member.name}
+                  className="w-28 h-28 md:w-32 md:h-32 rounded-full object-cover shadow-lg ring-1 ring-blue-400"
                 />
-                <div className="font-semibold text-lg text-blue-900 text-center">{t.name}</div>
-                <div className="text-sm text-blue-700 text-center mt-1">{t.role}</div>
+              </div>
+
+              {/* Name + Role + Description */}
+              <div className="flex flex-col justify-center text-left">
+                <h3 className="text-xl md:text-2xl font-semibold text-gray-900">
+                  {member.name}
+                </h3>
+                {member.role && (
+                  <p className="text-teal-600 text-sm md:text-base font-medium mt-1 mb-2">
+                    {member.role}
+                  </p>
+                )}
+                <p className="text-gray-700 text-sm md:text-base leading-relaxed">
+                  {member.desc}
+                </p>
               </div>
             </motion.div>
-          ))}
-        </div>
 
-        {/* Developers */}
-        <div className="flex justify-center">
-          {team.slice(3, 5).map((t) => (
-            <motion.div key={t.name} variants={cardVariants} className="mx-3">
-              <div className="bg-white/20 backdrop-blur-xl border border-blue-400 rounded-3xl shadow-2xl flex flex-col items-center p-6 w-44 h-60 transform transition-all duration-300 hover:scale-105 hover:-translate-y-2 hover:shadow-3xl hover:rotate-1">
-                <img
-                  src={t.img}
-                  alt={t.name}
-                  className="w-24 h-24 rounded-full object-cover mb-4 border-2 border-blue-300"
-                />
-                <div className="font-semibold text-lg text-blue-900 text-center">{t.name}</div>
-                <div className="text-sm text-blue-700 text-center mt-1">{t.role}</div>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-
-        {/* Last Developer */}
-        <motion.div variants={cardVariants} className="flex justify-center w-full">
-          <div className="mx-4 bg-white/20 backdrop-blur-xl border border-blue-400 rounded-3xl shadow-2xl flex flex-col items-center p-6 w-44 h-60 transform transition-all duration-300 hover:scale-105 hover:-translate-y-2 hover:shadow-3xl hover:rotate-1">
-            <img
-              src={team[5].img}
-              alt={team[5].name}
-              className="w-24 h-24 rounded-full object-cover mb-4 border-2 border-blue-300"
-            />
-            <div className="font-semibold text-lg text-blue-900 text-center">{team[5].name}</div>
-            <div className="text-sm text-blue-700 text-center mt-1">{team[5].role}</div>
-          </div>
-        </motion.div>
+            {/* Neutral modern gradient separator */}
+            {index !== team.length - 1 && (
+              <div className="w-full h-1 mb-6 rounded-full bg-gradient-to-r from-blue-400 via-teal-400 to-yellow-400 opacity-60 shadow-sm"></div>
+            )}
+          </React.Fragment>
+        ))}
       </motion.div>
     </motion.main>
   );
