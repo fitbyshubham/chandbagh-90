@@ -89,11 +89,11 @@ export default function HomePage() {
   }, []);
 
   const handleAboutRoute = () => {
-    router.push("/InfoPage");
+    router.push("/about");
   };
 
   const handleTeamRoute = () => {
-    router.push("/Team");
+    router.push("/team");
   };
 
   return (
