@@ -6,14 +6,14 @@ export default function Onboarding() {
   const router = useRouter();
 
   const images = [
-    "https://images.unsplash.com/photo-1507525428034-b723cf961d3e",
-    "https://images.unsplash.com/photo-1473187983305-f615310e7daa",
-    "https://images.unsplash.com/photo-1503264116251-35a269479413",
-    "https://images.unsplash.com/photo-1517816743773-6e0fd518b4a6",
-    "https://images.unsplash.com/photo-1495567720989-cebdbdd97913",
-    "https://images.unsplash.com/photo-1481277542470-605612bd2d61",
-    "https://images.unsplash.com/photo-1503023345310-bd7c1de61c7d",
-    "https://images.unsplash.com/photo-1504208434309-cb69f4fe52b0",
+    "/photos/i1.png",
+    "/photos/i2.png",
+    "/photos/i3.png",
+    "/photos/i4.png",
+    "/photos/i5.png",
+    "/photos/i6.png",
+    "/photos/i7.png",
+    "/photos/i8.png",
   ];
 
   return (
