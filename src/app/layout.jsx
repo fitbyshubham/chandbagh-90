@@ -2,10 +2,10 @@
 
 import { useState } from "react";
 import "./globals.css";
-import ResponsiveWrapper from "@/components/ui/ResponsiveWrapper";
-import Navbar from "@/components/layout/Navbar";
-import Header from "@/components/layout/Header"; // 👈 Import the Header
-import StoryModal from "@/components/layout/StoryModal"; // 👈 Import the StoryModal
+import ResponsiveWrapper from "../components/ui/ResponsiveWrapper";
+import Navbar from "../components/layout/Navbar";
+import Header from "../components/layout/Header.jsx"; // 👈 Import the Header
+import StoryModal from "../components/layout/StoryModal"; // 👈 Import the StoryModal
 
 const pageMetadata = {
   title: "Chandbagh 90 – Celebration Companion",
