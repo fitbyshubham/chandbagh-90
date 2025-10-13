@@ -136,7 +136,7 @@ export default function HomePage() {
             <div className="relative h-[280px] overflow-hidden">
               <img
                 alt="Founders Day"
-                src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=800&q=80"
+                src="/Photos/hm4.jpg"
                 className="w-full h-full object-cover transform transition-all duration-700 group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
