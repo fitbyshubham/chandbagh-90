@@ -6,6 +6,7 @@ import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useRouter } from "next/navigation";
 
+// --- Data Definition ---
 const locations = [
   {
     image: "/Photos/MB.jpg",
@@ -334,11 +335,8 @@ const locations = [
     aspect: 4 / 3,
     description: (
       <>
-       The name “Guru’s Lawn” is a tribute to a teacher that has been nicknamed “Guru”. 
-       Guru has contributed to the school by encouraging students to get involved in mountaineering and trekking.
-        These activities are a core of The Doon School. Every walk to the Main Building is a reminder 
-        of the contributions to the School made by Guru.
-
+        Guru's Lawns is a meticulously maintained green space near the Main Building, often used for official school photographs,
+         outdoor assemblies, and formal gatherings. It is a symbol of the school's serene and beautiful environment.
       </>
     ),
   },
@@ -359,10 +357,8 @@ const locations = [
     aspect: 1.7 / 1,
     description: (
       <>
-       The Skinners, an iconic sports field at The Doon School contains legacy in Doon’s lush landscape. 
-       The term "Skinners" is short for Skinner's Field, in between Jaipur and Oberoi House. 
-       It hosts competitive sports matches, fostering teamwork. Skinners Field is named as it is because it was once 
-       the property of the descendants of James Skinner.
+        The Skinners is the school's official tuck shop and convenience store, where boys can buy daily necessities,
+         uniform items, and snacks. It's an essential part of the daily routine and a popular spot for a quick break.
       </>
     ),
   },
@@ -391,6 +387,8 @@ const locations = [
     ),
   },
 ];
+// -----------------------------
+
 
 export default function InfoPage() {
   const [selectedLocation, setSelectedLocation] = useState(null);

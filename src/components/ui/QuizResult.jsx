@@ -12,6 +12,9 @@ const QuizResult = () => {
   const total = parseInt(searchParams.get("total") || 1, 10);
   const percentage = total > 0 ? Math.round((correct / total) * 100) : 0;
 
+  // Calculate percentage
+  const percentage = total > 0 ? Math.round((correct / total) * 100) : 0;
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}

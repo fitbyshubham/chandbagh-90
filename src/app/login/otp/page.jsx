@@ -1,7 +1,7 @@
 // src/app/login/otp/page.jsx
 "use client";
 
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect, useLayoutEffect } from 'react';
 import { useRouter } from 'next/navigation';
 
 const images = [

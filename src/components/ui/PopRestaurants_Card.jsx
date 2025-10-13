@@ -1,5 +1,6 @@
 // src/components/ui/PopRestaurantsCard.jsx
 "use client"
+import { useRouter } from 'next/navigation';
 
 export default function PopRestaurantsCard(props) {
     return (
@@ -63,8 +64,6 @@ export default function PopRestaurantsCard(props) {
                   View Menu
               </button>
             </div>
-          </div>
         </div>
-      </div>
     )
 }

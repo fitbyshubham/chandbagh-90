@@ -36,6 +36,18 @@ export default function PopRestaurants({ restaurants = [] }) {
         itemRefs.current[i].scrollIntoView({ behavior: "smooth", inline: "start" });
       }
     }
+    
+    return restaurants.map(r => ({
+        image: r.image,
+        alt: r.name,
+        slug: slugify(r.name),
+        title1: r.name.split(' ')[0],
+        title2: r.name.split(' ').slice(1).join(' ') || '',
+        stallNo: r.stallNo,
+        rating: r.rating,
+        reviews: (Math.floor(Math.random() * 200) + 50).toString(),
+    }));
+};
 
     if (mappedStalls.length > 1) {
         // Clear existing interval before setting a new one

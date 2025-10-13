@@ -1,3 +1,4 @@
+// src/app/(auth)/home/page.jsx
 "use client";
 
 import React, { useState, useEffect } from "react";
@@ -32,15 +33,13 @@ const events = [
   {
     name: "Science Exhibition",
     time: "Oct 6, 11:00 AM",
-    image:
-      "https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=400&q=80",
+    image: "https://images.unsplash.com/photo-1464983258147-9a3b5d5e4f7c?auto=format&fit=crop&w=400&q=80",
     desc: "Explore student projects in the main hall.",
   },
   {
     name: "Sports Meet",
     time: "Oct 6, 3:00 PM",
-    image:
-      "https://images.unsplash.com/photo-1521737852567-6949f3f9f2b5?auto=format&fit=crop&w=400&q=80",
+    image: "https://images.unsplash.com/photo-1521737852567-6949f3f9f2b5?auto=format&fit=crop&w=400&q=80",
     desc: "Cheer on your house at the playground.",
   },
 ];
@@ -52,6 +51,11 @@ const team = [
   { name: "Vibhor Saraogi", role: "Developer", img: "/Portraits/" },
   { name: "Ojas Tripathi", role: "Developer", img: "/Portraits/" },
 ];
+// --- End Data ---
+
+// Define the primary dark background color
+const DARK_BG = "#1E2129"; 
+const CARD_BG = "#2B313C"; // Slightly lighter dark background for cards
 
 function VideoBanner({ thumbnail, videoUrl }) {
   const [isPlaying, setIsPlaying] = useState(false);
@@ -151,7 +155,6 @@ export default function HomePage() {
             </button>
           </div>
         </div>
-      </div>
 
       <VideoBanner
         thumbnail="https://img.youtube.com/vi/G5nBKfJ99a4/maxresdefault.jpg"
@@ -194,9 +197,7 @@ export default function HomePage() {
                 )}
               </div>
             </div>
-          ))}
         </div>
-      </div>
 
       <div className="px-4 mt-7">
         <h2 className="font-bold text-lg mb-2 text-gray-800">Upcoming Events</h2>
@@ -217,9 +218,7 @@ export default function HomePage() {
                 <div className="text-xs text-gray-700 mt-1">{e.desc}</div>
               </div>
             </div>
-          ))}
         </div>
-      </div>
 
       <div className="flex flex-col items-center justify-center pt-3 mx-3">
         <button onClick={handleTeamRoute} className="w-full">

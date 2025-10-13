@@ -1,7 +1,7 @@
 // src/app/login/page.jsx
 "use client";
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useLayoutEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import Alert from '../../components/ui/Alert.jsx';
 
@@ -59,6 +59,24 @@ export default function LoginPage() {
     return () => clearInterval(timer);
   }, []);
 
+  // 🔒 CRITICAL: Disable body scroll when component mounts
+  useLayoutEffect(() => {
+    // Save original overflow
+    const originalStyle = window.getComputedStyle(document.body).overflow;
+    document.body.style.overflow = 'hidden';
+    document.body.style.position = 'fixed';
+    document.body.style.width = '100%';
+
+    // Re-enable on unmount
+    return () => {
+      document.body.style.overflow = originalStyle;
+      document.body.style.position = '';
+      document.body.style.width = '';
+    };
+  }, []);
+
+  const currentImage = images[current].image.trim();
+
   return (
     <div className="min-h-screen flex flex-col bg-white max-w-[375px] mx-auto relative overflow-hidden">
       {/* Background */}
@@ -82,7 +100,6 @@ export default function LoginPage() {
           <h2 className="text-white text-xl font-bold mt-1">Chandbagh 90!</h2>
           <p className="text-white/90 text-sm mt-1">An app made by the students</p>
         </div>
-      </div>
 
       <div className="flex-1"></div>
 
@@ -93,6 +110,9 @@ export default function LoginPage() {
             <h1 className="text-xl font-bold text-gray-800">Let's get you signed in!</h1>
             <p className="text-gray-500 text-xs mt-1">Enter your details below.</p>
           </div>
+        </div>
+
+        <div className="flex-1"></div>
 
           {/* Phone Input */}
           <div className="space-y-1">
