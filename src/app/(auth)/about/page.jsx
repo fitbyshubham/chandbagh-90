@@ -307,7 +307,7 @@ const locations = [
     ),
   },
   {
-    image: "/Photos/MG.jpg",
+    image: "/Photos/cafe.png",
     name: "Cafe Aquaduct",
     aspect: 1.4 / 1.6,
     description: (
@@ -318,7 +318,7 @@ const locations = [
     ),
   },
   {
-    image: "/Photos/COE.jpg", // Assuming an image for Centers of Excellence
+    image: "/Photos/ce.png",
     name: "Centers of Excellence",
     aspect: 1.5 / 1.9,
     description: (
@@ -352,7 +352,7 @@ const locations = [
     ),
   },
   {
-    image: "/Photos/SK.jpg", // Assuming a placeholder image path
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/Oberoi_House_at_The_Doon_School.jpg/640px-Oberoi_House_at_The_Doon_School.jpg", // Assuming a placeholder image path
     name: "Skinners",
     aspect: 1.7 / 1,
     description: (
@@ -400,7 +400,7 @@ export default function InfoPage() {
       <div className="px-4 max-w-[420px] mx-auto"> 
 
         {/* Header Section */}
-        <div className="flex justify-between items-center mb-6 pt-4">
+        <div className="flex justify-between items-center mb-6 pt-4 mt-[18px]">
             <div className="text-3xl font-extrabold text-white">Chandbagh Landmarks</div>
             
             {/* Quiz Button */}
