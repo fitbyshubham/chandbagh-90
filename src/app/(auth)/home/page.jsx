@@ -1,19 +1,13 @@
-// src/app/(auth)/home/page.jsx
-"use client";
-
+'use client';
 import React, { useState, useEffect } from "react";
-import { useRouter } from "next/navigation";
-import { FaStar } from "react-icons/fa";
-import TeamCard from "../../../components/ui/TeamCard.jsx";
-import Header from "@/components/layout/Header";
-import StoryModal from "@/components/layout/StoryModal.jsx";
+import { FaStar, FaPlay, FaArrowRight, FaCalendar, FaMapMarkerAlt } from "react-icons/fa";
+import { useRouter } from "next/navigation"; // Import useRouter
 
 const specials = [
   {
     name: "Paneer Tikka Sandwich",
     price: "₹50",
-    image:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRIB0-zFdFEGoh5VnYpk5WqWVZh88m5YjlNUQ&s",
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRIB0-zFdFEGoh5VnYpk5WqWVZh88m5YjlNUQ&s",
     rating: 4.8,
     stall: "Stall No. 5",
     isTop: true,
@@ -21,8 +15,7 @@ const specials = [
   {
     name: "Veg Noodles",
     price: "₹40",
-    image:
-      "https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=400&q=80",
+    image: "  https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=400&q=80",
     rating: 4.6,
     stall: "Stall No. 2",
     isTop: false,
@@ -33,63 +26,40 @@ const events = [
   {
     name: "Science Exhibition",
     time: "Oct 6, 11:00 AM",
-    image: "https://images.unsplash.com/photo-1464983258147-9a3b5d5e4f7c?auto=format&fit=crop&w=400&q=80",
+    image: "  https://images.unsplash.com/photo-1464983258147-9a3b5d5e4f7c?auto=format&fit=crop&w=400&q=80",
     desc: "Explore student projects in the main hall.",
   },
   {
     name: "Sports Meet",
     time: "Oct 6, 3:00 PM",
-    image: "https://images.unsplash.com/photo-1521737852567-6949f3f9f2b5?auto=format&fit=crop&w=400&q=80",
+    image: "  https://images.unsplash.com/photo-1521737852567-6949f3f9f2b5?auto=format&fit=crop&w=400&q=80",
     desc: "Cheer on your house at the playground.",
   },
 ];
 
-const team = [
-  { name: "Shubham Sharma", role: "Mentor", img: "/Portraits/" },
-  { name: "Samarth Pundeer", role: "Lead Developer", img: "/Portraits/Pundeer.jpg" },
-  { name: "Hemant Khandelwal", role: "Lead Developer", img: "/Portraits/Hemant.jpg" },
-  { name: "Vibhor Saraogi", role: "Developer", img: "/Portraits/" },
-  { name: "Ojas Tripathi", role: "Developer", img: "/Portraits/" },
-];
-// --- End Data ---
-
-// Define the primary dark background color
-const DARK_BG = "#1E2129"; 
-const CARD_BG = "#2B313C"; // Slightly lighter dark background for cards
-
 function VideoBanner({ thumbnail, videoUrl }) {
   const [isPlaying, setIsPlaying] = useState(false);
+  
   return (
-    <div className="relative rounded-2xl overflow-hidden w-full h-[180px] mt-6 px-4">
+    <div className="bg-white rounded-3xl overflow-hidden shadow-sm border border-gray-100 transition-all duration-300 hover:shadow-md">
+      <div className="p-6 pb-4 border-b border-gray-100">
+        <h3 className="text-xl font-semibold text-gray-900 mb-1">Words From The Headmaster</h3>
+        <p className="text-sm text-gray-500">A message for the community</p>
+      </div>
+      
       {!isPlaying ? (
         <div
-          className="relative w-full h-full cursor-pointer"
+          className="relative w-full h-[240px] cursor-pointer group"
           onClick={() => setIsPlaying(true)}
         >
-          <div className="bg-blue-900 flex flex-col items-center">
-          <h2>Words From The Headmaster</h2>
-          </div>
           <img
             src="/photos/thumbnail.png"
             alt="Video thumbnail"
-            className="w-full h-[160px] object-cover rounded-2xl  "
+            className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-black bg-opacity-10 flex items-center justify-center">
-            <div className="w-16 h-16 bg-white bg-opacity-80 rounded-full flex items-center justify-center shadow-lg">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="black"
-                viewBox="0 0 24 24"
-                strokeWidth="1.5"
-                stroke="black"
-                className="w-8 h-8 ml-1"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M5.25 5.25v13.5l13.5-6.75-13.5-6.75z"
-                />
-              </svg>
+          <div className="absolute inset-0 bg-black/5 group-hover:bg-black/10 transition-all duration-300 flex items-center justify-center">
+            <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-lg transform transition-all duration-300 group-hover:scale-110">
+              <FaPlay className="w-6 h-6 text-gray-900 ml-1" />
             </div>
           </div>
         </div>
@@ -97,7 +67,7 @@ function VideoBanner({ thumbnail, videoUrl }) {
         <iframe
           src={`${videoUrl}?autoplay=1`}
           title="Intro Video"
-          className="w-full h-full rounded-2xl"
+          className="w-full h-[240px]"
           allow="autoplay; encrypted-media"
           allowFullScreen
         />
@@ -107,133 +77,224 @@ function VideoBanner({ thumbnail, videoUrl }) {
 }
 
 export default function HomePage() {
-  const router = useRouter();
+  const router = useRouter(); // Initialize the router
   const [userName, setUserName] = useState("Guest");
-  const [selectedImage, setSelectedImage] = useState(null);
 
   useEffect(() => {
     const savedName = localStorage.getItem("signup_name");
     if (savedName) setUserName(savedName);
   }, []);
 
-  const handleAboutRoute = () => router.push("/about");
-  const handleTeamRoute = () => router.push("/team");
+  const handleTeamRoute = () => { // Define the navigation function
+    router.push("/team");
+  };
 
   return (
-    <div className="min-h-screen bg-gray-100 flex flex-col pb-10">
-      {/* Pass spacerHeight to Header if needed, or calculate here */}
-      <Header onAvatarClick={(src) => setSelectedImage(src)} />
-      <StoryModal
-        isOpen={!!selectedImage}
-        imageSrc={selectedImage}
-        onClose={() => setSelectedImage(null)}
-      />
+    <div className="min-h-screen bg-gray-50">
+      {/* Spacing for header */}
+      <div className="h-20"></div>
+      
+      {/* Main Content Container */}
+      <div className="max-w-7xl mx-auto px-5 py-8">
+        
+        {/* Hero Section */}
+        <div className="mb-12">
+          <div className="text-left mb-8">
+            <p className="text-gray-500 text-sm mb-1">Welcome back</p>
+            <h1 className="text-5xl font-light text-gray-900 tracking-tight">{userName}</h1>
+          </div>
 
-      {/* ADDED: Spacer div to account for fixed header height */}
-      <div className="h-16"></div> {/* Adjust height if header height changes */}
-
-      <div className="bg-gray-900 text-white px-4 pb-6 pt-8 rounded-b-3xl shadow flex flex-col relative">
-        <div className="flex mb-4">
-          <div className="flex items-left space-x-1.5 flex-col">
-            <span className="text-2xl">Welcome,</span>
-            <span className="font-bold text-3xl">{userName}!</span>
+          {/* Featured Card */}
+          <div className="relative rounded-3xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 group bg-white border border-gray-100">
+            <div className="relative h-[280px] overflow-hidden">
+              <img
+                alt="Founders Day"
+                src="  https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=800&q=80"
+                className="w-full h-full object-cover transform transition-all duration-700 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
+              
+              <div className="absolute bottom-0 left-0 right-0 p-8">
+                <div className="inline-block bg-white/20 backdrop-blur-sm border border-white/30 px-3 py-1 rounded-full mb-3">
+                  <span className="text-white text-xs font-medium">90th Anniversary</span>
+                </div>
+                <h2 className="text-3xl font-semibold text-white mb-3 leading-tight">
+                  Welcome to DS90
+                </h2>
+                <p className="text-white/90 text-sm mb-5 max-w-lg leading-relaxed">
+                  Discover the most iconic places amongst Doscos as we celebrate 90 years of excellence.
+                </p>
+                <button className="inline-flex items-center gap-2 bg-white text-gray-900 px-6 py-3 rounded-full font-medium text-sm hover:bg-gray-100 transition-all duration-300 shadow-lg">
+                  Explore Now
+                  <FaArrowRight className="w-3 h-3" />
+                </button>
+              </div>
+            </div>
           </div>
         </div>
-        <div className="rounded-xl overflow-hidden shadow-lg mb-2 bg-gray-800">
-          <img
-            alt="Founders Day"
-            src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=800&q=80"
-            className="w-full h-36 object-cover"
-          />
-          <div className="p-4">
-            <div className="text-xl font-bold mb-1">Welcome to the DS90</div>
-            <p className="text-gray-300 text-sm mb-2">
-              On the 90th year of the school, get to know about some of the most
-              famous places amongst Doscos.
-            </p>
-            <button
-              onClick={handleAboutRoute}
-              className="bg-orange-500 text-white px-4 py-1 rounded-full font-semibold text-sm hover:bg-orange-600 transition"
-            >
-              Get to Know
+
+        {/* Two Column Layout */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
+          
+          {/* Left Column - Video */}
+          <div className="lg:col-span-2">
+            <VideoBanner
+              thumbnail="  https://img.youtube.com/vi/G5nBKfJ99a4/maxresdefault.jpg  "
+              videoUrl="https://www.youtube.com/embed/G5nBKfJ99a4"
+            />
+          </div>
+
+          {/* Right Column - Quick Info */}
+          <div className="space-y-4">
+            <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
+              <div className="flex items-center justify-between mb-4">
+                <h3 className="text-lg font-semibold text-gray-900">Quick Stats</h3>
+                <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+              </div>
+              <div className="space-y-4">
+                <div>
+                  <p className="text-gray-500 text-xs mb-1">Total Events</p>
+                  <p className="text-2xl font-semibold text-gray-900">24</p>
+                </div>
+                <div>
+                  <p className="text-gray-500 text-xs mb-1">Food Stalls</p>
+                  <p className="text-2xl font-semibold text-gray-900">12</p>
+                </div>
+                <div>
+                  <p className="text-gray-500 text-xs mb-1">Activities</p>
+                  <p className="text-2xl font-semibold text-gray-900">36</p>
+                </div>
+              </div>
+            </div>
+            
+            <div className="bg-gray-900 rounded-2xl p-6 text-white">
+              <h3 className="text-sm font-medium mb-2 text-gray-400">Today's Highlight</h3>
+              <p className="text-lg font-medium mb-1">Opening Ceremony</p>
+              <p className="text-sm text-gray-400">Main Assembly Hall • 10:00 AM</p>
+            </div>
+          </div>
+        </div>
+
+        {/* Top Rated Food */}
+        <div className="mb-12">
+          <div className="flex items-center justify-between mb-6">
+            <div>
+              <h2 className="text-2xl font-semibold text-gray-900">Top Rated Food</h2>
+              <p className="text-sm text-gray-500 mt-1">Most popular items today</p>
+            </div>
+            <button className="text-sm text-gray-600 hover:text-gray-900 font-medium flex items-center gap-2 transition-colors">
+              View All
+              <FaArrowRight className="w-3 h-3" />
             </button>
           </div>
-        </div>
-
-        <VideoBanner
-          thumbnail="https://img.youtube.com/vi/G5nBKfJ99a4/maxresdefault.jpg"
-          videoUrl="https://www.youtube.com/embed/G5nBKfJ99a4"
-        />
-
-        <div className="px-4 mt-6">
-          <h2 className="font-bold text-lg mb-2 text-gray-800">Top Rated Food</h2>
-          <div className="flex space-x-4 overflow-x-auto pb-2 hide-scrollbar">
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {specials.map((item, i) => (
               <div
                 key={i}
-                className={`min-w-[220px] bg-white rounded-2xl shadow-lg flex-shrink-0 ${
-                  item.isTop ? "border-2 border-blue-300" : "border border-gray-200"
-                }`}
+                className="bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-md transition-all duration-300 group"
               >
-                <img
-                  src={item.image}
-                  alt={item.name}
-                  className="w-full h-28 object-cover rounded-t-2xl"
-                />
-                <div className="p-3">
-                  <div className="flex items-center justify-between">
-                    <span className="font-semibold">{item.name}</span>
-                    <span className="text-xs bg-gray-100 px-2 py-0.5 rounded text-gray-600">
-                      {item.price}
-                    </span>
-                  </div>
-                  <div className="flex items-center mt-1">
-                    <FaStar className="text-yellow-300 mr-1" />
-                    <span className="text-xs font-bold">{item.rating}</span>
-                    <span className="ml-2 text-xs text-gray-500">
-                      {item.stall}
-                    </span>
-                  </div>
+                <div className="relative h-48 overflow-hidden">
+                  <img
+                    src={item.image}
+                    alt={item.name}
+                    className="w-full h-full object-cover transform transition-all duration-700 group-hover:scale-110"
+                  />
                   {item.isTop && (
-                    <span className="inline-block mt-2 text-xs bg-blue-100 text-blue-700 px-2 py-0.5 rounded-full font-semibold">
-                      Most Popular
-                    </span>
+                    <div className="absolute top-4 right-4 bg-white/95 backdrop-blur-sm px-3 py-1.5 rounded-full shadow-sm">
+                      <span className="text-gray-900 text-xs font-semibold flex items-center gap-1">
+                        <FaStar className="text-yellow-500 w-3 h-3" /> Popular
+                      </span>
+                    </div>
                   )}
+                </div>
+                <div className="p-5">
+                  <div className="flex items-start justify-between mb-3">
+                    <h3 className="font-semibold text-gray-900 text-lg">{item.name}</h3>
+                    <span className="text-gray-900 font-semibold text-lg">{item.price}</span>
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-2">
+                      <div className="flex items-center gap-1 bg-gray-50 px-2.5 py-1 rounded-lg">
+                        <FaStar className="text-yellow-500 w-3 h-3" />
+                        <span className="text-sm font-semibold text-gray-900">{item.rating}</span>
+                      </div>
+                    </div>
+                    <div className="flex items-center gap-1.5 text-gray-500">
+                      <FaMapMarkerAlt className="w-3 h-3" />
+                      <span className="text-xs">{item.stall}</span>
+                    </div>
+                  </div>
                 </div>
               </div>
             ))}
           </div>
         </div>
 
-        <div className="px-4 mt-7">
-          <h2 className="font-bold text-lg mb-2 text-gray-800">Upcoming Events</h2>
-          <div className="flex space-x-4 overflow-x-auto pb-2 hide-scrollbar">
+        {/* Upcoming Events */}
+        <div className="mb-12">
+          <div className="flex items-center justify-between mb-6">
+            <div>
+              <h2 className="text-2xl font-semibold text-gray-900">Upcoming Events</h2>
+              <p className="text-sm text-gray-500 mt-1">Don't miss out on these activities</p>
+            </div>
+            <button className="text-sm text-gray-600 hover:text-gray-900 font-medium flex items-center gap-2 transition-colors">
+              View Calendar
+              <FaArrowRight className="w-3 h-3" />
+            </button>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {events.map((e, i) => (
               <div
                 key={i}
-                className="min-w-[200px] bg-white rounded-2xl shadow-lg flex-shrink-0"
+                className="bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-md transition-all duration-300 group"
               >
-                <img
-                  src={e.image}
-                  alt={e.name}
-                  className="w-full h-24 object-cover rounded-t-2xl"
-                />
-                <div className="p-3">
-                  <div className="font-semibold">{e.name}</div>
-                  <div className="text-xs text-gray-500">{e.time}</div>
-                  <div className="text-xs text-gray-700 mt-1">{e.desc}</div>
+                <div className="flex gap-5 p-5">
+                  <div className="relative w-32 h-32 flex-shrink-0 rounded-xl overflow-hidden">
+                    <img
+                      src={e.image}
+                      alt={e.name}
+                      className="w-full h-full object-cover transform transition-all duration-700 group-hover:scale-110"
+                    />
+                  </div>
+                  <div className="flex-1 flex flex-col justify-between">
+                    <div>
+                      <h3 className="font-semibold text-gray-900 text-lg mb-2">{e.name}</h3>
+                      <p className="text-sm text-gray-600 leading-relaxed mb-3">{e.desc}</p>
+                    </div>
+                    <div className="flex items-center gap-2 text-gray-500">
+                      <FaCalendar className="w-3 h-3" />
+                      <span className="text-xs font-medium">{e.time}</span>
+                    </div>
+                  </div>
                 </div>
               </div>
             ))}
           </div>
         </div>
 
-        <div className="flex flex-col items-center justify-center pt-3 mx-3">
-          <button onClick={handleTeamRoute} className="w-full">
-            <TeamCard />
-          </button>
+        {/* Team Section - Updated to be clickable */}
+        <div className="mb-8">
+          <div
+            className="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 hover:shadow-md transition-all duration-300 cursor-pointer group"
+            onClick={handleTeamRoute} // Add onClick handler
+          >
+            <div className="flex items-center justify-between">
+              <div>
+                <h3 className="text-2xl font-semibold text-gray-900 mb-2">Meet Our Team</h3>
+                <p className="text-gray-600">The people behind DS90 celebration</p>
+              </div>
+              <div className="w-12 h-12 rounded-full bg-gray-100 flex items-center justify-center group-hover:bg-gray-900 transition-all duration-300">
+                <FaArrowRight className="w-4 h-4 text-gray-600 group-hover:text-white transition-colors" />
+              </div>
+            </div>
+          </div>
         </div>
       </div>
+
+      {/* Spacing for footer */}
+      <div className="h-20"></div>
     </div>
   );
 }

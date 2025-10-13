@@ -1,4 +1,3 @@
-// src/components/layout/Header.jsx
 "use client";
 
 import { useState } from 'react';
@@ -10,16 +9,13 @@ const STORY_AVATARS = [
   "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&h=100&fit=crop&crop=face",
 ];
 
-// Define the approximate height of the fixed header for the spacer
-const HEADER_HEIGHT_PX = '74px'; 
-
 export default function Header({ onAvatarClick }) {
   return (
     <>
-      {/* 1. The Floating Header (Fixed position) */}
+      {/* The Fixed Header Container - Added pb-2 for gap below header */}
       <header className="fixed top-0 left-0 right-0 z-40 px-4 pt-4 pb-2 max-w-[420px] mx-auto pointer-events-none">
-        <div className="flex items-center justify-between max-w-[375px] mx-auto bg-white/80 backdrop-blur-lg rounded-xl shadow-xl border border-white/40 py-2 px-4 pointer-events-auto transition-all duration-300">
-          
+        {/* Inner div with grey background */}
+        <div className="flex items-center justify-between max-w-[375px] mx-auto bg-gray-100 rounded-xl border border-white/40 py-2 px-4 pointer-events-auto transition-all duration-300">
           {/* Logo + Text */}
           <div className="flex items-center space-x-2">
             <div className="w-6 h-6">
@@ -41,7 +37,7 @@ export default function Header({ onAvatarClick }) {
             {STORY_AVATARS.map((src, index) => (
               <button
                 key={index}
-                onClick={() => onAvatarClick(src)}
+                onClick={() => onAvatarClick?.(src)}
                 className="relative rounded-full w-[44px] h-[44px] p-[2px] overflow-hidden flex items-center justify-center shadow-md focus:outline-none focus:ring-2 focus:ring-[#ff416c]"
                 style={{
                   background: 'linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888)',
@@ -61,13 +57,6 @@ export default function Header({ onAvatarClick }) {
           </div>
         </div>
       </header>
-
-      {/* 2. The Spacer (Takes up space in the document flow) */}
-      <div 
-        className="pt-4 pb-2 bg-black" // 💡 KEY CHANGE: Added bg-black here
-        style={{ height: HEADER_HEIGHT_PX }} 
-        aria-hidden="true" 
-      />
     </>
   );
 }
