@@ -169,16 +169,28 @@ export default function MenuPage() {
   };
 
   const removeFromCart = (itemName) => {
-    setCart(prev => {
+  setCart(prev => {
+    if (!prev[itemName]) {
+      return prev;
+    }
+    
+    const currentCount = prev[itemName].count;
+    
+    if (currentCount <= 1) {
       const newCart = { ...prev };
-      if (newCart[itemName]?.count > 1) {
-        newCart[itemName].count--;
-      } else {
-        delete newCart[itemName];
-      }
+      delete newCart[itemName];
       return newCart;
-    });
-  };
+    } else {
+      return {
+        ...prev,
+        [itemName]: {
+          ...prev[itemName],
+          count: currentCount - 1
+        }
+      };
+    }
+  });
+};
 
   const getCartSummary = () => {
       const totalItems = Object.values(cart).reduce((sum, item) => sum + item.count, 0);
@@ -394,6 +406,7 @@ export default function MenuPage() {
                   <span>₹{totalPrice.toFixed(2)}</span>
                 </div>
                 <button
+<<<<<<< HEAD
   onClick={() => {
     const orderSummary = {
       items: Object.entries(cart).map(([name, details]) => ({
@@ -421,6 +434,12 @@ export default function MenuPage() {
   Proceed to Checkout
 </button>
 
+=======
+                  className="w-full bg-gradient-to-r from-orange-400 to-orange-600 hover:from-orange-500 hover:to-orange-700 text-white py-3 rounded-xl font-bold transition-colors shadow-md"
+                >
+                  Proceed to Checkout
+                </button>
+>>>>>>> efb10ee (fix: spacing and profile page)
               </div>
             </div>
           </div>

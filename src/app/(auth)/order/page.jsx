@@ -159,48 +159,49 @@ export default function StallsCardPage() {
     return (
         <>
             <style jsx global>{`
-                @keyframes fade-in-up {
-                    from {
-                        opacity: 0;
-                        transform: translateY(20px);
-                    }
-                    to {
-                        opacity: 1;
-                        transform: translateY(0);
-                    }
+            @keyframes fade-in-up {
+                from {
+                    opacity: 0;
+                    transform: translateY(20px);
                 }
-                .animate-fade-in-up {
-                    animation-name: fade-in-up;
-                    animation-duration: 0.5s;
-                    animation-timing-function: ease-out;
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
                 }
-                .scrollbar-hide::-webkit-scrollbar {
-                    display: none;
-                }
-                .scrollbar-hide {
-                    -ms-overflow-style: none;
-                    scrollbar-width: none;
-                }
-            `}</style>
-            <div className="w-full min-h-screen mx-auto bg-gray-50 font-sans">
-                <div className="p-4 md:p-6 space-y-6">
-                    {/* Top Search Bar */}
-                    <div className="flex items-center gap-3 sticky top-0 z-10 bg-gray-50 pt-2 pb-3">
-                        <div className="relative flex-1">
-                            <svg className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
-                            </svg>
-                            <input
-                                className="w-full px-4 py-3 pl-12 rounded-full bg-white text-sm outline-none border border-gray-200 focus:border-orange-500 focus:ring-2 focus:ring-orange-200 transition-all"
-                                placeholder="Search stalls, items..."
-                            />
-                        </div>
-                        <button className="bg-white p-3 rounded-full shadow-sm border border-gray-200 hover:bg-gray-100 transition-colors">
-                            <svg className="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z" />
-                            </svg>
-                        </button>
+            }
+            .animate-fade-in-up {
+                animation-name: fade-in-up;
+                animation-duration: 0.5s;
+                animation-timing-function: ease-out;
+            }
+            .scrollbar-hide::-webkit-scrollbar {
+                display: none;
+            }
+            .scrollbar-hide {
+                -ms-overflow-style: none;
+                scrollbar-width: none;
+            }
+        `}</style>
+
+        <div className="w-full min-h-screen mx-auto bg-gray-50 font-sans">
+            <div className="p-4 md:p-6 space-y-6 pb-28">
+                {/* Top Search Bar */}
+                <div className="flex items-center gap-3 sticky top-0 z-10 bg-gray-50 pt-2 pb-3">
+                    <div className="relative flex-1">
+                        <svg className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                        </svg>
+                        <input
+                            className="w-full px-4 py-3 pl-12 rounded-full bg-white text-sm outline-none border border-gray-200 focus:border-orange-500 focus:ring-2 focus:ring-orange-200 transition-all"
+                            placeholder="Search stalls, items..."
+                        />
                     </div>
+                    <button className="bg-white p-3 rounded-full shadow-sm border border-gray-200 hover:bg-gray-100 transition-colors">
+                        <svg className="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z" />
+                        </svg>
+                    </button>
+                </div>
 
                     {/* Categories */}
                     <section>
