@@ -11,28 +11,60 @@ const team = [
     desc: "Guided the team with strategic vision and technical expertise throughout the development journey.",
   },
   {
-    name: "Samarth Pundeer",
-    img: "/Portraits/Pundeer.jpg",
-    desc: "Oversaw the app architecture, ensuring seamless integration between frontend and backend.",
-  },
-  {
     name: "Hemant Khandelwal",
     img: "/Portraits/Hemant.jpg",
     desc: "Led the core development and optimized app performance with clean, efficient code.",
   },
   {
-    name: "Aarav Anand",
-    img: "/Portraits/Aarav.jpg",
-    desc: "Worked on the app’s user interaction layer and contributed to feature enhancements.",
+    name: "Samarth Pundeer",
+    img: "/Portraits/Pundeer.jpg",
+    desc: "Oversaw the app architecture, ensuring seamless integration between frontend and backend.",
   },
+  
   {
     name: "Vibhor Saraogi",
     img: "/Portraits/Vibhor.jpg",
     desc: "Focused on UI/UX development, bringing the design to life with animations and responsiveness.",
   },
   {
-    name: "Ojas Tripathi",
-    img: "/Portraits/Ojas.jpg",
+    name: "Aarav Anand",
+    img: "/Portraits/Aarav.jpg",
+    desc: "Worked on the app’s user interaction layer and contributed to feature enhancements.",
+  },
+  
+  {
+    name: "Reyhan Singh",
+    img: "/Portraits/d.jpg",
+    desc: "Implemented key backend features and helped in maintaining robust data structures.",
+  },
+  {
+    name: "Shiven Goenka",
+    img: "/Portraits/d.jpg",
+    desc: "Implemented key backend features and helped in maintaining robust data structures.",
+  },
+  {
+    name: "Daksh Veer Singh",
+    img: "/Portraits/d.jpg",
+    desc: "Implemented key backend features and helped in maintaining robust data structures.",
+  },
+  {
+    name: "Nachiket Kediyal",
+    img: "/Portraits/d.jpg",
+    desc: "Implemented key backend features and helped in maintaining robust data structures.",
+  },
+  {
+    name: "Agastya Jitesh Shetty",
+    img: "/Portraits/d.jpg",
+    desc: "Implemented key backend features and helped in maintaining robust data structures.",
+  },
+  {
+    name: "Shubh Agarwal",
+    img: "/Portraits/d.jpg",
+    desc: "Implemented key backend features and helped in maintaining robust data structures.",
+  },
+  {
+    name: "Zafir Ali Naqvi",
+    img: "/Portraits/d.jpg",
     desc: "Implemented key backend features and helped in maintaining robust data structures.",
   },
   
