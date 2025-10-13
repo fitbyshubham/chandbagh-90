@@ -31,6 +31,7 @@ const team = [
     img: "/Photos/q4.jpg",
     desc: "I developed the Food Menu feature and resolved critical frontend issues.",
   },
+  
   {
     name: "Vibhor Saraogi",
     img: "/Photos/vb.jpg",
