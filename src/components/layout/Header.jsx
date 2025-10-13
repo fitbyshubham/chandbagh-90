@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
@@ -9,12 +9,12 @@ const HEADER_HEIGHT_PX = "74px";
 
 const STORY_AVATARS = [
   {
-    name: "Old School",
+    name: "Old Doon",
     src: "/photos/omb.jpg",
     stories: ["/Photos/omb.jpg", "/Photos/p.jpg", "/Photos/p2.jpg"],
   },
   {
-    name: "Old School",
+    name: "Old Doon",
     src: "/photos/do.jpg",
     stories: ["/Photos/do.jpg", "/Photos/p3.jpg", "/Photos/p4.jpg"],
   },
@@ -77,31 +77,38 @@ export default function Header() {
             </span>
           </div>
 
-          {/* Story Avatars */}
+          {/* Story Avatars with Labels */}
           <div className="flex space-x-3">
             {STORY_AVATARS.map((storyGroup, index) => (
-              <button
-                key={index}
-                onClick={() => openStory(storyGroup)}
-                className="relative rounded-full w-[44px] h-[44px] p-[2px] overflow-hidden flex items-center justify-center shadow-md focus:outline-none focus:ring-2 focus:ring-[#ff416c]"
-                style={{
-                  background:
-                    "linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888)",
-                }}
-              >
-                <div className="w-full h-full rounded-full bg-white p-[2px]">
-                  <img
-                    src={storyGroup.src}
-                    alt={storyGroup.name}
-                    className="w-full h-full object-cover rounded-full"
-                    draggable={false}
-                  />
-                </div>
-              </button>
+              <div key={index} className="flex flex-col items-center space-y-1">
+                <button
+                  onClick={() => openStory(storyGroup)}
+                  className="relative rounded-full w-[44px] h-[44px] p-[2px] overflow-hidden flex items-center justify-center shadow-md focus:outline-none focus:ring-2 focus:ring-[#ff416c]"
+                  style={{
+                    background:
+                      "linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888)",
+                  }}
+                >
+                  <div className="w-full h-full rounded-full bg-white p-[2px]">
+                    <img
+                      src={storyGroup.src}
+                      alt={storyGroup.name}
+                      className="w-full h-full object-cover rounded-full"
+                      draggable={false}
+                    />
+                  </div>
+                </button>
+                <span className="text-[10px] font-medium text-gray-700 leading-tight text-center w-[60px] truncate">
+                  {storyGroup.name}
+                </span>
+              </div>
             ))}
           </div>
         </div>
       </header>
+
+      {/* SPACER so content below header isn’t hidden */}
+      <div style={{ height: HEADER_HEIGHT_PX }} aria-hidden="true" />
 
       {/* STORY MODAL */}
       <AnimatePresence>
@@ -125,7 +132,7 @@ export default function Header() {
                 <X size={20} />
               </button>
 
-              {/* Story Image (Fit Entirely Inside) */}
+              {/* Story Image (fit fully) */}
               <AnimatePresence mode="wait">
                 <motion.img
                   key={`${activeStory.name}-${currentIndex}`}
@@ -163,7 +170,7 @@ export default function Header() {
                 </>
               )}
 
-              {/* Story Info + Dots */}
+              {/* Story Name + Dots */}
               <div className="absolute bottom-4 left-0 right-0 flex flex-col items-center px-4">
                 <span className="text-white text-sm font-medium mb-2">
                   {activeStory.name}
