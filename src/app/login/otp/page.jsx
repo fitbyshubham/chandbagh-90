@@ -124,7 +124,7 @@ export default function OtpPage() {
           </p>
         </div>
 
-        <div className="mb-6 flex justify-center gap-2">
+        <div className="mb-4 flex justify-center gap-2">
           {otp.map((digit, index) => (
             <input
               key={index}

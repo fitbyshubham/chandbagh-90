@@ -1,4 +1,4 @@
-// src/components/ui/PopRestaurants_Card.jsx
+// src/components/ui/PopRestaurantsCard.jsx
 "use client"
 import { useRouter } from 'next/navigation';
 
