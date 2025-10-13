@@ -105,7 +105,8 @@ export default function LoginPage() {
                 type="tel"
                 inputMode="numeric"
                 placeholder="Phone Number"
-                className="flex-1 p-2 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white/80 text-sm"
+                // FIX: Explicitly added text-gray-900 to ensure dark text color
+                className="flex-1 p-2 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white/80 text-sm text-gray-900" 
                 value={mobile}
                 onChange={(e) => setMobile(e.target.value.replace(/\D/g, ''))}
                 maxLength={10}
@@ -119,7 +120,8 @@ export default function LoginPage() {
             <input
               type="text"
               placeholder="Full Name"
-              className="w-full p-2 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white/80 text-sm"
+              // FIX: Explicitly added text-gray-900 to ensure dark text color
+              className="w-full p-2 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white/80 text-sm text-gray-900"
               value={name}
               onChange={(e) => setName(e.target.value)}
             />

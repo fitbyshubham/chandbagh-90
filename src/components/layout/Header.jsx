@@ -4,19 +4,20 @@
 import { useState } from 'react';
 import Image from 'next/image';
 
+// Use local images from the public/images folder
 const STORY_AVATARS = [
-  "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face",
-  "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=100&h=100&fit=crop&crop=face",
-  "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&h=100&fit=crop&crop=face",
+  "/images/hm1.jpg",
+  "/images/hm2.jpg",
+  "/images/hm3.jpg",
 ];
 
-// Define the approximate height of the fixed header for the spacer
-const HEADER_HEIGHT_PX = '74px'; 
+// REDUCED HEIGHT: Changed from 74px to 64px for tighter spacing
+const HEADER_HEIGHT_PX = '64px'; 
 
 export default function Header({ onAvatarClick }) {
   return (
     <>
-      {/* 1. The Floating Header (Fixed position) */}
+      {/* Header Container (Fixed) */}
       <header className="fixed top-0 left-0 right-0 z-40 px-4 pt-4 pb-2 max-w-[420px] mx-auto pointer-events-none">
         <div className="flex items-center justify-between max-w-[375px] mx-auto bg-white/80 backdrop-blur-lg rounded-xl shadow-xl border border-white/40 py-2 px-4 pointer-events-auto transition-all duration-300">
           
@@ -62,11 +63,11 @@ export default function Header({ onAvatarClick }) {
         </div>
       </header>
 
-      {/* 2. The Spacer (Takes up space in the document flow) */}
+      {/* Spacer div (takes up vertical space) */}
       <div 
-        className="pt-4 pb-2 bg-black" // 💡 KEY CHANGE: Added bg-black here
-        style={{ height: HEADER_HEIGHT_PX }} 
-        aria-hidden="true" 
+          className="pt-2 pb-2 bg-gray-900" // Note: This background should match the home page's dark background for a seamless look. In your dark mode home page, this should be set to the DARK_BG color, which is #1E2129.
+          style={{ height: HEADER_HEIGHT_PX, backgroundColor: '#1E2129' }} // Explicitly setting the dark background here for the spacer
+          aria-hidden="true" 
       />
     </>
   );

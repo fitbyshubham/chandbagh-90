@@ -276,19 +276,10 @@ const locations = [
     aspect: 4 / 3,
     description: (
       <>
-<<<<<<< HEAD
-       The Doon School's Art and Media Centre stands as a hub of creativity in 2010 by 
-       then-Union Minister Kapil Sibal during the school's platinum jubilee. 
-       This architectural gem weaves contemporary innovation.The Art and media center is used for ceramics,sculpture,
-        lino print.The lecture hall is used for debates, lectures and pitches of YEC and DSMUN
-
-
-=======
         The Art and Media Center (AMC) is the creative hub of the school, 
         offering facilities for visual arts, photography, film-making, and digital media.
          It encourages students to express themselves through various artistic mediums, 
          fostering creativity and critical thinking.
->>>>>>> e7793f1 (bhaut sarre changes)
       </>
     ),
   },
@@ -298,17 +289,9 @@ const locations = [
     aspect: 1 / 1.2,
     description: (
       <>
-<<<<<<< HEAD
-        The CDH is at the center of life in Doon. It’s where the whole school community,
-         students and teachers, comes together for every meal, making it feel like one big family. 
-         CDH is where friendships deepen and jokes are exchanged. Here all Doscos and masters enjoy the delicious food and bond with 
-         each other like family.
-
-=======
         The Central Dining Hall (CDH) is where the entire school community—boys and masters—gathers for meals. 
         It is a large, stately hall that serves as a central point for daily social interaction, 
         reinforcing the communal aspect of boarding school life.
->>>>>>> e7793f1 (bhaut sarre changes)
       </>
     ),
   },
@@ -318,15 +301,8 @@ const locations = [
     aspect: 1.7 / 2,
     description: (
       <>
-<<<<<<< HEAD
- The Doon School Pavilion is a key structure near the Main Field, serving as a central venue for sports events.
-  On the Pavillion there is a board with a calendar of all the scheduled Interhouse matches, helping students have a 
-  schedule in their mind. It also has a room with sports equipment for students to practice with.
-
-=======
         The Pavilion overlooks the Main Field, serving as the central viewing and gathering spot for all major sporting events. 
         It is a historic structure that houses changing rooms and offers a prestigious vantage point for sports dignitaries and guests.
->>>>>>> e7793f1 (bhaut sarre changes)
       </>
     ),
   },
@@ -336,17 +312,8 @@ const locations = [
     aspect: 1.4 / 1.6,
     description: (
       <>
-<<<<<<< HEAD
-        Cafe Aqueduct is a cozy retreat for Doon boys. Serving fresh sandwiches, coffees, and homemade treats,
-         it buzzes with chatter during breaks. Inspired by the site's historic charm, it fosters relaxed conversations.
-          A favorite for study sessions or quick bites, this spot blends with  modern vibes, nurturing community bonds 
-          and a touch of indulgence in the school's timeless rhythm.
-
-
-=======
         The Cafe Aquaduct is a modern addition to the campus, offering a casual and relaxed space for students 
         to socialize and enjoy snacks and light meals outside of the main dining schedule.
->>>>>>> e7793f1 (bhaut sarre changes)
       </>
     ),
   },
@@ -356,19 +323,9 @@ const locations = [
     aspect: 1.5 / 1.9,
     description: (
       <>
-<<<<<<< HEAD
-        The Centre of Excellence is dedicated to fostering holistic development and excellence in various domains. 
-        The institution has established several Centres of Excellence to provide specialized support and enrichment to students.
-         These include centres of debating ,art ,drama,creative writing and technology.
-         Their main purpose is to primarily focus on improving students greatly in these fundamental activities which are really important.
-          Interested students would learn these valuable skills and be multilingual in various fields. 
-
-
-=======
         The Centers of Excellence are dedicated hubs for advanced learning and extracurricular passion, 
         including Robotics, Astronomy, and Entrepreneurship. They provide resources and mentorship 
         for students to pursue deep dives into specialized, forward-looking fields.
->>>>>>> e7793f1 (bhaut sarre changes)
       </>
     ),
   },
@@ -378,16 +335,8 @@ const locations = [
     aspect: 4 / 3,
     description: (
       <>
-<<<<<<< HEAD
-       The name “Guru’s Lawn” is a tribute to a teacher that has been nicknamed “Guru”. 
-       Guru has contributed to the school by encouraging students to get involved in mountaineering and trekking.
-        These activities are a core of The Doon School. Every walk to the Main Building is a reminder 
-        of the contributions to the School made by Guru.
-
-=======
         Guru's Lawns is a meticulously maintained green space near the Main Building, often used for official school photographs,
          outdoor assemblies, and formal gatherings. It is a symbol of the school's serene and beautiful environment.
->>>>>>> e7793f1 (bhaut sarre changes)
       </>
     ),
   },
@@ -397,17 +346,8 @@ const locations = [
     aspect: 1.5 / 1.9,
     description: (
       <>
-<<<<<<< HEAD
-        Silently hidden behind Tata house is a tree which contains many old stories to narrate.
-        This old tree is not just simply a tree but is a symbol of legacy and experience. 
-        The tree is not just a part of the school—it is the school’s memory made living.
-         It has endured countless storms and even today it stands proudly.
-
-
-=======
         This ancient tree, a towering landmark on the campus, is a symbol of the school's enduring legacy and connection to nature. 
         It provides a quiet, shaded retreat and is a traditional meeting spot for Doscos.
->>>>>>> e7793f1 (bhaut sarre changes)
       </>
     ),
   },
@@ -417,15 +357,8 @@ const locations = [
     aspect: 1.7 / 1,
     description: (
       <>
-<<<<<<< HEAD
-       The Skinners, an iconic sports field at The Doon School contains legacy in Doon’s lush landscape. 
-       The term "Skinners" is short for Skinner's Field, in between Jaipur and Oberoi House. 
-       It hosts competitive sports matches, fostering teamwork. Skinners Field is named as it is because it was once 
-       the property of the descendants of James Skinner.
-=======
         The Skinners is the school's official tuck shop and convenience store, where boys can buy daily necessities,
          uniform items, and snacks. It's an essential part of the daily routine and a popular spot for a quick break.
->>>>>>> e7793f1 (bhaut sarre changes)
       </>
     ),
   },
@@ -435,17 +368,9 @@ const locations = [
     aspect: 1.4 / 1.6,
     description: (
       <>
-<<<<<<< HEAD
-       The Time Capsule is like a treasure chest buried for the future! In 2010, when the school turned 75 years old,
-        students, teachers, and old boys filled a box with things that showed what life at Doon was like back then. 
-        The time capsule shows how much Doon cares about its history, its people, legacy, and the memories they make together.
-
-
-=======
         The Time Capsule is a monument marking the school's commitment to its past and future. 
         It contains artifacts and messages to be opened by a future generation of Doscos, 
         connecting the present students to the school's long history.
->>>>>>> e7793f1 (bhaut sarre changes)
       </>
     ),
   },
@@ -455,16 +380,9 @@ const locations = [
     aspect: 1.5 / 1.9,
     description: (
       <>
-<<<<<<< HEAD
-        The Wellness Centre at The Doon School is a sanctuary for health in our serene campus. 
-        Offering medical care, and fitness programs, it nurtures boys’ physical and mental well-being. 
-        It fosters resilience and balance. With expert staff, it ensures students recover, blending modern facilities with care. 
-
-=======
         The Wellness Center is dedicated to the physical and mental health of the students. 
         It houses medical facilities, counseling services, and resources focused on overall student well-being, 
         ensuring a supportive environment for every boy.
->>>>>>> e7793f1 (bhaut sarre changes)
       </>
     ),
   },

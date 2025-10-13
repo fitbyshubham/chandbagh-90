@@ -32,6 +32,10 @@ export default function OtpPage() {
 
   useEffect(() => {
     if (!savedPhone) router.push('/login');
+    // Focus on the first input box when the component loads
+    if (inputRefs.current[0]) {
+      inputRefs.current[0].focus();
+    }
   }, [savedPhone, router]);
 
   const handleChange = (e, index) => {
@@ -49,11 +53,18 @@ export default function OtpPage() {
   };
 
   const handleKeyDown = (e, index) => {
-    if (e.key === "Backspace" && !otp[index] && index > 0) {
-      inputRefs.current[index - 1]?.focus();
-      const newOtp = [...otp];
-      newOtp[index - 1] = "";
-      setOtp(newOtp);
+    if (e.key === "Backspace") {
+      if (!otp[index] && index > 0) {
+        inputRefs.current[index - 1]?.focus();
+        const newOtp = [...otp];
+        newOtp[index - 1] = "";
+        setOtp(newOtp);
+      } else if (otp[index]) {
+        // Allow backspace to clear current digit without moving back immediately
+        const newOtp = [...otp];
+        newOtp[index] = "";
+        setOtp(newOtp);
+      }
     }
   };
 
@@ -76,38 +87,44 @@ export default function OtpPage() {
 
   return (
     <div className="min-h-screen flex flex-col bg-white max-w-[375px] mx-auto relative overflow-hidden">
-      <div
-        className="absolute inset-0 z-0"
-        style={{
-          backgroundImage: `url('${images[current].image}')`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
-        aria-hidden="true"
-      />
-      <div className="absolute inset-0 bg-black/30 z-10" aria-hidden="true" />
+      {/* Background with fading image carousel */}
+      <div className="absolute inset-0 z-0">
+        <div
+          className="absolute inset-0 transition-opacity duration-1000"
+          style={{
+            backgroundImage: `url('${images[current].image}')`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+          }}
+          aria-hidden="true"
+        />
+        <div className="absolute inset-0 bg-black/50 z-10" aria-hidden="true" />
+      </div>
 
+      {/* Header Banner */}
       <div className="relative z-20 pt-8 pb-4 text-center">
-        <div className="inline-block bg-black/50 backdrop-blur-sm px-4 py-2 rounded-lg">
-          <h1 className="text-white text-3xl font-bold">Welcome To<br />Chandbagh 90!</h1>
+        <div className="inline-block bg-black/50 backdrop-blur-sm px-4 py-2 rounded-xl">
+          <h1 className="text-white text-3xl font-bold tracking-tight">Welcome To</h1>
+          <h2 className="text-white text-xl font-bold mt-1">Chandbagh 90!</h2>
           <p className="text-white text-sm mt-1">An app made by the students</p>
         </div>
       </div>
 
       <div className="flex-1"></div>
 
-      <div className="relative z-20 bg-white rounded-t-3xl shadow-lg px-6 pt-8 pb-6 -mt-6">
+      {/* OTP Card */}
+      <div className="relative z-20 bg-white rounded-t-3xl shadow-2xl px-6 pt-8 pb-6 -mt-6">
         <div className="text-center">
           <h1 className="text-2xl font-bold mb-1">Enter the OTP</h1>
           <p className="text-neutral-500 text-sm mb-2">
-            Sent to +91{savedPhone || '...'}
+            Sent to <span className="font-semibold text-gray-700">+91 {savedPhone || '...'}</span>
           </p>
-          <p className="text-xs text-gray-500 mb-4">
+          <p className="text-xs text-gray-500 mb-6">
             Demo mode: any 6-digit code works (e.g., 123456)
           </p>
         </div>
 
-        <div className="mb-4 flex justify-center gap-2">
+        <div className="mb-6 flex justify-center gap-2">
           {otp.map((digit, index) => (
             <input
               key={index}
@@ -118,18 +135,26 @@ export default function OtpPage() {
               value={digit}
               onChange={(e) => handleChange(e, index)}
               onKeyDown={(e) => handleKeyDown(e, index)}
-              className="w-12 h-12 text-center text-lg font-semibold rounded-lg border-2 border-neutral-300 focus:outline-none focus:ring-2 focus:ring-black"
+              // FIX: Explicitly set text color to dark (text-gray-900)
+              className="w-12 h-12 text-center text-lg font-semibold rounded-lg border-2 border-neutral-300 focus:outline-none focus:ring-2 focus:ring-black text-gray-900" 
             />
           ))}
         </div>
 
-        {error && <p className="text-red-500 text-center text-sm mb-3">{error}</p>}
+        {error && <p className="text-red-500 text-center text-sm mb-4">{error}</p>}
 
         <button
           onClick={handleVerify}
-          className="w-full bg-black py-3 rounded-lg font-semibold text-white text-lg"
+          className="w-full bg-black py-3 rounded-xl font-semibold text-white text-lg shadow-md hover:bg-gray-800 transition"
         >
           Verify OTP
+        </button>
+        
+        <button
+            onClick={() => { /* In a real app, this would trigger re-send logic */ }}
+            className="w-full mt-3 py-2 text-sm font-medium text-blue-600 hover:text-blue-700 transition"
+        >
+            Resend OTP
         </button>
       </div>
     </div>
