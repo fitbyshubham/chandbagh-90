@@ -396,7 +396,7 @@ export default function InfoPage() {
 
   return (
     // Outer container for dark theme and bottom padding (for fixed Navbar)
-    <div className="w-full min-h-screen text-white bg-gray-900 pb-32">
+    <div className="w-full min-h-screen text-white bg-gray-900 pb-32 mt-20">
       <div className="px-4 max-w-[420px] mx-auto"> 
 
         {/* Header Section */}
