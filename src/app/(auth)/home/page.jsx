@@ -126,7 +126,7 @@ export default function HomePage() {
       <div className="max-w-7xl mx-auto px-5 py-8">
         {/* Hero Section */}
         <div className="mb-12">
-          <div className="text-left mb-8">
+          <div className="text-left mb-[50px]">
             <p className="text-gray-500 text-sm mb-1">Welcome back</p>
             <h1 className="text-5xl font-light text-gray-900 tracking-tight">{userName}</h1>
           </div>
