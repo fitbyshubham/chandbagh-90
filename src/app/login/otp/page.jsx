@@ -32,6 +32,10 @@ export default function OtpPage() {
 
   useEffect(() => {
     if (!savedPhone) router.push('/login');
+    // Focus on the first input box when the component loads
+    if (inputRefs.current[0]) {
+      inputRefs.current[0].focus();
+    }
   }, [savedPhone, router]);
 
   const handleChange = (e, index) => {
@@ -49,11 +53,18 @@ export default function OtpPage() {
   };
 
   const handleKeyDown = (e, index) => {
-    if (e.key === "Backspace" && !otp[index] && index > 0) {
-      inputRefs.current[index - 1]?.focus();
-      const newOtp = [...otp];
-      newOtp[index - 1] = "";
-      setOtp(newOtp);
+    if (e.key === "Backspace") {
+      if (!otp[index] && index > 0) {
+        inputRefs.current[index - 1]?.focus();
+        const newOtp = [...otp];
+        newOtp[index - 1] = "";
+        setOtp(newOtp);
+      } else if (otp[index]) {
+        // Allow backspace to clear current digit without moving back immediately
+        const newOtp = [...otp];
+        newOtp[index] = "";
+        setOtp(newOtp);
+      }
     }
   };
 
