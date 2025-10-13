@@ -394,10 +394,33 @@ export default function MenuPage() {
                   <span>₹{totalPrice.toFixed(2)}</span>
                 </div>
                 <button
-                  className="w-full bg-gradient-to-r from-orange-400 to-orange-600 hover:from-orange-500 hover:to-orange-700 text-white py-3 rounded-xl font-bold transition-colors shadow-md"
-                >
-                  Proceed to Checkout
-                </button>
+  onClick={() => {
+    const orderSummary = {
+      items: Object.entries(cart).map(([name, details]) => ({
+        name,
+        count: details.count,
+        price: details.price,
+      })),
+      totalPrice,
+      status: 'Confirmed', // initial status
+      timestamp: Date.now()
+    };
+
+    // Save to localStorage for My Orders page
+    const existingOrders = JSON.parse(localStorage.getItem('allOrders') || '[]');
+    localStorage.setItem('allOrders', JSON.stringify([orderSummary, ...existingOrders]));
+
+    // Save latest order for confirmation page
+    sessionStorage.setItem('latestOrder', JSON.stringify(orderSummary));
+
+    // Navigate to order confirmation
+    window.location.href = '/order-confirmation';
+  }}
+  className="w-full bg-gradient-to-r from-orange-400 to-orange-600 hover:from-orange-500 hover:to-orange-700 text-white py-3 rounded-xl font-bold transition-all shadow-md"
+>
+  Proceed to Checkout
+</button>
+
               </div>
             </div>
           </div>
