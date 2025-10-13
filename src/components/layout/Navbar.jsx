@@ -46,7 +46,7 @@ export default function Navbar() {
       {/* Floating Order Button — centered on entire screen */}
       {/* Set z-index to z-50 to be on top of the navbar (which is z-40) */}
       <div
-        className={`fixed bottom-20 left-1/2 transform -translate-x-1/2 z-50 transition-all duration-300 ${
+        className={`fixed bottom-20 left-1/2 transform -translate-x-1/2 z-40 transition-all duration-300 ${
           isVisible ? 'opacity-100' : 'opacity-0'
         }`}
       >
@@ -64,7 +64,7 @@ export default function Navbar() {
       {/* Navbar */}
       {/* Set z-index to z-40, lower than the button */}
       <div
-        className={`fixed bottom-6 left-1/2 transform -translate-x-1/2 w-[94vw] max-w-[360px] z-40 transition-all duration-300 ${
+        className={`fixed bottom-6 left-1/2 transform -translate-x-1/2 w-[94vw] max-w-[360px] z-30 transition-all duration-300 ${
           isVisible ? 'opacity-100' : 'opacity-0 -bottom-6'
         }`}
       >
