@@ -1,16 +1,57 @@
 "use client";
 
-import { useState } from 'react';
-import Image from 'next/image';
+import { useState, useEffect } from "react";
+import Image from "next/image";
+import { motion, AnimatePresence } from "framer-motion";
+import { ChevronLeft, ChevronRight, X } from "lucide-react";
+
+const HEADER_HEIGHT_PX = "74px";
 
 const STORY_AVATARS = [
-  "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face",
-  "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=100&h=100&fit=crop&crop=face",
-  "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&h=100&fit=crop&crop=face",
+  {
+    name: "Old Main Building",
+    src: "/photos/omb.jpg",
+    stories: ["/photos/omb.jpg", "/photos/omb.jpg", "/photos/omb.jpg"],
+  },
+  {
+    name: "Old Doon School",
+    src: "/photos/do.jpg",
+    stories: ["/photos/do.jpg", "/photos/do.jpg", "/photos/do.jpg"],
+  },
+  {
+    name: "Headmasters",
+    src: "/photos/af1.jpeg",
+    stories: ["/photos/af1.jpeg", "/photos/hm1.jpg", "/photos/hm2.jpg"],
+  },
 ];
 
-// Define the approximate height of the fixed header for the spacer
-const HEADER_HEIGHT_PX = '74px'; 
+export default function Header() {
+  const [activeStory, setActiveStory] = useState(null);
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  // Auto-advance every 3 s
+  useEffect(() => {
+    if (!activeStory) return;
+    const timer = setInterval(() => {
+      setCurrentIndex((prev) =>
+        prev < activeStory.stories.length - 1 ? prev + 1 : 0
+      );
+    }, 3000);
+    return () => clearInterval(timer);
+  }, [activeStory]);
+
+  // Move to previous or next story
+  const nextStory = () => {
+    setCurrentIndex((prev) =>
+      prev < activeStory.stories.length - 1 ? prev + 1 : 0
+    );
+  };
+
+  const prevStory = () => {
+    setCurrentIndex((prev) =>
+      prev > 0 ? prev - 1 : activeStory.stories.length - 1
+    );
+  };
 
 
 export default function Header({ onAvatarClick }) {
@@ -21,18 +62,23 @@ export default function Header({ onAvatarClick }) {
         {/* Inner div with grey background */}
         <div className="flex items-center justify-between max-w-[375px] mx-auto bg-gray-100 rounded-xl border border-white/40 py-2 px-4 pointer-events-auto transition-all duration-300">
           {/* Logo + Text */}
-          <div className="flex items-center space-x-2">
-            <div className="w-6 h-6">
-              <Image
-                src="/logo-header.png"
-                alt="Chandbagh Logo"
-                width={24}
-                height={24}
-                className="object-contain"
-              />
+          <div className="flex flex-col items-start leading-tight">
+            <div className="flex items-center">
+              <div className="w-6 h-6">
+                <Image
+                  src="/logo-header.png"
+                  alt="Chandbagh Logo"
+                  width={24}
+                  height={24}
+                  className="object-contain"
+                />
+              </div>
+              <span className="text-sm font-bold text-gray-800 tracking-tight whitespace-nowrap ml-[7px]">
+                Chandbagh
+              </span>
             </div>
-            <span className="text-sm font-bold text-gray-800 tracking-tight whitespace-nowrap">
-              Chandbagh
+            <span className="text-[10px] text-gray-500 font-small ml-8 -mt-1">
+              90 Years of Legacy
             </span>
           </div>
 

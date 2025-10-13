@@ -7,15 +7,15 @@ import Alert from '../../components/ui/Alert.jsx';
 
 const images = [
   {
-    image: "https://plus.unsplash.com/premium_photo-1727552116095-889cb485a803?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8Z3JvdXAlMjBzZWxmaWV8ZW58MHx8MHx8fDA%3D",
+    image: "/photos/a1.jpeg",
     imageNo: "1"
   },
   {
-    image: "  https://media.istockphoto.com/id/1479798765/photo/vertical-group-of-happy-friends-posing-for-a-selfie-on-a-spring-day-as-they-party-together.jpg?s=612x612&w=0&k=20&c=3ch9k6zg71DfVtWzf1Q-TgJXPeQyoflY7fCpiPLmoZs=",
+    image: "/photos/ac1.jpg",
     imageNo: "2"
   },
   {
-    image: "  https://c8.alamy.com/comp/EC1E47/indian-group-friends-park-enjoy-EC1E47.jpg  ",
+    image: "https://www.doonschool.com/wp-content/uploads/2023/09/5-7-1024x1024.jpg",
     imageNo: "3"
   },
 ];

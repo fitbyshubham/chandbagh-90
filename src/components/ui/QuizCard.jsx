@@ -20,7 +20,7 @@ const quizCategories = [
     title: "School History & Lore 📜", 
     description: "How well do you know the school's founding and traditions?",
     color: "bg-blue-500",
-    image: "/Photos/logo.png", // Placeholder image path
+    image: "/Photos/omb.jpg", // Placeholder image path
   },
   { 
     id: 2, 
@@ -28,7 +28,7 @@ const quizCategories = [
     title: "Notable Doscos & Alumni ⭐", 
     description: "Identify famous alumni and their contributions.",
     color: "bg-green-500",
-    image: "/Photos/alumni.jpg", // Placeholder image path
+    image: "/Photos/na.avif", // Placeholder image path
   },
   { 
     id: 3, 
