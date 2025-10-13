@@ -1,27 +1,34 @@
 // src/app/(auth)/home/page.jsx
 "use client";
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
-import { FaStar, FaChevronRight } from "react-icons/fa"; // Added FaChevronRight for links
-import TeamCard from '../../../components/ui/TeamCard.jsx';
-import Header from '@/components/layout/Header';
-import StoryModal from '@/components/layout/StoryModal.jsx';
+import { FaStar } from "react-icons/fa";
+import TeamCard from "../../../components/ui/TeamCard.jsx";
+import Header from "@/components/layout/Header";
+import StoryModal from "@/components/layout/StoryModal.jsx";
 
-// Utility component to hide scrollbar
-const HideScrollbarStyle = () => (
-    <style jsx global>{`
-        .hide-scrollbar::-webkit-scrollbar {
-            display: none;
-        }
-        .hide-scrollbar {
-            -ms-overflow-style: none;
-            scrollbar-width: none;
-        }
-    `}</style>
-);
+const specials = [
+  {
+    name: "Paneer Tikka Sandwich",
+    price: "₹50",
+    image:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRIB0-zFdFEGoh5VnYpk5WqWVZh88m5YjlNUQ&s",
+    rating: 4.8,
+    stall: "Stall No. 5",
+    isTop: true,
+  },
+  {
+    name: "Veg Noodles",
+    price: "₹40",
+    image:
+      "https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=400&q=80",
+    rating: 4.6,
+    stall: "Stall No. 2",
+    isTop: false,
+  },
+];
 
-// --- Data (Unchanged - assuming this data is correct) ---
 const events = [
   {
     name: "Science Exhibition",
@@ -37,15 +44,12 @@ const events = [
   },
 ];
 
-const TOP_FOOD_PICKS = [
-  { restaurant: "Lazeez Kathi Rolls", category: "NonVeg Rolls", item: "Butter Chicken Roll", price: 300 },
-  { restaurant: "The Pink Okra", category: "Cheesecakes", item: "Lotus biscoff", price: 250 },
-  { restaurant: "Best of Bengal", category: "Biriyani", item: "Chicken Biriyani (per plate) + Salad & Raita", price: 350 },
-  { restaurant: "y cafe", category: "Shakes", item: "Ferrero Rocher Shake ", price: 220 },
-  { restaurant: "Rolls Mania", category: "Non-Veg Delight", item: "Butter Chicken Roll", price: 300 },
-  { restaurant: "Burger Singh", category: "Veg Burger", item: "Chunky Paneer Pandey", price: 250 },
-  { restaurant: "Mexican Grill", category: "BURRITO ROLLS", item: "7 Layer Burrito Veg", price: 350 },
-  { restaurant: "Snowy Owl Gelato Co.", category: "Gelato", item: "Gelato Regular", price: 200 },
+const team = [
+  { name: "Shubham Sharma", role: "Mentor", img: "/Portraits/" },
+  { name: "Samarth Pundeer", role: "Lead Developer", img: "/Portraits/Pundeer.jpg" },
+  { name: "Hemant Khandelwal", role: "Lead Developer", img: "/Portraits/Hemant.jpg" },
+  { name: "Vibhor Saraogi", role: "Developer", img: "/Portraits/" },
+  { name: "Ojas Tripathi", role: "Developer", img: "/Portraits/" },
 ];
 // --- End Data ---
 
@@ -53,186 +57,173 @@ const TOP_FOOD_PICKS = [
 const DARK_BG = "#1E2129"; 
 const CARD_BG = "#2B313C"; // Slightly lighter dark background for cards
 
+function VideoBanner({ thumbnail, videoUrl }) {
+  const [isPlaying, setIsPlaying] = useState(false);
+  return (
+    <div className="relative rounded-2xl overflow-hidden w-full h-[180px] mt-6 px-4">
+      {!isPlaying ? (
+        <div
+          className="relative w-full h-full cursor-pointer"
+          onClick={() => setIsPlaying(true)}
+        >
+          <div className="bg-blue-900 flex flex-col items-center">
+          <h2>Words From The Headmaster</h2>
+          </div>
+          <img
+            src="/photos/thumbnail.png"
+            alt="Video thumbnail"
+            className="w-full h-[160px] object-cover rounded-2xl  "
+          />
+          <div className="absolute inset-0 bg-black bg-opacity-10 flex items-center justify-center">
+            <div className="w-16 h-16 bg-white bg-opacity-80 rounded-full flex items-center justify-center shadow-lg">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="black"
+                viewBox="0 0 24 24"
+                strokeWidth="1.5"
+                stroke="black"
+                className="w-8 h-8 ml-1"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M5.25 5.25v13.5l13.5-6.75-13.5-6.75z"
+                />
+              </svg>
+            </div>
+          </div>
+        </div>
+      ) : (
+        <iframe
+          src={`${videoUrl}?autoplay=1`}
+          title="Intro Video"
+          className="w-full h-full rounded-2xl"
+          allow="autoplay; encrypted-media"
+          allowFullScreen
+        />
+      )}
+    </div>
+  );
+}
+
 export default function HomePage() {
   const router = useRouter();
   const [userName, setUserName] = useState("Guest");
   const [selectedImage, setSelectedImage] = useState(null);
-  const [specials, setSpecials] = useState([]);
 
   useEffect(() => {
-    // Load user name from localStorage
-    const savedName = localStorage.getItem('signup_name');
-    if (savedName) {
-      setUserName(savedName);
-    }
-
-    // Load and process restaurant data
-    const loadFoodData = async () => {
-      try {
-        // NOTE: Using the static data defined above for stability in this demo
-        const featuredItems = TOP_FOOD_PICKS.map((pick) => {
-          // Simplified processing since we're using static TOP_FOOD_PICKS now
-          return {
-            name: pick.item,
-            price: pick.price, 
-            image: `https://picsum.photos/200/150?random=${Math.floor(Math.random() * 1000)}`, // Random image URL for demo
-            rating: (4.5 + Math.random() * 0.4).toFixed(1),
-            stall: pick.restaurant,
-            isTop: pick.item.includes("Butter Chicken") || pick.item.includes("Lotus")
-          };
-        }).filter(Boolean);
-
-        setSpecials(featuredItems);
-      } catch (err) {
-        console.error("Error loading food data:", err);
-        setSpecials([]);
-      }
-    };
-
-    loadFoodData();
+    const savedName = localStorage.getItem("signup_name");
+    if (savedName) setUserName(savedName);
   }, []);
 
-  const handleAboutRoute = () => router.push("/InfoPage");
-  const handleTeamRoute = () => router.push("/Team");
-  const handleViewAllFood = () => router.push("/stalls"); // Assuming /stalls is the main food page
+  const handleAboutRoute = () => router.push("/about");
+  const handleTeamRoute = () => router.push("/team");
 
   return (
-    // Set the overall background to dark blue/black
-    <div className={`min-h-screen flex flex-col pb-24`} style={{ backgroundColor: DARK_BG }}>
-      
-      {/* Header (Must be styled internally for dark mode) */}
+    <div className="min-h-screen bg-gray-100 flex flex-col pb-10">
       <Header onAvatarClick={(src) => setSelectedImage(src)} />
-      
       <StoryModal
         isOpen={!!selectedImage}
         imageSrc={selectedImage}
         onClose={() => setSelectedImage(null)}
       />
 
-      <HideScrollbarStyle />
-
-      {/* Main Content Area */}
-      <div className="w-full max-w-xl mx-auto flex flex-col gap-6 py-4 px-4">
-        
-        {/* --- 1. Welcome Section & Main Announcement Card (Modern Hero) --- */}
-        <div className="pt-2">
-            <h1 className="text-xl text-gray-400">Welcome,</h1>
-            <h2 className="font-bold text-3xl text-white">{userName}!</h2>
+      <div className="bg-gray-900 text-white px-4 pb-6 pt-8 rounded-b-3xl shadow flex flex-col relative">
+        <div className="flex mb-4">
+          <div className="flex items-left space-x-1.5 flex-col">
+            <span className="text-2xl">Welcome,</span>
+            <span className="font-bold text-3xl">{userName}!</span>
+          </div>
         </div>
-
-        {/* Announcement Card - Uses dark card background */}
-        <div className="rounded-xl overflow-hidden shadow-2xl" style={{ backgroundColor: CARD_BG }}>
-            <img
-                alt="Founders Day"
-                src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=800&q=80"
-                className="w-full h-40 object-cover"
-            />
-            <div className="p-4">
-                <div className="text-xl font-bold mb-1 text-white">Celebrating DS90! 🏰</div>
-                <p className="text-gray-400 text-sm mb-4 line-clamp-2">
-                    Discover the history of Chandbagh and the most famous places amongst Doscos on this 90th year.
-                </p>
-                <button
-                    onClick={handleAboutRoute}
-                    className="w-full bg-indigo-600 text-white px-4 py-2 rounded-lg font-semibold text-base hover:bg-indigo-700 transition shadow-lg shadow-indigo-500/30"
-                >
-                    Learn About DS90
-                </button>
-            </div>
-        </div>
-
-        {/* --- 2. Top Rated Food Section (Horizontal Scroll Cards) --- */}
-        <div>
-            <div className="flex justify-between items-center mb-3">
-                <h3 className="font-bold text-lg text-white">Top Food Picks 🍕</h3>
-                <button 
-                    onClick={handleViewAllFood}
-                    className="flex items-center text-sm font-medium text-indigo-400 hover:text-indigo-300 transition"
-                >
-                    View All
-                    <FaChevronRight className="w-3 h-3 ml-1" />
-                </button>
-            </div>
-            
-            <div className="flex space-x-4 overflow-x-auto pb-2 hide-scrollbar">
-            {specials.length > 0 ? (
-                specials.map((item, i) => (
-                <div
-                    key={i}
-                    className="min-w-[180px] w-[180px] rounded-xl shadow-lg flex-shrink-0 border border-gray-700 hover:shadow-xl transition-shadow duration-300"
-                    style={{ backgroundColor: CARD_BG }}
-                >
-                    <img
-                        src={item.image}
-                        alt={item.name}
-                        className="w-full h-24 object-cover rounded-t-xl"
-                        loading="lazy"
-                    />
-                    <div className="p-3">
-                        <span className="inline-block text-xs bg-indigo-500 text-white px-2 py-0.5 rounded-full font-bold mb-2">
-                            {item.stall.split(' ')[0]}
-                        </span>
-                        <div className="font-semibold text-sm line-clamp-1 text-white">
-                            {item.name}
-                        </div>
-                        <div className="flex items-center justify-between mt-1">
-                            <span className="flex items-center text-xs font-bold text-gray-300">
-                                <FaStar className="text-yellow-500 mr-1 text-sm" />
-                                {item.rating}
-                            </span>
-                            <span className="text-base font-extrabold text-green-400">
-                                ₹{item.price}
-                            </span>
-                        </div>
-                    </div>
-                </div>
-                ))
-            ) : (
-                <div className="text-gray-500 text-sm py-2">Loading today's specials...</div>
-            )}
-            </div>
-        </div>
-
-        {/* --- 3. Upcoming Events (Horizontal Scroll Cards) --- */}
-        <div>
-            <h3 className="font-bold text-lg mb-3 text-white">
-                Upcoming Events 📅
-            </h3>
-            <div className="flex space-x-4 overflow-x-auto pb-2 hide-scrollbar">
-            {events.map((e, i) => (
-                <div
-                key={i}
-                className="min-w-[220px] rounded-xl shadow-md flex-shrink-0 border border-gray-700"
-                style={{ backgroundColor: CARD_BG }}
-                >
-                    <img
-                        src={e.image}
-                        alt={e.name}
-                        className="w-full h-28 object-cover rounded-t-xl"
-                    />
-                    <div className="p-3">
-                        <div className="font-bold text-base text-white line-clamp-1">{e.name}</div>
-                        <div className="text-xs font-medium text-blue-400 mt-1">{e.time}</div>
-                        <div className="text-xs text-gray-400 mt-1 line-clamp-2">
-                            {e.desc}
-                        </div>
-                    </div>
-                </div>
-            ))}
-            </div>
-        </div>
-
-        {/* --- 4. Team Section (Call-to-Action Block) --- */}
-        <div className="pb-8">
-            <button 
-                onClick={handleTeamRoute} 
-                className="w-full p-0 m-0"
+        <div className="rounded-xl overflow-hidden shadow-lg mb-2 bg-gray-800">
+          <img
+            alt="Founders Day"
+            src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=800&q=80"
+            className="w-full h-36 object-cover"
+          />
+          <div className="p-4">
+            <div className="text-xl font-bold mb-1">Welcome to the DS90</div>
+            <p className="text-gray-300 text-sm mb-2">
+              On the 90th year of the school, get to know about some of the most
+              famous places amongst Doscos.
+            </p>
+            <button
+              onClick={handleAboutRoute}
+              className="bg-orange-500 text-white px-4 py-1 rounded-full font-semibold text-sm hover:bg-orange-600 transition"
             >
-                {/* Ensure TeamCard renders a dark-mode friendly card inside */}
-                <TeamCard /> 
+              Get to Know
             </button>
+          </div>
         </div>
-        
+
+      <VideoBanner
+        thumbnail="https://img.youtube.com/vi/G5nBKfJ99a4/maxresdefault.jpg"
+        videoUrl="https://www.youtube.com/embed/G5nBKfJ99a4"
+      />
+
+      <div className="px-4 mt-6">
+        <h2 className="font-bold text-lg mb-2 text-gray-800">Top Rated Food</h2>
+        <div className="flex space-x-4 overflow-x-auto pb-2 hide-scrollbar">
+          {specials.map((item, i) => (
+            <div
+              key={i}
+              className={`min-w-[220px] bg-white rounded-2xl shadow-lg flex-shrink-0 ${
+                item.isTop ? "border-2 border-blue-300" : "border border-gray-200"
+              }`}
+            >
+              <img
+                src={item.image}
+                alt={item.name}
+                className="w-full h-28 object-cover rounded-t-2xl"
+              />
+              <div className="p-3">
+                <div className="flex items-center justify-between">
+                  <span className="font-semibold">{item.name}</span>
+                  <span className="text-xs bg-gray-100 px-2 py-0.5 rounded text-gray-600">
+                    {item.price}
+                  </span>
+                </div>
+                <div className="flex items-center mt-1">
+                  <FaStar className="text-yellow-300 mr-1" />
+                  <span className="text-xs font-bold">{item.rating}</span>
+                  <span className="ml-2 text-xs text-gray-500">
+                    {item.stall}
+                  </span>
+                </div>
+                {item.isTop && (
+                  <span className="inline-block mt-2 text-xs bg-blue-100 text-blue-700 px-2 py-0.5 rounded-full font-semibold">
+                    Most Popular
+                  </span>
+                )}
+              </div>
+            </div>
+        </div>
+
+      <div className="px-4 mt-7">
+        <h2 className="font-bold text-lg mb-2 text-gray-800">Upcoming Events</h2>
+        <div className="flex space-x-4 overflow-x-auto pb-2 hide-scrollbar">
+          {events.map((e, i) => (
+            <div
+              key={i}
+              className="min-w-[200px] bg-white rounded-2xl shadow-lg flex-shrink-0"
+            >
+              <img
+                src={e.image}
+                alt={e.name}
+                className="w-full h-24 object-cover rounded-t-2xl"
+              />
+              <div className="p-3">
+                <div className="font-semibold">{e.name}</div>
+                <div className="text-xs text-gray-500">{e.time}</div>
+                <div className="text-xs text-gray-700 mt-1">{e.desc}</div>
+              </div>
+            </div>
+        </div>
+
+      <div className="flex flex-col items-center justify-center pt-3 mx-3">
+        <button onClick={handleTeamRoute} className="w-full">
+          <TeamCard />
+        </button>
       </div>
     </div>
   );

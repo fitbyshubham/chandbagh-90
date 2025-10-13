@@ -1,45 +1,63 @@
 "use client";
 
 import React from "react";
+import { motion } from "framer-motion";
 import { useRouter, useSearchParams } from "next/navigation";
 
 const QuizResult = () => {
   const router = useRouter();
   const searchParams = useSearchParams();
 
-  // Get correct answers and total questions from query params
   const correct = parseInt(searchParams.get("correct") || 0, 10);
   const total = parseInt(searchParams.get("total") || 1, 10);
+  const percentage = total > 0 ? Math.round((correct / total) * 100) : 0;
 
   // Calculate percentage
   const percentage = total > 0 ? Math.round((correct / total) * 100) : 0;
 
   return (
-    <div className="w-full max-w-md mx-auto h-screen p-6 flex flex-col justify-between bg-teal-600 text-white">
-      {/* Main message */}
-      <div className="text-center mt-20">
-        <h1 className="text-4xl font-bold mb-2">Congrats!</h1>
-        <h2 className="text-2xl font-semibold mb-4">You completed the quiz!</h2>
-        <p className="text-lg">
-          Your Score: <span className="font-bold">{correct}</span> /{" "}
-          <span className="font-bold">{total}</span>
-        </p>
-        <p className="text-lg mt-2">
-          ({percentage}% Correct)
-        </p>
-        <p className="mt-4">Hope you enjoyed the quiz!</p>
-      </div>
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+      className="min-h-screen flex flex-col justify-center items-center bg-gradient-to-b from-gray-900 via-gray-800 to-gray-700 px-6 text-white"
+    >
+      <div className="bg-gray-900/70 backdrop-blur-lg rounded-3xl p-8 shadow-2xl w-full max-w-md text-center border border-gray-700">
+        <motion.h1
+          initial={{ scale: 0.9, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ delay: 0.2, duration: 0.4 }}
+          className="text-4xl font-extrabold mb-2"
+        >
+          🎉 Congrats!
+        </motion.h1>
 
-      {/* Bottom buttons */}
-      <div className="flex justify-around mb-[120px]">
-        <button
-          className="bg-white text-gray-800 px-4 py-3 rounded-xl font-bold shadow hover:bg-gray-200 transition"
-          onClick={() => router.push("/quiz")} // Navigate back to quiz selection
+        <motion.h2
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.4, duration: 0.4 }}
+          className="text-2xl font-semibold mb-6 text-gray-200"
+        >
+          You completed the quiz!
+        </motion.h2>
+
+        <div className="bg-gray-800 text-gray-100 rounded-2xl p-6 shadow-inner mb-6 border border-gray-700">
+          <p className="text-lg font-semibold">Your Score</p>
+          <p className="text-3xl font-bold text-cyan-400 mt-1">
+            {correct} / {total}
+          </p>
+          <p className="text-sm text-gray-400 mt-1">({percentage}% Correct)</p>
+        </div>
+
+        <motion.button
+          whileTap={{ scale: 0.97 }}
+          onClick={() => router.push("/quiz")}
+          className="bg-cyan-600 text-white font-semibold px-6 py-3 rounded-full shadow-lg hover:bg-cyan-500 transition"
         >
           Back to Quizzes
-        </button>
+        </motion.button>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
