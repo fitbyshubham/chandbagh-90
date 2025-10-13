@@ -64,6 +64,8 @@ export default function PopRestaurantsCard(props) {
                   View Menu
               </button>
             </div>
+          </div> {/* This was missing - closing the content container div */}
         </div>
+      </div>
     )
 }

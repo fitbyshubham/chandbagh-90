@@ -7,7 +7,7 @@ import PopRestaurants from "../../../components/ui/PopRestaurants";
 import { useState, useMemo } from "react";
 
 // Import the restaurant data
-import restaurantData from "@/data/restaurant.json";
+import restaurantData from "../../../../public/restaurants.json";
 
 // Helper function to map restaurant data for the StallsCard component
 const processRestaurantData = (data) => {

@@ -33,7 +33,7 @@ export default function Navbar() {
   }, []);
 
   const handleFoodClick = () => router.push("/order");
-  const hideNavbarRoutes = ["/login", "/login/otp", "/Cart"];
+  const hideNavbarRoutes = ["/login", "/login/otp", "/Cart", "/firstpage"];
   
   // Conditional return after all hooks have been called
   if (hideNavbarRoutes.includes(pathname)) return null;

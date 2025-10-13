@@ -2,6 +2,15 @@
 import React, { useRef, useEffect } from "react";
 import PopRestaurantsCard from "./PopRestaurants_Card";
 
+// Helper function to create URL-friendly slugs
+const slugify = (str) => {
+  return str
+    .toLowerCase()
+    .replace(/[^\w\s-]/g, '') // Remove special characters
+    .replace(/[\s_-]+/g, '-') // Replace spaces, underscores, hyphens with single hyphen
+    .replace(/^-+|-+$/g, ''); // Remove leading/trailing hyphens
+};
+
 // FIX: Added a check for the 'restaurants' array before mapping
 const mapToCarouselProps = (restaurants) => {
     // If 'restaurants' is not an array, return an empty array immediately
@@ -30,25 +39,12 @@ export default function PopRestaurants({ restaurants = [] }) {
 
   // Auto-scroll logic for the carousel
   useEffect(() => {
-    
     function scrollToIndex(i) {
       if (itemRefs.current[i]) {
         itemRefs.current[i].scrollIntoView({ behavior: "smooth", inline: "start" });
       }
     }
     
-    return restaurants.map(r => ({
-        image: r.image,
-        alt: r.name,
-        slug: slugify(r.name),
-        title1: r.name.split(' ')[0],
-        title2: r.name.split(' ').slice(1).join(' ') || '',
-        stallNo: r.stallNo,
-        rating: r.rating,
-        reviews: (Math.floor(Math.random() * 200) + 50).toString(),
-    }));
-};
-
     if (mappedStalls.length > 1) {
         // Clear existing interval before setting a new one
         if (intervalRef.current !== null) {
@@ -62,7 +58,6 @@ export default function PopRestaurants({ restaurants = [] }) {
     } else if (intervalRef.current) {
         clearInterval(intervalRef.current);
     }
-
 
     return () => {
       if (intervalRef.current !== null) {

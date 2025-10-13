@@ -53,12 +53,14 @@ export default function Header() {
     );
   };
 
+
+export default function Header({ onAvatarClick }) {
   return (
     <>
-      {/* HEADER */}
-      <header className="fixed top-0 left-0 right-0 z-40 pt-4 pb-2 max-w-[420px] mx-[10px] pointer-events-none">
-        <div className="flex items-center justify-between max-w-[375px] mx-auto bg-white/80 backdrop-blur-lg rounded-xl shadow-xl border border-white/40 py-2 px-4 pointer-events-auto transition-all duration-300">
-          
+      {/* The Fixed Header Container - Added pb-2 for gap below header */}
+      <header className="fixed top-0 left-0 right-0 z-40 px-4 pt-4 pb-2 max-w-[420px] mx-auto pointer-events-none">
+        {/* Inner div with grey background */}
+        <div className="flex items-center justify-between max-w-[375px] mx-auto bg-gray-100 rounded-xl border border-white/40 py-2 px-4 pointer-events-auto transition-all duration-300">
           {/* Logo + Text */}
           <div className="flex flex-col items-start leading-tight">
             <div className="flex items-center">
@@ -82,111 +84,29 @@ export default function Header() {
 
           {/* Story Avatars */}
           <div className="flex space-x-3">
-            {STORY_AVATARS.map((avatar, index) => (
-              <div key={index} className="flex flex-col items-center space-y-1">
-                <button
-                  onClick={() => {
-                    setActiveStory(avatar);
-                    setCurrentIndex(0);
-                  }}
-                  className="relative rounded-full w-[44px] h-[44px] p-[2px] overflow-hidden flex items-center justify-center shadow-md focus:outline-none focus:ring-2 focus:ring-[#ff416c]"
-                  style={{
-                    background:
-                      "linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888)",
-                  }}
-                >
-                  <div className="w-full h-full rounded-full bg-white p-[2px]">
-                    <img
-                      src={avatar.src}
-                      alt={avatar.name}
-                      className="w-full h-full object-cover rounded-full"
-                      draggable={false}
-                    />
-                  </div>
-                </button>
-                <span className="text-[10px] font-medium text-gray-700 leading-tight ml-[15px] text-center w-[60px] truncate">
-                  {avatar.name}
-                </span>
-              </div>
+            {STORY_AVATARS.map((src, index) => (
+              <button
+                key={index}
+                onClick={() => onAvatarClick?.(src)}
+                className="relative rounded-full w-[44px] h-[44px] p-[2px] overflow-hidden flex items-center justify-center shadow-md focus:outline-none focus:ring-2 focus:ring-[#ff416c]"
+                style={{
+                  background: 'linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888)',
+                }}
+                aria-label={`View story ${index + 1}`}
+              >
+                <div className="w-full h-full rounded-full bg-white p-[2px]">
+                  <img
+                    src={src}
+                    alt={`Story ${index + 1}`}
+                    className="w-full h-full object-cover rounded-full"
+                    draggable={false}
+                  />
+                </div>
+              </button>
             ))}
           </div>
         </div>
       </header>
-
-      {/* SPACER */}
-      <div
-        className="pt-4 pb-2 bg-black"
-        style={{ height: HEADER_HEIGHT_PX }}
-        aria-hidden="true"
-      />
-
-      {/* STORY VIEWER */}
-      <AnimatePresence>
-        {activeStory && (
-          <motion.div
-            className="fixed inset-0 z-50 flex items-center justify-center bg-black/90"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            onClick={() => setActiveStory(null)}
-          >
-            <div
-              className="relative w-full max-w-sm aspect-[9/16] bg-black rounded-lg overflow-hidden"
-              onClick={(e) => e.stopPropagation()}
-            >
-              <motion.img
-                key={currentIndex}
-                src={activeStory.stories[currentIndex]}
-                alt={activeStory.name}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.5 }}
-                className="w-full h-full object-cover"
-              />
-
-              {/* Progress bar */}
-              <div className="absolute top-0 left-0 right-0 flex space-x-1 p-2">
-                {activeStory.stories.map((_, i) => (
-                  <div
-                    key={i}
-                    className={`h-[3px] flex-1 rounded-full transition-all duration-300 ${
-                      i <= currentIndex ? "bg-white" : "bg-white/40"
-                    }`}
-                  />
-                ))}
-              </div>
-
-              {/* Navigation arrows */}
-              <button
-                onClick={prevStory}
-                className="absolute left-2 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white rounded-full p-2"
-              >
-                <ChevronLeft size={24} />
-              </button>
-              <button
-                onClick={nextStory}
-                className="absolute right-2 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white rounded-full p-2"
-              >
-                <ChevronRight size={24} />
-              </button>
-
-              {/* Close button */}
-              <button
-                onClick={() => setActiveStory(null)}
-                className="absolute top-3 right-3 text-white bg-black/50 rounded-full w-8 h-8 flex items-center justify-center"
-              >
-                <X size={20} />
-              </button>
-
-              {/* Label */}
-              <div className="absolute bottom-3 left-0 right-0 text-center text-white font-medium text-sm">
-                {activeStory.name}
-              </div>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
     </>
   );
 }
