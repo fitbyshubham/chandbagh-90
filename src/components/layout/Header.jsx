@@ -9,6 +9,10 @@ const STORY_AVATARS = [
   "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&h=100&fit=crop&crop=face",
 ];
 
+// Define the approximate height of the fixed header for the spacer
+const HEADER_HEIGHT_PX = '74px'; 
+
+
 export default function Header({ onAvatarClick }) {
   return (
     <>
