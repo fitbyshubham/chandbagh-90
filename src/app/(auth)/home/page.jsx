@@ -121,12 +121,16 @@ export default function HomePage() {
 
   return (
     <div className="min-h-screen bg-gray-100 flex flex-col pb-10">
+      {/* Pass spacerHeight to Header if needed, or calculate here */}
       <Header onAvatarClick={(src) => setSelectedImage(src)} />
       <StoryModal
         isOpen={!!selectedImage}
         imageSrc={selectedImage}
         onClose={() => setSelectedImage(null)}
       />
+
+      {/* ADDED: Spacer div to account for fixed header height */}
+      <div className="h-16"></div> {/* Adjust height if header height changes */}
 
       <div className="bg-gray-900 text-white px-4 pb-6 pt-8 rounded-b-3xl shadow flex flex-col relative">
         <div className="flex mb-4">

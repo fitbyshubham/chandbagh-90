@@ -7,93 +7,114 @@
         "Veg Rolls": [
           {
             "item": "Paneer Roll",
-            "price": 170
+            "price": 170,
+            "image_url": "https://storage.googleapis.com/ds90-food/Lazeez%20Kathi%20Rolls/Veg%20Rolls/Paneer%20Kathi%20roll.jpg"
           },
           {
             "item": "Paneer Makhani Roll",
-            "price": 240
+            "price": 240,
+            "image_url": "https://storage.googleapis.com/ds90-food/Lazeez%20Kathi%20Rolls/Veg%20Rolls/Paneer%20Makhani%20Kathi%20Roll.jpg"
           }
         ],
         "Appetizers": [
           {
             "item": "Paneer Schezwan Roll",
-            "price": 240
+            "price": 240,
+            "image_url": "https://storage.googleapis.com/ds90-food/Lazeez%20Kathi%20Rolls/Veg%20Rolls/Paneer%20schezwan%20kathi%20roll.avif"
           },
           {
             "item": "Cheese Paneer Roll",
-            "price": 250
+            "price": 250,
+            "image_url": "https://storage.googleapis.com/ds90-food/Lazeez%20Kathi%20Rolls/Veg%20Rolls/Paneer%20cheese%20roll.jpg"
           },
           {
             "item": "Tandoori Paneer With Cheese",
-            "price": 270
+            "price": 270,
+            "image_url": "https://storage.googleapis.com/ds90-food/Lazeez%20Kathi%20Rolls/Veg%20Rolls/Tandoori%20paneer%20roll%20with%20cheese.webp"
           },
           {
             "item": "Soya Tika Role",
-            "price": 170
+            "price": 170,
+            "image_url": "https://storage.googleapis.com/ds90-food/Lazeez%20Kathi%20Rolls/Veg%20Rolls/Soya%20Tikka%20Kathi%20roll.jpg"
           },
           {
             "item": "Tandoori Soya With Cheese",
-            "price": 240
+            "price": 240,
+            "image_url": "https://storage.googleapis.com/ds90-food/Lazeez%20Kathi%20Rolls/Veg%20Rolls/Tandoori%20soya%20roll%20with%20cheese.webp"
           }
         ],
         "NonVeg Rolls": [
           {
             "item": "Chicken Roll",
-            "price": 220
+            "price": 220,
+            "image_url": "https://storage.googleapis.com/ds90-food/Lazeez%20Kathi%20Rolls/Nonveg%20Rolls/Chicken%20kathi%20roll.jpg"
           },
           {
             "item": "Chicken Tikka Roll",
-            "price": 260
+            "price": 260,
+            "image_url": "https://storage.googleapis.com/ds90-food/Lazeez%20Kathi%20Rolls/Nonveg%20Rolls/Chicken%20Tikka%20Kathi%20Roll.jpg"
           },
           {
             "item": "Egg Chicken Roll",
-            "price": 240
+            "price": 240,
+            "image_url": "https://storage.googleapis.com/ds90-food/Lazeez%20Kathi%20Rolls/Nonveg%20Rolls/Egg%20Chicken%20Kathi%20roll.jpg"
           },
           {
             "item": "Tandoori Chicken Roll",
-            "price": 260
+            "price": 260,
+            "image_url": "https://storage.googleapis.com/ds90-food/Lazeez%20Kathi%20Rolls/Nonveg%20Rolls/Tandoori%20Chicken%20Kathi%20Roll.jpg"
           },
           {
             "item": "Double Chicken Roll",
-            "price": 280
+            "price": 280,
+            "image_url": "https://storage.googleapis.com/ds90-food/Lazeez%20Kathi%20Rolls/Nonveg%20Rolls/Double%20Chicken%20Kathi%20Roll.jpg"
           },
           {
             "item": "Chicken Seekh Roll",
-            "price": 200
+            "price": 200,
+            "image_url": "https://storage.googleapis.com/ds90-food/Lazeez%20Kathi%20Rolls/Nonveg%20Rolls/Chicken%20Seekh%20roll.jpg"
           },
           {
             "item": "Cheese Tandoori Chicken Roll",
-            "price": 280
+            "price": 280,
+            "image_url": "https://storage.googleapis.com/ds90-food/Lazeez%20Kathi%20Rolls/Nonveg%20Rolls/Cheese%20Tandoori%20Chicken%20roll.webp"
           },
           {
             "item": "Butter Chicken Roll",
-            "price": 260
+            "price": 260,
+            "image_url": "https://storage.googleapis.com/ds90-food/Lazeez%20Kathi%20Rolls/Nonveg%20Rolls/Butter%20Chicken%20Roll.jpg"
           },
           {
             "item": "Mutton Seekh Roll",
-            "price": 220
+            "price": 220,
+            "image_url": "https://storage.googleapis.com/ds90-food/Lazeez%20Kathi%20Rolls/Nonveg%20Rolls/Mutton%20seekh%20roll.jpg"
           },
           {
             "item": "Double Egg Roll",
-            "price": 120
+            "price": 120,
+            "image_url": "https://storage.googleapis.com/ds90-food/Lazeez%20Kathi%20Rolls/Nonveg%20Rolls/Double%20egg%20kathi%20roll.jpg"
           }
         ],
         "Add Ons": [
           {
             "item": "1 Egg",
-            "price": 20
+            "price": 20,
+            "image_url": ""
           },
           {
             "item": "Cheese Dip",
-            "price": 40
+            "price": 40,
+            "image_url": "https://storage.googleapis.com/ds90-food/Lazeez%20Kathi%20Rolls/Add%20ons/cheese%20dip.webp"
           },
           {
             "item": "Tandoori Dip",
-            "price": 40
+            "price": 40,
+            "image_url": "https://storage.googleapis.com/ds90-food/Lazeez%20Kathi%20Rolls/Add%20ons/Tandoori%20dip.jpeg"
           },
           {
             "item": "Amul Butter",
-            "price": 30
+            "price": 30,
+            "image_url": "https://storage.googleapis.com/ds90-food/Lazeez%20Kathi%20Rolls/Add%20ons/Amul%20butter.jpg"
           }
         ]
       }
@@ -105,43 +126,52 @@
         "Pastries": [
           {
             "item": "Dutch chocolate truffle",
-            "price": 250
+            "price": 250,
+            "image_url": "https://storage.googleapis.com/ds90-food/Pink%20Okra/Pastries/Dutch%20Chocolate%20Truffle%20Pie.jpg"
           },
           {
             "item": "Hazelnut Pie",
-            "price": 250
+            "price": 250,
+            "image_url": "https://storage.googleapis.com/ds90-food/Pink%20Okra/Pastries/Chocolate-Hazelnut-Pie9-688x1024.jpg"
           },
           {
             "item": "Bannofie Pie",
-            "price": 250
+            "price": 250,
+            "image_url": "https://storage.googleapis.com/ds90-food/Pink%20Okra/Pastries/banoffee-pie-1-of-18.jpg"
           }
         ],
         "Cheesecakes": [
           {
             "item": "Blueberry",
-            "price": 250
+            "price": 250,
+            "image_url": "https://storage.googleapis.com/ds90-food/Pink%20Okra/Cheesecakes/blueberry-lemon-cheesecake-9.jpg"
           },
           {
             "item": "Ferrero rocher",
-            "price": 250
+            "price": 250,
+            "image_url": "https://storage.googleapis.com/ds90-food/Pink%20Okra/Cheesecakes/ferrero-rocher-cheesecake-serving.jpg"
           },
           {
             "item": "Lotus biscoff",
-            "price": 250
+            "price": 250,
+            "image_url": "https://storage.googleapis.com/ds90-food/Pink%20Okra/Cheesecakes/vegan-biscoff-cheesecake-1.jpg"
           }
         ],
         "Cupcakes": [
           {
             "item": "Oreo",
-            "price": 150
+            "price": 150,
+            "image_url": "https://storage.googleapis.com/ds90-food/Pink%20Okra/Cupcakes/OreoCupcakes.jpg"
           },
           {
             "item": "Kitkat",
-            "price": 150
+            "price": 150,
+            "image_url": "https://storage.googleapis.com/ds90-food/Pink%20Okra/Cupcakes/KitKatCupcakes.jpg"
           },
           {
             "item": "Red Velvet",
-            "price": 0
+            "price": 0,
+            "image_url": "https://storage.googleapis.com/ds90-food/Pink%20Okra/Cupcakes/RedVelvet%20Cupcakes.jpg"
           }
         ]
       }
@@ -150,34 +180,41 @@
       "name": "Best of Bengal",
       "image_url": "",
       "categories": {
-        "Biriyani": [
+        "Pastries": [
           {
             "item": "Chicken Biriyani (per plate) + Salad & Raita",
-            "price": 350
+            "price": 350,
+            "image_url": "https://storage.googleapis.com/ds90-food/Best%20of%20Bengal/Chicken-Biryani.jpg"
           },
           {
             "item": "Mutton Biriyani (per plate) + Salad & Raita",
-            "price": 400
+            "price": 400,
+            "image_url": "https://storage.googleapis.com/ds90-food/Best%20of%20Bengal/Mutton-Biryani.jpg"
           },
           {
             "item": "Mutton Kassa (per plate/4pcs) ",
-            "price": 350
+            "price": 350,
+            "image_url": "https://storage.googleapis.com/ds90-food/Best%20of%20Bengal/Mutton%20Kassa_.jpg"
           },
           {
             "item": "Chicken Shami Kebab (per plate/4pcs) ",
-            "price": 250
+            "price": 250,
+            "image_url": "https://storage.googleapis.com/ds90-food/Best%20of%20Bengal/Chicken%20Shami%20Kebab.jpg"
           },
           {
             "item": "Mutton Galawti Kebab (per plate/4pcs) ",
-            "price": 300
+            "price": 300,
+            "image_url": "https://storage.googleapis.com/ds90-food/Best%20of%20Bengal/Mutton%20Galawti%20Kebab.jpg"
           },
           {
             "item": "Fish Tikka (Size : Approx. 11'/8pcs. Boneless) ",
-            "price": 300
+            "price": 300,
+            "image_url": "https://storage.googleapis.com/ds90-food/Best%20of%20Bengal/Fish%20Tikka_.jpg"
           },
           {
             "item": "Rumali Roti ",
-            "price": 20
+            "price": 20,
+            "image_url": "https://storage.googleapis.com/ds90-food/Best%20of%20Bengal/Rumali%20Roti.jpg"
           }
         ]
       }
@@ -189,153 +226,189 @@
         "Iced Drinks": [
           {
             "item": "Fresh Lime (Still/ Sparkling) ",
-            "price": 185
+            "price": 185,
+            "image_url": "https://storage.googleapis.com/ds90-food/Taco%20Bell/Y%20Cafe%20and%20Restaurant/Iced%20drinks%20/Fresh%20lime.jpg"
           },
           {
             "item": "Orange Mojito",
-            "price": 185
+            "price": 185,
+            "image_url": "https://storage.googleapis.com/ds90-food/Taco%20Bell/Y%20Cafe%20and%20Restaurant/Iced%20drinks%20/Orange%20Mojito.webp"
           },
           {
             "item": "Virgin Mojito",
-            "price": 185
+            "price": 185,
+            "image_url": "https://storage.googleapis.com/ds90-food/Taco%20Bell/Y%20Cafe%20and%20Restaurant/Iced%20drinks%20/Virgin%20mojito.jpg"
           },
           {
             "item": "Cranberry Mojito",
-            "price": 185
+            "price": 185,
+            "image_url": ""
           },
           {
             "item": "Blue Lagoon",
-            "price": 185
+            "price": 185,
+            "image_url": "https://storage.googleapis.com/ds90-food/Taco%20Bell/Y%20Cafe%20and%20Restaurant/Iced%20drinks%20/Blue%20Lagoon.jpeg"
           },
           {
             "item": "Iced Tea (Lemon/ Peach) ",
-            "price": 185
+            "price": 185,
+            "image_url": "https://storage.googleapis.com/ds90-food/Taco%20Bell/Y%20Cafe%20and%20Restaurant/Iced%20drinks%20/Iced%20Tea.jpg"
           },
           {
             "item": "Appletini Fizz",
-            "price": 185
+            "price": 185,
+            "image_url": "https://storage.googleapis.com/ds90-food/Taco%20Bell/Y%20Cafe%20and%20Restaurant/Iced%20drinks%20/Appletini%20fizz.jpg"
           },
           {
             "item": "Strawberry Lemonade",
-            "price": 185
+            "price": 185,
+            "image_url": "https://storage.googleapis.com/ds90-food/Taco%20Bell/Y%20Cafe%20and%20Restaurant/Iced%20drinks%20/Stawberry%20lemonade.jpg"
           },
           {
             "item": "Malibu Sunset",
-            "price": 185
+            "price": 185,
+            "image_url": "https://storage.googleapis.com/ds90-food/Taco%20Bell/Y%20Cafe%20and%20Restaurant/Iced%20drinks%20/Malibu%20Sunset.jpg"
           },
           {
             "item": "Passionfruit & Lime Cooler",
-            "price": 185
+            "price": 185,
+            "image_url": "https://storage.googleapis.com/ds90-food/Taco%20Bell/Y%20Cafe%20and%20Restaurant/Iced%20drinks%20/Passion%20fruit%20and%20lime%20cooler.jpg"
           },
           {
             "item": "Watermelon Fizzy Punch",
-            "price": 185
+            "price": 185,
+            "image_url": "https://storage.googleapis.com/ds90-food/Taco%20Bell/Y%20Cafe%20and%20Restaurant/Iced%20drinks%20/Watermelon%20Fizzy%20Punch.jpg"
           },
           {
             "item": "Coca-Cola / Fanta / Sprite (per Glass) ",
-            "price": 100
+            "price": 100,
+            "image_url": "https://storage.googleapis.com/ds90-food/Taco%20Bell/Y%20Cafe%20and%20Restaurant/Iced%20drinks%20/Coca-Cola%20%2C%20Fanta%20%2C%20sprite.jpg"
           }
         ],
         "Shakes": [
           {
             "item": "Ferrero Rocher Shake ",
-            "price": 220
+            "price": 220,
+            "image_url": "https://storage.googleapis.com/ds90-food/Taco%20Bell/Y%20Cafe%20and%20Restaurant/shakes%20/Ferrero%20Rocher%20shake.jpg"
           },
           {
             "item": "Tiramisu Latte ",
-            "price": 220
+            "price": 220,
+            "image_url": "https://storage.googleapis.com/ds90-food/Taco%20Bell/Y%20Cafe%20and%20Restaurant/shakes%20/Tiramissu%20Latte.jpg"
           },
           {
             "item": "Kunafa Milkshake ",
-            "price": 220
+            "price": 220,
+            "image_url": "https://storage.googleapis.com/ds90-food/Taco%20Bell/Y%20Cafe%20and%20Restaurant/shakes%20/Kunafa%20Milkshake.jpg"
           },
           {
             "item": "Iced Matcha Latte ",
-            "price": 220
+            "price": 220,
+            "image_url": "https://storage.googleapis.com/ds90-food/Taco%20Bell/Y%20Cafe%20and%20Restaurant/shakes%20/Iced%20Matcha%20Latte.jpg"
           },
           {
             "item": "Oreo Shake",
-            "price": 220
+            "price": 220,
+            "image_url": "https://storage.googleapis.com/ds90-food/Taco%20Bell/Y%20Cafe%20and%20Restaurant/shakes%20/Oreo%20Shake.jpg"
           },
           {
             "item": "Black Forest Shake",
-            "price": 220
+            "price": 220,
+            "image_url": "https://storage.googleapis.com/ds90-food/Taco%20Bell/Y%20Cafe%20and%20Restaurant/shakes%20/Black%20Forest%20Shake.jpg"
           },
           {
             "item": "KitKat Shake ",
-            "price": 220
+            "price": 220,
+            "image_url": "https://storage.googleapis.com/ds90-food/Taco%20Bell/Y%20Cafe%20and%20Restaurant/shakes%20/Kitkat%20Shake.jpg"
           },
           {
             "item": "Blueberry Cheesecake Shake ",
-            "price": 220
+            "price": 220,
+            "image_url": "https://storage.googleapis.com/ds90-food/Taco%20Bell/Y%20Cafe%20and%20Restaurant/shakes%20/Blueberry%20shake.jpg"
           },
           {
             "item": "Cold Coffee (Classic/Hazlenut/Caramel/Boba/Irish Creme)",
-            "price": 220
+            "price": 220,
+            "image_url": "https://storage.googleapis.com/ds90-food/Taco%20Bell/Y%20Cafe%20and%20Restaurant/shakes%20/Cold%20Coffee.jpg"
           }
         ],
         "Hot Beverages": [
           {
             "item": "Tea",
-            "price": 100
+            "price": 100,
+            "image_url": "https://storage.googleapis.com/ds90-food/Taco%20Bell/Y%20Cafe%20and%20Restaurant/HOt%20beverages%20/Tea.jpg"
           },
           {
             "item": "Masala Chai",
-            "price": 110
+            "price": 110,
+            "image_url": "https://storage.googleapis.com/ds90-food/Taco%20Bell/Y%20Cafe%20and%20Restaurant/HOt%20beverages%20/Masala%20chai.jpg"
           },
           {
             "item": "Honey Lemon Ginger Tea",
-            "price": 110
+            "price": 110,
+            "image_url": "https://storage.googleapis.com/ds90-food/Taco%20Bell/Y%20Cafe%20and%20Restaurant/HOt%20beverages%20/Honey%20lemon%20ginger%20tea.jpg"
           },
           {
             "item": "Green/ Hibiscus/ Chamomile Tea",
-            "price": 110
+            "price": 110,
+            "image_url": "https://storage.googleapis.com/ds90-food/Taco%20Bell/Y%20Cafe%20and%20Restaurant/HOt%20beverages%20/Green%20Tea.jpg"
           },
           {
             "item": "Kashmiri Kehwa",
-            "price": 120
+            "price": 120,
+            "image_url": "https://storage.googleapis.com/ds90-food/Taco%20Bell/Y%20Cafe%20and%20Restaurant/HOt%20beverages%20/Kehwa.jpg"
           },
           {
             "item": "Hand Beaten Coffee",
-            "price": 150
+            "price": 150,
+            "image_url": "https://storage.googleapis.com/ds90-food/Taco%20Bell/Y%20Cafe%20and%20Restaurant/HOt%20beverages%20/handbeaten%20coffee.jpg"
           },
           {
             "item": "Decaffeinated Coffee",
-            "price": 110
+            "price": 110,
+            "image_url": ""
           }
         ],
         "Deserts": [
           {
             "item": "Blueberry Cheesecake in a Jar",
-            "price": 200
+            "price": 200,
+            "image_url": "https://storage.googleapis.com/ds90-food/Taco%20Bell/Y%20Cafe%20and%20Restaurant/Desserts/Blueberry%20Cheesecake.jpg"
           },
           {
             "item": "Biscoff Cheesecake in a Jar",
-            "price": 200
+            "price": 200,
+            "image_url": "https://storage.googleapis.com/ds90-food/Taco%20Bell/Y%20Cafe%20and%20Restaurant/Desserts/Biscoff%20cheesecake.jpg"
           },
           {
             "item": "Kunafa Cake (per slice) ",
-            "price": 150
+            "price": 150,
+            "image_url": "https://storage.googleapis.com/ds90-food/Taco%20Bell/Y%20Cafe%20and%20Restaurant/Desserts/Kunafa%20cake.jpg"
           },
           {
             "item": "Hazelnut praline Cake (per slice) ",
-            "price": 150
+            "price": 150,
+            "image_url": "https://storage.googleapis.com/ds90-food/Taco%20Bell/Y%20Cafe%20and%20Restaurant/Desserts/Hazelnut%20Praline%20cake.jpg"
           },
           {
             "item": "Rasberry Lemon Cake (per slice) ",
-            "price": 120
+            "price": 120,
+            "image_url": "https://storage.googleapis.com/ds90-food/Taco%20Bell/Y%20Cafe%20and%20Restaurant/Desserts/Raspberry%20lemon%20cake.jpg"
           },
           {
             "item": "Walnut Fudge Box (200 grams) ",
-            "price": 200
+            "price": 200,
+            "image_url": "https://storage.googleapis.com/ds90-food/Taco%20Bell/Y%20Cafe%20and%20Restaurant/Desserts/Walnut%20fudge%20box.jpg"
           },
           {
             "item": "Kunafa / Lotus Handmade Chocolate bar",
-            "price": 250
+            "price": 250,
+            "image_url": "https://storage.googleapis.com/ds90-food/Taco%20Bell/Y%20Cafe%20and%20Restaurant/Desserts/Kunafa%20chocolate.jpg"
           },
           {
             "item": "Choco Browni Sundae",
-            "price": 200
+            "price": 200,
+            "image_url": "https://storage.googleapis.com/ds90-food/Taco%20Bell/Y%20Cafe%20and%20Restaurant/Desserts/Choco%20Brownie%20Sundae.jpg"
           }
         ]
       }
@@ -344,64 +417,78 @@
       "name": "Tavern",
       "image_url": "",
       "categories": {
-        "Dim Sum & Snacks": [
+        "Veg": [
           {
             "item": "Veg. Dim Sum (06 pcs)",
-            "price": 200
+            "price": 200,
+            "image_url": "https://storage.googleapis.com/ds90-food/Taco%20Bell/Tavern%20Restaurant/Veg%20Dimsum.jpg"
           },
           {
             "item": "Potato Wedges",
-            "price": 180
+            "price": 180,
+            "image_url": "https://storage.googleapis.com/ds90-food/Taco%20Bell/Tavern%20Restaurant/Potato%20Wedges_.jpg"
           },
           {
             "item": "Cheese Cigar Roll (04 pcs)",
-            "price": 200
+            "price": 200,
+            "image_url": "https://storage.googleapis.com/ds90-food/Taco%20Bell/Tavern%20Restaurant/Cheese%20Cigar%20Roll.jpg"
           },
           {
             "item": "Cold Sandwich ",
-            "price": 180
+            "price": 180,
+            "image_url": "https://storage.googleapis.com/ds90-food/Taco%20Bell/Tavern%20Restaurant/Cold%20Sandwich.jpg"
           },
           {
             "item": "Grill Sandwich ",
-            "price": 200
+            "price": 200,
+            "image_url": "https://storage.googleapis.com/ds90-food/Taco%20Bell/Tavern%20Restaurant/Grilled%20Sandwhich_.jpg"
           },
           {
             "item": "Veg Pasta (Arrabbiata/ Alfredo Sauce) ",
-            "price": 300
+            "price": 300,
+            "image_url": "https://storage.googleapis.com/ds90-food/Taco%20Bell/Tavern%20Restaurant/Veg%20Pasta_.jpg"
           },
           {
             "item": "Chinese Combo Veg ",
-            "price": 300
+            "price": 300,
+            "image_url": "https://storage.googleapis.com/ds90-food/Taco%20Bell/Tavern%20Restaurant/Chinese%20combo_.jpg"
           },
           {
             "item": "Traditional Kadi Chawal ",
-            "price": 200
+            "price": 200,
+            "image_url": "https://storage.googleapis.com/ds90-food/Taco%20Bell/Tavern%20Restaurant/Traditional%20Kadi%20Chawal_.jpg"
           },
           {
             "item": "Traditional Rajma Chawal",
-            "price": 200
+            "price": 200,
+            "image_url": "https://storage.googleapis.com/ds90-food/Taco%20Bell/Tavern%20Restaurant/Traditional%20Rajma%20Chawal_.jpg"
           }
         ],
         "Non-Veg": [
           {
             "item": "Chicken Dim-Sum (06 pcs)",
-            "price": 225
+            "price": 225,
+            "image_url": "https://storage.googleapis.com/ds90-food/Taco%20Bell/Tavern%20Restaurant/Chicken%20Dimsum.jpg"
           },
           {
             "item": "Chicken Cigar Roll (04 pcs)",
-            "price": 225
+            "price": 225,
+            "image_url": "https://storage.googleapis.com/ds90-food/Taco%20Bell/Tavern%20Restaurant/Chicken%20Cigar%20Roll.jpg"
           },
           {
             "item": "Grill Sandwich Chicken",
-            "price": 225
+            "price": 225,
+            "image_url": "https://storage.googleapis.com/ds90-food/Taco%20Bell/Tavern%20Restaurant/Grilled%20Chicken%20Sandwich_.jpg"
           },
           {
             "item": "Chicken Pasta (Arrabbiata/ Alfredo Sauce)",
-            "price": 325
+            "price": 325,
+            "image_url": ""
           },
           {
             "item": "Chinese Combo Chicken",
-            "price": 325
+            "price": 325,
+            "image_url": "https://storage.googleapis.com/ds90-food/Taco%20Bell/Tavern%20Restaurant/Chinese%20Chicken%20Combo_.jpg"
           }
         ]
       }
@@ -410,54 +497,66 @@
       "name": "Belly Gong Cafe & Bakery",
       "image_url": "",
       "categories": {
-        "Bakery": [
+        "Deserts": [
           {
             "item": "Chocolate Chip Cookie",
-            "price": 60
+            "price": 60,
+            "image_url": ""
           },
           {
             "item": "Multigrain Cookie",
-            "price": 100
+            "price": 100,
+            "image_url": ""
           },
           {
             "item": "Oatmeal Chocolate-Chip Cookie",
-            "price": 80
+            "price": 80,
+            "image_url": ""
           },
           {
             "item": "Banana Muffin",
-            "price": 50
+            "price": 50,
+            "image_url": ""
           },
           {
             "item": "Chocolate Walnut Coffee Cake",
-            "price": 150
+            "price": 150,
+            "image_url": ""
           },
           {
             "item": "Carrot Cake",
-            "price": 200
+            "price": 200,
+            "image_url": ""
           },
           {
             "item": "Cinnamon Rolls",
-            "price": 200
+            "price": 200,
+            "image_url": ""
           },
           {
             "item": "Chicken Bun",
-            "price": 150
+            "price": 150,
+            "image_url": ""
           },
           {
             "item": "Paneer Bun",
-            "price": 200
+            "price": 200,
+            "image_url": ""
           },
           {
             "item": "Veg Quiche",
-            "price": 200
+            "price": 200,
+            "image_url": ""
           },
           {
             "item": "Chicken Pot Pie [with salad] ",
-            "price": 200
+            "price": 200,
+            "image_url": ""
           },
           {
             "item": "Cold Coffee",
-            "price": 150
+            "price": 150,
+            "image_url": ""
           }
         ]
       }
@@ -469,79 +568,97 @@
         "Veg Delight": [
           {
             "item": "Mix Veg Roll",
-            "price": 170
+            "price": 170,
+            "image_url": "https://storage.googleapis.com/ds90-food/Taco%20Bell/Rolls%20Mania/Mix%20Veg%20Kathi%20Roll.jpg"
           },
           {
             "item": "Paneer Masala Roll",
-            "price": 230
+            "price": 230,
+            "image_url": "https://storage.googleapis.com/ds90-food/Taco%20Bell/Rolls%20Mania/Paneer%20Masala%20roll.jpg"
           },
           {
             "item": "paneer Chilly Roll",
-            "price": 250
+            "price": 250,
+            "image_url": "https://storage.googleapis.com/ds90-food/Taco%20Bell/Rolls%20Mania/Paneer%20chilli%20roll.jpg"
           },
           {
             "item": "Paneer Hot Garlic Roll",
-            "price": 250
+            "price": 250,
+            "image_url": "https://storage.googleapis.com/ds90-food/Taco%20Bell/Rolls%20Mania/Paneer%20Hot%20Garlic%20Roll.jpg"
           },
           {
             "item": "Paneer Mughlai Roll",
-            "price": 270
+            "price": 270,
+            "image_url": "https://storage.googleapis.com/ds90-food/Taco%20Bell/Rolls%20Mania/Paneer%20Mughlai%20Roll.jpg"
           },
           {
             "item": "Soya Chaap Mughlai Roll",
-            "price": 270
+            "price": 270,
+            "image_url": "https://storage.googleapis.com/ds90-food/Taco%20Bell/Rolls%20Mania/Soya%20Chaap%20Mughlai%20Roll.jpg"
           }
         ],
         "Non-Veg Delight": [
           {
             "item": "Double Egg Omelette Roll",
-            "price": 170
+            "price": 170,
+            "image_url": "https://storage.googleapis.com/ds90-food/Taco%20Bell/Rolls%20Mania/Double%20egg%20omelette%20roll.jpg"
           },
           {
             "item": "Chicken Chilly Roll",
-            "price": 250
+            "price": 250,
+            "image_url": "https://storage.googleapis.com/ds90-food/Taco%20Bell/Rolls%20Mania/Chicken%20Chilli%20roll.jpg"
           },
           {
             "item": "Chicken Mughlai Roll",
-            "price": 290
+            "price": 290,
+            "image_url": "https://storage.googleapis.com/ds90-food/Taco%20Bell/Rolls%20Mania/Chicken%20Mughlai%20roll.jpg"
           },
           {
             "item": "Chicken Tikka Masala Roll",
-            "price": 290
+            "price": 290,
+            "image_url": "https://storage.googleapis.com/ds90-food/Taco%20Bell/Rolls%20Mania/Chicken%20Tikka%20Masala%20Roll.jpg"
           },
           {
             "item": "Chicken Kathi Roll With Egg",
-            "price": 300
+            "price": 300,
+            "image_url": "https://storage.googleapis.com/ds90-food/Taco%20Bell/Rolls%20Mania/Chicken%20Kathi%20roll%20with%20egg.jpg"
           },
           {
             "item": "Butter Chicken Roll",
-            "price": 300
+            "price": 300,
+            "image_url": "https://storage.googleapis.com/ds90-food/Taco%20Bell/Rolls%20Mania/Butter%20Chicken%20Roll.jpg"
           },
           {
             "item": "Double Chicken Roll",
-            "price": 300
-          },
+            "price": 300,
+            "image_url": "https://storage.googleapis.com/ds90-food/Taco%20Bell/Rolls%20Mania/Double%20Chicken%20Roll.jpg","https":
+          null},
           {
             "item": "Double Omelette Double Chicken Roll",
-            "price": 350
+            "price": 350,
+            "image_url": "https://storage.googleapis.com/ds90-food/Taco%20Bell/Rolls%20Mania/Double%20chicken%20double%20omelette%20roll.jpg"
           }
         ],
         "Extras": [
           {
             "item": "Egg",
-            "price": 30
+            "price": 30,
+            "image_url": ""
           },
           {
             "item": "Mayonnaise Dip",
-            "price": 30
+            "price": 30,
+            "image_url": "https://storage.googleapis.com/ds90-food/Taco%20Bell/Rolls%20Mania/Mayonnaise%20dip.jpg"
           },
           {
             "item": "Cheese Dip",
-            "price": 30
+            "price": 30,
+            "image_url": "https://storage.googleapis.com/ds90-food/Taco%20Bell/Rolls%20Mania/Cheese%20dip.jpg"
           },
           {
             "item": "Hot Garlic Dip",
-            "price": 30
+            "price": 30,
+            "image_url": "https://storage.googleapis.com/ds90-food/Taco%20Bell/Rolls%20Mania/Hot%20Garlic%20Dip.jpg"
           }
         ]
       }
@@ -553,191 +670,231 @@
         "Veg Burger": [
           {
             "item": "Veg Snacker",
-            "price": 150
+            "price": 150,
+            "image_url": "https://storage.googleapis.com/ds90-food/Taco%20Bell/Burger%20Singh/Veg-Snacker.png"
           },
           {
             "item": "Jr. Udta Punjab",
-            "price": 200
+            "price": 200,
+            "image_url": "https://storage.googleapis.com/ds90-food/Taco%20Bell/Burger%20Singh/Junior-Udta-Punjab.png"
           },
           {
             "item": "Chunky Paneer Pandey",
-            "price": 250
+            "price": 250,
+            "image_url": "https://storage.googleapis.com/ds90-food/Taco%20Bell/Burger%20Singh/Chunky%20Paneer%20Pandey%20.jpg"
           }
         ],
         "Non Veg Burger": [
           {
             "item": "Jr. Fried Chicken",
-            "price": 180
+            "price": 180,
+            "image_url": "https://storage.googleapis.com/ds90-food/Taco%20Bell/Burger%20Singh/CrispyChickenJR.png"
           },
           {
             "item": "Big Crispy Chicken",
-            "price": 250
+            "price": 250,
+            "image_url": "https://storage.googleapis.com/ds90-food/Taco%20Bell/Burger%20Singh/Big%20Crispy%20Chicken%20.jpg"
           }
         ],
         "Fries / Sides": [
           {
             "item": "Classic Salted / Dilli-6 Fries",
-            "price": 150
+            "price": 150,
+            "image_url": "https://storage.googleapis.com/ds90-food/Taco%20Bell/Burger%20Singh/Classic%20Salted%20Fries.jpg"
           },
           {
             "item": "Cheesy Fries",
-            "price": 200
+            "price": 200,
+            "image_url": "https://storage.googleapis.com/ds90-food/Taco%20Bell/Burger%20Singh/Chessy%20Fries.jpg"
           },
           {
             "item": "Chicken Wings (4 Pcs)",
-            "price": 300
+            "price": 300,
+            "image_url": "https://storage.googleapis.com/ds90-food/Taco%20Bell/Burger%20Singh/Chicken%20wings%20_.jpg"
           },
           {
             "item": "Chicken Popcorn",
-            "price": 250
+            "price": 250,
+            "image_url": "https://storage.googleapis.com/ds90-food/Taco%20Bell/Burger%20Singh/Chicken%20Popcorn%20.jpg"
           },
           {
             "item": "Cheesy Coins (3 pieces)",
-            "price": 100
+            "price": 100,
+            "image_url": "https://storage.googleapis.com/ds90-food/Taco%20Bell/Burger%20Singh/Cheddar-Cheese-Coins-1-of-1-5-500x500.jpg"
           }
         ],
         "Desserts": [
           {
             "item": "Choco Lava Cake (Per Piece)",
-            "price": 100
+            "price": 100,
+            "image_url": "https://storage.googleapis.com/ds90-food/Taco%20Bell/Burger%20Singh/Choco%20Lava%20Cake_.jpg"
           }
         ]
       }
     },
     {
-      "name": "Mexican Grill",
+      "name": "Taco bell",
       "image_url": "",
       "categories": {
         "SIDES & SHAREABLES": [
           {
             "item": "Mexican Fries",
-            "price": 130
+            "price": 130,
+            "image_url": "https://storage.googleapis.com/ds90-food/Taco%20Bell/Mexican%20Fries_.jpg"
           },
           {
             "item": "Nacho's & Salsa",
-            "price": 150
+            "price": 150,
+            "image_url": "https://storage.googleapis.com/ds90-food/Taco%20Bell/Nachos%20and%20salsa.jpg"
           },
           {
             "item": "Cheesy Fries",
-            "price": 170
+            "price": 170,
+            "image_url": "https://storage.googleapis.com/ds90-food/Taco%20Bell/Cheesy%20fries.jpg"
           },
           {
             "item": "Cheesy Loaded Fries",
-            "price": 250
+            "price": 250,
+            "image_url": "https://storage.googleapis.com/ds90-food/Taco%20Bell/Cheesy%20Loaded%20Fries.jpg"
           },
           {
             "item": "Cheesy Loaded Nacho's",
-            "price": 300
+            "price": 300,
+            "image_url": "https://storage.googleapis.com/ds90-food/Taco%20Bell/Cheesy%20Loaded%20Nachos.jpg"
           },
           {
             "item": "Veg Zingy Kicks",
-            "price": 150
+            "price": 150,
+            "image_url": "https://storage.googleapis.com/ds90-food/Taco%20Bell/Veg%20Zingy%20Kicks.jpg"
           },
           {
             "item": "Chicken Zingy Kicks",
-            "price": 180
+            "price": 180,
+            "image_url": "https://storage.googleapis.com/ds90-food/Taco%20Bell/Chicken%20Zingy%20Kicks"
           }
         ],
         "BURRITO ROLLS": [
           {
             "item": "Habanero Burrito Veg",
-            "price": 150
+            "price": 150,
+            "image_url": "https://storage.googleapis.com/ds90-food/Taco%20Bell/Veg%20Habanero%20burrito_.jpg"
           },
           {
             "item": "Habanero Burrito Non-Veg",
-            "price": 180
+            "price": 180,
+            "image_url": "https://storage.googleapis.com/ds90-food/Taco%20Bell/Nonveg%20Habanero%20burrito.jpg"
           },
           {
             "item": "Fiery Volcano Veg Burrito",
-            "price": 220
+            "price": 220,
+            "image_url": "https://storage.googleapis.com/ds90-food/Taco%20Bell/Fiery%20Volcano%20veg%20burrito.jpg"
           },
           {
             "item": "Fiery Volcano Non-Veg Burrito",
-            "price": 250
+            "price": 250,
+            "image_url": "https://storage.googleapis.com/ds90-food/Taco%20Bell/Non%20veg%20fiery%20volcano%20burrito.jpg"
           },
           {
             "item": "7 Layer Burrito Veg",
-            "price": 350
+            "price": 350,
+            "image_url": "https://storage.googleapis.com/ds90-food/Taco%20Bell/Veg%20Seven%20Layer%20Burrito_.jpg"
           },
           {
             "item": "7 Layer Burrito Non-Veg",
-            "price": 380
+            "price": 380,
+            "image_url": "https://storage.googleapis.com/ds90-food/Taco%20Bell/Non%20Veg%20Seven%20Layer%20Burrito.jpg"
           },
           {
             "item": "Mexican Reg. Rice Bowl Veg",
-            "price": 220
+            "price": 220,
+            "image_url": "https://storage.googleapis.com/ds90-food/Taco%20Bell/Veg%20Mexican%20Rice%20Bowl.jpg"
           },
           {
             "item": "Mexican Reg. Rice Bowl Non Veg",
-            "price": 250
+            "price": 250,
+            "image_url": "https://storage.googleapis.com/ds90-food/Taco%20Bell/Non%20Veg%20mexican%20rice%20bowl.jpg"
           }
         ],
         "QUESADILLAS": [
           {
             "item": "Melted Cheese Quesidilla Veg",
-            "price": 250
+            "price": 250,
+            "image_url": "https://storage.googleapis.com/ds90-food/Taco%20Bell/Veg%20Melted%20cheese%20quesadilla.jpg"
           },
           {
             "item": "Melted Cheese Quesidilla Non Veg",
-            "price": 280
+            "price": 280,
+            "image_url": "https://storage.googleapis.com/ds90-food/Taco%20Bell/Non%20Veg%20melted%20cheese%20quesadilla.jpg"
           }
         ],
         "WRAPS": [
           {
             "item": "Star Wrape Veg",
-            "price": 260
+            "price": 260,
+            "image_url": "https://storage.googleapis.com/ds90-food/Taco%20Bell/Veg%20Star%20Wrap.jpg"
           },
           {
             "item": "Star Wrape Non-Veg",
-            "price": 300
+            "price": 300,
+            "image_url": "https://storage.googleapis.com/ds90-food/Taco%20Bell/Non%20Veg%20Star%20wraps.jpg"
           }
         ],
         "TACOS": [
           {
             "item": "Crunchy Taco Supreme Veg",
-            "price": 150
+            "price": 150,
+            "image_url": "https://storage.googleapis.com/ds90-food/Taco%20Bell/Veg%20crunchy%20taco%20supreme.jpg"
           },
           {
             "item": "Crunchy Taco Supreme Non-Veg",
-            "price": 170
+            "price": 170,
+            "image_url": "https://storage.googleapis.com/ds90-food/Taco%20Bell/Non%20Veg%20crunchy%20tacos%20supreme.jpg"
           },
           {
             "item": "Soft Taco Paneer",
-            "price": 150
+            "price": 150,
+            "image_url": "https://storage.googleapis.com/ds90-food/Taco%20Bell/Soft%20Paneer%20Taco.webp"
           }
         ],
         "BEVERAGES": [
           {
             "item": "Sparkling Green Lamon-Ade",
-            "price": 130
+            "price": 130,
+            "image_url": "https://storage.googleapis.com/ds90-food/Taco%20Bell/Sparkling%20Green%20Lemonade.jpg"
           },
           {
             "item": "Sparkling Mango Chilli",
-            "price": 130
+            "price": 130,
+            "image_url": "https://storage.googleapis.com/ds90-food/Taco%20Bell/Sparkling%20Mango%20Chilli.jpg"
           },
           {
             "item": "Lemon Iced Tea.",
-            "price": 150
+            "price": 150,
+            "image_url": "https://storage.googleapis.com/ds90-food/Taco%20Bell/Lemon%20Iced%20Tea.jpg"
           }
         ],
         "SHAKES": [
           {
             "item": "Hazelnut Cold Coffee",
-            "price": 200
+            "price": 200,
+            "image_url": "https://storage.googleapis.com/ds90-food/Taco%20Bell/Hazelnut%20Cold%20Coffee.jpg"
           },
           {
             "item": "Chocolate Shake",
-            "price": 200
+            "price": 200,
+            "image_url": "https://storage.googleapis.com/ds90-food/Taco%20Bell/Chocolate%20Shake.jpg"
           },
           {
             "item": "Mango Shake",
-            "price": 200
+            "price": 200,
+            "image_url": "https://storage.googleapis.com/ds90-food/Taco%20Bell/Mango%20Shake.jpg"
           }
         ],
         "CHURROS": [
           {
             "item": "Churros",
-            "price": 150
+            "price": 150,
+            "image_url": "https://storage.googleapis.com/ds90-food/Taco%20Bell/Churros.jpg"
           }
         ]
       }
@@ -746,203 +903,243 @@
       "name": "Snowy Owl Gelato Co.",
       "image_url": "",
       "categories": {
-        "Gelato": [
+        "Menu": [
           {
             "item": "Gelato Regular",
-            "price": 200
+            "price": 200,
+            "image_url": "https://storage.googleapis.com/ds90-food/Snowy%20Owl%20Gelato%20Co./Regular%20Gelato.jpg"
           },
           {
             "item": "Gelato Shake",
-            "price": 250
+            "price": 250,
+            "image_url": "https://storage.googleapis.com/ds90-food/Snowy%20Owl%20Gelato%20Co./Gelato%20Shake.jpg"
           },
           {
             "item": "Hot Chocolate",
-            "price": 200
+            "price": 200,
+            "image_url": "https://storage.googleapis.com/ds90-food/Snowy%20Owl%20Gelato%20Co./Hot%20Chocolate.jpg"
           },
           {
             "item": "Gelato Coke Float",
-            "price": 150
+            "price": 150,
+            "image_url": "https://storage.googleapis.com/ds90-food/Snowy%20Owl%20Gelato%20Co./Gelato%20Coke%20Float.jpg"
           },
           {
             "item": "Churros",
-            "price": 150
+            "price": 150,
+            "image_url": "https://storage.googleapis.com/ds90-food/Snowy%20Owl%20Gelato%20Co./Churros.jpg"
           }
         ]
       }
     },
     {
       "name": "MOS Dehradun – Global Food Excursion (Day 1)",
+      "image_url": "",
       "categories": {
         "Global Streets": [
           {
             "item": "Fiery Mexican Nachos (V)",
-            "price": 500
+            "price": 500,
+            "image_url": "https://storage.googleapis.com/ds90-food/MOS%20Dehradun/Fiery%20Mexican%20Nachos.jpg"
           },
           {
             "item": "Cheesy Chicken Nachos (NV)",
-            "price": 600
+            "price": 600,
+            "image_url": "https://storage.googleapis.com/ds90-food/MOS%20Dehradun/Cheesy%20Chicken%20Nachos.jpg"
           },
           {
             "item": "Truffle Parmesan Fries (V)",
-            "price": 400
+            "price": 400,
+            "image_url": "https://storage.googleapis.com/ds90-food/MOS%20Dehradun/Truffle%20Parmesan%20Fries.jpg"
           },
           {
             "item": "Korean Chicken Fries (NV)",
-            "price": 450
+            "price": 450,
+            "image_url": "https://storage.googleapis.com/ds90-food/MOS%20Dehradun/Korean%20Chicken%20Fries.jpg"
           },
           {
             "item": "Dukkah Spiced Paneer Tikka (V)",
-            "price": 500
+            "price": 500,
+            "image_url": "https://storage.googleapis.com/ds90-food/MOS%20Dehradun/Dukkah%20Spiced%20Paneer%20Tikka.jpg"
           },
           {
             "item": "Chicken Shish Tauk (NV)",
-            "price": 600
+            "price": 600,
+            "image_url": "https://storage.googleapis.com/ds90-food/MOS%20Dehradun/Chicken%20Shish%20Tauk.jpg"
           },
           {
             "item": "Chicken Nuggets (NV)",
-            "price": 600
+            "price": 600,
+            "image_url": "https://storage.googleapis.com/ds90-food/MOS%20Dehradun/Chicken%20Nuggets.jpg"
           },
           {
             "item": "Fish Fingers (NV)",
-            "price": 700
+            "price": 700,
+            "image_url": "https://storage.googleapis.com/ds90-food/MOS%20Dehradun/Fish%20Fingers.jpg"
           }
         ],
         "Munchies (Day 1)": [
           {
             "item": "Crystal Veg Dim Sum (V)",
-            "price": 500
+            "price": 500,
+            "image_url": "https://storage.googleapis.com/ds90-food/MOS%20Dehradun/Crystal%20Veg%20Dim%20Sum.jpg"
           },
           {
             "item": "Cheese Dim Sum (V)",
-            "price": 500
+            "price": 500,
+            "image_url": "https://storage.googleapis.com/ds90-food/MOS%20Dehradun/Cheese%20Dim%20Sum.jpg"
           },
           {
             "item": "Truffle Chicken Dim Sum (NV)",
-            "price": 600
+            "price": 600,
+            "image_url": "https://storage.googleapis.com/ds90-food/MOS%20Dehradun/Truffle%20Chicken%20Dim%20Sum.png"
           },
           {
             "item": "Cucumber & Cream Cheese Sushi (V)",
-            "price": 600
+            "price": 600,
+            "image_url": "https://storage.googleapis.com/ds90-food/MOS%20Dehradun/Cucumber%20%26%20Cream%20Cheese%20Sushi.jpg"
           },
           {
             "item": "Chicken Katsu Uramaki (NV)",
-            "price": 700
+            "price": 700,
+            "image_url": "https://storage.googleapis.com/ds90-food/MOS%20Dehradun/Chicken%20Katsu%20Uramaki.png"
           },
           {
             "item": "Paneer Tikka Shawarma Roll (V)",
-            "price": 500
+            "price": 500,
+            "image_url": "https://storage.googleapis.com/ds90-food/MOS%20Dehradun/Paneer%20Tikka%20Shawarma%20Roll.jpg"
           },
           {
             "item": "Chicken Shawarma Roll (NV)",
-            "price": 600
+            "price": 600,
+            "image_url": "https://storage.googleapis.com/ds90-food/MOS%20Dehradun/Chicken%20Shawarma%20Roll.png"
           },
           {
             "item": "Tandoori Cottage Cheese Burger (V)",
-            "price": 500
+            "price": 500,
+            "image_url": "https://storage.googleapis.com/ds90-food/MOS%20Dehradun/Tandoori%20Cottage%20Cheese%20Burger.jpg"
           },
           {
             "item": "Vada Pav (2 pc) (V)",
-            "price": 400
+            "price": 400,
+            "image_url": "https://storage.googleapis.com/ds90-food/MOS%20Dehradun/Vada%20Pav.jpg"
           },
           {
             "item": "Grilled Chicken Burger (NV)",
-            "price": 600
+            "price": 600,
+            "image_url": "https://storage.googleapis.com/ds90-food/MOS%20Dehradun/Grilled%20Chicken%20Burger.jpg"
           },
           {
             "item": "Pasta (Arrabiata / Alfredo)",
-            "price": 500
+            "price": 500,
+            "image_url": "https://storage.googleapis.com/ds90-food/MOS%20Dehradun/Pasta%20(Arrabiata_Alfredo).jpg"
           }
         ],
         "Desserts & Drinks": [
           {
             "item": "Chocolate Molten Brownie",
-            "price": 400
+            "price": 400,
+            "image_url": "https://storage.googleapis.com/ds90-food/MOS%20Dehradun/Chocolate%20Molten%20Brownie.jpg"
           },
           {
             "item": "NY Cheesecake",
-            "price": 500
+            "price": 500,
+            "image_url": "https://storage.googleapis.com/ds90-food/MOS%20Dehradun/NY%20Cheesecake.jpg"
           },
           {
             "item": "Cupcake",
-            "price": 400
+            "price": 400,
+            "image_url": "https://storage.googleapis.com/ds90-food/MOS%20Dehradun/Cupcake.png"
           },
           {
             "item": "Summer Mojito (Orange Kaffir / Mango Basil / Lemon Mint)",
-            "price": 300
+            "price": 300,
+            "image_url": "https://storage.googleapis.com/ds90-food/MOS%20Dehradun/Summer%20Mojito%20(Orange%20Kaffir_Mango%20Basil_Lemon%20Mint).jpg"
           },
           {
             "item": "Oreo Shake",
-            "price": 300
+            "price": 300,
+            "image_url": "https://storage.googleapis.com/ds90-food/MOS%20Dehradun/Oreo%20Shake.jpg"
           },
           {
             "item": "Kitkat Shake",
-            "price": 300
+            "price": 300,
+            "image_url": "https://storage.googleapis.com/ds90-food/MOS%20Dehradun/Kitkat%20Shake.png"
           },
           {
             "item": "Coconut Water",
-            "price": 250
+            "price": 250,
+            "image_url": "https://storage.googleapis.com/ds90-food/MOS%20Dehradun/Coconut%20Water.png"
           },
           {
             "item": "Soft Beverage Cans",
-            "price": 200
+            "price": 200,
+            "image_url": "https://storage.googleapis.com/ds90-food/MOS%20Dehradun/Soft%20Beverage%20Cans.jpg"
           },
           {
             "item": "Ginger Ale",
-            "price": 250
+            "price": 250,
+            "image_url": "https://storage.googleapis.com/ds90-food/MOS%20Dehradun/Ginger%20Ale.jpg"
           },
           {
             "item": "Red Bull",
-            "price": 300
+            "price": 300,
+            "image_url": "https://storage.googleapis.com/ds90-food/MOS%20Dehradun/Red%20Bull.jpg"
           }
         ]
       }
     },
-       {
+    {
       "name": "Dominos",
+      "image_url": "",
       "categories": {
-        "Pizza": [
+        "VEG PIZZA": [
           {
             "item": "Fresh Veggi",
-            "price": 220
+            "price": 220,
+            "image_url": "https://storage.googleapis.com/ds90-food/Dominos/Fresh_Veggie.jpg"
           },
           {
             "item": "Peppy Paneer",
-            "price": 300
+            "price": 300,
+            "image_url": "https://storage.googleapis.com/ds90-food/Dominos/Peppy%20Paneer.jpg"
           },
           {
             "item": "FARMHOUSE",
-            "price": 300
+            "price": 300,
+            "image_url": "https://storage.googleapis.com/ds90-food/Dominos/Farmhouse.jpg"
           }
         ],
         "NON VEG PIZZA": [
           {
             "item": "BBQ CHICKEN",
-            "price": 300
+            "price": 300,
+            "image_url": "https://storage.googleapis.com/ds90-food/Dominos/BBQ%20Chicken.jpg"
           },
           {
             "item": "SPICY DOUBLE CHICKEN",
-            "price": 330
+            "price": 330,
+            "image_url": "https://storage.googleapis.com/ds90-food/Dominos/Spicy%20Double%20Chicken%20.jpg"
           }
         ],
         "Sides & Desserts": [
           {
             "item": "TACO VEG",
-            "price": 90
+            "price": 90,
+            "image_url": "https://storage.googleapis.com/ds90-food/Dominos/Taco%20Veg.jpg"
           },
           {
-            "item": "Garlic + dip",
-            "price": 150
+            "item": "Garlic Bread + dip",
+            "price": 150,
+            "image_url": "https://storage.googleapis.com/ds90-food/Dominos/Garlic%20bread%20%2B%20Dip.jpg"
           },
           {
             "item": "CHOCO LAVA CAKE",
-            "price": 120
+            "price": 120,
+            "image_url": "https://storage.googleapis.com/ds90-food/Dominos/Choco%20Lava%20Cake.jpg"
           }
         ]
       }
     }
-
-    
-
-    
   ]
 }

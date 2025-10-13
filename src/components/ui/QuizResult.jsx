@@ -8,11 +8,15 @@ const QuizResult = () => {
   const router = useRouter();
   const searchParams = useSearchParams();
 
-  const correct = parseInt(searchParams.get("correct") || 0, 10);
-  const total = parseInt(searchParams.get("total") || 1, 10);
-  const percentage = total > 0 ? Math.round((correct / total) * 100) : 0;
+  // Parse query parameters and ensure they are numbers
+  const correctParam = searchParams.get("correct");
+  const totalParam = searchParams.get("total");
 
-  // Calculate percentage
+  // Use parseInt with radix 10 and provide default values
+  const correct = correctParam ? parseInt(correctParam, 10) : 0;
+  const total = totalParam ? parseInt(totalParam, 10) : 1;
+
+  // Calculate percentage, ensuring total is positive to avoid division by zero
   const percentage = total > 0 ? Math.round((correct / total) * 100) : 0;
 
   return (
