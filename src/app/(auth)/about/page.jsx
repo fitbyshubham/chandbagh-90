@@ -400,7 +400,7 @@ export default function InfoPage() {
       <div className="px-4 max-w-[420px] mx-auto"> 
 
         {/* Header Section */}
-        <div className="flex justify-between items-center mb-6 pt-4 mt-[18px]">
+        <div className="flex justify-between items-center mb-6 pt-4 mt-[60px]">
             <div className="text-3xl font-extrabold text-white">Chandbagh Landmarks</div>
             
             {/* Quiz Button */}
