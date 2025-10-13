@@ -156,74 +156,79 @@ export default function HomePage() {
           </div>
         </div>
 
-      <VideoBanner
-        thumbnail="https://img.youtube.com/vi/G5nBKfJ99a4/maxresdefault.jpg"
-        videoUrl="https://www.youtube.com/embed/G5nBKfJ99a4"
-      />
+        <VideoBanner
+          thumbnail="https://img.youtube.com/vi/G5nBKfJ99a4/maxresdefault.jpg"
+          videoUrl="https://www.youtube.com/embed/G5nBKfJ99a4"
+        />
 
-      <div className="px-4 mt-6">
-        <h2 className="font-bold text-lg mb-2 text-gray-800">Top Rated Food</h2>
-        <div className="flex space-x-4 overflow-x-auto pb-2 hide-scrollbar">
-          {specials.map((item, i) => (
-            <div
-              key={i}
-              className={`min-w-[220px] bg-white rounded-2xl shadow-lg flex-shrink-0 ${
-                item.isTop ? "border-2 border-blue-300" : "border border-gray-200"
-              }`}
-            >
-              <img
-                src={item.image}
-                alt={item.name}
-                className="w-full h-28 object-cover rounded-t-2xl"
-              />
-              <div className="p-3">
-                <div className="flex items-center justify-between">
-                  <span className="font-semibold">{item.name}</span>
-                  <span className="text-xs bg-gray-100 px-2 py-0.5 rounded text-gray-600">
-                    {item.price}
-                  </span>
+        <div className="px-4 mt-6">
+          <h2 className="font-bold text-lg mb-2 text-gray-800">Top Rated Food</h2>
+          <div className="flex space-x-4 overflow-x-auto pb-2 hide-scrollbar">
+            {specials.map((item, i) => (
+              <div
+                key={i}
+                className={`min-w-[220px] bg-white rounded-2xl shadow-lg flex-shrink-0 ${
+                  item.isTop ? "border-2 border-blue-300" : "border border-gray-200"
+                }`}
+              >
+                <img
+                  src={item.image}
+                  alt={item.name}
+                  className="w-full h-28 object-cover rounded-t-2xl"
+                />
+                <div className="p-3">
+                  <div className="flex items-center justify-between">
+                    <span className="font-semibold">{item.name}</span>
+                    <span className="text-xs bg-gray-100 px-2 py-0.5 rounded text-gray-600">
+                      {item.price}
+                    </span>
+                  </div>
+                  <div className="flex items-center mt-1">
+                    <FaStar className="text-yellow-300 mr-1" />
+                    <span className="text-xs font-bold">{item.rating}</span>
+                    <span className="ml-2 text-xs text-gray-500">
+                      {item.stall}
+                    </span>
+                  </div>
+                  {item.isTop && (
+                    <span className="inline-block mt-2 text-xs bg-blue-100 text-blue-700 px-2 py-0.5 rounded-full font-semibold">
+                      Most Popular
+                    </span>
+                  )}
                 </div>
-                <div className="flex items-center mt-1">
-                  <FaStar className="text-yellow-300 mr-1" />
-                  <span className="text-xs font-bold">{item.rating}</span>
-                  <span className="ml-2 text-xs text-gray-500">
-                    {item.stall}
-                  </span>
-                </div>
-                {item.isTop && (
-                  <span className="inline-block mt-2 text-xs bg-blue-100 text-blue-700 px-2 py-0.5 rounded-full font-semibold">
-                    Most Popular
-                  </span>
-                )}
               </div>
-            </div>
+            ))}
+          </div>
         </div>
 
-      <div className="px-4 mt-7">
-        <h2 className="font-bold text-lg mb-2 text-gray-800">Upcoming Events</h2>
-        <div className="flex space-x-4 overflow-x-auto pb-2 hide-scrollbar">
-          {events.map((e, i) => (
-            <div
-              key={i}
-              className="min-w-[200px] bg-white rounded-2xl shadow-lg flex-shrink-0"
-            >
-              <img
-                src={e.image}
-                alt={e.name}
-                className="w-full h-24 object-cover rounded-t-2xl"
-              />
-              <div className="p-3">
-                <div className="font-semibold">{e.name}</div>
-                <div className="text-xs text-gray-500">{e.time}</div>
-                <div className="text-xs text-gray-700 mt-1">{e.desc}</div>
+        <div className="px-4 mt-7">
+          <h2 className="font-bold text-lg mb-2 text-gray-800">Upcoming Events</h2>
+          <div className="flex space-x-4 overflow-x-auto pb-2 hide-scrollbar">
+            {events.map((e, i) => (
+              <div
+                key={i}
+                className="min-w-[200px] bg-white rounded-2xl shadow-lg flex-shrink-0"
+              >
+                <img
+                  src={e.image}
+                  alt={e.name}
+                  className="w-full h-24 object-cover rounded-t-2xl"
+                />
+                <div className="p-3">
+                  <div className="font-semibold">{e.name}</div>
+                  <div className="text-xs text-gray-500">{e.time}</div>
+                  <div className="text-xs text-gray-700 mt-1">{e.desc}</div>
+                </div>
               </div>
-            </div>
+            ))}
+          </div>
         </div>
 
-      <div className="flex flex-col items-center justify-center pt-3 mx-3">
-        <button onClick={handleTeamRoute} className="w-full">
-          <TeamCard />
-        </button>
+        <div className="flex flex-col items-center justify-center pt-3 mx-3">
+          <button onClick={handleTeamRoute} className="w-full">
+            <TeamCard />
+          </button>
+        </div>
       </div>
     </div>
   );
