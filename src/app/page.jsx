@@ -9,6 +9,6 @@ export default function HomePage() {
   if (isDemoLoggedIn) {
     redirect('/home');
   } else {
-    redirect('/login');
+    redirect('/firstpage');
   }
 }

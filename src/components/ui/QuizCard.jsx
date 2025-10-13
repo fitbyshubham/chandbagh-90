@@ -20,15 +20,15 @@ const quizCategories = [
     title: "School History & Lore 📜", 
     description: "How well do you know the school's founding and traditions?",
     color: "bg-blue-500",
-    image: "/Photos/logo.png", // Placeholder image path
+    image: "/Photos/omb.jpg", // Placeholder image path
   },
   { 
     id: 2, 
-    category: "dosco-achievers", 
+    category: "dosco-achievers",
     title: "Notable Doscos & Alumni ⭐", 
     description: "Identify famous alumni and their contributions.",
     color: "bg-green-500",
-    image: "/Photos/alumni.jpg", // Placeholder image path
+    image: "/Photos/na.avif", // Placeholder image path
   },
   { 
     id: 3, 
@@ -87,14 +87,16 @@ export default function QuizPage() {
       zIndex: totalCards - Math.abs(offset),
       opacity: opacity < 0.2 ? 0 : opacity,
       pointerEvents: opacity < 0.5 ? 'none' : 'auto',
+      // Prevent cards from extending too far off-screen
+      left: '50%',
+      marginLeft: '-128px', // Half of the card width (w-64 = 16rem * 4 = 64px * 2 = 128px)
     };
   };
 
 
   return (
-    // ADJUSTED: Use min-h-screen and added bottom padding (pb-12) 
-    // to prevent overlap with a typical fixed bottom navbar.
-    <div className="w-full min-h-screen bg-gray-900 text-white p-4 flex flex-col items-center pb-12">
+    // ADDED: overflow-x-hidden to parent container
+    <div className="w-full min-h-screen bg-gray-900 text-white p-4 flex flex-col items-center pb-12 overflow-x-hidden">
       <div className="w-full max-w-md mx-auto flex flex-col">
         
         {/* Header (Back Button only) */}
@@ -119,7 +121,8 @@ export default function QuizPage() {
         </div>
 
         {/* --- 3D Carousel Container - Reduced height slightly --- */}
-        <div className="relative w-full h-[320px] flex justify-center items-center">
+        {/* ADDED: overflow-hidden to carousel container */}
+        <div className="relative w-full h-[320px] flex justify-center items-center overflow-hidden">
           
           {/* Navigation Arrows */}
           <button
