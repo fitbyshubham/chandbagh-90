@@ -434,7 +434,7 @@ export default function Schedule() {
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
-          <header className="text-center mb-12 md:mb-16">
+          <header className="text-center mb-12 md:mb-16 mt-[80px]">
             <h1 className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-br from-white to-slate-400 tracking-tight">
               Event Schedule
             </h1>

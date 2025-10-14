@@ -1,7 +1,8 @@
 'use client';
-import React, { useState, useEffect } from "react";
-import { FaStar, FaPlay, FaArrowRight, FaCalendar, FaMapMarkerAlt } from "react-icons/fa";
+import React, { useState, useEffect, useRef } from "react";
+import { FaStar, FaPlay, FaArrowRight, FaCalendar, FaMapMarkerAlt, FaPause } from "react-icons/fa";
 import { useRouter } from "next/navigation"; // Import useRouter
+import YouTube from "react-youtube";
 
 const specials = [
   {
@@ -15,7 +16,7 @@ const specials = [
   {
     name: "Veg Noodles",
     price: "₹40",
-    image: "  https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=400&q=80",
+    image: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=400&q=80",
     rating: 4.6,
     stall: "Stall No. 2",
     isTop: false,
@@ -26,58 +27,88 @@ const events = [
   {
     name: "Science Exhibition",
     time: "Oct 6, 11:00 AM",
-    image: "  https://images.unsplash.com/photo-1464983258147-9a3b5d5e4f7c?auto=format&fit=crop&w=400&q=80",
+    image: "https://images.unsplash.com/photo-1464983258147-9a3b5d5e4f7c?auto=format&fit=crop&w=400&q=80",
     desc: "Explore student projects in the main hall.",
   },
   {
     name: "Sports Meet",
     time: "Oct 6, 3:00 PM",
-    image: "  https://images.unsplash.com/photo-1521737852567-6949f3f9f2b5?auto=format&fit=crop&w=400&q=80",
+    image: "https://images.unsplash.com/photo-1521737852567-6949f3f9f2b5?auto=format&fit=crop&w=400&q=80",
     desc: "Cheer on your house at the playground.",
   },
 ];
 
 function VideoBanner({ thumbnail, videoUrl }) {
+  const [player, setPlayer] = useState(null);
   const [isPlaying, setIsPlaying] = useState(false);
-  
+
+  const getVideoId = (url) => {
+    const regExp =
+      /(?:youtube\.com\/(?:watch\?v=|embed\/)|youtu\.be\/)([a-zA-Z0-9_-]{11})/;
+    const match = url.match(regExp);
+    return match ? match[1] : "";
+  };
+
+  const videoId = getVideoId(videoUrl);
+
+  const handlePlayClick = () => {
+    if (player) {
+      player.playVideo(); // trigger play
+      setIsPlaying(true); // remove overlay
+    }
+  };
+
   return (
-    <div className="bg-white rounded-3xl overflow-hidden shadow-sm border border-gray-100 transition-all duration-300 hover:shadow-md">
+    <div className="bg-white rounded-3xl overflow-hidden shadow-sm border border-gray-100">
       <div className="p-6 pb-4 border-b border-gray-100">
-        <h3 className="text-xl font-semibold text-gray-900 mb-1">Words From The Headmaster</h3>
+        <h3 className="text-xl font-semibold text-gray-900 mb-1">
+          Words From The Headmaster
+        </h3>
         <p className="text-sm text-gray-500">A message for the community</p>
       </div>
-      
-      {!isPlaying ? (
-        <div
-          className="relative w-full h-[240px] cursor-pointer group"
-          onClick={() => setIsPlaying(true)}
-        >
-          <img
-            src="/photos/thumbnail.png"
-            alt="Video thumbnail"
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-black/5 group-hover:bg-black/10 transition-all duration-300 flex items-center justify-center">
-            <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-lg transform transition-all duration-300 group-hover:scale-110">
-              <FaPlay className="w-6 h-6 text-gray-900 ml-1" />
+
+      <div className="relative w-full h-[240px]">
+        <YouTube
+          videoId={videoId}
+          className="w-full h-full"
+          opts={{
+            width: "100%",
+            height: "240",
+            playerVars: {
+              autoplay: 0, // must be 0
+              controls: 1,
+              modestbranding: 1,
+              rel: 0,
+            },
+          }}
+          onReady={(event) => setPlayer(event.target)}
+        />
+
+        {!isPlaying && (
+          <div
+            className="absolute inset-0 cursor-pointer flex items-center justify-center bg-black/20 z-10"
+            onClick={handlePlayClick}
+          >
+            <img
+              src={thumbnail}
+              alt="Video thumbnail"
+              className="absolute inset-0 w-full h-full object-cover"
+            />
+            <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-lg z-20">
+              <FaPlay className="w-6 h-6 text-gray-900" />
             </div>
           </div>
-        </div>
-      ) : (
-        <iframe
-          src={`${videoUrl}?autoplay=1`}
-          title="Intro Video"
-          className="w-full h-[240px]"
-          allow="autoplay; encrypted-media"
-          allowFullScreen
-        />
-      )}
+        )}
+      </div>
     </div>
   );
 }
 
+
+
+
 export default function HomePage() {
-  const router = useRouter(); // Initialize the router
+  const router = useRouter();
   const [userName, setUserName] = useState("Guest");
 
   useEffect(() => {
@@ -85,21 +116,17 @@ export default function HomePage() {
     if (savedName) setUserName(savedName);
   }, []);
 
-  const handleTeamRoute = () => { // Define the navigation function
+  const handleTeamRoute = () => {
     router.push("/team");
   };
 
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Spacing for header */}
       <div className="h-20"></div>
-      
-      {/* Main Content Container */}
       <div className="max-w-7xl mx-auto px-5 py-8">
-        
         {/* Hero Section */}
         <div className="mb-12">
-          <div className="text-left mb-8">
+          <div className="text-left mb-[50px]">
             <p className="text-gray-500 text-sm mb-1">Welcome back</p>
             <h1 className="text-5xl font-light text-gray-900 tracking-tight">{userName}</h1>
           </div>
@@ -109,11 +136,10 @@ export default function HomePage() {
             <div className="relative h-[280px] overflow-hidden">
               <img
                 alt="Founders Day"
-                src="  https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=800&q=80"
+                src="/Photos/hm4.jpg"
                 className="w-full h-full object-cover transform transition-all duration-700 group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
-              
               <div className="absolute bottom-0 left-0 right-0 p-8">
                 <div className="inline-block bg-white/20 backdrop-blur-sm border border-white/30 px-3 py-1 rounded-full mb-3">
                   <span className="text-white text-xs font-medium">90th Anniversary</span>
@@ -135,16 +161,12 @@ export default function HomePage() {
 
         {/* Two Column Layout */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
-          
-          {/* Left Column - Video */}
           <div className="lg:col-span-2">
             <VideoBanner
-              thumbnail="  https://img.youtube.com/vi/G5nBKfJ99a4/maxresdefault.jpg  "
-              videoUrl="https://www.youtube.com/embed/G5nBKfJ99a4"
+              thumbnail="/Photos/thumbnail.png"
+              videoUrl="https://youtu.be/G5nBKfJ99a4  "
             />
           </div>
-
-          {/* Right Column - Quick Info */}
           <div className="space-y-4">
             <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
               <div className="flex items-center justify-between mb-4">
@@ -166,7 +188,7 @@ export default function HomePage() {
                 </div>
               </div>
             </div>
-            
+
             <div className="bg-gray-900 rounded-2xl p-6 text-white">
               <h3 className="text-sm font-medium mb-2 text-gray-400">Today's Highlight</h3>
               <p className="text-lg font-medium mb-1">Opening Ceremony</p>
@@ -274,11 +296,11 @@ export default function HomePage() {
           </div>
         </div>
 
-        {/* Team Section - Updated to be clickable */}
+        {/* Team Section */}
         <div className="mb-8">
           <div
             className="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 hover:shadow-md transition-all duration-300 cursor-pointer group"
-            onClick={handleTeamRoute} // Add onClick handler
+            onClick={handleTeamRoute}
           >
             <div className="flex items-center justify-between">
               <div>
@@ -293,7 +315,6 @@ export default function HomePage() {
         </div>
       </div>
 
-      {/* Spacing for footer */}
       <div className="h-20"></div>
     </div>
   );
