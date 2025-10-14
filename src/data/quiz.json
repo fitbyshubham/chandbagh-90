@@ -1,34 +1,73 @@
 {
   "chandbagh-landmarks": [
     {
-      "id": 3,
+      "id": 1,
       "question": "Which building is often called the “heart” of the school?",
       "options": ["The Main Building", "The Science Block", "The Rose Bowl", "The Library"],
       "correctAnswer": "The Main Building"
     },
     {
-      "id": 4,
+      "id": 2,
       "question": "Which of these is NOT a permanent senior house at Doon?",
       "options": ["Tata House", "Kashmir House", "Amritsar House", "Hyderabad House"],
       "correctAnswer": "Amritsar House"
     },
     {
-      "id": 15,
+      "id": 3,
       "question": "The Doon campus is approximately how big?",
       "options": ["26 acres", "72 acres", "45 acres", "100 acres"],
       "correctAnswer": "72 acres"
-    }
+    },
+    {
+    "id": 4,
+    "question": "What is the amphitheatre at the heart of campus called?",
+    "options": ["The Round", "The Rose Bowl", "The Circle", "The Orchard"],
+    "correctAnswer": "The Rose Bowl"
+  },
+  {
+    "id": 5,
+    "question": "Where do students and staff usually have their meals?",
+    "options": ["The Dining Dome", "Central Dining Hall", "The Round Square", "The Hall of Food"],
+    "correctAnswer": "Central Dining Hall"
+  },
+   {
+    "id": 6,
+    "question": "Which house is the residential home for D-Form students?",
+    "options": ["Tata House", "Martyn House", "Hyderabad House", "Kashmir House"],
+    "correctAnswer": "Martyn House"
+  },
+   {
+    "id": 7,
+    "question": "Which house is closest to the Rose Bowl amphitheatre?",
+    "options": ["Jaipur House", "Tata House", "Hyderabad House", "Kashmir House"],
+    "correctAnswer": "Tata House"
+  }
+
   ],
   
   "school-history": [
     {
-      "id": 1,
+      "id": 8,
       "question": "In Which Year Was The Doon School Founded?",
       "options": ["1910", "1935", "1947", "1950"],
       "correctAnswer": "1935"
     },
     {
-      "id": 10,
+    "id": 9,
+    "question": "What was the main school building used for before The Doon School was established?",
+    "options": ["Forest Officers’ Quarters", "A royal hunting lodge", "A convent", "A university hostel"],
+    "correctAnswer": "Forest Officers’ Quarters"
+  },
+    {
+    "id": 10,
+    "question": "What was the very first sport played in the school’s first term in 1935?",
+    "options": ["Football", "Cricket", "Hockey", "Athletics"],
+    "correctAnswer": "Cricket"
+  },
+
+
+    {
+      "id": 11,
       "question": "Who founded The Doon School?",
       "options": ["Arthur E. Foot", "John A.K Martyn", "R. L. Holdsworth", "Satish Ranjan Das"],
       "correctAnswer": "Satish Ranjan Das"
@@ -40,13 +79,13 @@
       "correctAnswer": "Arthur E. Foot"
     },
     {
-      "id": 16,
+      "id": 13,
       "question": "What is the school motto of The Doon School?",
       "options": ["“Light Through Knowledge”", "“Knowledge Our Light”", "“Wisdom & Service”", "“Learn and Lead”"],
       "correctAnswer": "“Knowledge Our Light”"
     },
     {
-      "id": 11,
+      "id": 14,
       "question": "When was The Doon School Weekly first published?",
       "options": ["1935", "1936", "1940", "1950"],
       "correctAnswer": "1936"
@@ -55,55 +94,98 @@
   
   "dosco-achievers": [
     {
-      "id": 6,
+      "id": 15,
       "question": "Who among these is a famous Dosco (alumnus)?",
       "options": ["Rajiv Gandhi", "Virat Kohli", "Elon Musk", "Shah Rukh Khan"],
       "correctAnswer": "Rajiv Gandhi"
-    }
+    },
+     {
+    "id": 16,
+    "question": "Which alumnus founded SPIC MACAY?",
+    "options": ["Kiran Seth", "Ranjit Singh", "Prannoy Roy", "Shashi Tharoor"],
+    "correctAnswer": "Kiran Seth"
+  },
+  {
+    "id": 18,
+    "question": "Which actor is an alumnus of Doon School?",
+    "options": ["Ali Fazal", "Shah Rukh Khan", "Ranbir Kapoor", "Hrithik Roshan"],
+    "correctAnswer": "Ali Fazal"
+  },
+    {
+    "id": 22,
+    "question": "Which alumnus is a well-known historian and writer?",
+    "options": ["Ramachandra Guha", "Amitav Ghosh", "Prannoy Roy", "Vikram Seth"],
+    "correctAnswer": "Ramachandra Guha"
+  },
+   {
+    "id": 26,
+    "question": "Which alumnus is known for journalism and founding *India Today*?",
+    "options": ["Aroon Purie", "Prannoy Roy", "Arundhati Roy", "Ramachandra Guha"],
+    "correctAnswer": "Aroon Purie"
+  },
+  {
+    "id": 31,
+    "question": "Which alumnus is a noted fashion designer and alumnus of Doon?",
+    "options": ["Tarun Tahiliani", "Kunal Rawal", "Amit Aggarwal", "Shantanu & Nikhil"],
+    "correctAnswer": "Tarun Tahiliani"
+  }
   ],
   
   "sports-and-traditions": [
     {
-      "id": 2,
+      "id": 17,
       "question": "What is the name of the famous annual event where Doon showcases plays, exhibitions, and sports?",
       "options": ["Founders' Week", "Sports Day", "Annual Gala", "The Doon Fest"],
       "correctAnswer": "Founders' Week"
     },
     {
-      "id": 5,
+      "id": 18,
       "question": "Which of these songs is the School Song?",
       "options": ["Jana Gana Mana", "The Dosco Song", "Lab Pe Aati Hai Dua", "School Song"],
       "correctAnswer": "Lab Pe Aati Hai Dua"
     },
     {
-      "id": 7,
+      "id": 19,
       "question": "What’s the name of Doon’s magazine/newspaper?",
       "options": ["The Doon Times", "The Weekly", "The Doon Express", "Dosco’s Dialogue"],
       "correctAnswer": "The Weekly"
     },
     {
-      "id": 8,
+      "id": 20,
       "question": "What’s the nickname given to students studying at Doon?",
       "options": ["Doonies", "Doscos", "Donders", "Doonities"],
       "correctAnswer": "Doscos"
     },
     {
-      "id": 9,
+      "id": 21,
       "question": "What is a “Dame” at Doon?",
       "options": ["A type of Uniform", "The school's mascot", "A person who looks after the well-being of boys in the House", "A secret society"],
       "correctAnswer": "A person who looks after the well-being of boys in the House"
     },
     {
-      "id": 13,
+      "id": 22,
       "question": "What is DSMUN?",
       "options": ["A Model United Nations conference run by Doon", "A music festival", "A sports tournament", "A cultural exchange with foreign schools"],
       "correctAnswer": "A Model United Nations conference run by Doon"
     },
     {
-      "id": 17,
+      "id": 23,
       "question": "Which extracurricular tradition is strongly embedded at Doon thanks to early masters?",
       "options": ["Deep-sea diving", "Mountaineering & adventure treks", "Surfing", "Urban theatre only"],
       "correctAnswer": "Mountaineering & adventure treks"
-    }
+    },
+     {
+    "id": 24,
+    "question": "Which legendary Doon teacher was famous for leading students on challenging treks to teach courage, resilience, and self-reliance?",
+    "options": ["Arthur E. Foot", "R.K. von Goldstein", "Guru", "John Martyn"],
+    "correctAnswer": "Guru"
+  },
+  {
+    "id": 6,
+    "question": "Which colors represent The Doon School?",
+    "options": ["Blue & White", "Red & White", "Green & Gold", "Black & White"],
+    "correctAnswer": "Blue & White"
+  }
+
   ]
 }

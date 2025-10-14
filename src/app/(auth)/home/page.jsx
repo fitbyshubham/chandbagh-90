@@ -122,7 +122,7 @@ export default function HomePage() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <div className="h-20"></div>
+      <div className="h-5"></div>
       <div className="max-w-7xl mx-auto px-5 py-8">
         {/* Hero Section */}
         <div className="mb-12">
@@ -130,6 +130,8 @@ export default function HomePage() {
             <p className="text-gray-500 text-sm mb-1">Welcome back</p>
             <h1 className="text-5xl font-light text-gray-900 tracking-tight">{userName}</h1>
           </div>
+
+      
 
           {/* Featured Card */}
           <div className="relative rounded-3xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 group bg-white border border-gray-100">
@@ -189,6 +191,10 @@ export default function HomePage() {
               </div>
             </div>
 
+      
+
+
+
             <div className="bg-gray-900 rounded-2xl p-6 text-white">
               <h3 className="text-sm font-medium mb-2 text-gray-400">Today's Highlight</h3>
               <p className="text-lg font-medium mb-1">Opening Ceremony</p>
@@ -196,6 +202,7 @@ export default function HomePage() {
             </div>
           </div>
         </div>
+
 
         {/* Top Rated Food */}
         <div className="mb-12">
@@ -209,7 +216,13 @@ export default function HomePage() {
               <FaArrowRight className="w-3 h-3" />
             </button>
           </div>
-          
+              <div className="relative text-center bg-black mb-5 rounded-full p-4 font-semibold ">
+  <button
+    onClick={() => router.push("/my-orders")}
+  >
+   View All Orders
+  </button>
+</div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {specials.map((item, i) => (
               <div

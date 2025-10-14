@@ -406,7 +406,6 @@ export default function MenuPage() {
                   <span>₹{totalPrice.toFixed(2)}</span>
                 </div>
                 <button
-<<<<<<< HEAD
   onClick={() => {
     const orderSummary = {
       items: Object.entries(cart).map(([name, details]) => ({
@@ -434,12 +433,6 @@ export default function MenuPage() {
   Proceed to Checkout
 </button>
 
-=======
-                  className="w-full bg-gradient-to-r from-orange-400 to-orange-600 hover:from-orange-500 hover:to-orange-700 text-white py-3 rounded-xl font-bold transition-colors shadow-md"
-                >
-                  Proceed to Checkout
-                </button>
->>>>>>> efb10ee (fix: spacing and profile page)
               </div>
             </div>
           </div>
