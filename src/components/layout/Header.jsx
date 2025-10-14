@@ -14,9 +14,9 @@ const STORY_AVATARS = [
     stories: ["/Photos/omb.jpg", "/Photos/p.jpg", "/Photos/p2.jpg"],
   },
   {
-    name: "Old Doon",
-    src: "/photos/do.jpg",
-    stories: ["/Photos/do.jpg", "/Photos/p3.jpg", "/Photos/p4.jpg"],
+    name: "New Doon",
+    src: "/photos/mb.jpg",
+    stories: ["/Photos/mb.jpg", "/Photos/library.jpg", "/Photos/wc.jpg"],
   },
   {
     name: "Headmasters",
@@ -106,9 +106,6 @@ export default function Header() {
           </div>
         </div>
       </header>
-
-      {/* SPACER so content below header isn’t hidden */}
-      <div style={{ height: HEADER_HEIGHT_PX }} aria-hidden="true" />
 
       {/* STORY MODAL */}
       <AnimatePresence>

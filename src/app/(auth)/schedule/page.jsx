@@ -426,7 +426,7 @@ export default function Schedule() {
 
   return (
     <>
-      <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white overflow-hidden mt-10">
+      <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white overflow-hidden">
         {/* Premium Animated Background Elements */}
         <div className="fixed inset-0 overflow-hidden pointer-events-none">
           <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-r from-blue-600/10 to-purple-600/10 rounded-full blur-3xl animate-pulse-slow"></div>
@@ -434,8 +434,8 @@ export default function Schedule() {
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
-          <header className="text-center mb-12 md:mb-16 mt-[80px]">
-            <h1 className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-br from-white to-slate-400 tracking-tight">
+          <header className="text-center mb-12 md:mb-16 mt-[20px]">
+            <h1 className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent mt-[70px] bg-gradient-to-br from-white to-slate-400 tracking-tight">
               Event Schedule
             </h1>
             <p className="text-slate-400 mt-3 text-lg max-w-2xl mx-auto">

@@ -5,12 +5,6 @@ import React from "react";
 
 const team = [
   {
-    name: "Harshal Gunwant",
-    role: "HOD Computer Science",
-    img: "/Portraits/hgt.jpg",
-    desc: "I reviewed the project and provided constructive feedback and improvement suggestions throughout the development process.",
-  },
-  {
     name: "Shubham Sharma",
     role: "Mentor",
     img: "/Photos/shm.jpg",
@@ -27,16 +21,17 @@ const team = [
     desc: "I focused on designing the app’s database structure and updating the backend whenever required.",
   },
   {
+    name: "Vibhor Saraogi",
+    img: "/Photos/vb.jpg",
+    desc: "I developed the Quiz, Profile, and Landing page, and also managed and updated the UI of the Home and About pages."
+  },
+  {
     name: "Aarav Anand",
     img: "/Photos/q4.jpg",
     desc: "I developed the Food Menu feature and resolved critical frontend issues.",
   },
   
-  {
-    name: "Vibhor Saraogi",
-    img: "/Photos/vb.jpg",
-    desc: "I developed the Quiz, Profile, and Landing page, and also managed and updated the UI of the Home and About pages."
-  },
+  
   {
     name: "Reyhan Singh",
     img: "/Photos/q3.jpg",
@@ -61,11 +56,6 @@ const team = [
     name: "Agastya Jitesh Shetty",
     img: "/Photos/sh.jpg",
     desc: "I worked on both the content development and the poster design for the app.",
-  },
-  {
-    name: "Shubh Agarwal",
-    img: "/Photos/q11.jpg",
-    desc: "I handled the app’s content and created visually engaging posters to promote it.",
   },
   {
     name: "Zafir Ali Naqvi",

@@ -126,7 +126,7 @@ export default function HomePage() {
       <div className="max-w-7xl mx-auto px-5 py-8">
         {/* Hero Section */}
         <div className="mb-12">
-          <div className="text-left mb-[50px]">
+          <div className="text-left mb-[50px] mt-[70px]">
             <p className="text-gray-500 text-sm mb-1">Welcome back</p>
             <h1 className="text-5xl font-light text-gray-900 tracking-tight">{userName}</h1>
           </div>
@@ -211,7 +211,7 @@ export default function HomePage() {
               <h2 className="text-2xl font-semibold text-gray-900">Top Rated Food</h2>
               <p className="text-sm text-gray-500 mt-1">Most popular items today</p>
             </div>
-            <button className="text-sm text-gray-600 hover:text-gray-900 font-medium flex items-center gap-2 transition-colors">
+            <button className="text-sm text-gray-600 hover:text-gray-900 font-medium flex items-center gap-2 transition-colors" onClick={() => router.push("/order")}>
               View All
               <FaArrowRight className="w-3 h-3" />
             </button>
@@ -273,7 +273,7 @@ export default function HomePage() {
               <h2 className="text-2xl font-semibold text-gray-900">Upcoming Events</h2>
               <p className="text-sm text-gray-500 mt-1">Don't miss out on these activities</p>
             </div>
-            <button className="text-sm text-gray-600 hover:text-gray-900 font-medium flex items-center gap-2 transition-colors">
+            <button className="text-sm text-gray-600 hover:text-gray-900 font-medium flex items-center gap-2 transition-colors" onClick={() => router.push("/schedule")}>
               View Calendar
               <FaArrowRight className="w-3 h-3" />
             </button>

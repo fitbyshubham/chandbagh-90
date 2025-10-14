@@ -11,11 +11,22 @@ const STATUS_COLORS = {
 
 export default function MyOrders() {
   const [orders, setOrders] = useState([]);
-  const [username, setUsername] = useState('John Doe'); // Example, can fetch dynamically
+  const [username, setUsername] = useState('Guest');
+  const [userPhone, setUserPhone] = useState('');
 
   useEffect(() => {
-    const storedOrders = JSON.parse(localStorage.getItem('allOrders') || '[]');
-    setOrders(storedOrders);
+    // Get username and phone from localStorage
+    const savedName = localStorage.getItem('signup_name');
+    const savedPhone = localStorage.getItem('signup_phone');
+    if (savedName) setUsername(savedName);
+    if (savedPhone) setUserPhone(savedPhone);
+
+    // Get all orders
+    const allOrders = JSON.parse(localStorage.getItem('allOrders') || '[]');
+
+    // Filter orders for the logged-in user based on phone number
+    const userOrders = allOrders.filter(order => order.phone === savedPhone);
+    setOrders(userOrders);
   }, []);
 
   // Update countdown timer every second
@@ -53,9 +64,11 @@ export default function MyOrders() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-amber-50 to-orange-50 p-4">
-      <div className="max-w-4xl mx-auto">
+      <div className="max-w-4xl mx-auto mt-[90px]">
         <h1 className="text-3xl font-bold text-orange-600 mb-6 text-center">My Orders</h1>
-        <p className="text-center text-gray-700 mb-6">Welcome, <span className="font-semibold">Aarav</span>!</p>
+        <p className="text-center text-gray-700 mb-6">
+          Welcome, <span className="font-semibold">{username}</span>!
+        </p>
 
         {orders.length === 0 ? (
           <div className="bg-white rounded-3xl shadow-xl p-10 text-center">

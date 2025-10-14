@@ -1,9 +1,12 @@
 "use client";
 import React, { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 
 export default function Profile() {
+  const router = useRouter();
   const [userName, setUserName] = useState("Guest");
   const [userPhone, setUserPhone] = useState("Not Provided");
+  const [showHelp, setShowHelp] = useState(false); // state for help popup
 
   useEffect(() => {
     const savedName = localStorage.getItem("signup_name");
@@ -11,6 +14,19 @@ export default function Profile() {
     if (savedName) setUserName(savedName);
     if (savedPhone) setUserPhone(savedPhone);
   }, []);
+
+  const handleClick = (itemLabel) => {
+    if (itemLabel === "Recent Transactions") {
+      router.push("/my-orders");
+    } else if (itemLabel === "Help & Support") {
+      setShowHelp(true);
+    } else if (itemLabel === "Logout") {
+      // Clear any user data
+      localStorage.removeItem("signup_name");
+      localStorage.removeItem("signup_phone");
+      router.push("/firstpage");
+    }
+  };
 
   const menuItems = [
     {
@@ -39,7 +55,6 @@ export default function Profile() {
               alt="Profile"
               className="w-32 h-32 rounded-full mx-auto object-cover border-4 border-white shadow-md"
             />
-          
           </div>
           <h2 className="text-2xl font-bold text-gray-800 mt-4">
             {userName || "Guest"}
@@ -52,6 +67,7 @@ export default function Profile() {
           {menuItems.map((item, index) => (
             <button
               key={index}
+              onClick={() => handleClick(item.label)}
               className={`w-full flex items-center justify-between p-5 transition-all hover:bg-orange-50 ${
                 item.danger ? "text-red-500 font-medium" : "text-gray-700"
               }`}
@@ -72,15 +88,33 @@ export default function Profile() {
                 stroke="currentColor"
                 strokeWidth={2}
               >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M9 5l7 7-7 7"
-                />
+                <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
               </svg>
             </button>
           ))}
         </div>
+
+        {/* Help & Support Modal */}
+        {showHelp && (
+          <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+            <div className="bg-white rounded-xl p-6 max-w-sm w-full shadow-lg">
+              <h2 className="text-xl font-bold mb-4">Contact Us</h2>
+              <ul className="space-y-2 text-gray-700">
+                <li>Contact:</li>
+                <li>+91 7777060768</li>
+                <li>+91 7579440559</li>
+                <li>+91 6393690775</li>
+                
+              </ul>
+              <button
+                onClick={() => setShowHelp(false)}
+                className="mt-6 w-full bg-orange-500 text-white py-2 rounded-lg hover:bg-orange-600 transition"
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        )}
 
         {/* App Info / Footer */}
         <div className="text-center text-gray-400 text-xs mt-10">
