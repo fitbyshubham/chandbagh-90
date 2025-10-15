@@ -146,37 +146,28 @@ export default function OtpPage() {
 
   // 🔒 LOCK SCROLL & HIDE LAYOUT
   useLayoutEffect(() => {
-    document.body.classList.add('login-page-active');
+  document.body.classList.add('login-page-active');
+  const scrollY = window.scrollY;
 
-    const scrollY = window.scrollY;
-    const originalHtmlOverflow = document.documentElement.style.overflow;
-    const originalBodyStyles = {
-      overflow: document.body.style.overflow,
-      position: document.body.style.position,
-      top: document.body.style.top,
-      width: document.body.style.width,
-      height: document.body.style.height,
-    };
+  document.documentElement.style.overflow = 'hidden';
+  document.body.style.position = 'fixed';
+  document.body.style.top = `-${scrollY}px`;
+  document.body.style.width = '100%';
 
-    document.documentElement.style.overflow = 'hidden';
-    document.body.style.overflow = 'hidden';
-    document.body.style.position = 'fixed';
-    document.body.style.top = `-${scrollY}px`;
-    document.body.style.width = '100%';
-    document.body.style.height = '100dvh';
+  return () => {
+    document.body.classList.remove('login-page-active');
+    document.documentElement.style.overflow = '';
+    document.body.style.position = '';
+    document.body.style.top = '';
+    window.scrollTo(0, scrollY);
+  };
+}, []);
 
-    return () => {
-      document.body.classList.remove('login-page-active');
-      document.documentElement.style.overflow = originalHtmlOverflow;
-      Object.assign(document.body.style, originalBodyStyles);
-      window.scrollTo(0, scrollY);
-    };
-  }, []);
 
   const currentImage = images[current].image.trim();
 
   return (
-    <div className="fixed inset-0 z-50 w-screen h-screen overflow-hidden bg-white">
+    <div className="fixed inset-0 z-50 w-screen h-[100svh] overflow-y-auto bg-white touch-pan-y">
       <div className="max-w-[100%] max-h-[100%] h-full mx-auto relative flex flex-col">
         {/* Background */}
         <div className="absolute inset-0 z-0">
