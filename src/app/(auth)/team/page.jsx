@@ -7,65 +7,60 @@ const team = [
   {
     name: "Shubham Sharma",
     role: "Mentor",
-    img: "/Portraits/Shubham.jpg",
-    desc: "Guided the team with strategic vision and technical expertise throughout the development journey.",
-  },
-  {
-    name: "Hemant Khandelwal",
-    img: "/Portraits/Hemant.jpg",
-    desc: "Led the core development and optimized app performance with clean, efficient code.",
+    img: "/Photos/shm.jpg",
+    desc: "I guided the team with strategic vision and technical expertise throughout the development journey.",
   },
   {
     name: "Samarth Pundeer",
     img: "/Portraits/Pundeer.jpg",
-    desc: "Oversaw the app architecture, ensuring seamless integration between frontend and backend.",
+    desc: "I focused on developing the Home, Schedule, and Orders pages, while simultaneously upgrading the UI of the About page.",
   },
-  
+  {
+    name: "Hemant Khandelwal",
+    img: "/Photos/hw.jpg",
+    desc: "I focused on designing the app’s database structure and updating the backend whenever required.",
+  },
   {
     name: "Vibhor Saraogi",
-    img: "/Portraits/Vibhor.jpg",
-    desc: "Focused on UI/UX development, bringing the design to life with animations and responsiveness.",
+    img: "/Photos/vb.jpg",
+    desc: "I developed the Quiz, Profile, and Landing page, and also managed and updated the UI of the Home and About pages."
   },
   {
     name: "Aarav Anand",
-    img: "/Portraits/Aarav.jpg",
-    desc: "Worked on the app’s user interaction layer and contributed to feature enhancements.",
+    img: "/Photos/q4.jpg",
+    desc: "I developed the Food Menu feature and resolved critical frontend issues.",
   },
+  
   
   {
     name: "Reyhan Singh",
-    img: "/Portraits/d.jpg",
-    desc: "Implemented key backend features and helped in maintaining robust data structures.",
+    img: "/Photos/q3.jpg",
+    desc: "I contributed to developing the app’s content and designed several posters for it.",
   },
   {
     name: "Shiven Goenka",
-    img: "/Portraits/d.jpg",
-    desc: "Implemented key backend features and helped in maintaining robust data structures.",
+    img: "/Photos/q1.jpg",
+    desc: "I created content for the app and also worked on designing its promotional posters.",
   },
   {
     name: "Daksh Veer Singh",
-    img: "/Portraits/d.jpg",
-    desc: "Implemented key backend features and helped in maintaining robust data structures.",
+    img: "/Photos/q2.jpg",
+    desc: "I was responsible for the app’s content creation and poster design.",
   },
   {
     name: "Nachiket Kediyal",
-    img: "/Portraits/d.jpg",
-    desc: "Implemented key backend features and helped in maintaining robust data structures.",
+    img: "/Photos/q14.jpg",
+    desc: "I helped enhance the app by writing content and making posters for it.",
   },
   {
     name: "Agastya Jitesh Shetty",
-    img: "/Portraits/d.jpg",
-    desc: "Implemented key backend features and helped in maintaining robust data structures.",
-  },
-  {
-    name: "Shubh Agarwal",
-    img: "/Portraits/d.jpg",
-    desc: "Implemented key backend features and helped in maintaining robust data structures.",
+    img: "/Photos/sh.jpg",
+    desc: "I worked on both the content development and the poster design for the app.",
   },
   {
     name: "Zafir Ali Naqvi",
-    img: "/Portraits/d.jpg",
-    desc: "Implemented key backend features and helped in maintaining robust data structures.",
+    img: "/Photos/nq.jpg",
+    desc: "I developed the app’s written content and designed accompanying posters for better outreach.",
   },
   
 ];
@@ -109,10 +104,10 @@ export default function TeamPage() {
           Why We Made This App
         </h2>
         <p className="text-gray-700 text-base md:text-lg leading-relaxed">
-          We built this app to create something meaningful — a solution that simplifies user
-          experience while feeling intuitive, personal, and elegant. Our goal was to design a product
-          that doesn’t just work well but inspires confidence, creativity, and connection. Every part
-          of this app reflects our dedication and teamwork.
+          We built this app specially for our 90th Founder's Day to make the experience seamless.
+          The app lets visitors order food easily while skipping long queues. 
+          It also provides detailed schedules for each day’s events and offers insights into our school’s rich history.
+          Every feature was developed to reflect our school’s spirit of innovation, collaboration, and teamwork.
         </p>
       </motion.section>
 

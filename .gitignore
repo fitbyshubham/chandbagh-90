@@ -39,3 +39,25 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Firebase Service Account Keys (IMPORTANT - Contains sensitive credentials)
+**/serviceAccountKey.json
+serviceAccountKey*.json
+
+# Node modules in scripts folder
+scripts/node_modules/
+scripts/package-lock.json
+
+# Node modules in functions folder (if not already there)
+functions/node_modules/
+functions/package-lock.json
+
+# Firebase cache and logs
+.firebase/
+firebase-debug.log
+firestore-debug.log
+ui-debug.log
+
+# Environment variables
+
+.env.local
