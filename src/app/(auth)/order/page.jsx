@@ -1,27 +1,35 @@
 'use client'
 import { useState, useEffect } from "react"
 
+// Helper function to generate a unique cart key for the stall
+const getCartKey = (stallName) => `cart_${stallName.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`;
+
 // A modern, animated card for displaying restaurant stalls.
-const StallsCard = ({ image, name, rating, stallNo, offer, index, onClick }) => {
+const StallsCard = ({ image, name, rating, stallNo, offer, index, onClick, hasItemsInCart }) => { // Accept hasItemsInCart prop
     return (
         <div
             onClick={onClick}
-            className="group cursor-pointer animate-fade-in-up bg-white rounded-2xl shadow-sm overflow-hidden transform hover:-translate-y-1 transition-transform duration-300 ease-in-out opacity-0"
+            className="overflow-hidden transition-transform duration-300 ease-in-out transform bg-white shadow-sm opacity-0 cursor-pointer group animate-fade-in-up rounded-2xl hover:-translate-y-1"
             style={{ animationDelay: `${index * 75}ms`, animationFillMode: 'forwards' }}
         >
             <div className="relative">
                 <img
                     src={image}
                     alt={name}
-                    className="w-full h-32 object-cover transition-transform duration-300 group-hover:scale-105"
+                    className="object-cover w-full h-32 transition-transform duration-300 group-hover:scale-105"
                     onError={(e) => { e.target.onerror = null; e.target.src = 'https://placehold.co/600x400/F97316/FFFFFF?text=Food'; }}
                 />
                 {offer && (
-                    <div className="absolute top-0 left-0 bg-orange-500 text-white text-xs font-bold px-3 py-1 rounded-br-lg shadow-md">
+                    <div className="absolute top-0 left-0 px-3 py-1 text-xs font-bold text-white bg-orange-500 rounded-br-lg shadow-md">
                         {offer}
                     </div>
                 )}
-                <div className="absolute bottom-2 right-2 bg-white/90 text-gray-800 text-xs font-semibold px-2 py-1 rounded-full flex items-center gap-1 backdrop-blur-sm">
+                {hasItemsInCart && ( // Show indicator if items are in cart
+                    <div className="absolute px-2 py-1 text-xs font-bold text-white bg-red-500 rounded-full shadow-md top-2 right-2">
+                        Cart
+                    </div>
+                )}
+                <div className="absolute flex items-center gap-1 px-2 py-1 text-xs font-semibold text-gray-800 rounded-full bottom-2 right-2 bg-white/90 backdrop-blur-sm">
                     <svg className="w-3.5 h-3.5 text-yellow-500" fill="currentColor" viewBox="0 0 20 20">
                         <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                     </svg>
@@ -39,16 +47,16 @@ const StallsCard = ({ image, name, rating, stallNo, offer, index, onClick }) => 
 
 // A modern placeholder for popular restaurant cards.
 const PopRestaurants = ({ restaurants, onCardClick }) => (
-    <div className="flex space-x-4 overflow-x-auto pb-4 scrollbar-hide">
+    <div className="flex pb-4 space-x-4 overflow-x-auto scrollbar-hide">
         {restaurants.slice(0, 5).map((resto, index) => (
             <div
                 key={resto.stallNo}
                 onClick={() => onCardClick(resto.name)}
-                className="flex-shrink-0 w-48 group cursor-pointer animate-fade-in-up opacity-0"
+                className="flex-shrink-0 w-48 opacity-0 cursor-pointer group animate-fade-in-up"
                 style={{ animationDelay: `${index * 100}ms`, animationFillMode: 'forwards' }}
             >
-                <div className="relative rounded-xl overflow-hidden shadow-md">
-                    <img src={resto.image} alt={resto.name} className="w-full h-40 object-cover transition-transform duration-300 group-hover:scale-105" />
+                <div className="relative overflow-hidden shadow-md rounded-xl">
+                    <img src={resto.image} alt={resto.name} className="object-cover w-full h-40 transition-transform duration-300 group-hover:scale-105" />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                     <div className="absolute bottom-0 left-0 p-3 text-white">
                         <h4 className="font-bold truncate">{resto.name}</h4>
@@ -118,11 +126,11 @@ export default function StallsCardPage() {
     // Helper functions
     function getDefaultImage(name) {
         const images = {
-            'rolls': 'https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?w=400',
-            'burger': 'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=400',
-            'pizza': 'https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=400',
-            'cafe': 'https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=400',
-            'default': 'https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=400'
+            'rolls': '  https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?w=400',
+            'burger': '  https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=400',
+            'pizza': '  https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=400',
+            'cafe': '  https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=400',
+            'default': '  https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=400'
         };
         const lowerName = name.toLowerCase();
         if (lowerName.includes('roll')) return images.rolls;
@@ -138,19 +146,19 @@ export default function StallsCardPage() {
     }
 
     if (loading) return (
-        <div className="w-full min-h-screen bg-gray-50 flex items-center justify-center">
+        <div className="flex items-center justify-center w-full min-h-screen bg-gray-50">
             <div className="text-center">
-                <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-orange-500 mx-auto"></div>
+                <div className="w-12 h-12 mx-auto border-b-2 border-orange-500 rounded-full animate-spin"></div>
                 <p className="mt-4 text-gray-600">Finding delicious food...</p>
             </div>
         </div>
     );
 
     if (error) return (
-        <div className="w-full min-h-screen bg-gray-50 flex items-center justify-center p-4">
+        <div className="flex items-center justify-center w-full min-h-screen p-4 bg-gray-50">
             <div className="text-center">
-                <div className="text-6xl mb-4">🍽️</div>
-                <h2 className="text-xl font-bold text-gray-800 mb-2">Oops! Something went wrong.</h2>
+                <div className="mb-4 text-6xl">🍽️</div>
+                <h2 className="mb-2 text-xl font-bold text-gray-800">Oops! Something went wrong.</h2>
                 <p className="text-gray-600">{error}</p>
             </div>
         </div>
@@ -183,20 +191,20 @@ export default function StallsCardPage() {
             }
         `}</style>
 
-        <div className="w-full min-h-screen mx-auto bg-gray-50 font-sans">
-            <div className="p-4 md:p-6 space-y-6 pb-28">
+        <div className="w-full min-h-screen mx-auto font-sans bg-gray-50">
+            <div className="p-4 space-y-6 md:p-6 pb-28">
                 {/* Top Search Bar */}
-                <div className="flex items-center gap-3 sticky top-0 z-10 bg-gray-50 pt-2 pb-3">
+                <div className="sticky top-0 z-10 flex items-center gap-3 pt-2 pb-3 bg-gray-50">
                     <div className="relative flex-1">
-                        <svg className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <svg className="absolute w-5 h-5 text-gray-400 transform -translate-y-1/2 left-4 top-1/2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
                         </svg>
                         <input
-                            className="w-full px-4 py-3 pl-12 rounded-full bg-white text-sm outline-none border border-gray-200 focus:border-orange-500 focus:ring-2 focus:ring-orange-200 transition-all"
+                            className="w-full px-4 py-3 pl-12 text-sm transition-all bg-white border border-gray-200 rounded-full outline-none focus:border-orange-500 focus:ring-2 focus:ring-orange-200"
                             placeholder="Search stalls, items..."
                         />
                     </div>
-                    <button className="bg-white p-3 rounded-full shadow-sm border border-gray-200 hover:bg-gray-100 transition-colors">
+                    <button className="p-3 transition-colors bg-white border border-gray-200 rounded-full shadow-sm hover:bg-gray-100">
                         <svg className="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z" />
                         </svg>
@@ -205,17 +213,17 @@ export default function StallsCardPage() {
 
                     {/* Categories */}
                     <section>
-                        <div className="flex flex-row items-center gap-4 overflow-x-auto scrollbar-hide pb-2">
+                        <div className="flex flex-row items-center gap-4 pb-2 overflow-x-auto scrollbar-hide">
                             {categories.map((c, index) => (
                                 <div
                                     key={c.name}
-                                    className="flex flex-col items-center flex-shrink-0 gap-2 cursor-pointer group animate-fade-in-up opacity-0"
+                                    className="flex flex-col items-center flex-shrink-0 gap-2 opacity-0 cursor-pointer group animate-fade-in-up"
                                     style={{ animationDelay: `${index * 50}ms`, animationFillMode: 'forwards' }}
                                 >
-                                    <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center text-3xl shadow-sm border border-gray-100 group-hover:shadow-md group-hover:scale-105 transition-all">
+                                    <div className="flex items-center justify-center w-16 h-16 text-3xl transition-all bg-white border border-gray-100 shadow-sm rounded-2xl group-hover:shadow-md group-hover:scale-105">
                                         {c.icon}
                                     </div>
-                                    <span className="text-xs text-gray-700 font-medium">{c.name}</span>
+                                    <span className="text-xs font-medium text-gray-700">{c.name}</span>
                                 </div>
                             ))}
                         </div>
@@ -223,9 +231,9 @@ export default function StallsCardPage() {
 
                     {/* Popular Restaurants */}
                     <section>
-                        <div className="flex justify-between items-center mb-3">
+                        <div className="flex items-center justify-between mb-3">
                             <h2 className="text-xl font-bold text-gray-800">Popular Stalls</h2>
-                            <button className="text-sm text-orange-500 font-semibold hover:text-orange-600 transition-colors">
+                            <button className="text-sm font-semibold text-orange-500 transition-colors hover:text-orange-600">
                                 View All →
                             </button>
                         </div>
@@ -234,14 +242,14 @@ export default function StallsCardPage() {
 
                     {/* All Restaurants */}
                     <section>
-                        <div className="flex justify-between items-center mb-3">
+                        <div className="flex items-center justify-between mb-3">
                             <h2 className="text-xl font-bold text-gray-800">All Stalls</h2>
-                            <span className="text-sm text-gray-500 bg-gray-100 px-3 py-1 rounded-full font-medium">
+                            <span className="px-3 py-1 text-sm font-medium text-gray-500 bg-gray-100 rounded-full">
                                 {restaurants.length} stalls
                             </span>
                         </div>
                         {restaurants.length > 0 ? (
-                            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                            <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4">
                                 {restaurants.map((restaurant, index) => (
                                     <StallsCard
                                         key={restaurant.stallNo}
@@ -252,12 +260,14 @@ export default function StallsCardPage() {
                                         stallNo={restaurant.stallNo}
                                         offer={restaurant.offer}
                                         onClick={() => handleCardClick(restaurant.name)}
+                                        // Check if this specific stall has items in its cart
+                                        hasItemsInCart={Object.keys(JSON.parse(localStorage.getItem(getCartKey(restaurant.name)) || '{}')).length > 0}
                                     />
                                 ))}
                             </div>
                         ) : (
-                            <div className="text-center py-12">
-                                <div className="text-6xl mb-4">ค้นหา</div>
+                            <div className="py-12 text-center">
+                                <div className="mb-4 text-6xl">ค้นหา</div>
                                 <p className="text-gray-600">No restaurants available at the moment.</p>
                             </div>
                         )}
@@ -267,4 +277,3 @@ export default function StallsCardPage() {
         </>
     )
 }
-

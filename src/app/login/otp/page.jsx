@@ -3,6 +3,7 @@
 
 import React, { useState, useRef, useEffect, useLayoutEffect } from 'react';
 import { useRouter } from 'next/navigation';
+import { useAuth } from '../../../components/AuthProvider';
 
 const images = [
   {
@@ -21,18 +22,30 @@ const images = [
 
 export default function OtpPage() {
   const router = useRouter();
+  const { user } = useAuth();
   const length = 6;
   const [otp, setOtp] = useState(Array(length).fill(""));
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const inputRefs = useRef([]);
 
+  // If user is already logged in, redirect to home
+  useEffect(() => {
+    if (user) {
+      router.push('/home');
+    }
+  }, [user, router]);
+
   const savedPhone = typeof window !== 'undefined' 
     ? localStorage.getItem('signup_phone') 
     : null;
 
   useEffect(() => {
-    if (!savedPhone) router.push('/login');
+    if (!savedPhone) {
+      router.push('/login');
+      return;
+    }
+    
     // Focus on the first input box when the component loads
     if (inputRefs.current[0]) {
       inputRefs.current[0].focus();
@@ -61,7 +74,6 @@ export default function OtpPage() {
         newOtp[index - 1] = "";
         setOtp(newOtp);
       } else if (otp[index]) {
-        // Allow backspace to clear current digit without moving back immediately
         const newOtp = [...otp];
         newOtp[index] = "";
         setOtp(newOtp);
@@ -75,7 +87,7 @@ export default function OtpPage() {
     return () => clearInterval(timer);
   }, []);
 
-  const handleVerify = () => {
+  const handleVerify = async () => {
     const otpCode = otp.join("");
     if (otpCode.length !== length) {
       setError(`Please enter a ${length}-digit OTP`);
@@ -83,19 +95,59 @@ export default function OtpPage() {
     }
     
     setLoading(true);
-    // Simulate API call delay
-    setTimeout(() => {
-      setLoading(false);
+    setError("");
+
+    try {
+      // Get the confirmation result from the global variable
+      const confirmationResult = window.confirmationResult;
+      
+      if (!confirmationResult) {
+        throw new Error("Verification session expired. Please request a new OTP.");
+      }
+
+      // Verify OTP using Firebase
+      const result = await confirmationResult.confirm(otpCode);
+      console.log("OTP verification successful:", result);
+      
+      // Clear the global variable
+      delete window.confirmationResult;
+      
+      // Store the user's name in localStorage (don't remove it after verification)
+      // Only clear the phone number and other temporary data
+      const savedName = localStorage.getItem('signup_name');
+      
+      // Clear only temporary data, keep the name
+      localStorage.removeItem('signup_phone');
+      
+      // Store the name permanently for the home page
+      if (savedName) {
+        localStorage.setItem('user_name', savedName);
+      }
+      
+      // User is now authenticated, so redirect to home
       router.push('/home');
-    }, 800);
+    } catch (error) {
+      console.error('Error verifying OTP:', error);
+      let errorMessage = "Invalid OTP. Please check and try again.";
+      
+      if (error.code === 'auth/invalid-verification-code') {
+        errorMessage = "Invalid OTP code. Please check and try again.";
+      } else if (error.code === 'auth/code-expired') {
+        errorMessage = "OTP has expired. Please request a new one.";
+      } else if (error.code === 'auth/credential-already-in-use') {
+        errorMessage = "This phone number is already registered.";
+      }
+
+      setError(errorMessage);
+    } finally {
+      setLoading(false);
+    }
   };
 
   // 🔒 LOCK SCROLL & HIDE LAYOUT
   useLayoutEffect(() => {
-    // Add class to hide Header/Navbar
     document.body.classList.add('login-page-active');
 
-    // Lock scroll
     const scrollY = window.scrollY;
     const originalHtmlOverflow = document.documentElement.style.overflow;
     const originalBodyStyles = {
@@ -114,7 +166,6 @@ export default function OtpPage() {
     document.body.style.height = '100dvh';
 
     return () => {
-      // Cleanup
       document.body.classList.remove('login-page-active');
       document.documentElement.style.overflow = originalHtmlOverflow;
       Object.assign(document.body.style, originalBodyStyles);
@@ -142,37 +193,37 @@ export default function OtpPage() {
         </div>
 
         {/* Welcome Banner */}
-        <div className="relative z-20 pt-8 pb-4 text-center flex-shrink-0">
-          <div className="inline-block bg-white/20 backdrop-blur-xl px-6 py-3 rounded-2xl border border-white/30 shadow-lg">
-            <h1 className="text-white text-2xl font-bold tracking-tight">Welcome To</h1>
-            <h2 className="text-white text-xl font-bold mt-1">Chandbagh 90!</h2>
-            <p className="text-white/90 text-sm mt-1">An app made by the students</p>
+        <div className="relative z-20 flex-shrink-0 pt-8 pb-4 text-center">
+          <div className="inline-block px-6 py-3 border shadow-lg bg-white/20 backdrop-blur-xl rounded-2xl border-white/30">
+            <h1 className="text-2xl font-bold tracking-tight text-white">Welcome To</h1>
+            <h2 className="mt-1 text-xl font-bold text-white">Chandbagh 90!</h2>
+            <p className="mt-1 text-sm text-white/90">An app made by the students</p>
           </div>
         </div>
 
         <div className="flex-1"></div>
 
         {/* OTP Card */}
-        <div className="mx-6 relative z-20 bg-white/90 backdrop-blur-xl rounded-t-3xl shadow-2xl px-6 pt-8 pb-6 border-t border-gray-200/50 flex-shrink-0">
-          <div className="text-center mb-2">
-            <h1 className="text-xl font-bold text-gray-800">Verify your account</h1>
-            <p className="text-gray-500 text-xs mt-1">Enter the OTP sent to your phone</p>
+        <div className="relative z-20 flex-shrink-0 px-6 pt-8 pb-6 mx-6 border-t shadow-2xl bg-white/90 backdrop-blur-xl rounded-t-3xl border-gray-200/50">
+          <div className="mb-2 text-center">
+            <h1 className="text-xl font-bold text-gray-900">Verify your account</h1>
+            <p className="mt-1 text-xs text-gray-500">Enter the OTP sent to your phone</p>
           </div>
 
-          <div className="space-y-1 mb-4">
+          <div className="mb-4 space-y-1">
             <label className="text-xs font-medium text-gray-600">Phone Number</label>
             <div className="flex gap-2">
               <div className="flex items-center border border-gray-300 rounded-xl bg-white/80 px-3 py-2 min-w-[80px]">
-                <span className="text-gray-600 font-medium text-sm">+91</span>
+                <span className="text-sm font-medium text-gray-600">+91</span>
               </div>
-              <div className="flex-1 p-2 rounded-xl border border-gray-300 bg-white/80 text-sm text-gray-900">
+              <div className="flex-1 p-2 text-sm text-gray-900 border border-gray-300 rounded-xl bg-white/80">
                 {savedPhone || '...'}
               </div>
             </div>
           </div>
 
           <div className="mb-4">
-            <label className="text-xs font-medium text-gray-600 block mb-2">Enter OTP</label>
+            <label className="block mb-2 text-xs font-medium text-gray-600">Enter OTP</label>
             <div className="flex justify-center gap-2">
               {otp.map((digit, index) => (
                 <input
@@ -184,13 +235,14 @@ export default function OtpPage() {
                   value={digit}
                   onChange={(e) => handleChange(e, index)}
                   onKeyDown={(e) => handleKeyDown(e, index)}
-                  className="w-12 h-12 text-center text-xl font-semibold rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white text-gray-900 shadow-sm"
+                  className="w-12 h-12 text-xl font-semibold text-center text-gray-900 bg-white border border-gray-200 shadow-sm rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  disabled={loading}
                 />
               ))}
             </div>
           </div>
 
-          {error && <p className="text-red-500 text-center text-sm mb-3">{error}</p>}
+          {error && <p className="mb-3 text-sm text-center text-red-500">{error}</p>}
 
           <button
             onClick={handleVerify}
@@ -206,7 +258,7 @@ export default function OtpPage() {
 
           <div className="mt-4 text-center">
             <p className="text-xs text-gray-500">
-              Demo mode: any 6-digit code works (e.g., 123456)
+              Please check your phone messages for the OTP
             </p>
           </div>
         </div>

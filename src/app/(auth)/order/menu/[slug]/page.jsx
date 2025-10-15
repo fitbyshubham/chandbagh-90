@@ -1,4 +1,4 @@
-'use client';
+ 'use client';
 import { useState, useEffect, useRef } from 'react';
 
 // This is a mock hook to simulate Next.js functionality in this environment.
@@ -97,11 +97,14 @@ const ConfettiExplosion = ({ x, y, onComplete }) => {
       ref={canvasRef}
       width={window.innerWidth}
       height={window.innerHeight}
-      className="fixed inset-0 pointer-events-none z-50"
+      className="fixed inset-0 z-50 pointer-events-none"
       style={{ top: 0, left: 0 }}
     />
   );
 };
+
+// Helper function to generate a unique cart key for the stall
+const getCartKey = (stallName) => `cart_${stallName.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`;
 
 export default function MenuPage() {
   const { slug } = useMockParams();
@@ -110,9 +113,11 @@ export default function MenuPage() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [activeCategory, setActiveCategory] = useState(0);
-  const [cart, setCart] = useState({});
+  const [cart, setCart] = useState({}); // State for the current stall's cart
   const [isCartModalOpen, setIsCartModalOpen] = useState(false);
   const [confettiPositions, setConfettiPositions] = useState([]);
+  const [showBackWarning, setShowBackWarning] = useState(false); // State for back warning popup
+  const cartInitializedRef = useRef(false); // Ref to track if cart was loaded once
 
   useEffect(() => {
     if (!slug) return;
@@ -137,6 +142,16 @@ export default function MenuPage() {
 
         if (foundRestaurant) {
           setRestaurant(foundRestaurant);
+          // Load cart specific to this restaurant
+          const cartKey = getCartKey(foundRestaurant.name);
+          const savedCart = localStorage.getItem(cartKey);
+          if (savedCart) {
+            setCart(JSON.parse(savedCart));
+            cartInitializedRef.current = true; // Mark as initialized
+          } else {
+            setCart({}); // Ensure state starts empty if no saved cart
+            cartInitializedRef.current = true;
+          }
         } else {
           setError('Restaurant not found');
         }
@@ -151,7 +166,16 @@ export default function MenuPage() {
     fetchRestaurantData();
   }, [slug]);
 
+  // Update localStorage whenever cart state changes
+  useEffect(() => {
+    if (restaurant && cartInitializedRef.current) { // Only update after initial load
+      const cartKey = getCartKey(restaurant.name);
+      localStorage.setItem(cartKey, JSON.stringify(cart));
+    }
+  }, [cart, restaurant]);
+
   const addToCart = (item, event) => {
+    if (!restaurant) return; // Safety check
     const rect = event.currentTarget.getBoundingClientRect();
     const x = rect.left + rect.width / 2;
     const y = rect.top + rect.height / 2;
@@ -169,28 +193,28 @@ export default function MenuPage() {
   };
 
   const removeFromCart = (itemName) => {
-  setCart(prev => {
-    if (!prev[itemName]) {
-      return prev;
-    }
-    
-    const currentCount = prev[itemName].count;
-    
-    if (currentCount <= 1) {
-      const newCart = { ...prev };
-      delete newCart[itemName];
-      return newCart;
-    } else {
-      return {
-        ...prev,
-        [itemName]: {
-          ...prev[itemName],
-          count: currentCount - 1
-        }
-      };
-    }
-  });
-};
+    setCart(prev => {
+      if (!prev[itemName]) {
+        return prev;
+      }
+      
+      const currentCount = prev[itemName].count;
+      
+      if (currentCount <= 1) {
+        const newCart = { ...prev };
+        delete newCart[itemName];
+        return newCart;
+      } else {
+        return {
+          ...prev,
+          [itemName]: {
+            ...prev[itemName],
+            count: currentCount - 1
+          }
+        };
+      }
+    });
+  };
 
   const getCartSummary = () => {
       const totalItems = Object.values(cart).reduce((sum, item) => sum + item.count, 0);
@@ -206,12 +230,50 @@ export default function MenuPage() {
     setIsCartModalOpen(false);
   };
 
+  // Handle back navigation warning
+  const handleBackClick = () => {
+    if (getCartSummary().totalItems > 0) {
+      setShowBackWarning(true);
+    } else {
+      router.back();
+    }
+  };
+
+  const confirmBack = () => {
+    setShowBackWarning(false);
+    // Optionally clear the current stall's cart here if discarding
+    // const cartKey = getCartKey(restaurant.name);
+    // localStorage.removeItem(cartKey);
+    // setCart({});
+    router.back();
+  };
+
+  const cancelBack = () => {
+    setShowBackWarning(false);
+  };
+
+  // Handle global popstate event (browser back/forward buttons)
+  useEffect(() => {
+    const handlePopState = (event) => {
+      if (getCartSummary().totalItems > 0) {
+        event.preventDefault(); // Prevent default navigation
+        setShowBackWarning(true);
+      }
+    };
+
+    window.addEventListener('popstate', handlePopState);
+    return () => {
+      window.removeEventListener('popstate', handlePopState);
+    };
+  }, [cart]); // Depend on cart to re-evaluate when it changes
+
+
   if (loading) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-amber-50 to-orange-50 flex items-center justify-center">
+      <div className="flex items-center justify-center min-h-screen bg-gradient-to-br from-amber-50 to-orange-50">
         <div className="text-center">
-          <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-orange-500 mx-auto"></div>
-          <p className="mt-6 text-gray-600 font-medium">Loading Menu...</p>
+          <div className="w-16 h-16 mx-auto border-t-4 border-orange-500 rounded-full animate-spin"></div>
+          <p className="mt-6 font-medium text-gray-600">Loading Menu...</p>
         </div>
       </div>
     );
@@ -219,13 +281,13 @@ export default function MenuPage() {
 
   if (error || !restaurant) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-amber-50 to-orange-50 flex items-center justify-center p-4 text-center">
-          <div className="bg-white rounded-3xl shadow-xl p-10 max-w-md w-full">
-              <div className="text-6xl mb-6">🔍</div>
-              <h2 className="text-2xl font-bold text-gray-800 mb-3">{error || 'Restaurant not found'}</h2>
-              <p className="text-gray-600 mb-8">We couldn't find the menu you're looking for.</p>
+      <div className="flex items-center justify-center min-h-screen p-4 text-center bg-gradient-to-br from-amber-50 to-orange-50">
+          <div className="w-full max-w-md p-10 bg-white shadow-xl rounded-3xl">
+              <div className="mb-6 text-6xl">🔍</div>
+              <h2 className="mb-3 text-2xl font-bold text-gray-800">{error || 'Restaurant not found'}</h2>
+              <p className="mb-8 text-gray-600">We couldn't find the menu you're looking for.</p>
               <button 
-                onClick={() => router.back()}
+                onClick={handleBackClick} // Use handleBackClick instead of router.back
                 className="w-full bg-gradient-to-r from-orange-400 to-orange-600 hover:from-orange-500 hover:to-orange-700 text-white px-6 py-4 rounded-2xl font-semibold transition-all shadow-md hover:shadow-lg transform hover:-translate-y-0.5"
               >
                 Go Back to Stalls
@@ -265,20 +327,20 @@ export default function MenuPage() {
             background-clip: text;
           }
       `}</style>
-      <div className="min-h-screen bg-gradient-to-b from-amber-50 to-orange-50 font-sans pb-32">
+      <div className="min-h-screen pb-32 font-sans bg-gradient-to-b from-amber-50 to-orange-50">
         <header className="relative h-56 overflow-hidden">
-          <img src={restaurant.image_url || 'https://placehold.co/1200x400/F97316/FFFFFF?text=Delicious+Food'} alt={restaurant.name} className="w-full h-full object-cover object-center"/>
+          <img src={restaurant.image_url || '  https://placehold.co/1200x400/F97316/FFFFFF?text=Delicious+Food'} alt={restaurant.name} className="object-cover object-center w-full h-full"/>
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
-          <div className="absolute top-6 left-4 z-10">
-              <button onClick={() => router.back()} className="bg-white/90 backdrop-blur-sm p-3 rounded-full shadow-lg hover:bg-white transition-all">
+          <div className="absolute z-10 top-6 left-4">
+              <button onClick={handleBackClick} className="p-3 transition-all rounded-full shadow-lg bg-white/90 backdrop-blur-sm hover:bg-white"> {/* Use handleBackClick */}
                   <svg className="w-5 h-5 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7" /></svg>
               </button>
           </div>
-          <div className="absolute bottom-4 left-4 right-4 text-white z-10">
+          <div className="absolute z-10 text-white bottom-4 left-4 right-4">
             <h1 className="text-2xl font-bold drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)]">{restaurant.name}</h1>
             <div className="flex items-center mt-2 text-sm">
                 <div className="flex items-center mr-4">
-                  <span className="text-yellow-400 mr-1 text-lg">★</span>
+                  <span className="mr-1 text-lg text-yellow-400">★</span>
                   <span className="font-semibold">4.5</span>
                 </div>
                 <div className="flex items-center">
@@ -289,8 +351,8 @@ export default function MenuPage() {
           </div>
         </header>
 
-        <nav className="bg-white sticky top-0 z-10 shadow-md shadow-orange-100/50">
-          <div className="flex overflow-x-auto p-3 gap-3 scrollbar-hide">
+        <nav className="sticky top-0 z-10 bg-white shadow-md shadow-orange-100/50">
+          <div className="flex gap-3 p-3 overflow-x-auto scrollbar-hide">
             {categories.map((category, index) => (
               <button
                 key={index}
@@ -306,24 +368,24 @@ export default function MenuPage() {
         <main className="px-4 py-6">
             {categoryItems.map((items, index) => (
                 <div key={index} className={`${activeCategory === index ? 'block' : 'hidden'}`}>
-                    <h2 className="text-xl font-bold text-gray-800 mb-5 pb-2 border-b border-gray-200">{categories[index]}</h2>
+                    <h2 className="pb-2 mb-5 text-xl font-bold text-gray-800 border-b border-gray-200">{categories[index]}</h2>
                     <div className="space-y-5">
                         {items.map((item, itemIndex) => (
-                            <div key={itemIndex} className="bg-white rounded-2xl p-4 shadow-md border border-gray-100 flex gap-5 animate-fade-in-up opacity-0" style={{ animationDelay: `${itemIndex * 50}ms`}}>
+                            <div key={itemIndex} className="flex gap-5 p-4 bg-white border border-gray-100 shadow-md opacity-0 rounded-2xl animate-fade-in-up" style={{ animationDelay: `${itemIndex * 50}ms`}}>
                                 <div className="flex-1 min-w-0">
-                                    <h3 className="font-bold text-gray-800 text-base">{item.item}</h3>
-                                    <p className="text-sm text-gray-500 mt-1 mb-2">A delicious and savory item.</p>
-                                    <p className="text-orange-600 font-bold text-lg">₹{item.price > 0 ? item.price : 'N/A'}</p>
+                                    <h3 className="text-base font-bold text-gray-800">{item.item}</h3>
+                                    <p className="mt-1 mb-2 text-sm text-gray-500">A delicious and savory item.</p>
+                                    <p className="text-lg font-bold text-orange-600">₹{item.price > 0 ? item.price : 'N/A'}</p>
                                 </div>
                                 <div className="flex flex-col items-center justify-between flex-shrink-0">
-                                    <div className="w-28 h-28 rounded-xl overflow-hidden bg-gray-100 relative shadow-inner">
-                                        <img src={item.image_url || 'https://placehold.co/300x300/FDE68A/F97316?text=Item'} alt={item.item} className="w-full h-full object-cover object-center" onError={(e) => { e.target.onerror = null; e.target.src = 'https://placehold.co/300x300/FDE68A/F97316?text=Item'; }}/>
+                                    <div className="relative overflow-hidden bg-gray-100 shadow-inner w-28 h-28 rounded-xl">
+                                        <img src={item.image_url || '  https://placehold.co/300x300/FDE68A/F97316?text=Item'} alt={item.item} className="object-cover object-center w-full h-full" onError={(e) => { e.target.onerror = null; e.target.src = '  https://placehold.co/300x300/FDE68A/F97316?text=Item'; }}/>
                                     </div>
                                     {cart[item.item] ? (
-                                        <div className="flex items-center bg-gradient-to-r from-orange-400 to-orange-600 text-white rounded-lg shadow-lg -mt-4 z-10 text-sm">
-                                            <button onClick={() => removeFromCart(item.item)} className="w-10 h-10 font-bold hover:bg-orange-700 rounded-l-lg transition-colors flex items-center justify-center">−</button>
-                                            <span className="font-bold w-10 text-center">{cart[item.item].count}</span>
-                                            <button onClick={(e) => addToCart(item, e)} className="w-10 h-10 font-bold bg-gradient-to-r from-orange-400 to-orange-600 hover:from-orange-500 hover:to-orange-700 rounded-r-lg transition-colors flex items-center justify-center">+</button>
+                                        <div className="z-10 flex items-center -mt-4 text-sm text-white rounded-lg shadow-lg bg-gradient-to-r from-orange-400 to-orange-600">
+                                            <button onClick={() => removeFromCart(item.item)} className="flex items-center justify-center w-10 h-10 font-bold transition-colors rounded-l-lg hover:bg-orange-700">−</button>
+                                            <span className="w-10 font-bold text-center">{cart[item.item].count}</span>
+                                            <button onClick={(e) => addToCart(item, e)} className="flex items-center justify-center w-10 h-10 font-bold transition-colors rounded-r-lg bg-gradient-to-r from-orange-400 to-orange-600 hover:from-orange-500 hover:to-orange-700">+</button>
                                         </div>
                                     ) : (
                                         <button onClick={(e) => addToCart(item, e)} className="bg-gradient-to-r from-orange-400 to-orange-600 hover:from-orange-500 hover:to-orange-700 text-white px-6 py-2.5 rounded-xl text-sm font-semibold transition-all shadow-md -mt-4 z-10 transform hover:scale-105">
@@ -339,15 +401,15 @@ export default function MenuPage() {
         </main>
 
         {totalItems > 0 && (
-          <div className="fixed bottom-0 left-0 right-0 p-5 z-50 animate-cart-pop-in pointer-events-auto">
-            <div className="max-w-md mx-auto bg-gradient-to-r from-orange-400 to-orange-600 text-white rounded-2xl shadow-2xl p-4 flex items-center justify-between">
+          <div className="fixed bottom-0 left-0 right-0 z-50 p-5 pointer-events-auto animate-cart-pop-in">
+            <div className="flex items-center justify-between max-w-md p-4 mx-auto text-white shadow-2xl bg-gradient-to-r from-orange-400 to-orange-600 rounded-2xl">
               <div>
                 <p className="text-sm font-medium">{totalItems} {totalItems > 1 ? 'items' : 'item'}</p>
                 <p className="text-xl font-bold">₹{totalPrice.toFixed(2)}</p>
               </div>
               <button 
                 onClick={openCartModal}
-                className="bg-white text-orange-600 px-7 py-3 rounded-xl font-bold hover:bg-amber-50 transition-all shadow-lg flex items-center gap-2 transform hover:scale-105"
+                className="flex items-center gap-2 py-3 font-bold text-orange-600 transition-all transform bg-white shadow-lg px-7 rounded-xl hover:bg-amber-50 hover:scale-105"
               >
                 <span>View Cart</span>
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -361,7 +423,7 @@ export default function MenuPage() {
         {isCartModalOpen && (
           <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm">
             <div className="bg-white rounded-2xl shadow-xl w-full max-w-md max-h-[80vh] flex flex-col">
-              <div className="flex justify-between items-center p-4 border-b">
+              <div className="flex items-center justify-between p-4 border-b">
                 <h3 className="text-xl font-bold text-gray-800">Your Cart</h3>
                 <button
                   onClick={closeCartModal}
@@ -372,13 +434,13 @@ export default function MenuPage() {
                   </svg>
                 </button>
               </div>
-              <div className="overflow-y-auto p-4 flex-grow">
+              <div className="flex-grow p-4 overflow-y-auto">
                 {Object.keys(cart).length === 0 ? (
-                  <p className="text-gray-500 text-center py-8">Your cart is empty</p>
+                  <p className="py-8 text-center text-gray-500">Your cart is empty</p>
                 ) : (
                   <ul className="space-y-4">
                     {Object.entries(cart).map(([itemName, details]) => (
-                      <li key={itemName} className="flex justify-between items-center border-b pb-3">
+                      <li key={itemName} className="flex items-center justify-between pb-3 border-b">
                         <div>
                           <h4 className="font-medium text-gray-800">{itemName}</h4>
                           <p className="text-sm text-gray-500">Qty: {details.count} × ₹{details.price}</p>
@@ -401,7 +463,7 @@ export default function MenuPage() {
                 )}
               </div>
               <div className="p-4 border-t bg-gray-50 rounded-b-2xl">
-                <div className="flex justify-between text-lg font-bold text-gray-800 mb-4">
+                <div className="flex justify-between mb-4 text-lg font-bold text-gray-800">
                   <span>Total:</span>
                   <span>₹{totalPrice.toFixed(2)}</span>
                 </div>
@@ -415,20 +477,26 @@ export default function MenuPage() {
       })),
       totalPrice,
       status: 'Confirmed', // initial status
-      timestamp: Date.now()
+      timestamp: Date.now(),
+      stallName: restaurant.name // Add stall name to order summary
     };
 
-    // Save to localStorage for My Orders page
+    // Save to localStorage for My Orders page (append to existing)
     const existingOrders = JSON.parse(localStorage.getItem('allOrders') || '[]');
     localStorage.setItem('allOrders', JSON.stringify([orderSummary, ...existingOrders]));
 
     // Save latest order for confirmation page
     sessionStorage.setItem('latestOrder', JSON.stringify(orderSummary));
 
+    // Clear the current stall's cart after order confirmation
+    const cartKey = getCartKey(restaurant.name);
+    localStorage.removeItem(cartKey);
+    setCart({}); // Also clear state
+
     // Navigate to order confirmation
     window.location.href = '/order-confirmation';
   }}
-  className="w-full bg-gradient-to-r from-orange-400 to-orange-600 hover:from-orange-500 hover:to-orange-700 text-white py-3 rounded-xl font-bold transition-all shadow-md"
+  className="w-full py-3 font-bold text-white transition-all shadow-md bg-gradient-to-r from-orange-400 to-orange-600 hover:from-orange-500 hover:to-orange-700 rounded-xl"
 >
   Proceed to Checkout
 </button>
@@ -446,6 +514,38 @@ export default function MenuPage() {
             onComplete={() => removeConfetti(pos.id)}
           />
         ))}
+
+        {/* Back Warning Popup */}
+        {showBackWarning && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm">
+            <div className="w-full max-w-md p-6 bg-white shadow-xl rounded-2xl">
+              <h3 className="mb-2 text-xl font-bold text-gray-800">Unfinished Order</h3>
+              <p className="mb-6 text-gray-600">
+                You have items in your cart for {restaurant.name}. Do you want to place the order or discard it?
+              </p>
+              <div className="flex flex-col gap-3">
+                <button
+                  onClick={confirmBack}
+                  className="px-6 py-3 font-semibold text-white transition-all shadow-md bg-gradient-to-r from-green-500 to-green-700 hover:from-green-600 hover:to-green-800 rounded-xl"
+                >
+                  Place Order
+                </button>
+                <button
+                  onClick={cancelBack}
+                  className="px-6 py-3 font-semibold text-white transition-all shadow-md bg-gradient-to-r from-red-500 to-red-700 hover:from-red-600 hover:to-red-800 rounded-xl"
+                >
+                  Discard Order
+                </button>
+                <button
+                  onClick={cancelBack}
+                  className="px-6 py-3 font-semibold text-gray-500 transition-colors hover:text-gray-700 rounded-xl"
+                >
+                  Continue Shopping
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     </>
   );

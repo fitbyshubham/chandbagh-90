@@ -15,14 +15,14 @@ export default function OrderConfirmation() {
 
   if (!order) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-amber-50 to-orange-50 p-4">
-        <div className="bg-white rounded-3xl shadow-xl p-10 text-center max-w-md w-full">
-          <div className="text-6xl mb-6">❌</div>
-          <h2 className="text-2xl font-bold text-gray-800 mb-3">No order found</h2>
-          <p className="text-gray-600 mb-8">Looks like you haven't placed an order yet.</p>
+      <div className="flex items-center justify-center min-h-screen p-4 bg-gradient-to-br from-amber-50 to-orange-50">
+        <div className="w-full max-w-md p-10 text-center bg-white shadow-xl rounded-3xl">
+          <div className="mb-6 text-6xl">❌</div>
+          <h2 className="mb-3 text-2xl font-bold text-gray-800">No order found</h2>
+          <p className="mb-8 text-gray-600">Looks like you haven't placed an order yet.</p>
           <button
             onClick={goBack}
-            className="w-full bg-gradient-to-r from-orange-400 to-orange-600 hover:from-orange-500 hover:to-orange-700 text-white px-6 py-4 rounded-2xl font-semibold transition-all shadow-md hover:shadow-lg"
+            className="w-full px-6 py-4 font-semibold text-white transition-all shadow-md bg-gradient-to-r from-orange-400 to-orange-600 hover:from-orange-500 hover:to-orange-700 rounded-2xl hover:shadow-lg"
           >
             Back to Menu
           </button>
@@ -31,20 +31,20 @@ export default function OrderConfirmation() {
     );
   }
 
-  const { items, totalPrice } = order;
+  const { items, totalPrice, stallName } = order; // Destructure stallName
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-amber-50 to-orange-50 p-4">
-      <div className="bg-white rounded-3xl shadow-2xl p-8 max-w-md w-full animate-fade-in-up">
+    <div className="flex flex-col items-center justify-center min-h-screen p-4 bg-gradient-to-br from-amber-50 to-orange-50">
+      <div className="w-full max-w-md p-8 bg-white shadow-2xl rounded-3xl animate-fade-in-up">
         <div className="flex flex-col items-center mb-6">
-          <div className="text-6xl mb-4">🎉</div>
-          <h1 className="text-3xl font-bold text-orange-600 mb-2 text-center">Order Confirmed!</h1>
-          <p className="text-gray-700 text-center">Thank you for your order. Here's your summary:</p>
+          <div className="mb-4 text-6xl">🎉</div>
+          <h1 className="mb-2 text-3xl font-bold text-center text-orange-600">Order Confirmed!</h1>
+          <p className="text-center text-gray-700">Thank you for your order from <strong>{stallName}</strong>. Here's your summary:</p> {/* Display stall name */}
         </div>
 
-        <ul className="divide-y divide-gray-200 mb-6 max-h-80 overflow-y-auto scrollbar-hide">
+        <ul className="mb-6 overflow-y-auto divide-y divide-gray-200 max-h-80 scrollbar-hide">
           {items.map((item) => (
-            <li key={item.name} className="py-3 flex justify-between items-center">
+            <li key={item.name} className="flex items-center justify-between py-3">
               <div className="flex flex-col">
                 <span className="font-medium text-gray-800">{item.name}</span>
                 <span className="text-sm text-gray-500">Qty: {item.count} × ₹{item.price}</span>
@@ -54,14 +54,14 @@ export default function OrderConfirmation() {
           ))}
         </ul>
 
-        <div className="flex justify-between items-center bg-amber-50 p-4 rounded-xl mb-6 shadow-inner">
+        <div className="flex items-center justify-between p-4 mb-6 shadow-inner bg-amber-50 rounded-xl">
           <span className="text-lg font-bold text-gray-800">Total</span>
           <span className="text-xl font-extrabold text-orange-600">₹{totalPrice.toFixed(2)}</span>
         </div>
 
         <button
           onClick={goBack}
-          className="w-full bg-gradient-to-r from-orange-400 to-orange-600 hover:from-orange-500 hover:to-orange-700 text-white py-3 rounded-2xl font-bold transition-all shadow-lg hover:shadow-xl transform hover:scale-105"
+          className="w-full py-3 font-bold text-white transition-all transform shadow-lg bg-gradient-to-r from-orange-400 to-orange-600 hover:from-orange-500 hover:to-orange-700 rounded-2xl hover:shadow-xl hover:scale-105"
         >
           Back to Menu
         </button>

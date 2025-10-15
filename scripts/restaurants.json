@@ -2,7 +2,7 @@
   "restaurants": [
     {
       "name": "Lazeez Kathi Rolls",
-      "stallId": "bbblorYrm4WIistvBxMrdaaqVun2",
+      "stallId": "wHkXYYGk8RNeBcb5rM5yRMINSPw1",
       "image_url": "",
       "categories": {
         "Veg Rolls": [
@@ -143,7 +143,7 @@
     },
     {
       "name": "The Pink Okra",
-      "stallId": "REPLACE_WITH_FIREBASE_UID_2",
+      "stallId": "WpR0IkexYIhZB2zMqZyXRi8pVFM2",
       "image_url": "",
       "categories": {
         "Pastries": [
@@ -210,7 +210,7 @@
     },
     {
       "name": "Best of Bengal",
-      "stallId": "REPLACE_WITH_FIREBASE_UID_3",
+      "stallId": "TarI6OtKKvNrfyN1Yrmyn0ESXY02",
       "image_url": "",
       "categories": {
         "Pastries": [
@@ -261,7 +261,7 @@
     },
     {
       "name": "y cafe",
-      "stallId": "REPLACE_WITH_FIREBASE_UID_4",
+      "stallId": "nRXLT87oZrcBTIfc3eiCaLmpJrK2",
       "image_url": "",
       "categories": {
         "Iced Drinks": [
@@ -492,7 +492,7 @@
     },
     {
       "name": "Tavern",
-      "stallId": "REPLACE_WITH_FIREBASE_UID_5",
+      "stallId": "UEXWEBhuECM3gMlBIIX4wUdeJhO2",
       "image_url": "",
       "categories": {
         "Veg": [
@@ -668,7 +668,7 @@
     },
     {
       "name": "Rolls Mania",
-      "stallId": "REPLACE_WITH_FIREBASE_UID_7",
+      "stallId": "1RRWP6ILY5axWlyKpwIx68lNygE2",
       "image_url": "",
       "categories": {
         "Veg Delight": [
@@ -789,7 +789,7 @@
     },
     {
       "name": "Burger Singh",
-      "stallId": "REPLACE_WITH_FIREBASE_UID_8",
+      "stallId": "mMbL5u39bcS62LW9JGXyoBbRLJJ3",
       "image_url": "",
       "categories": {
         "Veg Burger": [
@@ -870,7 +870,7 @@
     },
     {
       "name": "Taco bell",
-      "stallId": "REPLACE_WITH_FIREBASE_UID_9",
+      "stallId": "Mn10vYFlGcVIYhYrLtHJrJXkPjE3",
       "image_url": "",
       "categories": {
         "SIDES & SHAREABLES": [
@@ -1106,7 +1106,7 @@
     },
     {
       "name": "MOS Dehradun – Global Food Excursion (Day 1)",
-      "stallId": "REPLACE_WITH_FIREBASE_UID_11",
+      "stallId": "wkI9mjx6l4bkZXwsygr3RD0Rmap1",
       "image_url": "",
       "categories": {
         "Global Streets": [
