@@ -1,42 +1,9 @@
-'use client';
-import React, { useState, useEffect, useRef } from "react";
-import { FaStar, FaPlay, FaArrowRight, FaCalendar, FaMapMarkerAlt, FaPause } from "react-icons/fa";
-import { useRouter } from "next/navigation"; // Import useRouter
+"use client";
+import React, { useState, useEffect } from "react";
+import { FaStar, FaPlay, FaArrowRight, FaCalendar, FaMapMarkerAlt } from "react-icons/fa";
+import { useRouter } from "next/navigation";
 import YouTube from "react-youtube";
-
-const specials = [
-  {
-    name: "Paneer Tikka Sandwich",
-    price: "₹50",
-    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRIB0-zFdFEGoh5VnYpk5WqWVZh88m5YjlNUQ&s",
-    rating: 4.8,
-    stall: "Stall No. 5",
-    isTop: true,
-  },
-  {
-    name: "Veg Noodles",
-    price: "₹40",
-    image: "  https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=400&q=80",
-    rating: 4.6,
-    stall: "Stall No. 2",
-    isTop: false,
-  },
-];
-
-const events = [
-  {
-    name: "Science Exhibition",
-    time: "Oct 6, 11:00 AM",
-    image: "  https://images.unsplash.com/photo-1464983258147-9a3b5d5e4f7c?auto=format&fit=crop&w=400&q=80",
-    desc: "Explore student projects in the main hall.",
-  },
-  {
-    name: "Sports Meet",
-    time: "Oct 6, 3:00 PM",
-    image: "  https://images.unsplash.com/photo-1521737852567-6949f3f9f2b5?auto=format&fit=crop&w=400&q=80",
-    desc: "Cheer on your house at the playground.",
-  },
-];
+import schedule from "../../../data/schedule.json";
 
 function VideoBanner({ thumbnail, videoUrl }) {
   const [player, setPlayer] = useState(null);
@@ -53,8 +20,8 @@ function VideoBanner({ thumbnail, videoUrl }) {
 
   const handlePlayClick = () => {
     if (player) {
-      player.playVideo(); // trigger play
-      setIsPlaying(true); // remove overlay
+      player.playVideo();
+      setIsPlaying(true);
     }
   };
 
@@ -75,7 +42,7 @@ function VideoBanner({ thumbnail, videoUrl }) {
             width: "100%",
             height: "240",
             playerVars: {
-              autoplay: 0, // must be 0
+              autoplay: 0,
               controls: 1,
               modestbranding: 1,
               rel: 0,
@@ -104,9 +71,13 @@ function VideoBanner({ thumbnail, videoUrl }) {
   );
 }
 
+// ---------------------- MAIN HOMEPAGE ----------------------
 export default function HomePage() {
   const router = useRouter();
   const [userName, setUserName] = useState("Guest");
+  const [currentEvent, setCurrentEvent] = useState(null);
+  const [nextEvent, setNextEvent] = useState(null);
+  const [countdown, setCountdown] = useState(null);
 
   useEffect(() => {
     // Try to get the name from localStorage (stored after OTP verification)
@@ -116,23 +87,79 @@ export default function HomePage() {
     }
   }, []);
 
-  const handleTeamRoute = () => {
-    router.push("/team");
-  };
+  // ✅ EVENT TIME LOGIC
+  useEffect(() => {
+  const now = new Date();
+
+  const allEvents = schedule.schedule
+    .map(event => ({
+      ...event,
+      startDate: parseEventDate(event.date, event.startTime),
+      endDate: parseEventDate(event.date, event.endTime)
+    }))
+    .filter(e => e.startDate && e.endDate)
+    .sort((a, b) => a.startDate - b.startDate);
+
+  const current = allEvents.find(e => now >= e.startDate && now <= e.endDate);
+  const next = allEvents.find(e => e.startDate > now);
+
+  setCurrentEvent(current || null);
+  setNextEvent(next || null);
+
+  if (!current && next) {
+    const updateCountdown = () => {
+      const diff = next.startDate - new Date();
+      if (diff <= 0) {
+        setCountdown(null);
+        setCurrentEvent(next);
+        return;
+      }
+      const hours = Math.floor(diff / 1000 / 60 / 60);
+      const minutes = Math.floor((diff / 1000 / 60) % 60);
+      const seconds = Math.floor((diff / 1000) % 60);
+      setCountdown({ hours, minutes, seconds });
+    };
+    updateCountdown();
+    const timer = setInterval(updateCountdown, 1000);
+    return () => clearInterval(timer);
+  }
+}, []);
+
+  const specials = [
+    {
+      name: "Paneer Tikka Sandwich",
+      price: "₹50",
+      image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRIB0-zFdFEGoh5VnYpk5WqWVZh88m5YjlNUQ&s",
+      rating: 4.8,
+      stall: "Stall No. 5",
+      isTop: true,
+    },
+    {
+      name: "Veg Noodles",
+      price: "₹40",
+      image: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=400&q=80",
+      rating: 4.6,
+      stall: "Stall No. 2",
+      isTop: false,
+    },
+  ];
+
+  const handleTeamRoute = () => router.push("/team");
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <div className="h-5"></div>
-      <div className="px-5 py-8 mx-auto max-w-7xl">
-        {/* Hero Section */}
-        <div className="mb-12">
-          <div className="text-left mb-[50px] mt-[70px]">
-            <p className="mb-1 text-sm text-gray-500">Welcome back</p>
-            <h1 className="text-5xl font-light tracking-tight text-gray-900">{userName}</h1>
-          </div>
+      <div className="max-w-7xl mx-auto px-5 py-8">
+             <div className="mb-12">
+           <div className="text-left mt-[80px] mb-[50px]">
+          <p className="text-gray-500 text-sm mb-1">Welcome back</p>
+          <h1 className="text-5xl font-light text-gray-900 tracking-tight">{userName}</h1>
+        </div>
 
-          {/* Featured Card */}
-          <div className="relative overflow-hidden transition-all duration-300 bg-white border border-gray-100 shadow-sm rounded-3xl hover:shadow-md group">
+
+
+      
+        
+       <div className="relative rounded-3xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 group bg-white border border-gray-100">
             <div className="relative h-[280px] overflow-hidden">
               <img
                 alt="Founders Day"
@@ -150,7 +177,7 @@ export default function HomePage() {
                 <p className="max-w-lg mb-5 text-sm leading-relaxed text-white/90">
                   Discover the most iconic places amongst Doscos as we celebrate 90 years of excellence.
                 </p>
-                <button className="inline-flex items-center gap-2 px-6 py-3 text-sm font-medium text-gray-900 transition-all duration-300 bg-white rounded-full shadow-lg hover:bg-gray-100">
+                <button className="inline-flex items-center gap-2 bg-white text-gray-900 px-6 py-3 rounded-full font-medium text-sm hover:bg-gray-100 transition-all duration-300 shadow-lg" onClick={() => router.push("/initiatives")}>
                   Explore Now
                   <FaArrowRight className="w-3 h-3" />
                 </button>
@@ -159,12 +186,11 @@ export default function HomePage() {
           </div>
         </div>
 
-        {/* Two Column Layout */}
-        <div className="grid grid-cols-1 gap-8 mb-12 lg:grid-cols-3">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
           <div className="lg:col-span-2">
             <VideoBanner
               thumbnail="/Photos/thumbnail.png"
-              videoUrl="  https://youtu.be/G5nBKfJ99a4    "
+              videoUrl="https://youtu.be/G5nBKfJ99a4"
             />
           </div>
           <div className="space-y-4">
@@ -188,121 +214,77 @@ export default function HomePage() {
                 </div>
               </div>
             </div>
-
-            <div className="p-6 text-white bg-gray-900 rounded-2xl">
-              <h3 className="mb-2 text-sm font-medium text-gray-400">Today's Highlight</h3>
-              <p className="mb-1 text-lg font-medium">Opening Ceremony</p>
-              <p className="text-sm text-gray-400">Main Assembly Hall • 10:00 AM</p>
-            </div>
           </div>
         </div>
 
-        {/* Top Rated Food */}
+        {/* ---------------- TOP FOOD ---------------- */}
         <div className="mb-12">
-          <div className="flex items-center justify-between mb-6">
-            <div>
-              <h2 className="text-2xl font-semibold text-gray-900">Top Rated Food</h2>
-              <p className="mt-1 text-sm text-gray-500">Most popular items today</p>
-            </div>
-            <button className="flex items-center gap-2 text-sm font-medium text-gray-600 transition-colors hover:text-gray-900" onClick={() => router.push("/order")}>
-              View All
-              <FaArrowRight className="w-3 h-3" />
-            </button>
-          </div>
-          <div className="relative p-4 mb-5 font-semibold text-center bg-black rounded-full">
-            <button
-              onClick={() => router.push("/my-orders")}
-            >
-              View All Orders
-            </button>
-          </div>
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {specials.map((item, i) => (
-              <div
-                key={i}
-                className="overflow-hidden transition-all duration-300 bg-white border border-gray-100 shadow-sm rounded-2xl hover:shadow-md group"
-              >
-                <div className="relative h-48 overflow-hidden">
-                  <img
-                    src={item.image}
-                    alt={item.name}
-                    className="object-cover w-full h-full transition-all duration-700 transform group-hover:scale-110"
-                  />
-                  {item.isTop && (
-                    <div className="absolute top-4 right-4 bg-white/95 backdrop-blur-sm px-3 py-1.5 rounded-full shadow-sm">
-                      <span className="flex items-center gap-1 text-xs font-semibold text-gray-900">
-                        <FaStar className="w-3 h-3 text-yellow-500" /> Popular
-                      </span>
-                    </div>
-                  )}
-                </div>
-                <div className="p-5">
-                  <div className="flex items-start justify-between mb-3">
-                    <h3 className="text-lg font-semibold text-gray-900">{item.name}</h3>
-                    <span className="text-lg font-semibold text-gray-900">{item.price}</span>
-                  </div>
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-2">
-                      <div className="flex items-center gap-1 bg-gray-50 px-2.5 py-1 rounded-lg">
-                        <FaStar className="w-3 h-3 text-yellow-500" />
-                        <span className="text-sm font-semibold text-gray-900">{item.rating}</span>
-                      </div>
-                    </div>
-                    <div className="flex items-center gap-1.5 text-gray-500">
-                      <FaMapMarkerAlt className="w-3 h-3" />
-                      <span className="text-xs">{item.stall}</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))}
+  <div className="flex items-center justify-between mb-6">
+    <div>
+      <h2 className="text-2xl font-bold text-gray-900">Ordering Update</h2>
+      <p className="text-sm text-gray-500 mt-1">
+        Ordering will start from <span className="font-semibold text-gray-800">16th</span>. Till then, view all the stalls available.
+      </p>
+    </div>
+    <button
+      className="text-sm font-medium flex items-center gap-2 px-4 py-2 rounded-lg bg-blue-600 text-white hover:bg-blue-700 transition-colors duration-300"
+      onClick={() => router.push("/order")}
+    >
+      View All <FaArrowRight className="w-4 h-4" />
+    </button>
+  </div>
+
+  <div className="bg-gradient-to-r from-blue-50 to-white rounded-3xl shadow-lg border border-gray-100 p-8 flex flex-col items-center justify-center text-center">
+    <FaMapMarkerAlt className="text-blue-500 w-10 h-10 mb-4" />
+    <h3 className="text-xl font-semibold text-gray-900 mb-2">
+      Ordering Opens on 16th
+    </h3>
+    <p className="text-gray-600 mb-4">
+      Till then, explore all the available stalls and get ready to order your favorites!
+    </p>
+    <button
+      className="mt-2 px-6 py-2 rounded-lg bg-blue-600 text-white font-medium hover:bg-blue-700 transition-colors duration-300 flex items-center gap-2"
+      onClick={() => router.push("/order")}
+    >
+      View Stalls <FaArrowRight className="w-4 h-4" />
+    </button>
+  </div>
+</div>
+
+
+<div className="mb-10">
+          <h2 className="text-2xl font-semibold text-gray-900 mb-4">Event Update</h2>
+          <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
+            {currentEvent ? (
+              <>
+                <p className="text-sm text-gray-500 mb-1">Happening Now</p>
+                <h3 className="text-xl font-semibold mb-2">{currentEvent.eventName}</h3>
+                <p className="text-gray-600 text-sm mb-2">
+                  {currentEvent.location} • {currentEvent.startTime} - {currentEvent.endTime}
+                </p>
+                <p className="text-gray-500 text-sm">{currentEvent.desc}</p>
+              </>
+            ) : nextEvent ? (
+              <>
+                <p className="text-sm text-gray-500 mb-1">Next Event</p>
+                <h3 className="text-xl font-semibold mb-2">{nextEvent.eventName}</h3>
+                <p className="text-gray-600 text-sm mb-2">
+                  {nextEvent.location} • {nextEvent.startTime} - {nextEvent.endTime}
+                </p>
+                <p className="text-gray-500 text-sm">{nextEvent.desc}</p>
+                {countdown && (
+                  <p className="mt-3 text-sm font-medium text-gray-800">
+                    Starts in {countdown.hours}h {countdown.minutes}m {countdown.seconds}s
+                  </p>
+                )}
+              </>
+            ) : (
+              <p className="text-gray-500 text-sm">No more events scheduled today.</p>
+            )}
           </div>
         </div>
 
-        {/* Upcoming Events */}
-        <div className="mb-12">
-          <div className="flex items-center justify-between mb-6">
-            <div>
-              <h2 className="text-2xl font-semibold text-gray-900">Upcoming Events</h2>
-              <p className="mt-1 text-sm text-gray-500">Don't miss out on these activities</p>
-            </div>
-            <button className="flex items-center gap-2 text-sm font-medium text-gray-600 transition-colors hover:text-gray-900" onClick={() => router.push("/schedule")}>
-              View Calendar
-              <FaArrowRight className="w-3 h-3" />
-            </button>
-          </div>
-          
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-            {events.map((e, i) => (
-              <div
-                key={i}
-                className="overflow-hidden transition-all duration-300 bg-white border border-gray-100 shadow-sm rounded-2xl hover:shadow-md group"
-              >
-                <div className="flex gap-5 p-5">
-                  <div className="relative flex-shrink-0 w-32 h-32 overflow-hidden rounded-xl">
-                    <img
-                      src={e.image}
-                      alt={e.name}
-                      className="object-cover w-full h-full transition-all duration-700 transform group-hover:scale-110"
-                    />
-                  </div>
-                  <div className="flex flex-col justify-between flex-1">
-                    <div>
-                      <h3 className="mb-2 text-lg font-semibold text-gray-900">{e.name}</h3>
-                      <p className="mb-3 text-sm leading-relaxed text-gray-600">{e.desc}</p>
-                    </div>
-                    <div className="flex items-center gap-2 text-gray-500">
-                      <FaCalendar className="w-3 h-3" />
-                      <span className="text-xs font-medium">{e.time}</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Team Section */}
+        {/* ---------------- TEAM ---------------- */}
         <div className="mb-8">
           <div
             className="p-8 transition-all duration-300 bg-white border border-gray-100 shadow-sm cursor-pointer rounded-2xl hover:shadow-md group"
@@ -320,8 +302,27 @@ export default function HomePage() {
           </div>
         </div>
       </div>
-
       <div className="h-20"></div>
     </div>
+    
   );
 }
+
+// ---------------------- HELPER ----------------------
+function parseEventDate(dayStr, timeStr) {
+  if (!timeStr || timeStr === "TBC") return null;
+
+  // Handle cases like "12:00 & 13:00"
+  if (timeStr.includes("&")) timeStr = timeStr.split("&")[0].trim();
+
+  const [month, date] = dayStr.split(" "); // "OCT 16"
+  const year = new Date().getFullYear();
+  const [hours, minutes] = timeStr.split(":").map(Number);
+
+  const months = {
+    JAN: 0, FEB: 1, MAR: 2, APR: 3, MAY: 4, JUN: 5,
+    JUL: 6, AUG: 7, SEP: 8, OCT: 9, NOV: 10, DEC: 11,
+  };
+  return new Date(year, months[month], parseInt(date), hours, minutes);
+}
+

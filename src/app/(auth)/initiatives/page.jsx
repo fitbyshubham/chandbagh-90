@@ -50,7 +50,7 @@ export default function InitiativesPage() {
           <h1 className="text-4xl mt-[70px] font-bold bg-clip-text text-transparent bg-gradient-to-br from-white to-slate-400 tracking-tight">The Doon School At 90</h1>
           <div className="w-24 h-1 ml-37 mt-5 bg-white rounded-full"></div>
           <p className="text-slate-400 mt-3 text-lg max-w-2xl mx-auto">
-            Discover flagship events and initiatives <br/> The Doon School has done in its 90th year.
+            Discover flagship events and initiatives <br/> The Doon School has done in its 90th year.<br/>Under The Leadership Of Our Headmaster Dr. Jagpreet Singh
           </p>
         </div>
         
