@@ -5,8 +5,11 @@ export function middleware(req) {
   const userAgent = req.headers.get('user-agent') || '';
   const isMobile = /android|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(userAgent);
 
-  // Prevent redirect loop for the blocked page
-  if (url.pathname.startsWith('/desktop-blocked')) {
+  // Allow the blocked page and public assets
+  if (
+    url.pathname.startsWith('/desktop-blocked') ||
+    url.pathname.match(/\.(png|jpg|jpeg|svg|gif|webp)$/)
+  ) {
     return NextResponse.next();
   }
 
