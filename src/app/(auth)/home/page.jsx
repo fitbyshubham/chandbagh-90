@@ -177,7 +177,7 @@ export default function HomePage() {
                 <p className="max-w-lg mb-5 text-sm leading-relaxed text-white/90">
                   Discover the most iconic places amongst Doscos as we celebrate 90 years of excellence.
                 </p>
-                <button className="inline-flex items-center gap-2 bg-white text-gray-900 px-6 py-3 rounded-full font-medium text-sm hover:bg-gray-100 transition-all duration-300 shadow-lg" onClick={() => router.push("/about")}>
+                <button className="inline-flex items-center gap-2 bg-white text-gray-900 px-6 py-3 rounded-full font-medium text-sm hover:bg-gray-100 transition-all duration-300 shadow-lg" onClick={() => router.push("/initiatives")}>
                   Explore Now
                   <FaArrowRight className="w-3 h-3" />
                 </button>
@@ -228,7 +228,7 @@ export default function HomePage() {
     </div>
     <button
       className="text-sm font-medium flex items-center gap-2 px-4 py-2 rounded-lg bg-blue-600 text-white hover:bg-blue-700 transition-colors duration-300"
-      onClick={() => router.push("/orders")}
+      onClick={() => router.push("/order")}
     >
       View All <FaArrowRight className="w-4 h-4" />
     </button>
