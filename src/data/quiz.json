@@ -39,8 +39,8 @@
    {
     "id": 7,
     "question": "Which house is closest to the Rose Bowl amphitheatre?",
-    "options": ["Jaipur House", "Tata House", "Hyderabad House", "Kashmir House"],
-    "correctAnswer": "Tata House"
+    "options": ["Jaipur House", "Tata House", "Hyderabad House", "Martyn House"],
+    "correctAnswer": "Martyn House"
   }
 
   ],
@@ -74,7 +74,7 @@
     },
     {
       "id": 12,
-      "question": "Which of these people was the first headmaster?",
+      "question": "Who was the first headmaster?",
       "options": ["J. A. K. Martyn", "Gurdial Singh", "Arthur E. Foot", "R. L. Holdsworth"],
       "correctAnswer": "Arthur E. Foot"
     },
@@ -82,7 +82,7 @@
       "id": 13,
       "question": "What is the school motto of The Doon School?",
       "options": ["“Light Through Knowledge”", "“Knowledge Our Light”", "“Wisdom & Service”", "“Learn and Lead”"],
-      "correctAnswer": "“Knowledge Our Light”"
+      "correctAnswer": "Knowledge Our Light"
     },
     {
       "id": 14,
@@ -119,7 +119,7 @@
   },
    {
     "id": 26,
-    "question": "Which alumnus is known for journalism and founding *India Today*?",
+    "question": "Which alumnus is known for journalism and founder of *India Today*?",
     "options": ["Aroon Purie", "Prannoy Roy", "Arundhati Roy", "Ramachandra Guha"],
     "correctAnswer": "Aroon Purie"
   },
@@ -135,25 +135,25 @@
     {
       "id": 17,
       "question": "What is the name of the famous annual event where Doon showcases plays, exhibitions, and sports?",
-      "options": ["Founders' Week", "Sports Day", "Annual Gala", "The Doon Fest"],
-      "correctAnswer": "Founders' Week"
+      "options": ["Founders' Day", "Sports Day", "Annual Gala", "The Doon Fest"],
+      "correctAnswer": "Founders' Day"
     },
     {
       "id": 18,
       "question": "Which of these songs is the School Song?",
-      "options": ["Jana Gana Mana", "The Dosco Song", "Lab Pe Aati Hai Dua", "School Song"],
+      "options": ["Jana Gana Mana", "Aanand Loke", "Lab Pe Aati Hai Dua", "Charan Prante"],
       "correctAnswer": "Lab Pe Aati Hai Dua"
     },
     {
       "id": 19,
       "question": "What’s the name of Doon’s magazine/newspaper?",
-      "options": ["The Doon Times", "The Weekly", "The Doon Express", "Dosco’s Dialogue"],
+      "options": ["The Doon Times", "The Weekly", "The Doon Express", "Dosco’s Today"],
       "correctAnswer": "The Weekly"
     },
     {
       "id": 20,
       "question": "What’s the nickname given to students studying at Doon?",
-      "options": ["Doonies", "Doscos", "Donders", "Doonities"],
+      "options": ["Doonies", "Doscos", "Donders", "Doon Ke Goon"],
       "correctAnswer": "Doscos"
     },
     {

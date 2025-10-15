@@ -20,8 +20,8 @@ const STORY_AVATARS = [
   },
   {
     name: "Headmasters",
-    src: "/photos/af1.jpeg",
-    stories: ["/Photos/af1.jpeg", "/Photos/hm1.jpg", "/Photos/hm2.jpg"],
+    src: "/HMs/1.png",
+    stories: ["/HMs/1.png", "/HMs/2.png", "/HMs/3.png", "/HMs/4.png", "/HMs/5.png", "/HMs/6.png", "/HMs/7.png", "/HMs/8.png", "/HMs/9.png", "/HMs/10.png", "/HMs/11.png",],
   },
 ];
 
