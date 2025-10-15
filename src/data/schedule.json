@@ -1,8 +1,8 @@
 {
-  "OCT 16": [
+  "schedule": [
     {
       "day": "THU",
-      "date": "16",
+      "date": "OCT 16",
       "eventName": "Breakfast",
       "desc": "Students have breakfast in school before the start of the day",
       "location": "CDH",
@@ -14,7 +14,7 @@
     },
     {
       "day": "THU",
-      "date": "16",
+      "date": "OCT 16",
       "eventName": "Exhibitions",
       "desc": "Exhibitions by all the Departements of School",
       "location": "Various Locations",
@@ -26,7 +26,7 @@
     },
     {
       "day": "THU",
-      "date": "16",
+      "date": "OCT 16",
       "eventName": "Lunch",
       "desc": "Lunch for all Students, Parents, Old Boys and Guests",
       "location": "CDH",
@@ -38,7 +38,7 @@
     },
     {
       "day": "THU",
-      "date": "16",
+      "date": "OCT 16",
       "eventName": "Interhouse Athletics",
       "desc": "Finals of the Interhouse Athletics Competition, 2025",
       "location": "Main Field",
@@ -50,7 +50,7 @@
     },
     {
       "day": "THU",
-      "date": "16",
+      "date": "OCT 16",
       "eventName": "Walk for the Batch of 1955",
       "desc": "Walk for the Batch of 1955 (30m walk) & 90m Run for Fun (1 of 2 Races) by age categories (2 Old Boys, Masters and Parents)",
       "location": "Main Field",
@@ -62,7 +62,7 @@
     },
     {
       "day": "THU",
-      "date": "16",
+      "date": "OCT 16",
       "eventName": "At Home",
       "desc": "At Home Tea for the parents with Housemasters, Tutors and Dames",
       "location": "Respective House of the Ward",
@@ -74,7 +74,7 @@
     },
     {
       "day": "THU",
-      "date": "16",
+      "date": "OCT 16",
       "eventName": "Music recital",
       "desc": "Music performance for D, C, B and A Forms and invited schools and guests",
       "location": "Rose Bowl",
@@ -86,7 +86,7 @@
     },
     {
       "day": "THU",
-      "date": "16",
+      "date": "OCT 16",
       "eventName": "Departure",
       "desc": "Parents, Old Boys and Guests depart",
       "location": "Main Gate",
@@ -98,7 +98,7 @@
     },
     {
       "day": "THU",
-      "date": "16",
+      "date": "OCT 16",
       "eventName": "Dinner",
       "desc": "Dinner for the Entire School",
       "location": "CDH",
@@ -107,12 +107,10 @@
       "coverImage": "https://www.doonschool.com/wp-content/uploads/2023/01/dddddddddd.jpg  ",
       "numberOfPeople": 146,
       "avatars": ["./Avatars/m1.jpg", "./Avatars/m2.jpg", "./Avatars/m3.jpg"]
-    }
-  ],
-  "OCT 17": [
+    },
     {
       "day": "FRI",
-      "date": "17",
+      "date": "OCT 17",
       "eventName": "Parents and Old Boys Enter",
       "desc": "Parents and Old Boys are allowed to enter the school",
       "location": "Main Gate",
@@ -124,7 +122,7 @@
     },
     {
       "day": "FRI",
-      "date": "17",
+      "date": "OCT 17",
       "eventName": "R.L. Holdsworth",
       "desc": "R.L Holdsworth Cricket Match (20 Overs) betweem the Old Boys and the School Team",
       "location": "Main Field",
@@ -136,7 +134,7 @@
     },
     {
       "day": "FRI",
-      "date": "17",
+      "date": "OCT 17",
       "eventName": "Old Boys Sports",
       "desc": "Old Boys play sports like Hockey, Basketball, Soccer/Futsal, Tennis, Padel, Sqaush and Swimming",
       "location": "Main Field, Basketball, Squash and Tennis Courts, Swimming Pool",
@@ -148,7 +146,7 @@
     },
     {
       "day": "FRI",
-      "date": "17",
+      "date": "OCT 17",
       "eventName": "DSOBS Interaction",
       "desc": "Members from DSOBS interact with Parents B, A and S Froms",
       "location": "Kilachand Library",
@@ -160,7 +158,7 @@
     },
     {
       "day": "FRI",
-      "date": "17",
+      "date": "OCT 17",
       "eventName": "Lunch",
       "desc": "Lunch & Refreshments at the Food stalls for Students, Staff, Parents and Old Boys",
       "location": "Stalls outside CDH and Old Basketball Courts",
@@ -172,7 +170,7 @@
     },
     {
       "day": "FRI",
-      "date": "17",
+      "date": "OCT 17",
       "eventName": "Hindi Street Play",
       "desc": "Students perform a Street Play in Hindi",
       "location": "Near CDH/Pavillion",
@@ -184,7 +182,7 @@
     },
     {
       "day": "FRI",
-      "date": "17",
+      "date": "OCT 17",
       "eventName": "Prize Giving",
       "desc": "Distribution of the Holdworth's Cricket Trophy",
       "location": "Main Field",
@@ -196,7 +194,7 @@
     },
     {
       "day": "FRI",
-      "date": "17",
+      "date": "OCT 17",
       "eventName": "Tug of War",
       "desc": "Tug of War between Old Boys & Parents, Masters & Parents, Finale",
       "location": "Main Field",
@@ -208,19 +206,19 @@
     },
     {
       "day": "FRI",
-      "date": "17",
+      "date": "OCT 17",
       "eventName": "Band",
       "desc": "Western Band Performance",
       "location": "Near Auditorium Steps/CDH",
       "startTime": "15:30",
       "endTime": "16:30",
-      "coverImage": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxASEBIQDxIVFRUVFRUVFRYVFRUVFhYXGBUXFhUVFxUYHSggGBolGxUXITEhJSkrLi4uFx8zODUtNygtLisBCgoKDg0OGxAQGy0lHyUvLTYyLS0tLS0tLS0rLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLf/AABEIALIBGgMBIgACEQEDEQH/xAAcAAACAgMBAQAAAAAAAAAAAAAABAMGAgUHAQj/xABCEAACAQIDBQYDBQYFAgcAAAABAgADEQQSIQUGMUFRBxNhcYGRIjKhFCNSscFCYnKCotEzQ5Lw8VPhFSRzo7Kzwv/EABsBAAIDAQEBAAAAAAAAAAAAAAACAQMEBQYH/8QAKxEAAgICAQMDAwMFAAAAAAAAAAECEQMSIQQxQRNRYRQi8AUycSO HobJbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbHbH......",
+      "coverImage": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmIh_TH_ucKV2obTmwHYxcZQqsheIPVOjcIQ&s",
       "numberOfPeople": 158,
       "avatars": ["./Avatars/m1.jpg", "./Avatars/m2.jpg", "./Avatars/m3.jpg"]
     },
     {
       "day": "FRI",
-      "date": "17",
+      "date": "OCT 17",
       "eventName": "Sand Art",
       "desc": "Sand Art",
       "location": "BML Munjal Auditorium",
@@ -232,7 +230,7 @@
     },
     {
       "day": "FRI",
-      "date": "17",
+      "date": "OCT 17",
       "eventName": "Chandbagh Debates",
       "desc": "Debate between School Team and Old Boys",
       "location": "BML Munjal Auditorium",
@@ -244,7 +242,7 @@
     },
     {
       "day": "FRI",
-      "date": "17",
+      "date": "OCT 17",
       "eventName": "Musical Pagent",
       "desc": "A trilingual-English, Hindi and Dosco Lingo-pagen showing the life of a student before, during and after school",
       "location": "Rose Bowl",
@@ -256,7 +254,7 @@
     },
     {
       "day": "FRI",
-      "date": "17",
+      "date": "OCT 17",
       "eventName": "Departure",
       "desc": "Parents and Old Boys depart",
       "location": "Main Gate",
@@ -268,7 +266,7 @@
     },
     {
       "day": "FRI",
-      "date": "17",
+      "date": "OCT 17",
       "eventName": "Dinner",
       "desc": "Dinner for the school",
       "location": "CDH",
@@ -277,24 +275,22 @@
       "coverImage": "https://www.doonschool.com/wp-content/uploads/2023/01/dddddddddd.jpg",
       "numberOfPeople": 135,
       "avatars": ["./Avatars/m1.jpg", "./Avatars/m2.jpg", "./Avatars/m3.jpg"]
-    }
-  ],
-  "OCT 18": [
+    },
     {
       "day": "SAT",
-      "date": "18",
+      "date": "OCT 18",
       "eventName": "Parents and Old Boys Enter",
       "desc": "Parents and Old Boys enter the school",
       "location": "Main Gate",
       "startTime": "09:30",
       "endTime": "16:30",
-      "coverImage": "https://www.doonschool.com/wp-content/uploads/2018/05/about-doon-2.jpg  ",
+      "coverImage": "https://www.doonschool.com/wp-content/uploads/20OCT 18/05/about-doon-2.jpg  ",
       "numberOfPeople": 168,
       "avatars": ["./Avatars/m1.jpg", "./Avatars/m2.jpg", "./Avatars/m3.jpg"]
     },
     {
       "day": "SAT",
-      "date": "18",
+      "date": "OCT 18",
       "eventName": "Jaipur House Pagal Gymkhana",
       "desc": "Fun activities and competitions organized by Jaipur House",
       "location": "Skinners",
@@ -306,7 +302,7 @@
     },
     {
       "day": "SAT",
-      "date": "18",
+      "date": "OCT 18",
       "eventName": "Lunch for All",
       "desc": "Lunch for all at Jaipur House Pagal Gymkhana",
       "location": "Skinners",
@@ -318,7 +314,7 @@
     },
     {
       "day": "SAT",
-      "date": "18",
+      "date": "OCT 18",
       "eventName": "Chief Guest Interaction",
       "desc": "Chief Guest interacts with senior students and faculty",
       "location": "Art & Media Centre",
@@ -330,7 +326,7 @@
     },
     {
       "day": "SAT",
-      "date": "18",
+      "date": "OCT 18",
       "eventName": "Founder’s day Programme",
       "desc": "Founder’s day main function and programme",
       "location": "Rose Bowl",
@@ -342,7 +338,7 @@
     },
     {
       "day": "SAT",
-      "date": "18",
+      "date": "OCT 18",
       "eventName": "Founders Music Production",
       "desc": "Music Performance as part of Founder’s day celebrations",
       "location": "Rose Bowl",
@@ -354,7 +350,7 @@
     },
     {
       "day": "SAT",
-      "date": "18",
+      "date": "OCT 18",
       "eventName": "Students Departure",
       "desc": "Students leave with parents after Housemaster’s permission",
       "location": "Campus",
@@ -364,5 +360,7 @@
       "numberOfPeople": 134,
       "avatars": ["./Avatars/m1.jpg", "./Avatars/m2.jpg", "./Avatars/m3.jpg"]
     }
+    
   ]
+  
 }
