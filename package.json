@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@google-cloud/tasks": "^6.2.1",
+    "@netlify/plugin-nextjs": "^5.13.5",
     "@supabase/supabase-js": "^2.75.0",
     "firebase": "^12.4.0",
     "framer-motion": "^12.23.22",
