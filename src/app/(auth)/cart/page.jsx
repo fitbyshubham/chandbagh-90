@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import { Minus, Plus, X, ArrowLeft } from "lucide-react";
-
+import useProtectedRoute from "../../../components/hook/useProtectedRoute";
 const initialItems = [
   {
     id: 1,

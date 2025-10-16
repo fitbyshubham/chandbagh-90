@@ -1,6 +1,6 @@
 'use client';
 import { useEffect, useState } from 'react';
-
+import useProtectedRoute from "../../../components/hook/useProtectedRoute";
 const STATUS_STEPS = ['Confirmed', 'Preparing', 'Out for delivery', 'Delivered'];
 const STATUS_COLORS = {
   Confirmed: 'bg-gray-100 text-gray-800',

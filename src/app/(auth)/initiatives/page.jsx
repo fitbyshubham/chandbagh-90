@@ -1,6 +1,6 @@
 // src/app/page.js
 import Head from 'next/head';
-
+import useProtectedRoute from "../../../components/hook/useProtectedRoute";
 // Move data to a shared file in real apps
 const initiatives = [
   {

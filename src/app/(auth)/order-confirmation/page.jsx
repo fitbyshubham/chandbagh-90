@@ -1,6 +1,6 @@
 'use client';
 import { useEffect, useState } from 'react';
-
+import useProtectedRoute from "../../../components/hook/useProtectedRoute";
 export default function OrderConfirmation() {
   const [order, setOrder] = useState(null);
 

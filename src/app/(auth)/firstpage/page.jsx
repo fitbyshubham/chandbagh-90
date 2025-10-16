@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import { useRouter } from "next/navigation";
-
+import useProtectedRoute from "../../../components/hook/useProtectedRoute";
 export default function Onboarding() {
   const router = useRouter();
 

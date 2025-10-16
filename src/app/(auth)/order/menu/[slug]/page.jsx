@@ -1,6 +1,6 @@
  'use client';
 import { useState, useEffect, useRef } from 'react';
-
+import useProtectedRoute from "../../../../../components/hook/useProtectedRoute";
 // This is a mock hook to simulate Next.js functionality in this environment.
 const useMockRouter = () => ({
     back: () => window.history.back(),

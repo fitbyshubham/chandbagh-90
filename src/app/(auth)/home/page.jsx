@@ -4,7 +4,7 @@ import { FaStar, FaPlay, FaArrowRight, FaCalendar, FaMapMarkerAlt } from "react-
 import { useRouter } from "next/navigation";
 import YouTube from "react-youtube";
 import schedule from "../../../data/schedule.json";
-
+import useProtectedRoute from "../../../components/hook/useProtectedRoute";
 function VideoBanner({ thumbnail, videoUrl }) {
   const [player, setPlayer] = useState(null);
   const [isPlaying, setIsPlaying] = useState(false);
