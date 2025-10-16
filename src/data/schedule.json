@@ -157,6 +157,18 @@
       "avatars": ["./Avatars/m1.jpg", "./Avatars/m2.jpg", "./Avatars/m3.jpg"]
     },
     {
+      "day": "THU",
+      "date": "16",
+      "eventName": "Palletes Of Promise",
+      "desc": "Art Exhibition for a cause",
+      "location": "Art School, Museum 2",
+      "startTime": "11:00",
+      "endTime": "14:00",
+      "coverImage": "/Photos/pop.png",
+      "numberOfPeople": 135,
+      "avatars": ["./Avatars/m1.jpg", "./Avatars/m2.jpg", "./Avatars/m3.jpg"]
+    },
+    {
       "day": "FRI",
       "date": "OCT 17",
       "eventName": "Lunch",
