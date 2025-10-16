@@ -20,16 +20,19 @@ const team = [
     img: "/Photos/hw.jpg",
     desc: "I focused on designing the app’s database structure and updating the backend whenever required.",
   },
-  {
-    name: "Vibhor Saraogi",
-    img: "/Photos/vb.jpg",
-    desc: "I developed the Quiz, Profile, and Landing page, and also managed and updated the UI of the Home and About pages."
-  },
+
   {
     name: "Aarav Anand",
     img: "/Photos/q4.jpg",
     desc: "I developed the Food Menu feature and resolved critical frontend issues.",
   },
+  
+  {
+    name: "Vibhor Saraogi",
+    img: "/Photos/vb.jpg",
+    desc: "I developed the Quiz, Profile, and Landing page, and also managed and updated the UI of the Home and About pages."
+  },
+  
   
   
   {
