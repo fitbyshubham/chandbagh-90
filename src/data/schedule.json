@@ -1,13 +1,17 @@
 {
   "schedule": [
+<<<<<<< HEAD
     {
+=======
+     {
+>>>>>>> c28e81f (schedule changes)
       "day": "THU",
       "date": "OCT 16",
       "eventName": "Breakfast",
       "desc": "Students have breakfast in school before the start of the day",
       "location": "CDH",
-      "startTime": "09:00",
-      "endTime": "09:25",
+      "startTime": "08:30",
+      "endTime": "08:55",
       "coverImage": "https://static.toiimg.com/photo/60132641.cms?imgsize=312455",
       "numberOfPeople": 130,
       "avatars": ["./Avatars/m1.jpg", "./Avatars/m2.jpg", "./Avatars/m3.jpg"]
@@ -15,9 +19,24 @@
     {
       "day": "THU",
       "date": "OCT 16",
+<<<<<<< HEAD
+=======
+      "eventName": "Parents and Old Boys Enter",
+      "desc": "Parents and Old Boys enter the school",
+      "location": "Main Gate",
+      "startTime": "10:00",
+      "endTime": "10:00",
+      "coverImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/Main_Gate%2C_The_Doon_School.jpg/960px-Main_Gate%2C_The_Doon_School.jpg",
+      "numberOfPeople": 140,
+      "avatars": ["./Avatars/m1.jpg", "./Avatars/m2.jpg", "./Avatars/m3.jpg"]
+    },
+    {
+      "day": "THU",
+      "date": "OCT 16",
+>>>>>>> c28e81f (schedule changes)
       "eventName": "Exhibitions",
-      "desc": "Exhibitions by all the Departements of School",
-      "location": "Various Locations",
+      "desc": "Exhibitions by all the Departments of School",
+      "location": "All Academic spaces in Main Building, Physics and ITC Block, D&T Centre, Art School and Careers Dept",
       "startTime": "10:30",
       "endTime": "13:30",
       "coverImage": "/Schedule/founder-science-exhibition.jpg",
@@ -27,12 +46,33 @@
     {
       "day": "THU",
       "date": "OCT 16",
+<<<<<<< HEAD
       "eventName": "Lunch",
       "desc": "Lunch for all Students, Parents, Old Boys and Guests",
       "location": "CDH",
       "startTime": "13:00",
       "endTime": "14:00",
       "coverImage": "  https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmpImaE8oO6M4LGlyfAr0AEOiNjJpjEMxcFQ&s",
+=======
+      "eventName": "Palettes of Promise",
+      "desc": "Art exhibition at Museum 2 (Art & Media Centre)",
+      "location": "Museum 2 (Art & Media Centre)",
+      "startTime": "11:00",
+      "endTime": "14:00",
+      "coverImage": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTUWJEFQP5pG312BTKq9mOXZDuEQP1PbvSSKg&s",
+      "numberOfPeople": 90,
+      "avatars": ["./Avatars/m1.jpg", "./Avatars/m2.jpg", "./Avatars/m3.jpg"]
+    },
+    {
+      "day": "THU",
+      "date": "OCT 16",
+      "eventName": "Lunch & Refreshments",
+      "desc": "Lunch & Refreshments at the Food stalls for Students, Staff, Parents and Old Boys",
+      "location": "Adjacent to the CDH",
+      "startTime": "11:00",
+      "endTime": "18:30",
+      "coverImage": "https://londonbitestours.com/wp-content/uploads/2024/05/IMG_2157.jpg",
+>>>>>>> c28e81f (schedule changes)
       "numberOfPeople": 114,
       "avatars": ["./Avatars/m1.jpg", "./Avatars/m2.jpg", "./Avatars/m3.jpg"]
     },
@@ -43,7 +83,7 @@
       "desc": "Finals of the Interhouse Athletics Competition, 2025",
       "location": "Main Field",
       "startTime": "15:00",
-      "endTime": "17:00",
+      "endTime": "17:30",
       "coverImage": "/Schedule/iha.png",
       "numberOfPeople": 106,
       "avatars": ["./Avatars/m1.jpg", "./Avatars/m2.jpg", "./Avatars/m3.jpg"]
@@ -51,12 +91,17 @@
     {
       "day": "THU",
       "date": "OCT 16",
+<<<<<<< HEAD
       "eventName": "Walk for the Batch of 1955",
       "desc": "Walk for the Batch of 1955 (30m walk) & 90m Run for Fun (1 of 2 Races) by age categories (2 Old Boys, Masters and Parents)",
+=======
+      "eventName": "Platinum Walk & 90m Run for Fun",
+      "desc": "Platinum Walk (Class of 1955) & 90m Run for Fun (1 Race) by age categories (2 Old Boys, 2 Masters and 2 Parents)",
+>>>>>>> c28e81f (schedule changes)
       "location": "Main Field",
-      "startTime": "TBC",
-      "endTime": "TBC",
-      "coverImage": "  https://www.doonschool.com/wp-content/uploads/2023/05/3-1-1024x1024.jpg  ",
+      "startTime": "15:00",
+      "endTime": "17:30",
+      "coverImage": "https://www.doonschool.com/wp-content/uploads/2023/05/3-1-1024x1024.jpg",
       "numberOfPeople": 127,
       "avatars": ["./Avatars/m1.jpg", "./Avatars/m2.jpg", "./Avatars/m3.jpg"]
     },
@@ -64,17 +109,18 @@
       "day": "THU",
       "date": "OCT 16",
       "eventName": "At Home",
-      "desc": "At Home Tea for the parents with Housemasters, Tutors and Dames",
+      "desc": "At Home Tea for the parents with Housemasters,Tutors, Dames and Students",
       "location": "Respective House of the Ward",
-      "startTime": "17:00",
-      "endTime": "18:00",
-      "coverImage": "https://www.doonschool.com/wp-content/uploads/2023/10/29-1024x1024.jpg  ",
+      "startTime": "17:45",
+      "endTime": "18:45",
+      "coverImage": "https://www.doonschool.com/wp-content/uploads/2023/10/29-1024x1024.jpg",
       "numberOfPeople": 124,
       "avatars": ["./Avatars/m1.jpg", "./Avatars/m2.jpg", "./Avatars/m3.jpg"]
     },
     {
       "day": "THU",
       "date": "OCT 16",
+<<<<<<< HEAD
       "eventName": "Music recital",
       "desc": "Music performance for D, C, B and A Forms and invited schools and guests",
       "location": "Rose Bowl",
@@ -87,27 +133,60 @@
     {
       "day": "THU",
       "date": "OCT 16",
+=======
+>>>>>>> c28e81f (schedule changes)
       "eventName": "Departure",
       "desc": "Parents, Old Boys and Guests depart",
       "location": "Main Gate",
-      "startTime": "19:50",
-      "endTime": "18:00",
-      "coverImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/Main_Gate%2C_The_Doon_School.jpg/960px-Main_Gate%2C_The_Doon_School.jpg  ",
+      "startTime": "19:00",
+      "endTime": "19:00",
+      "coverImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/Main_Gate%2C_The_Doon_School.jpg/960px-Main_Gate%2C_The_Doon_School.jpg",
       "numberOfPeople": 142,
       "avatars": ["./Avatars/m1.jpg", "./Avatars/m2.jpg", "./Avatars/m3.jpg"]
     },
     {
       "day": "THU",
       "date": "OCT 16",
+<<<<<<< HEAD
+=======
+      "eventName": "Music Recital",
+      "desc": "Music performance for D, C, B and A Forms and invited schools and guests",
+      "location": "Rose Bowl",
+      "startTime": "19:00",
+      "endTime": "19:30",
+      "coverImage": "https://www.doonschool.com/wp-content/uploads/2019/01/BF1A0255-min-1024x683.jpg",
+      "numberOfPeople": 139,
+      "avatars": ["./Avatars/m1.jpg", "./Avatars/m2.jpg", "./Avatars/m3.jpg"]
+    },
+    {
+      "day": "THU",
+      "date": "OCT 16",
+>>>>>>> c28e81f (schedule changes)
       "eventName": "Dinner",
       "desc": "Dinner for the Entire School",
       "location": "CDH",
       "startTime": "20:00",
       "endTime": "20:25",
-      "coverImage": "https://www.doonschool.com/wp-content/uploads/2023/01/dddddddddd.jpg  ",
+      "coverImage": "https://www.doonschool.com/wp-content/uploads/2023/01/dddddddddd.jpg",
       "numberOfPeople": 146,
       "avatars": ["./Avatars/m1.jpg", "./Avatars/m2.jpg", "./Avatars/m3.jpg"]
     },
+<<<<<<< HEAD
+=======
+
+     {
+      "day": "FRI",
+      "date": "OCT 17",
+      "eventName": "Breakfast",
+      "desc": "Breakfast for Students & Staff",
+      "location": "CDH",
+      "startTime": "08:30",
+      "endTime": "08:55",
+      "coverImage": "https://static.toiimg.com/photo/60132641.cms?imgsize=312455",
+      "numberOfPeople": 130,
+      "avatars": ["./Avatars/m1.jpg", "./Avatars/m2.jpg", "./Avatars/m3.jpg"]
+    },
+>>>>>>> c28e81f (schedule changes)
     {
       "day": "FRI",
       "date": "OCT 17",
@@ -115,19 +194,24 @@
       "desc": "Parents and Old Boys are allowed to enter the school",
       "location": "Main Gate",
       "startTime": "09:30",
-      "endTime": "20:20",
-      "coverImage": "https://www.doonschool.com/wp-content/uploads/2018/05/about-doon-2.jpg  ",
+      "endTime": "19:00",
+      "coverImage": "https://www.doonschool.com/wp-content/uploads/2018/05/about-doon-2.jpg",
       "numberOfPeople": 148,
       "avatars": ["./Avatars/m1.jpg", "./Avatars/m2.jpg", "./Avatars/m3.jpg"]
     },
     {
       "day": "FRI",
       "date": "OCT 17",
+<<<<<<< HEAD
       "eventName": "R.L. Holdsworth",
       "desc": "R.L Holdsworth Cricket Match (20 Overs) betweem the Old Boys and the School Team",
+=======
+      "eventName": "R.L. Holdsworth Cricket Match",
+      "desc": "R.L. Holdsworth Cricket Match (T-20) between the Old Boys and the School Team",
+>>>>>>> c28e81f (schedule changes)
       "location": "Main Field",
-      "startTime": "10:30",
-      "endTime": "14:00",
+      "startTime": "09:30",
+      "endTime": "13:30",
       "coverImage": "/Schedule/rlhf.png",
       "numberOfPeople": 134,
       "avatars": ["./Avatars/m1.jpg", "./Avatars/m2.jpg", "./Avatars/m3.jpg"]
@@ -135,6 +219,7 @@
     {
       "day": "FRI",
       "date": "OCT 17",
+<<<<<<< HEAD
       "eventName": "Old Boys Sports",
       "desc": "Old Boys play sports like Hockey, Basketball, Soccer/Futsal, Tennis, Padel, Sqaush and Swimming",
       "location": "Main Field, Basketball, Squash and Tennis Courts, Swimming Pool",
@@ -142,13 +227,49 @@
       "endTime": "TBC",
       "coverImage": "https://www.doonschool.com/wp-content/uploads/2015/04/hockey-apr15.jpg  ",
       "numberOfPeople": 143,
+=======
+      "eventName": "Exhibitions Continue",
+      "desc": "Exhibitions by all departments continue",
+      "location": "All Academic spaces in Main Building, Physics and ITC Block, D&T Centre, Art School and Careers Dept",
+      "startTime": "11:00",
+      "endTime": "13:00",
+      "coverImage": "/Schedule/founder-science-exhibition.jpg",
+      "numberOfPeople": 120,
+>>>>>>> c28e81f (schedule changes)
       "avatars": ["./Avatars/m1.jpg", "./Avatars/m2.jpg", "./Avatars/m3.jpg"]
     },
     {
       "day": "FRI",
       "date": "OCT 17",
+<<<<<<< HEAD
+=======
+      "eventName": "Palettes of Promise",
+      "desc": "Art exhibition at Museum 2 (Art & Media Centre)",
+      "location": "Museum 2 (Art & Media Centre)",
+      "startTime": "11:00",
+      "endTime": "14:00",
+      "coverImage": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTUWJEFQP5pG312BTKq9mOXZDuEQP1PbvSSKg&s",
+      "numberOfPeople": 90,
+      "avatars": ["./Avatars/m1.jpg", "./Avatars/m2.jpg", "./Avatars/m3.jpg"]
+    },
+    {
+      "day": "FRI",
+      "date": "OCT 17",
+      "eventName": "Hindi Street Play",
+      "desc": "Students perform a Street Play in Hindi",
+      "location": "Near CDH/Pavilion",
+      "startTime": "11:00",
+      "endTime": "11:15",
+      "coverImage": "https://www.doonschool.com/wp-content/uploads/2023/10/14-1024x1024.jpg",
+      "numberOfPeople": 169,
+      "avatars": ["./Avatars/m1.jpg", "./Avatars/m2.jpg", "./Avatars/m3.jpg"]
+    },
+    {
+      "day": "FRI",
+      "date": "OCT 17",
+>>>>>>> c28e81f (schedule changes)
       "eventName": "DSOBS Interaction",
-      "desc": "Members from DSOBS interact with Parents B, A and S Froms",
+      "desc": "Members from DSOBS interact with Parents of B, A and S Forms",
       "location": "Kilachand Library",
       "startTime": "11:00",
       "endTime": "12:30",
@@ -157,25 +278,17 @@
       "avatars": ["./Avatars/m1.jpg", "./Avatars/m2.jpg", "./Avatars/m3.jpg"]
     },
     {
-      "day": "THU",
-      "date": "16",
-      "eventName": "Palletes Of Promise",
-      "desc": "Art Exhibition for a cause",
-      "location": "Art School, Museum 2",
-      "startTime": "11:00",
-      "endTime": "14:00",
-      "coverImage": "/Photos/pop.png",
-      "numberOfPeople": 135,
-      "avatars": ["./Avatars/m1.jpg", "./Avatars/m2.jpg", "./Avatars/m3.jpg"]
-    },
-    {
       "day": "FRI",
       "date": "OCT 17",
+<<<<<<< HEAD
       "eventName": "Lunch",
+=======
+      "eventName": "Lunch & Refreshments",
+>>>>>>> c28e81f (schedule changes)
       "desc": "Lunch & Refreshments at the Food stalls for Students, Staff, Parents and Old Boys",
-      "location": "Stalls outside CDH and Old Basketball Courts",
+      "location": "Adjacent to the CDH",
       "startTime": "11:00",
-      "endTime": "18:00",
+      "endTime": "18:30",
       "coverImage": "https://londonbitestours.com/wp-content/uploads/2024/05/IMG_2157.jpg",
       "numberOfPeople": 132,
       "avatars": ["./Avatars/m1.jpg", "./Avatars/m2.jpg", "./Avatars/m3.jpg"]
@@ -183,6 +296,7 @@
     {
       "day": "FRI",
       "date": "OCT 17",
+<<<<<<< HEAD
       "eventName": "Hindi Street Play",
       "desc": "Students perform a Street Play in Hindi",
       "location": "Near CDH/Pavillion",
@@ -190,16 +304,73 @@
       "endTime": "12:15 & 13:15",
       "coverImage": "https://www.doonschool.com/wp-content/uploads/2023/10/14-1024x1024.jpg  ",
       "numberOfPeople": 169,
+=======
+      "eventName": "Smart Classroom Inauguration (Dr. S.D. Singh & Mr. Praveen Singh)",
+      "desc": "Inauguration of Smart Classroom in memory of Dr. S.D. Singh and Mr. Praveen Singh (200-K, 1971)",
+      "location": "Main Building",
+      "startTime": "11:20",
+      "endTime": "11:40",
+      "coverImage": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQCanmpIxnFmdsTzZfdtAW2hBMpa49rSeKRFg&s",
+      "numberOfPeople": 60,
+      "avatars": ["./Avatars/m1.jpg", "./Avatars/m2.jpg", "./Avatars/m3.jpg"]
+    },
+    {
+      "day": "FRI",
+      "date": "OCT 17",
+      "eventName": "Smart Classroom Inauguration (Class of 2005)",
+      "desc": "Smart Classroom Inauguration by Anupama Rawat, Class of 2005",
+      "location": "Main Building",
+      "startTime": "11:45",
+      "endTime": "12:15",
+      "coverImage": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQCanmpIxnFmdsTzZfdtAW2hBMpa49rSeKRFg&s",
+      "numberOfPeople": 50,
+      "avatars": ["./Avatars/m1.jpg", "./Avatars/m2.jpg", "./Avatars/m3.jpg"]
+    },
+    {
+      "day": "FRI",
+      "date": "OCT 17",
+      "eventName": "Headmaster’s Lunch (Silver Jubilee Class of 2000)",
+      "desc": "Headmaster’s Lunch for Silver Jubilee Class of 2000 along with Classes of 1985, 1990, 1995, 2005 and 2010",
+      "location": "HM’s Garden",
+      "startTime": "12:30",
+      "endTime": "14:30",
+      "coverImage": "https://www.doonschool.com/wp-content/uploads/2024/05/web_bann_cdh_jpg1.jpg",
+      "numberOfPeople": 180,
+      "avatars": ["./Avatars/m1.jpg", "./Avatars/m2.jpg", "./Avatars/m3.jpg"]
+    },
+    {
+      "day": "FRI",
+      "date": "OCT 17",
+      "eventName": "Gift by Classes of 1990 and 2000",
+      "desc": "Gift presentation by Classes of 1990 and 2000 at Headmaster’s Lunch",
+      "location": "HM’s Garden",
+      "startTime": "13:00",
+      "endTime": "13:15",
+      "coverImage": "https://ideas.ted.com/wp-content/uploads/sites/3/2018/11/featured_art_gift_istock.jpg?resize=750,450",
+      "numberOfPeople": 40,
+      "avatars": ["./Avatars/m1.jpg", "./Avatars/m2.jpg", "./Avatars/m3.jpg"]
+    },
+    {
+      "day": "FRI",
+      "date": "OCT 17",
+      "eventName": "English Street Play",
+      "desc": "Students perform an English Street Play",
+      "location": "Near CDH/Pavilion",
+      "startTime": "13:00",
+      "endTime": "13:15",
+      "coverImage": "https://www.doonschool.com/wp-content/uploads/2023/10/14-1024x1024.jpg",
+      "numberOfPeople": 150,
+>>>>>>> c28e81f (schedule changes)
       "avatars": ["./Avatars/m1.jpg", "./Avatars/m2.jpg", "./Avatars/m3.jpg"]
     },
     {
       "day": "FRI",
       "date": "OCT 17",
       "eventName": "Prize Giving",
-      "desc": "Distribution of the Holdworth's Cricket Trophy",
-      "location": "Main Field",
-      "startTime": "14:30",
-      "endTime": "14:45",
+      "desc": "Distribution of the Holdsworth Cricket Trophy followed by High Tea at Roy’s Corner by invitation",
+      "location": "Main Field / Behind the Pavilion",
+      "startTime": "13:45",
+      "endTime": "14:15",
       "coverImage": "/Schedule/rp.png",
       "numberOfPeople": 152,
       "avatars": ["./Avatars/m1.jpg", "./Avatars/m2.jpg", "./Avatars/m3.jpg"]
@@ -208,23 +379,23 @@
       "day": "FRI",
       "date": "OCT 17",
       "eventName": "Tug of War",
-      "desc": "Tug of War between Old Boys & Parents, Masters & Parents, Finale",
+      "desc": "Tug of War: Old Boys vs Parents, Masters vs Students, Finale",
       "location": "Main Field",
-      "startTime": "15:15",
-      "endTime": "15:30",
-      "coverImage": "https://thinkingpathwayz.weebly.com/uploads/1/0/4/4/104440805/tug-of-war-kidspot_orig.jpg  ",
+      "startTime": "14:20",
+      "endTime": "14:40",
+      "coverImage": "https://thinkingpathwayz.weebly.com/uploads/1/0/4/4/104440805/tug-of-war-kidspot_orig.jpg",
       "numberOfPeople": 158,
       "avatars": ["./Avatars/m1.jpg", "./Avatars/m2.jpg", "./Avatars/m3.jpg"]
     },
     {
       "day": "FRI",
       "date": "OCT 17",
-      "eventName": "Band",
+      "eventName": "Western Band Performance",
       "desc": "Western Band Performance",
-      "location": "Near Auditorium Steps/CDH",
-      "startTime": "15:30",
-      "endTime": "16:30",
-      "coverImage": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmIh_TH_ucKV2obTmwHYxcZQqsheIPVOjcIQ&s",
+      "location": "Outside BML Munjal Auditorium / Foyer",
+      "startTime": "15:00",
+      "endTime": "16:00",
+      "coverImage": "https://www.doonschool.com/wp-content/uploads/2019/01/BF1A4432-min-1024x683.jpg",
       "numberOfPeople": 158,
       "avatars": ["./Avatars/m1.jpg", "./Avatars/m2.jpg", "./Avatars/m3.jpg"]
     },
@@ -232,10 +403,10 @@
       "day": "FRI",
       "date": "OCT 17",
       "eventName": "Sand Art",
-      "desc": "Sand Art",
+      "desc": "Sand Art performance in Auditorium",
       "location": "BML Munjal Auditorium",
-      "startTime": "16:15",
-      "endTime": "16:45",
+      "startTime": "16:20",
+      "endTime": "16:40",
       "coverImage": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/07/71/d9/9a/beach-sand-sculptures.jpg?w=1200&h=1200&s=1",
       "numberOfPeople": 166,
       "avatars": ["./Avatars/m1.jpg", "./Avatars/m2.jpg", "./Avatars/m3.jpg"]
@@ -248,19 +419,19 @@
       "location": "BML Munjal Auditorium",
       "startTime": "17:00",
       "endTime": "18:30",
-      "coverImage": " https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlDpAMYqYQHVy_z1_7H3ofRJ1LUH4hptT22A&s",
+      "coverImage": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlDpAMYqYQHVy_z1_7H3ofRJ1LUH4hptT22A&s",
       "numberOfPeople": 163,
       "avatars": ["./Avatars/m1.jpg", "./Avatars/m2.jpg", "./Avatars/m3.jpg"]
     },
     {
       "day": "FRI",
       "date": "OCT 17",
-      "eventName": "Musical Pagent",
-      "desc": "A trilingual-English, Hindi and Dosco Lingo-pagen showing the life of a student before, during and after school",
+      "eventName": "Founder’s Play",
+      "desc": "Founder’s Play for parents, invited guests and S & SC Forms",
       "location": "Rose Bowl",
-      "startTime": "18:45",
+      "startTime": "19:15",
       "endTime": "20:15",
-      "coverImage": " https://i0.wp.com/ishootshows.com/wp-content/uploads/2013/07/Screen-Shot-2013-07-07-at-5.21.40-PM.jpg?fit=435%2C405&ssl=1",
+      "coverImage": "https://www.doonschool.com/wp-content/uploads/2018/10/0A5A0029-min-1024x683.jpg",
       "numberOfPeople": 120,
       "avatars": ["./Avatars/m1.jpg", "./Avatars/m2.jpg", "./Avatars/m3.jpg"]
     },
@@ -271,8 +442,8 @@
       "desc": "Parents and Old Boys depart",
       "location": "Main Gate",
       "startTime": "20:20",
-      "endTime": "20:30",
-      "coverImage": " https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/Main_Gate%2C_The_Doon_School.jpg/960px-Main_Gate%2C_The_Doon_School.jpg  ",
+      "endTime": "20:20",
+      "coverImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/Main_Gate%2C_The_Doon_School.jpg/960px-Main_Gate%2C_The_Doon_School.jpg",
       "numberOfPeople": 145,
       "avatars": ["./Avatars/m1.jpg", "./Avatars/m2.jpg", "./Avatars/m3.jpg"]
     },
@@ -289,6 +460,31 @@
       "avatars": ["./Avatars/m1.jpg", "./Avatars/m2.jpg", "./Avatars/m3.jpg"]
     },
     {
+      "day": "FRI",
+      "date": "OCT 17",
+      "eventName": "Headmaster’s Dinner (Diamond & Golden Jubilee)",
+      "desc": "Headmaster’s Dinner for Diamond Jubilee Class of 1965 and Golden Jubilee Class of 1975 along with Classes of 1955, 1960, 1970 and 1980",
+      "location": "HM’s Garden",
+      "startTime": "20:30",
+      "endTime": "22:00",
+      "coverImage": "https://www.doonschool.com/wp-content/uploads/2024/05/web_bann_cdh_jpg1.jpg",
+      "numberOfPeople": 200,
+      "avatars": ["./Avatars/m1.jpg", "./Avatars/m2.jpg", "./Avatars/m3.jpg"]
+    },
+
+     {
+      "day": "SAT",
+      "date": "OCT 18",
+      "eventName": "Breakfast",
+      "desc": "Breakfast for Students and Staff",
+      "location": "CDH",
+      "startTime": "08:30",
+      "endTime": "08:55",
+      "coverImage": "https://static.toiimg.com/photo/60132641.cms?imgsize=312455",
+      "numberOfPeople": 130,
+      "avatars": ["./Avatars/m1.jpg", "./Avatars/m2.jpg", "./Avatars/m3.jpg"]
+    },
+    {
       "day": "SAT",
       "date": "OCT 18",
       "eventName": "Parents and Old Boys Enter",
@@ -296,20 +492,80 @@
       "location": "Main Gate",
       "startTime": "09:30",
       "endTime": "16:30",
-      "coverImage": "https://www.doonschool.com/wp-content/uploads/20OCT 18/05/about-doon-2.jpg  ",
+      "coverImage": "https://www.doonschool.com/wp-content/uploads/2018/05/about-doon-2.jpg",
       "numberOfPeople": 168,
       "avatars": ["./Avatars/m1.jpg", "./Avatars/m2.jpg", "./Avatars/m3.jpg"]
     },
     {
       "day": "SAT",
       "date": "OCT 18",
-      "eventName": "Jaipur House Pagal Gymkhana",
-      "desc": "Fun activities and competitions organized by Jaipur House",
-      "location": "Skinners",
-      "startTime": "10:30",
-      "endTime": "15:00",
-      "coverImage": "https://www.doonschool.com/wp-content/uploads/2024/04/JH_TH_logo_png4.png  ",
-      "numberOfPeople": 144,
+      "eventName": "DSOBS Annual General Meeting",
+      "desc": "DSOBS Annual General Meeting with Tea and light refreshment",
+      "location": "Kilachand Library",
+      "startTime": "11:00",
+      "endTime": "12:30",
+      "coverImage": "/Schedule/DSOBS.png",
+      "numberOfPeople": 100,
+      "avatars": ["./Avatars/m1.jpg", "./Avatars/m2.jpg", "./Avatars/m3.jpg"]
+    },
+    {
+      "day": "SAT",
+      "date": "OCT 18",
+      "eventName": "Palettes of Promise",
+      "desc": "Art exhibition at Museum 2 (Art & Media Centre)",
+      "location": "Museum 2 (Art & Media Centre)",
+      "startTime": "11:00",
+      "endTime": "17:00",
+      "coverImage": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTUWJEFQP5pG312BTKq9mOXZDuEQP1PbvSSKg&s",
+      "numberOfPeople": 90,
+      "avatars": ["./Avatars/m1.jpg", "./Avatars/m2.jpg", "./Avatars/m3.jpg"]
+    },
+    {
+      "day": "SAT",
+      "date": "OCT 18",
+      "eventName": "Gift by Class of 1995",
+      "desc": "Gift presentation by Class of 1995",
+      "location": "TBC",
+      "startTime": "11:30",
+      "endTime": "12:00",
+      "coverImage": "https://ideas.ted.com/wp-content/uploads/sites/3/2018/11/featured_art_gift_istock.jpg",
+      "numberOfPeople": 30,
+      "avatars": ["./Avatars/m1.jpg", "./Avatars/m2.jpg", "./Avatars/m3.jpg"]
+    },
+    {
+      "day": "SAT",
+      "date": "OCT 18",
+      "eventName": "Inauguration of Photo Wall - DS 90",
+      "desc": "Inauguration of Photo Wall commemorating DS 90",
+      "location": "Behind Tuck-shop (Cafe Aqueduct)",
+      "startTime": "12:30",
+      "endTime": "12:40",
+      "coverImage": "https://www.arha.us/sites/default/files/2021-04/RibbonCut.jpg",
+      "numberOfPeople": 50,
+      "avatars": ["./Avatars/m1.jpg", "./Avatars/m2.jpg", "./Avatars/m3.jpg"]
+    },
+    {
+      "day": "SAT",
+      "date": "OCT 18",
+      "eventName": "Inauguration of DS 90 Sculpture",
+      "desc": "Inauguration of DS 90 Sculpture (Gift by Class of 1990)",
+      "location": "Adjacent to HM’s residence & Cafe Aqueduct",
+      "startTime": "12:40",
+      "endTime": "13:00",
+      "coverImage": "https://upload.wikimedia.org/wikipedia/commons/0/0d/Sudhir_Khastgir_sculpture_at_The_Doon_School.jpg",
+      "numberOfPeople": 60,
+      "avatars": ["./Avatars/m1.jpg", "./Avatars/m2.jpg", "./Avatars/m3.jpg"]
+    },
+    {
+      "day": "SAT",
+      "date": "OCT 18",
+      "eventName": "Headmaster’s Lunch (Chief Guest & VIPs)",
+      "desc": "Headmaster’s Lunch for the Chief Guest, Board of Governors, IPSS Members, Big Donors, Invited Guests (Class of 1955 included)",
+      "location": "HM’s Garden",
+      "startTime": "13:00",
+      "endTime": "15:45",
+      "coverImage": "https://www.doonschool.com/wp-content/uploads/2024/05/web_bann_cdh_jpg1.jpg",
+      "numberOfPeople": 120,
       "avatars": ["./Avatars/m1.jpg", "./Avatars/m2.jpg", "./Avatars/m3.jpg"]
     },
     {
@@ -320,8 +576,32 @@
       "location": "Skinners",
       "startTime": "13:00",
       "endTime": "14:00",
-      "coverImage": "https://static.toiimg.com/photo/47782089.cms  ",
+      "coverImage": "https://static.toiimg.com/photo/47782089.cms",
       "numberOfPeople": 178,
+      "avatars": ["./Avatars/m1.jpg", "./Avatars/m2.jpg", "./Avatars/m3.jpg"]
+    },
+    {
+      "day": "SAT",
+      "date": "OCT 18",
+      "eventName": "Jaipur House Pagal Gymkhana",
+      "desc": "Fun activities and competitions organized by Jaipur House",
+      "location": "Skinners",
+      "startTime": "10:30",
+      "endTime": "15:00",
+      "coverImage": "https://www.doonschool.com/wp-content/uploads/2024/04/JH_TH_logo_png4.png",
+      "numberOfPeople": 144,
+      "avatars": ["./Avatars/m1.jpg", "./Avatars/m2.jpg", "./Avatars/m3.jpg"]
+    },
+    {
+      "day": "SAT",
+      "date": "OCT 18",
+      "eventName": "IPSS Meeting",
+      "desc": "IPSS Meeting",
+      "location": "Kilachand Library",
+      "startTime": "15:00",
+      "endTime": "17:45",
+      "coverImage": "https://www.ipss.go.jp/international/images/230307MumbaiPhoto1.jpg",
+      "numberOfPeople": 40,
       "avatars": ["./Avatars/m1.jpg", "./Avatars/m2.jpg", "./Avatars/m3.jpg"]
     },
     {
@@ -339,12 +619,36 @@
     {
       "day": "SAT",
       "date": "OCT 18",
-      "eventName": "Founder’s day Programme",
-      "desc": "Founder’s day main function and programme",
+      "eventName": "Chief Guest with Weekly Team",
+      "desc": "Chief Guest spends time with the Weekly Team",
+      "location": "Art & Media Centre",
+      "startTime": "15:45",
+      "endTime": "16:15",
+      "coverImage": "http://doonschool.com/wp-content/uploads/2021/03/weekly.jpg",
+      "numberOfPeople": 25,
+      "avatars": ["./Avatars/m1.jpg", "./Avatars/m2.jpg", "./Avatars/m3.jpg"]
+    },
+    {
+      "day": "SAT",
+      "date": "OCT 18",
+      "eventName": "Staff Photograph with Chief Guest",
+      "desc": "Staff Photograph with the Chief Guest",
+      "location": "Guru’s Lawn (Near Main Building)",
+      "startTime": "16:20",
+      "endTime": "16:40",
+      "coverImage": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSweN5K2yaBwZpz5W9CxY9S41DI-2LawmjzYw&s",
+      "numberOfPeople": 200,
+      "avatars": ["./Avatars/m1.jpg", "./Avatars/m2.jpg", "./Avatars/m3.jpg"]
+    },
+    {
+      "day": "SAT",
+      "date": "OCT 18",
+      "eventName": "Founder’s Day Programme",
+      "desc": "Founder’s Day main function: Prayer, HM’s Speech, Chairman’s Speech, Chief Guest’s Speech, School Captain address and Vote of thanks",
       "location": "Rose Bowl",
       "startTime": "18:00",
       "endTime": "20:00",
-      "coverImage": "  https://www.doonschool.com/wp-content/uploads/2016/10/founders_speeches.jpg  ",
+      "coverImage": "https://www.doonschool.com/wp-content/uploads/2016/10/founders_speeches.jpg",
       "numberOfPeople": 156,
       "avatars": ["./Avatars/m1.jpg", "./Avatars/m2.jpg", "./Avatars/m3.jpg"]
     },
@@ -352,12 +656,24 @@
       "day": "SAT",
       "date": "OCT 18",
       "eventName": "Founders Music Production",
-      "desc": "Music Performance as part of Founder’s day celebrations",
+      "desc": "Music Performance as part of Founder’s Day celebrations",
       "location": "Rose Bowl",
-      "startTime": "20:20",
-      "endTime": "21:00",
-      "coverImage": "https://www.doonschool.com/wp-content/uploads/2024/10/464193763_539644192148610_4505489439754893471_n-1024x1024.jpg  ",
+      "startTime": "20:00",
+      "endTime": "20:45",
+      "coverImage": "https://www.doonschool.com/wp-content/uploads/2024/10/464193763_539644192148610_4505489439754893471_n-1024x1024.jpg",
       "numberOfPeople": 156,
+      "avatars": ["./Avatars/m1.jpg", "./Avatars/m2.jpg", "./Avatars/m3.jpg"]
+    },
+    {
+      "day": "SAT",
+      "date": "OCT 18",
+      "eventName": "Chief Guest Departure",
+      "desc": "Chief Guest’s departure from campus",
+      "location": "HM’s residence",
+      "startTime": "21:15",
+      "endTime": "21:30",
+      "coverImage": "https://upload.wikimedia.org/wikipedia/commons/e/e2/The_Main_Gate_of_The_Doon_School.jpg",
+      "numberOfPeople": 20,
       "avatars": ["./Avatars/m1.jpg", "./Avatars/m2.jpg", "./Avatars/m3.jpg"]
     },
     {
@@ -368,10 +684,11 @@
       "location": "Campus",
       "startTime": "21:15",
       "endTime": "21:30",
-      "coverImage": " https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/Main_Gate%2C_The_Doon_School.jpg/960px-Main_Gate%2C_The_Doon_School.jpg  ",
+      "coverImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/Main_Gate%2C_The_Doon_School.jpg/960px-Main_Gate%2C_The_Doon_School.jpg",
       "numberOfPeople": 134,
       "avatars": ["./Avatars/m1.jpg", "./Avatars/m2.jpg", "./Avatars/m3.jpg"]
     }
+
     
   ]
   

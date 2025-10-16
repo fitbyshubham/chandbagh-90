@@ -325,4 +325,3 @@ function parseEventDate(dayStr, timeStr) {
   };
   return new Date(year, months[month], parseInt(date), hours, minutes);
 }
-
