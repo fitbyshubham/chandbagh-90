@@ -29,7 +29,7 @@ const CalenderCard = ({ selectedDay, onSelectDay }) => {
 
 const ScheduleCard = ({ day, date, eventName, desc, location, startTime, endTime, coverImage, numberOfPeople, avatars }) => {
   return (
-    <div className="relative bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-md transition-all duration-300">
+    <div className="relative bg-white rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition-all duration-300">
       <div className="absolute -left-8 top-6 w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center border-4 border-white shadow-md">
         <div className="text-center">
           <div className="text-xs font-medium text-gray-500">{day}</div>
