@@ -1,5 +1,5 @@
 import Image from "next/image";
-
+import useProtectedRoute from "../../components/hook/useProtectedRoute";
 export default function DesktopBlockedPage() {
   return (
     <div className="flex flex-col items-center justify-center h-screen text-center px-6 bg-white text-black">

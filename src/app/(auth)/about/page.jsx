@@ -1,6 +1,6 @@
 // src/app/info/page.jsx 
 "use client";
-
+import useProtectedRoute from "../../../components/hook/useProtectedRoute";
 import InfoCard from "../../../components/ui/InfoCard";
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";

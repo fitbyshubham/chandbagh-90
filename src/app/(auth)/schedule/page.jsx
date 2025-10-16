@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Calendar } from "lucide-react";
 import scheduleData from "../../../data/schedule.json";
-
+import useProtectedRoute from "../../../components/hook/useProtectedRoute";
 // Mock components and data
 const CalenderCard = ({ selectedDay, onSelectDay }) => {
   const days = ["OCT 16", "OCT 17", "OCT 18"];

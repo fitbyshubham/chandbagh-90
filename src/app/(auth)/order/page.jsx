@@ -1,6 +1,6 @@
 'use client'
 import { useState, useEffect } from "react"
-
+import useProtectedRoute from "../../../components/hook/useProtectedRoute";
 // Helper function to generate a unique cart key for the stall
 const getCartKey = (stallName) => `cart_${stallName.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`;
 

@@ -2,7 +2,7 @@
 import { motion } from "framer-motion";
 import { useRouter } from "next/navigation";
 import React from "react";
-
+import useProtectedRoute from "../../../components/hook/useProtectedRoute";
 const team = [
   {
     name: "Shubham Sharma",

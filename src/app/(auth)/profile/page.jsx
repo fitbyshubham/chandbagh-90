@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-
+import useProtectedRoute from "../../../components/hook/useProtectedRoute";
 export default function Profile() {
   const router = useRouter();
   const [userName, setUserName] = useState("Guest");

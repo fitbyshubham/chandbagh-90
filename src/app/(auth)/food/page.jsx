@@ -5,7 +5,7 @@
 import StallsCard from "../../../components/ui/StallsCard"; 
 import PopRestaurants from "../../../components/ui/PopRestaurants"; 
 import { useState, useMemo } from "react";
-
+import useProtectedRoute from "../../../components/hook/useProtectedRoute";
 // Import the restaurant data
 import restaurantData from "../../../../public/restaurants.json";
 
