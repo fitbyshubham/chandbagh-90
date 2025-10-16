@@ -32,7 +32,11 @@ const team = [
     img: "/Photos/vb.jpg",
     desc: "I developed the Quiz, Profile, and Landing page, and also managed and updated the UI of the Home and About pages."
   },
-  
+  {
+    name: "Samarth Arora",
+    img: "/Photos/sa.jpg",
+    desc: "I conducted interviews of the developers and helped the juniors in overcoming the challenges that they faced during the making of the content."
+  },
   
   
   {
