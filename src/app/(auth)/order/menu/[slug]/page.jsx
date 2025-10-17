@@ -378,21 +378,11 @@ export default function MenuPage() {
                                     <p className="text-lg font-bold text-orange-600">₹{item.price > 0 ? item.price : 'N/A'}</p>
                                 </div>
                                 <div className="flex flex-col items-center justify-between flex-shrink-0">
-                                    <div className="relative overflow-hidden bg-gray-100 shadow-inner w-28 h-28 rounded-xl">
-                                        <img src={item.image_url || '  https://placehold.co/300x300/FDE68A/F97316?text=Item'} alt={item.item} className="object-cover object-center w-full h-full" onError={(e) => { e.target.onerror = null; e.target.src = '  https://placehold.co/300x300/FDE68A/F97316?text=Item'; }}/>
-                                    </div>
-                                    {cart[item.item] ? (
-                                        <div className="z-10 flex items-center -mt-4 text-sm text-white rounded-lg shadow-lg bg-gradient-to-r from-orange-400 to-orange-600">
-                                            <button onClick={() => removeFromCart(item.item)} className="flex items-center justify-center w-10 h-10 font-bold transition-colors rounded-l-lg hover:bg-orange-700">−</button>
-                                            <span className="w-10 font-bold text-center">{cart[item.item].count}</span>
-                                            <button onClick={(e) => addToCart(item, e)} className="flex items-center justify-center w-10 h-10 font-bold transition-colors rounded-r-lg bg-gradient-to-r from-orange-400 to-orange-600 hover:from-orange-500 hover:to-orange-700">+</button>
-                                        </div>
-                                    ) : (
-                                        <button onClick={(e) => addToCart(item, e)} className="bg-gradient-to-r from-orange-400 to-orange-600 hover:from-orange-500 hover:to-orange-700 text-white px-6 py-2.5 rounded-xl text-sm font-semibold transition-all shadow-md -mt-4 z-10 transform hover:scale-105">
-                                            ADD
-                                        </button>
-                                    )}
-                                </div>
+    <div className="relative overflow-hidden bg-gray-100 shadow-inner w-28 h-28 rounded-xl">
+        <img src={item.image_url || 'https://placehold.co/300x300/FDE68A/F97316?text=Item'} alt={item.item} className="object-cover object-center w-full h-full" onError={(e) => { e.target.onerror = null; e.target.src = 'https://placehold.co/300x300/FDE68A/F97316?text=Item'; }}/>
+    </div>
+    
+</div>
                             </div>
                         ))}
                     </div>

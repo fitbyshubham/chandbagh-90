@@ -1,137 +1,5 @@
 {
   "schedule": [
-     {
-      "day": "THU",
-      "date": "OCT 16",
-      "eventName": "Breakfast",
-      "desc": "Students have breakfast in school before the start of the day",
-      "location": "CDH",
-      "startTime": "08:30",
-      "endTime": "08:55",
-      "coverImage": "https://static.toiimg.com/photo/60132641.cms?imgsize=312455",
-      "numberOfPeople": 130,
-      "avatars": ["./Avatars/m1.jpg", "./Avatars/m2.jpg", "./Avatars/m3.jpg"]
-    },
-    {
-      "day": "THU",
-      "date": "OCT 16",
-      "eventName": "Parents and Old Boys Enter",
-      "desc": "Parents and Old Boys enter the school",
-      "location": "Main Gate",
-      "startTime": "10:00",
-      "endTime": "10:00",
-      "coverImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/Main_Gate%2C_The_Doon_School.jpg/960px-Main_Gate%2C_The_Doon_School.jpg",
-      "numberOfPeople": 140,
-      "avatars": ["./Avatars/m1.jpg", "./Avatars/m2.jpg", "./Avatars/m3.jpg"]
-    },
-    {
-      "day": "THU",
-      "date": "OCT 16",
-      "eventName": "Exhibitions",
-      "desc": "Exhibitions by all the Departments of School",
-      "location": "All Academic spaces in Main Building, Physics and ITC Block, D&T Centre, Art School and Careers Dept",
-      "startTime": "10:30",
-      "endTime": "13:30",
-      "coverImage": "/Schedule/founder-science-exhibition.jpg",
-      "numberOfPeople": 135,
-      "avatars": ["./Avatars/m1.jpg", "./Avatars/m2.jpg", "./Avatars/m3.jpg"]
-    },
-    {
-      "day": "THU",
-      "date": "OCT 16",
-      "eventName": "Palettes of Promise",
-      "desc": "Art exhibition at Museum 2 (Art & Media Centre)",
-      "location": "Museum 2 (Art & Media Centre)",
-      "startTime": "11:00",
-      "endTime": "14:00",
-      "coverImage": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTUWJEFQP5pG312BTKq9mOXZDuEQP1PbvSSKg&s",
-      "numberOfPeople": 90,
-      "avatars": ["./Avatars/m1.jpg", "./Avatars/m2.jpg", "./Avatars/m3.jpg"]
-    },
-    {
-      "day": "THU",
-      "date": "OCT 16",
-      "eventName": "Lunch & Refreshments",
-      "desc": "Lunch & Refreshments at the Food stalls for Students, Staff, Parents and Old Boys",
-      "location": "Adjacent to the CDH",
-      "startTime": "11:00",
-      "endTime": "18:30",
-      "coverImage": "https://londonbitestours.com/wp-content/uploads/2024/05/IMG_2157.jpg",
-      "numberOfPeople": 114,
-      "avatars": ["./Avatars/m1.jpg", "./Avatars/m2.jpg", "./Avatars/m3.jpg"]
-    },
-    {
-      "day": "THU",
-      "date": "OCT 16",
-      "eventName": "Interhouse Athletics",
-      "desc": "Finals of the Interhouse Athletics Competition, 2025",
-      "location": "Main Field",
-      "startTime": "15:00",
-      "endTime": "17:30",
-      "coverImage": "/Schedule/iha.png",
-      "numberOfPeople": 106,
-      "avatars": ["./Avatars/m1.jpg", "./Avatars/m2.jpg", "./Avatars/m3.jpg"]
-    },
-    {
-      "day": "THU",
-      "date": "OCT 16",
-      "eventName": "Platinum Walk & 90m Run for Fun",
-      "desc": "Platinum Walk (Class of 1955) & 90m Run for Fun (1 Race) by age categories (2 Old Boys, 2 Masters and 2 Parents)",
-      "location": "Main Field",
-      "startTime": "15:00",
-      "endTime": "17:30",
-      "coverImage": "https://www.doonschool.com/wp-content/uploads/2023/05/3-1-1024x1024.jpg",
-      "numberOfPeople": 127,
-      "avatars": ["./Avatars/m1.jpg", "./Avatars/m2.jpg", "./Avatars/m3.jpg"]
-    },
-    {
-      "day": "THU",
-      "date": "OCT 16",
-      "eventName": "At Home",
-      "desc": "At Home Tea for the parents with Housemasters,Tutors, Dames and Students",
-      "location": "Respective House of the Ward",
-      "startTime": "17:45",
-      "endTime": "18:45",
-      "coverImage": "https://www.doonschool.com/wp-content/uploads/2023/10/29-1024x1024.jpg",
-      "numberOfPeople": 124,
-      "avatars": ["./Avatars/m1.jpg", "./Avatars/m2.jpg", "./Avatars/m3.jpg"]
-    },
-    {
-      "day": "THU",
-      "date": "OCT 16",
-      "eventName": "Departure",
-      "desc": "Parents, Old Boys and Guests depart",
-      "location": "Main Gate",
-      "startTime": "19:00",
-      "endTime": "19:00",
-      "coverImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/Main_Gate%2C_The_Doon_School.jpg/960px-Main_Gate%2C_The_Doon_School.jpg",
-      "numberOfPeople": 142,
-      "avatars": ["./Avatars/m1.jpg", "./Avatars/m2.jpg", "./Avatars/m3.jpg"]
-    },
-    {
-      "day": "THU",
-      "date": "OCT 16",
-      "eventName": "Music Recital",
-      "desc": "Music performance for D, C, B and A Forms and invited schools and guests",
-      "location": "Rose Bowl",
-      "startTime": "19:00",
-      "endTime": "19:30",
-      "coverImage": "https://www.doonschool.com/wp-content/uploads/2019/01/BF1A0255-min-1024x683.jpg",
-      "numberOfPeople": 139,
-      "avatars": ["./Avatars/m1.jpg", "./Avatars/m2.jpg", "./Avatars/m3.jpg"]
-    },
-    {
-      "day": "THU",
-      "date": "OCT 16",
-      "eventName": "Dinner",
-      "desc": "Dinner for the Entire School",
-      "location": "CDH",
-      "startTime": "20:00",
-      "endTime": "20:25",
-      "coverImage": "https://www.doonschool.com/wp-content/uploads/2023/01/dddddddddd.jpg",
-      "numberOfPeople": 146,
-      "avatars": ["./Avatars/m1.jpg", "./Avatars/m2.jpg", "./Avatars/m3.jpg"]
-    },
 
      {
       "day": "FRI",
@@ -152,7 +20,7 @@
       "desc": "Parents and Old Boys are allowed to enter the school",
       "location": "Main Gate",
       "startTime": "09:30",
-      "endTime": "19:00",
+      "endTime": "09:30",
       "coverImage": "https://www.doonschool.com/wp-content/uploads/2018/05/about-doon-2.jpg",
       "numberOfPeople": 148,
       "avatars": ["./Avatars/m1.jpg", "./Avatars/m2.jpg", "./Avatars/m3.jpg"]
@@ -417,7 +285,7 @@
       "desc": "Parents and Old Boys enter the school",
       "location": "Main Gate",
       "startTime": "09:30",
-      "endTime": "16:30",
+      "endTime": "09:30",
       "coverImage": "https://www.doonschool.com/wp-content/uploads/2018/05/about-doon-2.jpg",
       "numberOfPeople": 168,
       "avatars": ["./Avatars/m1.jpg", "./Avatars/m2.jpg", "./Avatars/m3.jpg"]

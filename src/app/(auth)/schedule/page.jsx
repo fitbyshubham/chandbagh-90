@@ -7,7 +7,7 @@ import scheduleData from "../../../data/schedule.json";
 import useProtectedRoute from "../../../components/hook/useProtectedRoute";
 // Mock components and data
 const CalenderCard = ({ selectedDay, onSelectDay }) => {
-  const days = ["OCT 16", "OCT 17", "OCT 18"];
+  const days = [ "OCT 17", "OCT 18"];
   return (
     <div className="space-y-2">
       {days.map((day) => (
@@ -95,7 +95,7 @@ const itemVariants = {
 };
 
 export default function Schedule() {
-  const [selectedDay, setSelectedDay] = useState("OCT 16");
+  const [selectedDay, setSelectedDay] = useState("OCT 17");
   const [isCalendarOpen, setIsCalendarOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
 
