@@ -2,70 +2,51 @@
 import React, { useState, useEffect } from "react";
 import { FaStar, FaPlay, FaArrowRight, FaCalendar, FaMapMarkerAlt } from "react-icons/fa";
 import { useRouter } from "next/navigation";
-import YouTube from "react-youtube";
 import schedule from "../../../data/schedule.json";
-import useProtectedRoute from "../../../components/hook/useProtectedRoute";
-function VideoBanner({ thumbnail, videoUrl }) {
-  const [player, setPlayer] = useState(null);
-  const [isPlaying, setIsPlaying] = useState(false);
 
+// ---------------------- VIDEO BANNER ----------------------
+function VideoBanner({ videoUrl }) {
   const getVideoId = (url) => {
-    const regExp =
-      /(?:youtube\.com\/(?:watch\?v=|embed\/)|youtu\.be\/)([a-zA-Z0-9_-]{11})/;
-    const match = url.match(regExp);
+    const regExp = /(?:youtube\.com\/(?:watch\?v=|embed\/)|youtu\.be\/)([a-zA-Z0-9_-]{11})/;
+    const match = url.trim().match(regExp);
     return match ? match[1] : "";
   };
 
   const videoId = getVideoId(videoUrl);
 
-  const handlePlayClick = () => {
-    if (player) {
-      player.playVideo();
-      setIsPlaying(true);
-    }
-  };
+  if (!videoId) {
+    console.error("Invalid YouTube URL:", videoUrl);
+    return (
+      <div className="overflow-hidden bg-white border border-gray-100 shadow-sm rounded-3xl">
+        <div className="p-6 pb-4 border-b border-gray-100">
+          <h3 className="mb-1 text-xl font-semibold text-gray-900">Words From The Headmaster</h3>
+          <p className="text-sm text-gray-500">A message for the community</p>
+        </div>
+        <div className="relative w-full h-[240px] flex items-center justify-center bg-gray-100">
+          <p className="text-gray-500">Unable to load video</p>
+        </div>
+      </div>
+    );
+  }
+
+  const embedUrl = `https://www.youtube.com/embed/${videoId}?autoplay=0&controls=1&modestbranding=1&rel=0`;
 
   return (
     <div className="overflow-hidden bg-white border border-gray-100 shadow-sm rounded-3xl">
       <div className="p-6 pb-4 border-b border-gray-100">
-        <h3 className="mb-1 text-xl font-semibold text-gray-900">
-          Words From The Headmaster
-        </h3>
+        <h3 className="mb-1 text-xl font-semibold text-gray-900">Words From The Headmaster</h3>
         <p className="text-sm text-gray-500">A message for the community</p>
       </div>
-
       <div className="relative w-full h-[240px]">
-        <YouTube
-          videoId={videoId}
-          className="w-full h-full"
-          opts={{
-            width: "100%",
-            height: "240",
-            playerVars: {
-              autoplay: 0,
-              controls: 1,
-              modestbranding: 1,
-              rel: 0,
-            },
-          }}
-          onReady={(event) => setPlayer(event.target)}
+        <iframe
+          src={embedUrl}
+          title="YouTube video player"
+          frameBorder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerPolicy="strict-origin-when-cross-origin"
+          allowFullScreen
+          className="absolute inset-0 w-full h-full"
         />
-
-        {!isPlaying && (
-          <div
-            className="absolute inset-0 z-10 flex items-center justify-center cursor-pointer bg-black/20"
-            onClick={handlePlayClick}
-          >
-            <img
-              src={thumbnail}
-              alt="Video thumbnail"
-              className="absolute inset-0 object-cover w-full h-full"
-            />
-            <div className="z-20 flex items-center justify-center w-16 h-16 bg-white rounded-full shadow-lg">
-              <FaPlay className="w-6 h-6 text-gray-900" />
-            </div>
-          </div>
-        )}
       </div>
     </div>
   );
@@ -80,86 +61,65 @@ export default function HomePage() {
   const [countdown, setCountdown] = useState(null);
 
   useEffect(() => {
-    // Try to get the name from localStorage (stored after OTP verification)
     const savedName = localStorage.getItem("user_name") || localStorage.getItem("signup_name");
-    if (savedName) {
-      setUserName(savedName);
-    }
+    if (savedName) setUserName(savedName);
   }, []);
 
-  // ✅ EVENT TIME LOGIC
   useEffect(() => {
-  const now = new Date();
+    const now = new Date();
 
-  const allEvents = schedule.schedule
-    .map(event => ({
-      ...event,
-      startDate: parseEventDate(event.date, event.startTime),
-      endDate: parseEventDate(event.date, event.endTime)
-    }))
-    .filter(e => e.startDate && e.endDate)
-    .sort((a, b) => a.startDate - b.startDate);
+    const allEvents = schedule.schedule
+      .map(event => ({
+        ...event,
+        startDate: parseEventDate(event.date, event.startTime),
+        endDate: parseEventDate(event.date, event.endTime)
+      }))
+      .filter(e => e.startDate && e.endDate)
+      .sort((a, b) => a.startDate - b.startDate);
 
-  const current = allEvents.find(e => now >= e.startDate && now <= e.endDate);
-  const next = allEvents.find(e => e.startDate > now);
+    const current = allEvents.find(e => now >= e.startDate && now <= e.endDate);
+    const next = allEvents.find(e => e.startDate > now);
 
-  setCurrentEvent(current || null);
-  setNextEvent(next || null);
+    setCurrentEvent(current || null);
+    setNextEvent(next || null);
 
-  if (!current && next) {
-    const updateCountdown = () => {
-      const diff = next.startDate - new Date();
-      if (diff <= 0) {
-        setCountdown(null);
-        setCurrentEvent(next);
-        return;
-      }
-      const hours = Math.floor(diff / 1000 / 60 / 60);
-      const minutes = Math.floor((diff / 1000 / 60) % 60);
-      const seconds = Math.floor((diff / 1000) % 60);
-      setCountdown({ hours, minutes, seconds });
+    let timer = null;
+    if (!current && next) {
+      const updateCountdown = () => {
+        const diff = next.startDate - new Date();
+        if (diff <= 0) {
+          setCountdown(null);
+          setCurrentEvent(next);
+          return;
+        }
+        const hours = Math.floor(diff / 1000 / 60 / 60);
+        const minutes = Math.floor((diff / 1000 / 60) % 60);
+        const seconds = Math.floor((diff / 1000) % 60);
+        setCountdown({ hours, minutes, seconds });
+      };
+      updateCountdown();
+      timer = setInterval(updateCountdown, 1000);
+    }
+
+    return () => {
+      if (timer) clearInterval(timer);
     };
-    updateCountdown();
-    const timer = setInterval(updateCountdown, 1000);
-    return () => clearInterval(timer);
-  }
-}, []);
-
-  const specials = [
-    {
-      name: "Paneer Tikka Sandwich",
-      price: "₹50",
-      image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRIB0-zFdFEGoh5VnYpk5WqWVZh88m5YjlNUQ&s",
-      rating: 4.8,
-      stall: "Stall No. 5",
-      isTop: true,
-    },
-    {
-      name: "Veg Noodles",
-      price: "₹40",
-      image: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=400&q=80",
-      rating: 4.6,
-      stall: "Stall No. 2",
-      isTop: false,
-    },
-  ];
+  }, []);
 
   const handleTeamRoute = () => router.push("/team");
 
   return (
     <div className="min-h-screen bg-gray-50">
       <div className="max-w-7xl mx-auto px-5 py-8">
-             <div className="mb-12">
-           <div className="text-left mt-[80px] mb-[50px]">
-          <p className="text-gray-500 text-sm mb-1">Welcome back</p>
-          <h1 className="text-5xl font-light text-gray-900 tracking-tight">{userName}</h1>
-        </div>
+        {/* Welcome Header */}
+        <div className="mb-12">
+          <div className="text-left mt-[80px] mb-[50px]">
+            <p className="text-gray-500 text-sm mb-1">Welcome back</p>
+            <h1 className="text-5xl font-light text-gray-900 tracking-tight">{userName}</h1>
+          </div>
 
-
-
-      
-        
-       <div className="relative rounded-3xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 group bg-white border border-gray-100">
+          {/* Hero Banner */}
+          <div className="relative rounded-3xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 group bg-white border border-gray-100">
             <div className="relative h-[280px] overflow-hidden">
               <img
                 alt="Founders Day"
@@ -177,7 +137,10 @@ export default function HomePage() {
                 <p className="max-w-lg mb-5 text-sm leading-relaxed text-white/90">
                   Discover the most iconic places amongst Doscos as we celebrate 90 years of excellence.
                 </p>
-                <button className="inline-flex items-center gap-2 bg-white text-gray-900 px-6 py-3 rounded-full font-medium text-sm hover:bg-gray-100 transition-all duration-300 shadow-lg" onClick={() => router.push("/initiatives")}>
+                <button
+                  className="inline-flex items-center gap-2 bg-white text-gray-900 px-6 py-3 rounded-full font-medium text-sm hover:bg-gray-100 transition-all duration-300 shadow-lg"
+                  onClick={() => router.push("/initiatives")}
+                >
                   Explore Now
                   <FaArrowRight className="w-3 h-3" />
                 </button>
@@ -186,12 +149,10 @@ export default function HomePage() {
           </div>
         </div>
 
+        {/* Video + Stats */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
           <div className="lg:col-span-2">
-            <VideoBanner
-              thumbnail="/Photos/thumbnail.png"
-              videoUrl="https://youtu.be/G5nBKfJ99a4"
-            />
+            <VideoBanner videoUrl="https://youtu.be/G5nBKfJ99a4" />
           </div>
           <div className="space-y-4">
             <div className="p-6 bg-white border border-gray-100 shadow-sm rounded-2xl">
@@ -217,86 +178,139 @@ export default function HomePage() {
           </div>
         </div>
 
-        {/* ---------------- TOP FOOD ---------------- */}
+        {/* Food Menu CTA */}
         <div className="mb-12">
-  <div className="flex items-center justify-between mb-6">
-    <div>
-      <h2 className="text-2xl font-bold text-gray-900">Ordering Update</h2>
-      <p className="text-sm text-gray-500 mt-1">
-        Ordering will start from <span className="font-semibold text-gray-800">16th</span>. Till then, view all the stalls available.
-      </p>
-    </div>
-    <button
-      className="text-sm font-medium flex items-center gap-2 px-4 py-2 rounded-lg bg-blue-600 text-white hover:bg-blue-700 transition-colors duration-300"
-      onClick={() => router.push("/order")}
-    >
-      View All <FaArrowRight className="w-4 h-4" />
-    </button>
-  </div>
+          <div className="flex items-center justify-between mb-6">
+            <h2 className="text-2xl font-bold text-gray-900">View Menu</h2>
+            <button
+              className="text-sm font-medium flex items-center gap-2 px-4 py-2 rounded-lg bg-blue-600 text-white hover:bg-blue-700 transition-colors duration-300"
+              onClick={() => router.push("/order")}
+            >
+              View All <FaArrowRight className="w-4 h-4" />
+            </button>
+          </div>
+          <div className="bg-gradient-to-r from-blue-50 to-white rounded-3xl shadow-lg border border-gray-100 p-8 text-center">
+            <FaMapMarkerAlt className="text-blue-500 w-10 h-10 mb-4" />
+            <h3 className="text-xl font-semibold text-gray-900 mb-2">Check out the menu of the stalls!</h3>
+            <p className="text-gray-600 mb-4">
+              Click here to explore all the available stalls and get ready to order your favorites!
+            </p>
+            <button
+              className="px-6 py-2 rounded-lg bg-blue-600 text-white font-medium hover:bg-blue-700 transition-colors duration-300 flex items-center gap-2 justify-center"
+              onClick={() => router.push("/order")}
+            >
+              View Stalls <FaArrowRight className="w-4 h-4" />
+            </button>
+          </div>
+        </div>
 
-  <div className="bg-gradient-to-r from-blue-50 to-white rounded-3xl shadow-lg border border-gray-100 p-8 flex flex-col items-center justify-center text-center">
-    <FaMapMarkerAlt className="text-blue-500 w-10 h-10 mb-4" />
-    <h3 className="text-xl font-semibold text-gray-900 mb-2">
-      Ordering Opens on 16th
-    </h3>
-    <p className="text-gray-600 mb-4">
-      Till then, explore all the available stalls and get ready to order your favorites!
-    </p>
-    <button
-      className="mt-2 px-6 py-2 rounded-lg bg-blue-600 text-white font-medium hover:bg-blue-700 transition-colors duration-300 flex items-center gap-2"
-      onClick={() => router.push("/order")}
-    >
-      View Stalls <FaArrowRight className="w-4 h-4" />
-    </button>
-  </div>
-</div>
-
-
-<div className="mb-10">
+        {/* Event Update */}
+        <div className="mb-10">
           <h2 className="text-2xl font-semibold text-gray-900 mb-4">Event Update</h2>
-          <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
+          <div className="bg-gradient-to-br from-white to-gray-50 rounded-2xl p-6 shadow-sm border border-gray-200">
             {currentEvent ? (
-              <>
-                <p className="text-sm text-gray-500 mb-1">Happening Now</p>
-                <h3 className="text-xl font-semibold mb-2">{currentEvent.eventName}</h3>
-                <p className="text-gray-600 text-sm mb-2">
-                  {currentEvent.location} • {currentEvent.startTime} - {currentEvent.endTime}
-                </p>
-                <p className="text-gray-500 text-sm">{currentEvent.desc}</p>
-              </>
+              <div className="flex items-start gap-4">
+                <div className="mt-1">
+                  <div className="w-3 h-3 rounded-full bg-green-500 animate-pulse"></div>
+                </div>
+                <div>
+                  <p className="text-xs font-medium text-green-600 bg-green-50 px-2 py-1 rounded-full inline-block mb-2">Live Now</p>
+                  <h3 className="text-xl font-bold text-gray-900 mb-1">{currentEvent.eventName}</h3>
+                  <div className="flex items-center gap-2 text-sm text-gray-600 mb-2">
+                    <FaMapMarkerAlt className="text-gray-500" />
+                    <span>{currentEvent.location}</span>
+                    <span>•</span>
+                    <FaCalendar className="text-gray-500" />
+                    <span>{currentEvent.startTime} – {currentEvent.endTime}</span>
+                  </div>
+                  <p className="text-gray-700">{currentEvent.desc}</p>
+                </div>
+              </div>
             ) : nextEvent ? (
-              <>
-                <p className="text-sm text-gray-500 mb-1">Next Event</p>
-                <h3 className="text-xl font-semibold mb-2">{nextEvent.eventName}</h3>
-                <p className="text-gray-600 text-sm mb-2">
-                  {nextEvent.location} • {nextEvent.startTime} - {nextEvent.endTime}
-                </p>
-                <p className="text-gray-500 text-sm">{nextEvent.desc}</p>
-                {countdown && (
-                  <p className="mt-3 text-sm font-medium text-gray-800">
-                    Starts in {countdown.hours}h {countdown.minutes}m {countdown.seconds}s
-                  </p>
-                )}
-              </>
+              <div className="flex items-start gap-4">
+                <div className="mt-1">
+                  <div className="w-3 h-3 rounded-full bg-blue-500"></div>
+                </div>
+                <div>
+                  <p className="text-xs font-medium text-blue-600 bg-blue-50 px-2 py-1 rounded-full inline-block mb-2">Upcoming</p>
+                  <h3 className="text-xl font-bold text-gray-900 mb-1">{nextEvent.eventName}</h3>
+                  <div className="flex items-center gap-2 text-sm text-gray-600 mb-2">
+                    <FaMapMarkerAlt className="text-gray-500" />
+                    <span>{nextEvent.location}</span>
+                    <span>•</span>
+                    <FaCalendar className="text-gray-500" />
+                    <span>{nextEvent.startTime} – {nextEvent.endTime}</span>
+                  </div>
+                  <p className="text-gray-700 mb-3">{nextEvent.desc}</p>
+                  {countdown && (
+                    <div className="flex gap-2">
+                      <div className="bg-blue-100 text-blue-800 px-3 py-1 rounded-lg text-sm font-semibold">
+                        {String(countdown.hours).padStart(2, '0')}h
+                      </div>
+                      <div className="bg-blue-100 text-blue-800 px-3 py-1 rounded-lg text-sm font-semibold">
+                        {String(countdown.minutes).padStart(2, '0')}m
+                      </div>
+                      <div className="bg-blue-100 text-blue-800 px-3 py-1 rounded-lg text-sm font-semibold">
+                        {String(countdown.seconds).padStart(2, '0')}s
+                      </div>
+                    </div>
+                  )}
+                </div>
+              </div>
             ) : (
-              <p className="text-gray-500 text-sm">No more events scheduled today.</p>
+              <div className="text-center py-6">
+                <p className="text-gray-500 italic">No more events scheduled today.</p>
+              </div>
             )}
           </div>
         </div>
 
-        {/* ---------------- TEAM ---------------- */}
+        {/* Quiz Section */}
         <div className="mb-8">
           <div
-            className="p-8 transition-all duration-300 bg-white border border-gray-100 shadow-sm cursor-pointer rounded-2xl hover:shadow-md group"
+            className="flex items-center p-6 bg-white border border-blue-100 rounded-2xl shadow-md transition-transform duration-300 hover:shadow-lg hover:-translate-y-1 cursor-pointer group"
+            onClick={() => router.push("/quiz")}
+          >
+            <div className="flex-shrink-0 w-14 h-14 bg-blue-100 rounded-full flex items-center justify-center mr-4 group-hover:bg-blue-500">
+              <svg xmlns="http://www.w3.org/2000/svg" className="w-8 h-8 text-blue-700 group-hover:text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4M7 2h10a2 2 0 012 2v16a2 2 0 01-2 2H7a2 2 0 01-2-2V4a2 2 0 012-2z" />
+              </svg>
+            </div>
+            <div className="flex-1">
+              <h3 className="mb-1 text-xl font-semibold text-blue-700 group-hover:text-blue-800">Take a Quiz</h3>
+              <p className="text-gray-600 text-sm">Test your knowledge of The Doon School</p>
+            </div>
+            <div className="flex items-center justify-center w-12 h-12 bg-blue-100 rounded-full group-hover:bg-blue-500 ml-4">
+              <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5 text-blue-700 group-hover:text-white transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+              </svg>
+            </div>
+          </div>
+        </div>
+
+        {/* ✨ FINAL TEAM CARD ✨ */}
+        <div className="mb-8">
+          <div
+            className="group relative p-6 bg-gradient-to-br from-blue-50/70 to-indigo-50/30 border border-blue-100 rounded-2xl shadow-sm transition-all duration-300 cursor-pointer hover:shadow-md hover:scale-[1.015] overflow-hidden"
             onClick={handleTeamRoute}
           >
-            <div className="flex items-center justify-between">
+            <div className="absolute top-2 right-2 w-16 h-16 bg-blue-500/5 rounded-full"></div>
+            <div className="absolute bottom-2 left-2 w-20 h-20 bg-indigo-400/5 rounded-full"></div>
+
+            <div className="relative z-10 flex items-center justify-between">
               <div>
-                <h3 className="mb-2 text-2xl font-semibold text-gray-900">Meet Our Team</h3>
-                <p className="text-gray-600">The people behind DS90 celebration</p>
+                <div className="inline-flex items-center px-2.5 py-0.5 mb-2 text-xs font-semibold text-blue-700 bg-blue-100 rounded-full">
+                  Behind the Scenes
+                </div>
+                <h3 className="text-xl font-bold text-gray-900">Meet the DS90 Team</h3>
+                <p className="text-gray-600 text-sm mt-1">
+                  The Doscos making 90 years of legacy come alive.
+                </p>
               </div>
-              <div className="flex items-center justify-center w-12 h-12 transition-all duration-300 bg-gray-100 rounded-full group-hover:bg-gray-900">
-                <FaArrowRight className="w-4 h-4 text-gray-600 transition-colors group-hover:text-white" />
+
+              {/* ✅ PERFECT CIRCLE: centered, proportional, clean */}
+              <div className="flex items-center justify-center w-10 h-10 rounded-full bg-blue-600 shadow-sm transition-all duration-300 group-hover:bg-blue-700 group-hover:shadow-md group-hover:-translate-y-0.5">
+                <FaArrowRight className="w-3.5 h-3.5 text-white" />
               </div>
             </div>
           </div>
@@ -304,18 +318,15 @@ export default function HomePage() {
       </div>
       <div className="h-20"></div>
     </div>
-    
   );
 }
 
 // ---------------------- HELPER ----------------------
 function parseEventDate(dayStr, timeStr) {
   if (!timeStr || timeStr === "TBC") return null;
-
-  // Handle cases like "12:00 & 13:00"
   if (timeStr.includes("&")) timeStr = timeStr.split("&")[0].trim();
 
-  const [month, date] = dayStr.split(" "); // "OCT 16"
+  const [month, date] = dayStr.split(" ");
   const year = new Date().getFullYear();
   const [hours, minutes] = timeStr.split(":").map(Number);
 
