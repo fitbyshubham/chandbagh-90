@@ -32,7 +32,7 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const handleFoodClick = () => router.push("/order");
+  const handleFoodClick = () => router.push("/home");
   const hideNavbarRoutes = ["/login", "/login/otp", "/Cart", "/firstpage"];
   
   // Conditional return after all hooks have been called
@@ -45,21 +45,7 @@ export default function Navbar() {
     <>
       {/* Floating Order Button — centered on entire screen */}
       {/* Set z-index to z-50 to be on top of the navbar (which is z-40) */}
-      <div
-        className={`fixed bottom-20 left-1/2 transform -translate-x-1/2 z-40 transition-all duration-300 ${
-          isVisible ? 'opacity-100' : 'opacity-0'
-        }`}
-      >
-        <button
-          onClick={handleFoodClick}
-          className="pulse bg-white rounded-full w-14 h-14 flex items-center justify-center shadow-lg border-2 border-chandbagh-gold/30"
-          aria-label="Order food"
-        >
-          <span className="bg-chandbagh-green rounded-full w-9 h-9 flex items-center justify-center">
-            <CookingPot className="text-chandbagh-gold w-5 h-5" />
-          </span>
-        </button>
-      </div>
+      
 
       {/* Navbar */}
       {/* Set z-index to z-40, lower than the button */}

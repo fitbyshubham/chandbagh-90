@@ -29,10 +29,7 @@ export default function Profile() {
   };
 
   const menuItems = [
-    {
-      label: "Recent Transactions",
-      icon: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDcmCG2F_4GYTBV3EwUTIQJztQTxt2BbYMAg&s",
-    },
+    
     {
       label: "Help & Support",
       icon: "https://www.svgrepo.com/show/192522/customer-service-support.svg",
@@ -101,9 +98,9 @@ export default function Profile() {
               <h2 className="text-xl font-bold mb-4">Contact Us</h2>
               <ul className="space-y-2 text-gray-700">
                 <li>Contact:</li>
-                <li>+91 7777060768</li>
+                
                 <li>+91 7579440559</li>
-                <li>+91 6393690775</li>
+                
                 
               </ul>
               <button

@@ -218,38 +218,7 @@ export default function HomePage() {
         </div>
 
         {/* ---------------- TOP FOOD ---------------- */}
-        <div className="mb-12">
-  <div className="flex items-center justify-between mb-6">
-    <div>
-      <h2 className="text-2xl font-bold text-gray-900">Ordering Update</h2>
-      <p className="text-sm text-gray-500 mt-1">
-        Ordering will start from <span className="font-semibold text-gray-800">16th</span>. Till then, view all the stalls available.
-      </p>
-    </div>
-    <button
-      className="text-sm font-medium flex items-center gap-2 px-4 py-2 rounded-lg bg-blue-600 text-white hover:bg-blue-700 transition-colors duration-300"
-      onClick={() => router.push("/order")}
-    >
-      View All <FaArrowRight className="w-4 h-4" />
-    </button>
-  </div>
-
-  <div className="bg-gradient-to-r from-blue-50 to-white rounded-3xl shadow-lg border border-gray-100 p-8 flex flex-col items-center justify-center text-center">
-    <FaMapMarkerAlt className="text-blue-500 w-10 h-10 mb-4" />
-    <h3 className="text-xl font-semibold text-gray-900 mb-2">
-      Ordering Opens on 16th
-    </h3>
-    <p className="text-gray-600 mb-4">
-      Till then, explore all the available stalls and get ready to order your favorites!
-    </p>
-    <button
-      className="mt-2 px-6 py-2 rounded-lg bg-blue-600 text-white font-medium hover:bg-blue-700 transition-colors duration-300 flex items-center gap-2"
-      onClick={() => router.push("/order")}
-    >
-      View Stalls <FaArrowRight className="w-4 h-4" />
-    </button>
-  </div>
-</div>
+       
 
 
 <div className="mb-10">
